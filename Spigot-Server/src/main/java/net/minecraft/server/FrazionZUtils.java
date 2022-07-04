@@ -11,6 +11,8 @@ import java.util.UUID;
 
 public class FrazionZUtils {
 
+    public static String pluginPrefix = "§6[ §eFrazionZ §6] §e";
+
     public static void sendToast(EntityPlayer p, PacketPlayOutToast.EnumToastAction typeToast, PacketPlayOutToast.EnumToastIcon icon, String title, String subtitle){
         p.playerConnection.sendPacket(new PacketPlayOutToast(typeToast, icon, new ChatComponentText(title), new ChatComponentText(subtitle)));
     }

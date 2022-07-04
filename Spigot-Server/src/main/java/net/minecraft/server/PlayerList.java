@@ -1,11 +1,15 @@
 package net.minecraft.server;
 
+import com.azuriom.azauth.AuthenticationException;
+import com.azuriom.azauth.AzAuthenticator;
+import com.azuriom.azauth.model.User;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.authlib.GameProfile;
 import io.netty.buffer.Unpooled;
 import java.io.File;
+import java.io.IOException;
 import java.net.SocketAddress;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.Executors;
 import javax.annotation.Nullable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -69,6 +74,7 @@ public abstract class PlayerList {
     private EnumGamemode t;
     private boolean u;
     private int v;
+    private String fzAuthServer = "https://auth.frazionz.net";
 
     // CraftBukkit start
     private CraftServer cserver;
@@ -164,6 +170,22 @@ public abstract class PlayerList {
         // chatmessage.getChatModifier().setColor(EnumChatFormat.YELLOW);
         // this.sendMessage(chatmessage);
         this.onPlayerJoin(entityplayer, joinMessage);
+
+        AzAuthenticator authFz = new AzAuthenticator(fzAuthServer);
+        try {
+            User newUser = authFz.verify(networkmanager.getTokenAuthFZ(), User.class);
+            if (newUser.isBanned()) {
+                System.out.println("[FzAuth] Internal Server API ERROR, Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
+                entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
+            } /*else if (!newUser.isEmailVerified()) {
+                          FzAuthSpigot.this.kickSchedule(auth.getProfile().getUserName(), "Votre compte FrazionZ n'a pas été activé. Impossible de rejoindre le serveur.");*/
+            entityplayer.getBukkitEntity().setFZUser(newUser);
+            entityplayer.getBukkitEntity().sendMessage(FrazionZUtils.pluginPrefix+" Authentification réussie !");
+        } catch (AuthenticationException | IllegalStateException | IOException e) {
+            System.out.println("[FzAuth] Internal Server API ERROR, "+e.getMessage());
+            entityplayer.getBukkitEntity().kickPlayer("Impossible de vous authentifier, " + e.getMessage());
+        }
+
         // CraftBukkit end
         worldserver = server.getWorldServer(entityplayer.dimension);  // CraftBukkit - Update in case join event changed it
         playerconnection.a(entityplayer.locX, entityplayer.locY, entityplayer.locZ, entityplayer.yaw, entityplayer.pitch);

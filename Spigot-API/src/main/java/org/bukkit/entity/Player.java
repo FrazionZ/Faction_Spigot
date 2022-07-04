@@ -2,6 +2,7 @@ package org.bukkit.entity;
 
 import java.net.InetSocketAddress;
 
+import com.azuriom.azauth.model.User;
 import org.bukkit.Achievement;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
@@ -1544,6 +1545,10 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
             throw new UnsupportedOperationException("Not supported yet.");
         }
     }
+
+    void setFZUser(User user);
+
+    User getFZUser();
 
     @Override
     Spigot spigot();

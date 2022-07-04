@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 // CraftBukkit start
 import org.bukkit.craftbukkit.command.ProxiedNativeCommandSender;
 import org.bukkit.craftbukkit.command.VanillaCommandWrapper;
+import org.bukkit.entity.Player;
 // CraftBukkit end
 
 public class CommandExecute extends CommandAbstract {
@@ -69,6 +70,7 @@ public class CommandExecute extends CommandAbstract {
             try {
                 // CraftBukkit start
                 org.bukkit.command.CommandSender sender = CommandBlockListenerAbstract.unwrapSender(icommandlistener);
+
                 int i = CommandBlockListenerAbstract.executeCommand(commandlistenerwrapper, new ProxiedNativeCommandSender(commandlistenerwrapper, sender, entity.getBukkitEntity()), s); 
                 // CraftBukkit end
 

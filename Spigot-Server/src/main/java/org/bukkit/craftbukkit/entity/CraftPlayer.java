@@ -1,5 +1,6 @@
 package org.bukkit.craftbukkit.entity;
 
+import com.azuriom.azauth.model.User;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.io.BaseEncoding;
@@ -59,7 +60,6 @@ import org.bukkit.craftbukkit.util.CraftChatMessage;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.player.PlayerUnregisterChannelEvent;
@@ -67,7 +67,6 @@ import org.bukkit.inventory.InventoryView.Property;
 import org.bukkit.map.MapCursor;
 import org.bukkit.map.MapView;
 import org.bukkit.metadata.MetadataValue;
-import org.bukkit.plugin.IllegalPluginAccessException;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.messaging.StandardMessenger;
 import org.bukkit.scoreboard.Scoreboard;
@@ -87,6 +86,7 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
     private double health = 20;
     private boolean scaledHealth = false;
     private double healthScale = 20;
+    private User fzAuthUser;
 
     public CraftPlayer(CraftServer server, EntityPlayer entity) {
         super(server, entity);
@@ -1541,6 +1541,17 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
     public String getLocale() {
         return getHandle().locale;
     }
+
+    @Override
+    public void setFZUser(User user) {
+        this.fzAuthUser = user;
+    }
+
+    @Override
+    public User getFZUser() {
+        return this.fzAuthUser;
+    }
+
 
     // Spigot start
     private final Player.Spigot spigot = new Player.Spigot()
