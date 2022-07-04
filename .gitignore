@@ -1,0 +1,6 @@
+Spigot-API/target/
+Spigot-Server/target/
+Spigot-API/.settings/
+Spigot-Server/.settings/
+.settings/
+.project

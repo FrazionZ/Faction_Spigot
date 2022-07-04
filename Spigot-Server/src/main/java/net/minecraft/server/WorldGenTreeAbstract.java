@@ -1,0 +1,28 @@
+package net.minecraft.server;
+
+import java.util.Random;
+
+public abstract class WorldGenTreeAbstract extends WorldGenerator {
+
+    public WorldGenTreeAbstract(boolean flag) {
+        super(flag);
+    }
+
+    protected boolean a(Block block) {
+        Material material = block.getBlockData().getMaterial();
+
+        return material == Material.AIR || material == Material.LEAVES || block == Blocks.GRASS || block == Blocks.NETHERRACK.fromLegacyData(1) || block == Blocks.DIRT || block == Blocks.LOG || block == Blocks.LOG2 || block == Blocks.SAPLING || block == Blocks.VINE;
+    }
+
+    public void a(World world, Random random, BlockPosition blockposition) {}
+
+    protected void a(World world, BlockPosition blockposition) {
+        if (world.getType(blockposition).getBlock() != Blocks.DIRT && world.getType(blockposition).getBlock() != Blocks.NETHERRACK) {
+            this.a(world, blockposition, Blocks.DIRT.getBlockData());
+        }
+        if (world.getType(blockposition).getBlock() == Blocks.NETHERRACK) {
+            this.a(world, blockposition, Blocks.NETHERRACK.getBlockData());
+        }
+
+    }
+}

@@ -1,0 +1,58 @@
+package org.bukkit.craftbukkit.block;
+
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.Chest;
+import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.inventory.CraftInventory;
+import org.bukkit.inventory.Inventory;
+
+import net.minecraft.server.TileEntityFrazionChest;
+import net.minecraft.server.TileEntityYelliteChest;
+
+public class CraftFrazionChest extends CraftLootable<TileEntityFrazionChest> implements Chest {
+
+    public CraftFrazionChest(final Block block) {
+        super(block, TileEntityFrazionChest.class);
+    }
+
+    public CraftFrazionChest(final Material material, final TileEntityFrazionChest te) {
+        super(material, te);
+    }
+
+    @Override
+    public Inventory getSnapshotInventory() {
+        return new CraftInventory(this.getSnapshot());
+    }
+
+    @Override
+    public Inventory getBlockInventory() {
+        if (!this.isPlaced()) {
+            return this.getSnapshotInventory();
+        }
+
+        return new CraftInventory(this.getTileEntity());
+    }
+
+    @Override
+    public Inventory getInventory() {
+        CraftInventory inventory = (CraftInventory) this.getBlockInventory();
+        if (!isPlaced()) {
+            return inventory;
+        }
+
+        // The logic here is basically identical to the logic in BlockChest.interact
+        int x = this.getX();
+        int y = this.getY();
+        int z = this.getZ();
+        CraftWorld world = (CraftWorld) this.getWorld();
+
+        int id;
+        if (world.getBlockTypeIdAt(x, y, z) == Material.FRAZION_CHEST.getId()) {
+            id = Material.FRAZION_CHEST.getId();
+        } else {
+            throw new IllegalStateException("CraftChest is not a chest but is instead " + world.getBlockAt(x, y, z));
+        }
+        return inventory;
+    }
+}
