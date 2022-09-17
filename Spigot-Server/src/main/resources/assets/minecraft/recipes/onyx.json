@@ -5,11 +5,11 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:onyx_block"
+      "item": "frazionz:onyx_block"
     }
   },
   "result": {
-    "item": "minecraft:onyx",
+    "item": "frazionz:onyx",
     "count": 9
   }
 }

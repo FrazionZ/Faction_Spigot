@@ -5,11 +5,11 @@
     ],
       "key": {
        "X": {
-        "item" : "minecraft:cosmic_ingot"
+        "item" : "frazionz:cosmic_ingot"
         } 
     },
     "result": {
-      "item": "minecraft:cosmic_nugget",
+      "item": "frazionz:cosmic_nugget",
       "count": 9
     }
 }

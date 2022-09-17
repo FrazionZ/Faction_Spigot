@@ -15,6 +15,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.PistonMoveReaction;
 import org.bukkit.craftbukkit.CraftChunk;
+import org.bukkit.craftbukkit.inventory.CraftItemCrusher;
 import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.inventory.ItemStack;
@@ -320,6 +321,9 @@ public class CraftBlock implements Block {
             
         case TROPHY_FORGE:
             return new CraftTrophyForge(this);
+
+        case ITEM_CRUSHER:
+            return new CraftItemCrusher(this);
             
         case BURNING_FURNACE:
         case FURNACE:

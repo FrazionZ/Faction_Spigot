@@ -7,16 +7,16 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:frazion"
+      "item": "frazionz:frazion"
     },
     "X": {
-      "item": "minecraft:frazion_powder"
+      "item": "frazionz:frazion_powder"
     },
     "I":{
-      "item" : "minecraft:onyx_furnace"
+      "item" : "frazionz:onyx_furnace"
     }
   },
   "result": {
-    "item": "minecraft:frazion_furnace"
+    "item": "frazionz:frazion_furnace"
   }
 }

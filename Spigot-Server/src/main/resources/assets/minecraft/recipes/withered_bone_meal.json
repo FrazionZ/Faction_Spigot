@@ -3,11 +3,11 @@
   "group": "bonemeal",
   "ingredients": [
     {
-      "item": "minecraft:withered_bone"
+      "item": "frazionz:withered_bone"
     }
   ],
   "result": {
-    "item": "minecraft:withered_bone_meal",
+    "item": "frazionz:withered_bone_meal",
     "count": 3
   }
 }

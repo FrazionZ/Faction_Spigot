@@ -155,7 +155,7 @@ public class TileEntityAmeliorator extends TileEntityContainer implements ITicka
         {
             Item item = stack.getItem();
 
-            if (item == Items.big_xp)
+            if (item == Items.BIG_XP)
             {
                 return 190;
             }

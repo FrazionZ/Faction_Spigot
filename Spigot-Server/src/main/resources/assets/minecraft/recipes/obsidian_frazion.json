@@ -10,11 +10,11 @@
       "item": "minecraft:obsidian"
     },
     "Z": {
-      "item": "minecraft:frazion_powder"
+      "item": "frazionz:frazion_powder"
     }
   },
   "result": {
-    "item": "minecraft:obsidian_frazion",
+    "item": "frazionz:obsidian_frazion",
     "count": 2
   }
 }

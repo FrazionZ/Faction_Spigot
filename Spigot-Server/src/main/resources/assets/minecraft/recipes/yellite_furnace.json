@@ -7,16 +7,16 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:yellite"
+      "item": "frazionz:yellite"
     },
     "X": {
-      "item": "minecraft:yellite_block"
+      "item": "frazionz:yellite_block"
     },
     "I":{
       "item" : "minecraft:furnace"
     }
   },
   "result": {
-    "item": "minecraft:yellite_furnace"
+    "item": "frazionz:yellite_furnace"
   }
 }

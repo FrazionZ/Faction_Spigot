@@ -10,16 +10,16 @@
       "item": "minecraft:crafting_table"
     },
     "X": {
-      "item": "minecraft:onyx_block"
+      "item": "frazionz:onyx_block"
     },
     "I":{
-      "item": "minecraft:frazion_block"
+      "item": "frazionz:frazion_block"
     },
     "i":{
       "item": "minecraft:blaze_rod"
     }
   },
   "result": {
-    "item": "minecraft:ameliorator"
+    "item": "frazionz:ameliorator"
   }
 }

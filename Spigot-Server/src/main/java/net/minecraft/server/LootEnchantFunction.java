@@ -24,7 +24,7 @@ public class LootEnchantFunction extends LootItemFunction {
         if (entity instanceof EntityLiving)
         {
         	        	
-        	if(entity instanceof EntityHuman && ((EntityHuman) entity).getItemInMainHand().getItem().equals(Items.farm_sword)) {
+        	if(entity instanceof EntityHuman && ((EntityHuman) entity).getItemInMainHand().getItem().equals(Items.FARM_SWORD)) {
 
         		int i = 4;
 

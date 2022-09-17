@@ -7,16 +7,16 @@
   ],
   "key": {
     "Y": {
-      "item": "minecraft:yellite_block"
+      "item": "frazionz:yellite_block"
     },
     "H": {
       "item": "minecraft:hopper"
     },
      "C":{
-      "item": "minecraft:cosmic_powder"
+      "item": "frazionz:cosmic_powder"
     }
   },
   "result": {
-    "item": "minecraft:z_hopper"
+    "item": "frazionz:z_hopper"
   }
 }

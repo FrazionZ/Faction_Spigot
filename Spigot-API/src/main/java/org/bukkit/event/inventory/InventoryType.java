@@ -8,29 +8,29 @@ public enum InventoryType {
      */
     CHEST(27,"Chest"),
     
-    dirt_chest(1,"dirt_chest"),
+    DIRT_CHEST(1,"dirt_chest"),
     
-    onyx_chest(96,"onyx_chest"),
+    ONYX_CHEST(96,"onyx_chest"),
     
-    yellite_chest(54,"yellite_chest"),
+    YELLITE_CHEST(54,"yellite_chest"),
     
-    bauxite_chest(72,"bauxite_chest"),
+    BAUXITE_CHEST(72,"bauxite_chest"),
     
-    frazion_chest(144,"frazion_chest"),
+    FRAZION_CHEST(144,"frazion_chest"),
     
-    hdv_chest(54,"hdv_chest"),
+    HDV_CHEST(54,"hdv_chest"),
     
-    yellite_furnace(5,"yellite_furnace"),
+    YELLITE_FURNACE(5,"yellite_furnace"),
     
-    bauxite_furnace(7,"bauxite_furnace"),
+    BAUXITE_FURNACE(7,"bauxite_furnace"),
     
-    onyx_furnace(9,"onyx_furnace"),
+    ONYX_FURNACE(9,"onyx_furnace"),
     
-    frazion_furnace(13,"frazion_furnace"),
+    FRAZION_FURNACE(13,"frazion_furnace"),
     
     spawner_inventory(54,"spawner_inventory"),
     
-    ameliorator(10,"ameliorator"),
+    AMELIORATOR(10,"ameliorator"),
     /**
      * A dispenser inventory, with 9 slots of type CONTAINER.
      */
@@ -95,13 +95,15 @@ public enum InventoryType {
      */
     HOPPER(5, "Item Hopper"),
     
-    z_hopper(18, "Z Hopper"),
+    Z_HOPPER(18, "Z Hopper"),
     /**
      * A shulker box inventory, with 27 slots of type CONTAINER.
      */
     SHULKER_BOX(27, "Shulker Box"),
     
     TROPHY_FORGE(12,"Trophy Forge"),
+
+    ITEM_CRUSHER(13,"Item Crusher"),
     ;
 
     private final int size;

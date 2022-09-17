@@ -18,29 +18,13 @@ import net.minecraft.server.frazionz.blocks.BlockMoreGraniteSmoothVariant;
 import net.minecraft.server.frazionz.blocks.BlockMoreGraniteVariant;
 import net.minecraft.server.frazionz.blocks.BlockMoreNWBVariant;
 import net.minecraft.server.frazionz.blocks.BlockMoreSandstoneVariant;
-import net.minecraft.server.frazionz.items.ItemBauxiteApple;
-import net.minecraft.server.frazionz.items.ItemBigXp;
-import net.minecraft.server.frazionz.items.ItemBottleXP;
-import net.minecraft.server.frazionz.items.ItemDonuts;
-import net.minecraft.server.frazionz.items.ItemDynamite;
-import net.minecraft.server.frazionz.items.ItemDynamiteArrow;
-import net.minecraft.server.frazionz.items.ItemFrazionApple;
-import net.minecraft.server.frazionz.items.ItemFrazionHoe;
-import net.minecraft.server.frazionz.items.ItemHammer;
-import net.minecraft.server.frazionz.items.ItemMultiTool;
-import net.minecraft.server.frazionz.items.ItemOnyxApple;
-import net.minecraft.server.frazionz.items.ItemPizza;
-import net.minecraft.server.frazionz.items.ItemShulkerTrophy;
-import net.minecraft.server.frazionz.items.ItemSkeletonTrophy;
-import net.minecraft.server.frazionz.items.ItemSpawnerPickaxe;
-import net.minecraft.server.frazionz.items.ItemUltraBow;
-import net.minecraft.server.frazionz.items.ItemWitheredBoneMeal;
-import net.minecraft.server.frazionz.items.ItemYelliteApple;
+import net.minecraft.server.frazionz.items.*;
+import net.minecraft.server.frazionz.manager.ItemManager;
 
 public class Item {
 
     public static final RegistryMaterials<MinecraftKey, Item> REGISTRY = new RegistryMaterials();
-    private static final Map<Block, Item> a = Maps.newHashMap();
+    public static final Map<Block, Item> BLOCK_TO_ITEM = Maps.newHashMap();
     private static final IDynamicTexture b = new IDynamicTexture() {
     };
     private static final IDynamicTexture c = new IDynamicTexture() {
@@ -69,7 +53,7 @@ public class Item {
     }
 
     public static Item getItemOf(Block block) {
-        Item item = (Item) Item.a.get(block);
+        Item item = (Item) Item.BLOCK_TO_ITEM.get(block);
 
         return item == null ? Items.a : item;
     }
@@ -788,309 +772,8 @@ public class Item {
         a(2265, "record_ward", (new ItemRecord("ward", SoundEffects.gl)).c("record"));
         a(2266, "record_11", (new ItemRecord("11", SoundEffects.ga)).c("record"));
         a(2267, "record_wait", (new ItemRecord("wait", SoundEffects.gk)).c("record"));
-        
-        a(1000, "yellite", (new Item()).c("yellite").b(CreativeModeTab.l));
-        a(1001, "bauxite", (new Item()).c("bauxite").b(CreativeModeTab.l));
-        a(1002, "onyx", (new Item()).c("onyx").b(CreativeModeTab.l));
-        a(1003, "frazion_powder", (new Item()).c("frazion_powder").b(CreativeModeTab.l));
-        a(1004, "frazion", (new Item()).c("frazion").b(CreativeModeTab.l));
-        
-        a(1005, "cosmic_powder", (new Item()).c("cosmic_powder").b(CreativeModeTab.l));
-        a(1006, "cosmic_nugget", (new Item()).c("cosmic_nugget").b(CreativeModeTab.l));
-        a(1007, "cosmic_ingot", (new Item()).c("cosmic_ingot").b(CreativeModeTab.l));
-       
-        
-        a(1008, "yellite_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.YELLITE, 5, EnumItemSlot.HEAD)).c("yellite_helmet"));
-        a(1009, "yellite_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.YELLITE, 5, EnumItemSlot.CHEST)).c("yellite_chestplate"));
-        a(1010, "yellite_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.YELLITE, 5, EnumItemSlot.LEGS)).c("yellite_leggings"));
-        a(1011, "yellite_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.YELLITE, 5, EnumItemSlot.FEET)).c("yellite_boots"));       
-        a(1012, "yellite_sword", (new ItemSword(Item.EnumToolMaterial.YELLITE)).c("yellite_sword"));
-        a(1013, "yellite_shovel", (new ItemSpade(Item.EnumToolMaterial.YELLITE)).c("yellite_shovel"));
-        a(1014, "yellite_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.YELLITE)).c("yellite_pickaxe"));
-        a(1015, "yellite_axe", (new ItemAxe(Item.EnumToolMaterial.YELLITE)).c("yellite_axe"));
-        a(1016, "yellite_hoe", (new ItemHoe(Item.EnumToolMaterial.YELLITE)).c("yellite_hoe"));
-        
-        a(1017, "bauxite_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.BAUXITE, 6, EnumItemSlot.HEAD)).c("bauxite_helmet"));
-        a(1018, "bauxite_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.BAUXITE, 6, EnumItemSlot.CHEST)).c("bauxite_chestplate"));
-        a(1019, "bauxite_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.BAUXITE, 6, EnumItemSlot.LEGS)).c("bauxite_leggings"));
-        a(1020, "bauxite_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.BAUXITE, 6, EnumItemSlot.FEET)).c("bauxite_boots"));       
-        a(1021, "bauxite_sword", (new ItemSword(Item.EnumToolMaterial.BAUXITE)).c("bauxite_sword"));
-        a(1022, "bauxite_shovel", (new ItemSpade(Item.EnumToolMaterial.BAUXITE)).c("bauxite_shovel"));
-        a(1023, "bauxite_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.BAUXITE)).c("bauxite_pickaxe"));
-        a(1024, "bauxite_axe", (new ItemAxe(Item.EnumToolMaterial.BAUXITE)).c("bauxite_axe"));
-        a(1025, "bauxite_hoe", (new ItemHoe(Item.EnumToolMaterial.BAUXITE)).c("bauxite_hoe"));
-        
-        a(1026, "onyx_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.ONYX, 7, EnumItemSlot.HEAD)).c("onyx_helmet"));
-        a(1027, "onyx_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.ONYX, 7, EnumItemSlot.CHEST)).c("onyx_chestplate"));
-        a(1028, "onyx_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.ONYX, 7, EnumItemSlot.LEGS)).c("onyx_leggings"));
-        a(1029, "onyx_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.ONYX, 7, EnumItemSlot.FEET)).c("onyx_boots"));       
-        a(1030, "onyx_sword", (new ItemSword(Item.EnumToolMaterial.ONYX)).c("onyx_sword"));
-        a(1031, "onyx_shovel", (new ItemSpade(Item.EnumToolMaterial.ONYX)).c("onyx_shovel"));
-        a(1032, "onyx_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.ONYX)).c("onyx_pickaxe"));
-        a(1033, "onyx_axe", (new ItemAxe(Item.EnumToolMaterial.ONYX)).c("onyx_axe"));
-        a(1034, "onyx_hoe", (new ItemHoe(Item.EnumToolMaterial.ONYX)).c("onyx_hoe"));
-        
-        a(1035, "frazion_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION, 8, EnumItemSlot.HEAD)).c("frazion_helmet"));
-        a(1036, "frazion_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION, 8, EnumItemSlot.CHEST)).c("frazion_chestplate"));
-        a(1037, "frazion_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION, 8, EnumItemSlot.LEGS)).c("frazion_leggings"));
-        a(1038, "frazion_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION, 8, EnumItemSlot.FEET)).c("frazion_boots"));       
-        a(1039, "frazion_sword", (new ItemSword(Item.EnumToolMaterial.FRAZION)).c("frazion_sword"));
-        a(1040, "frazion_shovel", (new ItemSpade(Item.EnumToolMaterial.FRAZION)).c("frazion_shovel"));
-        a(1041, "frazion_pickaxe", (new ItemPickaxe(Item.EnumToolMaterial.FRAZION)).c("frazion_pickaxe"));
-        a(1042, "frazion_axe", (new ItemAxe(Item.EnumToolMaterial.FRAZION)).c("frazion_axe"));
-        a(1043, "frazion_hoe", (new ItemFrazionHoe(Item.EnumToolMaterial.FRAZION)).c("frazion_hoe"));
-        
-        a(1044, "ultra_bow", (new ItemUltraBow()).c("ultra_bow"));
-        
-        a(1045, "trophy_bat", (new ItemSkeletonTrophy()).c("trophy_bat").b(CreativeModeTab.l));
-        a(1046, "trophy_blaze", (new ItemSkeletonTrophy()).c("trophy_blaze").b(CreativeModeTab.l));
-        a(1047, "trophy_creeper", (new ItemSkeletonTrophy()).c("trophy_creeper").b(CreativeModeTab.l));
-        a(1048, "trophy_enderman", (new ItemSkeletonTrophy()).c("trophy_enderman").b(CreativeModeTab.l));
-        a(1049, "trophy_ghast", (new ItemSkeletonTrophy()).c("trophy_ghast").b(CreativeModeTab.l));
-        a(1050, "trophy_guardian", (new ItemSkeletonTrophy()).c("trophy_guardian").b(CreativeModeTab.l));
-        a(1051, "trophy_villager", (new ItemSkeletonTrophy()).c("trophy_villager").b(CreativeModeTab.l));
-        a(1052, "trophy_shulker", (new ItemShulkerTrophy()).c("trophy_shulker").b(CreativeModeTab.l));
-        a(1053, "trophy_spider", (new ItemSkeletonTrophy()).c("trophy_spider").b(CreativeModeTab.l));
-        a(1054, "trophy_skeleton", (new ItemSkeletonTrophy()).c("trophy_skeleton").b(CreativeModeTab.l));
-        a(1055, "trophy_slime", (new ItemSkeletonTrophy()).c("trophy_slime").b(CreativeModeTab.l));
-        a(1056, "trophy_squid", (new ItemSkeletonTrophy()).c("trophy_squid").b(CreativeModeTab.l));
-        
-        b((Block) Blocks.dirt_chest);
-        b((Block) Blocks.hdv_chest);
-        b((Block) Blocks.ONYX_CHEST);
-        b((Block) Blocks.YELLITE_CHEST);
-        b((Block) Blocks.BAUXITE_CHEST);
-        b((Block) Blocks.FRAZION_CHEST);
-        
-        a(1060, "frazion_hammer", (new ItemHammer(Item.EnumToolMaterial.FRAZION_HAMMER)).c("frazion_hammer"));
-        
-        a(1061, "yellite_multitool", (new ItemMultiTool(Item.EnumToolMaterial.YELLITE)).c("yellite_multitool"));
-        a(1062, "bauxite_multitool", (new ItemMultiTool(Item.EnumToolMaterial.BAUXITE)).c("bauxite_multitool"));
-        a(1063, "onyx_multitool", (new ItemMultiTool(Item.EnumToolMaterial.ONYX)).c("onyx_multitool"));
-        a(1064, "frazion_multitool", (new ItemMultiTool(Item.EnumToolMaterial.FRAZION)).c("frazion_multitool"));
-        
-        b(Blocks.YELLITE_ORE);
-        b(Blocks.YELLITE_BLOCK);
-        b(Blocks.BAUXITE_BLOCK);
-        b(Blocks.BAUXITE_ORE);
-        b(Blocks.ONYX_BLOCK);
-        b(Blocks.ONYX_ORE);
-        b(Blocks.FRAZION_BLOCK);
-        b(Blocks.FRAZION_ORE);
-        
-        b((Block) Blocks.Z_HOPPER);
-        
-        a(1057, "record_fz1", (new ItemRecord("fz1", SoundEffects.gb)).c("record_fz1"));
-        a(1058, "record_fz2", (new ItemRecord("fz2", SoundEffects.gb)).c("record_fz2"));
-        a(1059, "record_fz3", (new ItemRecord("fz3", SoundEffects.gb)).c("record_fz3"));
-        
-        b(Blocks.cristal_rouge);
-        b(Blocks.cristal_bleu);
-        b(Blocks.cristal_jaune);
-        b(Blocks.cristal_vert);
-        b(Blocks.cristal_violet);
-        
-        a(1065, "key_farm", (new Item()).c("key_farm").b(CreativeModeTab.l));
-        a(1066, "key_vote", (new Item()).c("key_vote").b(CreativeModeTab.l));
-        a(1067, "key_common", (new Item()).c("key_common").b(CreativeModeTab.l));
-        a(1068, "key_rare", (new Item()).c("key_rare").b(CreativeModeTab.l));
-        a(1069, "key_legendary", (new Item()).c("key_legendary").b(CreativeModeTab.l));
-        
-        a(1078, "strawberry", (new ItemFood(2, 1.0F, true)).h().c("strawberry"));
-        a(1079, "banana", (new ItemBanana(4, 2.5F, true)).h().c("banana"));
-        a(1080, "pizza", (new ItemPizza(10, 2.5F, true)).h().c("pizza"));
-        a(1081, "donuts", (new ItemDonuts(4, 2.0F, false)).h().c("donuts"));
-        
-        a(1082, "yellite_apple", (new ItemYelliteApple(4, 2.0F, false)).h().c("yellite_apple"));
-        a(1083, "bauxite_apple", (new ItemBauxiteApple(4, 2.0F, false)).h().c("bauxite_apple"));
-        a(1084, "onyx_apple", (new ItemOnyxApple(4, 2.0F, false)).h().c("onyx_apple"));
-        a(1085, "frazion_apple", (new ItemFrazionApple(4, 2.0F, false)).h().c("frazion_apple"));
-        
-        b(Blocks.YELLITE_FURNACE);
-        b(Blocks.BAUXITE_FURNACE);
-        b(Blocks.ONYX_FURNACE);
-        b(Blocks.FRAZION_FURNACE);
-        
-        b(Blocks.YELLITE_LADDER);
-        b(Blocks.BAUXITE_LADDER);
-        b(Blocks.ONYX_LADDER);
-        b(Blocks.FRAZION_LADDER);
-        
-        b(Blocks.crimson_log);
-        b((Block) Blocks.crimson_roots);
-        b((Block) Blocks.crimson_fungi);
-        
-        
-        a(Blocks.nether_wart_block2, (new ItemMultiTexture(Blocks.nether_wart_block2, Blocks.nether_wart_block2, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreNWBVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("nether_wart_block"));
-        
-        
-        a(Blocks.sandstone2, (new ItemMultiTexture(Blocks.sandstone2, Blocks.sandstone2, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreSandstoneVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("sandstone"));
-        
-        
-        a(Blocks.stone_andesite, (new ItemMultiTexture(Blocks.stone_andesite, Blocks.stone_andesite, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreAndesiteVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_andesite"));
-        
-        
-        a(Blocks.stone_andesite_smooth, (new ItemMultiTexture(Blocks.stone_andesite_smooth, Blocks.stone_andesite_smooth, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreAndesiteSmoothVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_andesite_smooth"));
-        
-        
-        a(Blocks.stone_granite, (new ItemMultiTexture(Blocks.stone_granite, Blocks.stone_granite, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreGraniteVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_granite"));
-        
-        
-        a(Blocks.stone_granite_smooth, (new ItemMultiTexture(Blocks.stone_granite_smooth, Blocks.stone_granite_smooth, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreGraniteSmoothVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_granite_smooth"));
-        
-        
-        a(Blocks.stone_diorite, (new ItemMultiTexture(Blocks.stone_diorite, Blocks.stone_diorite, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreDioriteVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_diorite"));
-        
-        
-        a(Blocks.stone_diorite_smooth, (new ItemMultiTexture(Blocks.stone_diorite_smooth, Blocks.stone_diorite_smooth, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockMoreDioriteSmoothVariant.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_diorite_smooth"));
-        
-        
-        b(Blocks.RANDOM_ORE);
-        
-        b(Blocks.AMELIORATOR);
-        
-        
-        a(1086, "nether_string", (new Item()).c("nether_string").b(CreativeModeTab.l));
-        a(1087, "renforced_string", (new Item()).c("renforced_string").b(CreativeModeTab.l));
-        
-        a(1088, "rune", (new Item()).c("rune").b(CreativeModeTab.l));
-        a(1089, "rune_wither", (new Item()).c("rune_wither").b(CreativeModeTab.l));
-        a(1090, "rune_poison", (new Item()).c("rune_poison").b(CreativeModeTab.l));
-        a(1091, "rune_slowness", (new Item()).c("rune_slowness").b(CreativeModeTab.l));
-        a(1092, "rune_weakness", (new Item()).c("rune_weakness").b(CreativeModeTab.l));
-        a(1093, "rune_mining_fatigue", (new Item()).c("rune_mining_fatigue").b(CreativeModeTab.l));
-        a(1094, "rune_blindness", (new Item()).c("rune_blindness").b(CreativeModeTab.l));
-        
-        a(1095, "big_xp", (new ItemBigXp()).c("big_xp").b(CreativeModeTab.l));
-        
-        a(1096, "loot_powder", (new Item()).c("loot_powder").b(CreativeModeTab.l));
-        a(1097, "farm_powder", (new Item()).c("farm_powder").b(CreativeModeTab.l));
-        a(1098, "farm_nugget", (new Item()).c("farm_nugget").b(CreativeModeTab.l));
-        
-        a(1099, "yellite_stick", (new Item()).n().c("yellite_stick").b(CreativeModeTab.l));
-        a(1100, "bauxite_stick", (new Item()).n().c("bauxite_stick").b(CreativeModeTab.l));
-        a(1101, "onyx_stick", (new Item()).n().c("onyx_stick").b(CreativeModeTab.l));
-        a(1102, "frazion_stick", (new Item()).n().c("frazion_stick").b(CreativeModeTab.l));
-        
-        
-        a(1103, "frazion_helmet_70", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_70, 9, EnumItemSlot.HEAD)).c("frazion_helmet_70"));
-        a(1104, "frazion_chestplate_70", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_70, 9, EnumItemSlot.CHEST)).c("frazion_chestplate_70"));
-        a(1105, "frazion_leggings_70", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_70, 9, EnumItemSlot.LEGS)).c("frazion_leggings_70"));
-        a(1106, "frazion_boots_70", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_70, 9, EnumItemSlot.FEET)).c("frazion_boots_70"));
-        
-        a(1107, "frazion_helmet_100", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_100, 10, EnumItemSlot.HEAD)).c("frazion_helmet_100"));
-        a(1108, "frazion_chestplate_100", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_100, 10, EnumItemSlot.CHEST)).c("frazion_chestplate_100"));
-        a(1109, "frazion_leggings_100", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_100, 10, EnumItemSlot.LEGS)).c("frazion_leggings_100"));
-        a(1110, "frazion_boots_100", (new ItemArmor(ItemArmor.EnumArmorMaterial.FRAZION_100, 10, EnumItemSlot.FEET)).c("frazion_boots_100"));
-        
-        a(1111, "travelers_helmet", (new ItemArmor(ItemArmor.EnumArmorMaterial.TRAVELERS, 11, EnumItemSlot.HEAD)).c("travelers_helmet"));
-        a(1112, "travelers_chestplate", (new ItemArmor(ItemArmor.EnumArmorMaterial.TRAVELERS, 11, EnumItemSlot.CHEST)).c("travelers_chestplate"));
-        a(1113, "travelers_leggings", (new ItemArmor(ItemArmor.EnumArmorMaterial.TRAVELERS, 11, EnumItemSlot.LEGS)).c("travelers_leggings"));
-        a(1114, "travelers_boots", (new ItemArmor(ItemArmor.EnumArmorMaterial.TRAVELERS, 11, EnumItemSlot.FEET)).c("travelers_boots"));
-        
-        a(1115, "legendary_axe", (new ItemSword(Item.EnumToolMaterial.LEGENDARY_AXE)).c("legendary_axe"));
-        a(1116, "legendary_sword", (new ItemLegendarySword(Item.EnumToolMaterial.LEGENDARY_SWORD)).c("legendary_sword"));
-        a(1117, "legendary_dagger", (new ItemLegendaryDagger(Item.EnumToolMaterial.LEGENDARY_DAGGER)).c("legendary_dagger"));
-        
-        a(1118, "record_fz4", (new ItemRecord("fz4", SoundEffects.gb)).c("record_fz4"));
-        a(1119, "record_fz5", (new ItemRecord("fz5", SoundEffects.gb)).c("record_fz5"));
-        a(1120, "record_fz6", (new ItemRecord("fz6", SoundEffects.gb)).c("record_fz6"));
-        a(1121, "record_fz7", (new ItemRecord("fz7", SoundEffects.gb)).c("record_fz7"));
-        a(1122, "record_fz8", (new ItemRecord("fz8", SoundEffects.gb)).c("record_fz8"));
-        a(1123, "record_fz9", (new ItemRecord("fz9", SoundEffects.gb)).c("record_fz9"));
-        a(1124, "record_fz10", (new ItemRecord("fz10", SoundEffects.gb)).c("record_fz10"));
-        
-        a(1125, "legendary_scythe", (new ItemLegendaryScythe(Item.EnumToolMaterial.LEGENDARY_SCYTHE)).c("legendary_scythe"));
-        
-        
-        a(1200, "dynamite", (new ItemDynamite()).c("dynamite").b(CreativeModeTab.l));
-        a(1201, "dynamite_arrow", (new ItemDynamiteArrow()).c("dynamite_arrow"));
-        
-        a(1205, "spawner_pickaxe", (new ItemSpawnerPickaxe()).c("spawner_pickaxe"));
-        
-        a(1206, "frazion_dagger", (new ItemSword(Item.EnumToolMaterial.FRAZION_DAGGER)).c("frazion_dagger"));
-        
-        a(1207, "billet", (new Item()).c("billet").b(CreativeModeTab.l));
-        
-        a(1208, "farm_sword", (new ItemSword(Item.EnumToolMaterial.FARM_SWORD)).c("farm_sword"));
-        
-        b(Blocks.OBSIDIAN_YELLITE);
-        b(Blocks.OBSIDIAN_BAUXITE);
-        b(Blocks.OBSIDIAN_ONYX);
-        b(Blocks.OBSIDIAN_FRAZION);
-        b(Blocks.RENFORCED_SAND);
-        
-        b(Blocks.WITHER_BLOCK);
-        b(Blocks.compact_cobblestone_x1);
-        b(Blocks.compact_cobblestone_x2);
-        b(Blocks.COMPACT_COBBLESTONE_X3);
-        b(Blocks.COMPACT_COBBLESTONE_X4);
-        b(Blocks.COMPACT_COBBLESTONE_X5);
-        
-        b(Blocks.z_tnt);
-        
-        a(1213, "obsidian_tower", (new Item()).c("obsidian_tower").b(CreativeModeTab.l));
-        
-        a(1214, "booster_xp", (new Item()).c("booster_xp").b(CreativeModeTab.l));
-        a(1215, "booster_aptitude", (new Item()).c("booster_aptitude").b(CreativeModeTab.l));
-        a(1216, "booster_repair", (new Item()).c("booster_repair").b(CreativeModeTab.l));
-        
-        a(1217, "withered_bone", (new Item()).c("withered_bone").n().b(CreativeModeTab.f));
-        a(1218, "withered_bone_meal", (new ItemWitheredBoneMeal()).c("withered_bone_meal").n().b(CreativeModeTab.f));
-        
-        a(1219, "bottlexp", (new ItemBottleXP()).c("bottlexp"));
-        a(1220, "faction_token", (new Item()).c("faction_token").b(CreativeModeTab.l));
-        b(Blocks.REVERSE_FALL_BLOCK);
-        
-        
-        a(Blocks.STONE_BLACKSTONE, (new ItemMultiTexture(Blocks.STONE_BLACKSTONE, Blocks.STONE_BLACKSTONE, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockDarkAndesite.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_blackstone"));
-        
-        a(Blocks.STONE_BLACKSTONE_SMOOTH, (new ItemMultiTexture(Blocks.STONE_BLACKSTONE_SMOOTH, Blocks.STONE_BLACKSTONE_SMOOTH, new ItemMultiTexture.a() {
-            public String a(ItemStack itemstack) {
-                return BlockSmoothDarkAndesite.VariantType.a(itemstack.getData()).c();
-            }
-        })).c("stone_blackstone_smooth"));
-        
-        b(Blocks.BLOCK_PLACER_CHEST);
-        b(Blocks.BLOCK_PLACER_TRAPCHEST);
-        
-        b(Blocks.TROPHY_FORGE);
+
+        ItemManager.registerItems();
     }
 
     private static void b(Block block) {
@@ -1099,7 +782,7 @@ public class Item {
 
     protected static void a(Block block, Item item) {
         a(Block.getId(block), (MinecraftKey) Block.REGISTRY.b(block), item);
-        Item.a.put(block, item);
+        Item.BLOCK_TO_ITEM.put(block, item);
     }
 
     private static void a(int i, String s, Item item) {

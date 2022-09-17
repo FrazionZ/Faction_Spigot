@@ -5,11 +5,11 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:bauxite_block"
+      "item": "frazionz:bauxite_block"
     }
   },
   "result": {
-    "item": "minecraft:bauxite",
+    "item": "frazionz:bauxite",
     "count": 9
   }
 }

@@ -19,7 +19,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 
@@ -1529,11 +1528,11 @@ public final class CraftServer implements Server {
     @Override
     public Inventory createHdvInventory(InventoryHolder owner, InventoryType type) {
         // TODO: Create the appropriate type, rather than Custom?
-        return new CraftHdvInventoryCustom(owner, InventoryType.hdv_chest);
+        return new CraftHdvInventoryCustom(owner, InventoryType.HDV_CHEST);
     }
     @Override
     public Inventory createHdvInventory(InventoryHolder owner, InventoryType type, String title) {
-        return new CraftHdvInventoryCustom(owner, InventoryType.hdv_chest, title);
+        return new CraftHdvInventoryCustom(owner, InventoryType.HDV_CHEST, title);
     }
     @Override
     public Inventory createHdvInventory(InventoryHolder owner, int size) throws IllegalArgumentException {

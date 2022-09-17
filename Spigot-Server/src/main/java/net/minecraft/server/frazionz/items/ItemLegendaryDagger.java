@@ -1,7 +1,9 @@
-package net.minecraft.server;
+package net.minecraft.server.frazionz.items;
+
+import net.minecraft.server.EffectItem;
+import net.minecraft.server.MobEffects;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class ItemLegendaryDagger extends ItemWeaponEffects {
 

@@ -77,7 +77,7 @@ public class CraftInventoryView extends InventoryView {
         SlotType type = SlotType.CONTAINER;
         if (slot >= 0 && slot < inventory.getTopInventory().getSize()) {
             switch(inventory.getType()) {
-            case ameliorator:
+            case AMELIORATOR:
             	if(slot == 0) {
                     type = SlotType.FUEL;
                 } else {

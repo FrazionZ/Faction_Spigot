@@ -29,7 +29,7 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
     private int maxStack = MAX_STACK;
     public List<HumanEntity> transaction = new java.util.ArrayList<HumanEntity>();
 
-    private EntityHuman forger;
+    private EntityHuman actionner;
     
     public List<ItemStack> getContents()
     {
@@ -152,7 +152,6 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
         this.forgeTime = nbttagcompound.getShort("ForgeTime");
         this.totalForgeTime = nbttagcompound.getShort("TotalForgeTime");
         this.isForging = nbttagcompound.getShort("IsForging");
-
     }
 
     public NBTTagCompound save(NBTTagCompound nbttagcompound) {
@@ -225,7 +224,7 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
     {
         ItemStack result = this.getRecipeResult();
         
-        if(CraftEventFactory.callMachineCraftEvent(forger, result, null, MachineType.TROPHY_FORGE, MachineAction.CRAFT_END).isCancelled())
+        if(CraftEventFactory.callMachineCraftEvent(actionner, result, null, MachineType.TROPHY_FORGE, MachineAction.CRAFT_END).isCancelled())
         	return;
         
     	if(result.getItem() instanceof ItemTrophy) {
@@ -249,11 +248,9 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
         return "minecraft:trophy_forge";
     }
 	
-    public Container createContainer(PlayerInventory playerinventory, EntityHuman entityhuman) 
-    {
+    public Container createContainer(PlayerInventory playerinventory, EntityHuman entityhuman) {
         return new ContainerTrophyForge(playerinventory, this);
     }
-    
     
     public int getProperty(int i) {
         switch (i) 
@@ -310,13 +307,13 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
     public NBTTagCompound d() {
         return this.save(new NBTTagCompound());
     }
-    
-    public EntityHuman getForger() {
-		return forger;
-	}
-    
-    public void setForger(EntityHuman forger) {
-		this.forger = forger;
-	}
+
+    public void setActionner(EntityHuman forger) {
+        this.actionner = forger;
+    }
+
+    public EntityHuman getActionner() {
+        return actionner;
+    }
 
 }

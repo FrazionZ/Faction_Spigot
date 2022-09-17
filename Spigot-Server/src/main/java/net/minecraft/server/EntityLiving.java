@@ -907,13 +907,13 @@ public abstract class EntityLiving extends Entity {
                     
                     if(entity23 instanceof EntityPlayer) {
                     	
-                    	if(((EntityPlayer) entity23).getItemInMainHand().getItem().equals(Items.legendary_dagger)) {
+                    	if(((EntityPlayer) entity23).getItemInMainHand().getItem().equals(Items.LEGENDARY_DAGGER)) {
                     		this.noDamageTicks = 16;
                     	}
-                    	else if(((EntityPlayer) entity23).getItemInMainHand().getItem().equals(Items.frazion_dagger)) {
+                    	else if(((EntityPlayer) entity23).getItemInMainHand().getItem().equals(Items.FRAZION_DAGGER)) {
                     		this.noDamageTicks = 17;
                     	}
-                    	else if(((EntityPlayer) entity23).getItemInMainHand().getItem().equals(Items.legendary_scythe)) {
+                    	else if(((EntityPlayer) entity23).getItemInMainHand().getItem().equals(Items.LEGENDARY_SCYTHE)) {
                     		this.noDamageTicks = 28;
                     	}
                     	else {
@@ -1190,7 +1190,7 @@ public abstract class EntityLiving extends Entity {
                 if (entity instanceof EntityHuman)
                 {
                 	
-                	if(((EntityHuman) entity).getItemInMainHand().getItem().equals(Items.farm_sword)) {
+                	if(((EntityHuman) entity).getItemInMainHand().getItem().equals(Items.FARM_SWORD)) {
                 		i = 3;
                 	}
                 	else {

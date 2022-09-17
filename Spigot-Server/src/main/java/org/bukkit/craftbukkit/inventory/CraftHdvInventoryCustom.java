@@ -63,7 +63,7 @@ public class CraftHdvInventoryCustom extends CraftInventory {
             this.title = title;
             this.viewers = new ArrayList<HumanEntity>();
             this.owner = owner;
-            this.type = InventoryType.hdv_chest;
+            this.type = InventoryType.HDV_CHEST;
         }
 
         public int getSize() {

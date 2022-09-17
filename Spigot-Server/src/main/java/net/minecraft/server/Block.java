@@ -7,40 +7,9 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import org.bukkit.frazionz.enums.ExplosionBlockType;
-
+import net.minecraft.server.frazionz.manager.BlockManager;
 import com.google.common.collect.Sets;
 import com.google.common.collect.UnmodifiableIterator;
-
-import net.minecraft.server.frazionz.blocks.BlockAmeliorator;
-import net.minecraft.server.frazionz.blocks.BlockBauxiteChest;
-import net.minecraft.server.frazionz.blocks.BlockBauxiteFurnace;
-import net.minecraft.server.frazionz.blocks.BlockBauxiteOre;
-import net.minecraft.server.frazionz.blocks.BlockDirtChest;
-import net.minecraft.server.frazionz.blocks.BlockFallingTypeExplosion;
-import net.minecraft.server.frazionz.blocks.BlockFrazionChest;
-import net.minecraft.server.frazionz.blocks.BlockFrazionFurnace;
-import net.minecraft.server.frazionz.blocks.BlockFrazionOre;
-import net.minecraft.server.frazionz.blocks.BlockHdvChest;
-import net.minecraft.server.frazionz.blocks.BlockMoreAndesiteSmoothVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreAndesiteVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreDioriteSmoothVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreDioriteVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreGraniteSmoothVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreGraniteVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreNWBVariant;
-import net.minecraft.server.frazionz.blocks.BlockMoreSandstoneVariant;
-import net.minecraft.server.frazionz.blocks.BlockOnyxChest;
-import net.minecraft.server.frazionz.blocks.BlockOnyxFurnace;
-import net.minecraft.server.frazionz.blocks.BlockOnyxOre;
-import net.minecraft.server.frazionz.blocks.BlockTrophyForge;
-import net.minecraft.server.frazionz.blocks.BlockTypeExplosion;
-import net.minecraft.server.frazionz.blocks.BlockWitherBlock;
-import net.minecraft.server.frazionz.blocks.BlockYelliteChest;
-import net.minecraft.server.frazionz.blocks.BlockYelliteFurnace;
-import net.minecraft.server.frazionz.blocks.BlockYelliteOre;
-import net.minecraft.server.frazionz.blocks.BlockZHopper;
-import net.minecraft.server.frazionz.blocks.BlockZTnt;
 
 public class Block {
 
@@ -192,35 +161,35 @@ public class Block {
         this.n = !material.blocksLight();
     }
 
-    protected Block(Material material) {
+    public Block(Material material) {
         this(material, material.r());
     }
 
-    protected Block a(SoundEffectType soundeffecttype) {
+    public Block a(SoundEffectType soundeffecttype) {
         this.stepSound = soundeffecttype;
         return this;
     }
 
-    protected Block e(int i) {
+    public Block e(int i) {
         this.m = i;
         return this;
     }
 
-    protected Block a(float f) {
+    public Block a(float f) {
         this.o = (int) (15.0F * f);
         return this;
     }
 
-    protected Block b(float f) {
+    public Block b(float f) {
         this.durability = f * 3.0F;
         return this;
     }
 
-    protected static boolean b(Block block) {
+    public static boolean b(Block block) {
         return block instanceof BlockShulkerBox || block instanceof BlockLeaves || block instanceof BlockTrapdoor || block == Blocks.BEACON || block == Blocks.cauldron || block == Blocks.GLASS || block == Blocks.GLOWSTONE || block == Blocks.ICE || block == Blocks.SEA_LANTERN || block == Blocks.STAINED_GLASS;
     }
 
-    protected static boolean c(Block block) {
+    public static boolean c(Block block) {
         return b(block) || block == Blocks.PISTON || block == Blocks.STICKY_PISTON || block == Blocks.PISTON_HEAD;
     }
 
@@ -257,7 +226,7 @@ public class Block {
         return false;
     }
 
-    protected Block c(float f) {
+    public Block c(float f) {
         this.strength = f;
         if (this.durability < f * 5.0F) {
             this.durability = f * 5.0F;
@@ -266,7 +235,7 @@ public class Block {
         return this;
     }
 
-    protected Block j() {
+    public Block j() {
         this.c(-1.0F);
         return this;
     }
@@ -951,93 +920,8 @@ public class Block {
         a(251, "concrete", (new BlockCloth(Material.STONE)).c(1.8F).a(SoundEffectType.d).c("concrete"));
         a(252, "concrete_powder", (new BlockConcretePowder()).c(0.5F).a(SoundEffectType.h).c("concretePowder"));
         a(255, "structure_block", (new BlockStructure()).j().b(6000000.0F).c("structureBlock"));
-        
-        a(454, "yellite_ore", (new BlockYelliteOre()).c(3.0F).b(5.0F).a(SoundEffectType.d).c("yellite_ore"));
-        a(455, "yellite_block", (new Block(Material.ORE, MaterialMapColor.H)).c(5.0F).b(10.0F).a(SoundEffectType.e).c("yellite_block").a(CreativeModeTab.b));
-        a(456, "bauxite_ore", (new BlockBauxiteOre()).c(3.0F).b(5.0F).a(SoundEffectType.d).c("bauxite_ore"));
-        a(457, "bauxite_block", (new Block(Material.ORE, MaterialMapColor.H)).c(5.0F).b(10.0F).a(SoundEffectType.e).c("bauxite_block").a(CreativeModeTab.b));
-        a(458, "onyx_ore", (new BlockOnyxOre()).c(3.0F).b(5.0F).a(SoundEffectType.d).c("onyx_ore"));
-        a(459, "onyx_block", (new Block(Material.ORE, MaterialMapColor.H)).c(5.0F).b(10.0F).a(SoundEffectType.e).c("onyx_block").a(CreativeModeTab.b));
-        a(460, "frazion_ore", (new BlockFrazionOre()).c(3.0F).b(5.0F).a(SoundEffectType.d).c("frazion_ore"));
-        a(461, "frazion_block", (new Block(Material.ORE, MaterialMapColor.H)).c(5.0F).b(10.0F).a(SoundEffectType.e).c("frazion_block").a(CreativeModeTab.b));
-        
-        a(462, "z_hopper", (new BlockZHopper()).c(3.0F).b(8.0F).a(SoundEffectType.e).c("z_hopper"));
-        
-        a(463, "dirt_chest", (new BlockDirtChest()).c(2.5F).a(SoundEffectType.a).c("dirt_chest"));
-        a(464, "yellite_chest", (new BlockYelliteChest()).c(2.5F).a(SoundEffectType.a).c("yellite_chest"));
-        a(465, "onyx_chest", (new BlockOnyxChest()).c(2.5F).a(SoundEffectType.a).c("onyx_chest"));
-        a(466, "hdv_chest", (new BlockHdvChest()).c(2.5F).a(SoundEffectType.a).c("hdv_chest"));
-        
-        a(469, "cristal_rouge", (new BlockCristal(Material.SHATTERABLE, false)).c(0.3F).a(SoundEffectType.f).c("cristal_rouge"));
-        a(470, "cristal_bleu", (new BlockCristal(Material.SHATTERABLE, false)).c(0.3F).a(SoundEffectType.f).c("cristal_bleu"));
-        a(471, "cristal_vert", (new BlockCristal(Material.SHATTERABLE, false)).c(0.3F).a(SoundEffectType.f).c("cristal_vert"));
-        a(472, "cristal_jaune", (new BlockCristal(Material.SHATTERABLE, false)).c(0.3F).a(SoundEffectType.f).c("cristal_jaune"));
-        a(473, "cristal_violet", (new BlockCristal(Material.SHATTERABLE, false)).c(0.3F).a(SoundEffectType.f).c("cristal_violet"));
-        
-        a(474, "obsidian_yellite", (new BlockObsidian()).c(60.0F).b(2000.0F).a(SoundEffectType.d).c("obsidian_yellite"));
-        a(475, "obsidian_bauxite", (new BlockObsidian()).c(80.0F).b(2000.0F).a(SoundEffectType.d).c("obsidian_bauxite"));
-        a(476, "obsidian_onyx", (new BlockObsidian()).c(100.0F).b(2000.0F).a(SoundEffectType.d).c("obsidian_onyx"));
-        a(477, "obsidian_frazion", (new BlockObsidian()).c(120.0F).b(2000.0F).a(SoundEffectType.d).c("obsidian_frazion"));
-        
-        a(478, "z_tnt", (new BlockZTnt()).c(0.0F).a(SoundEffectType.c).c("z_tnt"));
-        
-        a(480, "yellite_furnace", (new BlockYelliteFurnace(false)).c(3.5F).a(SoundEffectType.d).c("yellite_furnace").a(CreativeModeTab.c));
-        a(481, "lit_yellite_furnace", (new BlockYelliteFurnace(true)).c(3.5F).a(SoundEffectType.d).a(0.875F).c("lit_yellite_furnace"));
-        
-        a(482, "bauxite_furnace", (new BlockBauxiteFurnace(false)).c(3.5F).a(SoundEffectType.d).c("bauxite_furnace").a(CreativeModeTab.c));
-        a(483, "lit_bauxite_furnace", (new BlockBauxiteFurnace(true)).c(3.5F).a(SoundEffectType.d).a(0.875F).c("lit_bauxite_furnace"));
-        
-        a(484, "onyx_furnace", (new BlockOnyxFurnace(false)).c(3.5F).a(SoundEffectType.d).c("onyx_furnace").a(CreativeModeTab.c));
-        a(485, "lit_onyx_furnace", (new BlockOnyxFurnace(true)).c(3.5F).a(SoundEffectType.d).a(0.875F).c("lit_onyx_furnace"));
-        
-        a(486, "frazion_furnace", (new BlockFrazionFurnace(false)).c(3.5F).a(SoundEffectType.d).c("frazion_furnace").a(CreativeModeTab.c));
-        a(487, "lit_frazion_furnace", (new BlockFrazionFurnace(true)).c(3.5F).a(SoundEffectType.d).a(0.875F).c("lit_frazion_furnace"));
-        
-        a(488, "bauxite_ladder", (new BlockLadder()).c(0.4F).a(SoundEffectType.j).c("bauxite_ladder"));
-        
-        a(489, "crimson_log", (new BlockRotatable(Material.WOOD, MaterialMapColor.s)).c(2.0F).a(SoundEffectType.a).a(CreativeModeTab.b).c("crimson_log"));
-        a(490, "crimson_roots", (new BlockCrimsonRoots()).c(0.0F).a(SoundEffectType.c).c("crimson_roots"));
-        a(491, "crimson_fungi", (new BlockCrimsonFungi()).c(0.0F).a(SoundEffectType.c).c("crimson_fungi"));
-        
-        a(492, "nether_wart_block2", (new BlockMoreNWBVariant()).c(1.0F).a(SoundEffectType.a).c("nether_wart_block"));
-        a(493, "sandstone2", (new BlockMoreSandstoneVariant()).c(0.8F).a(SoundEffectType.d).c("sandstone"));
-        a(494, "stone_andesite", (new BlockMoreAndesiteVariant()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_andesite"));
-        a(495, "stone_andesite_smooth", (new BlockMoreAndesiteSmoothVariant()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_andesite_smooth"));
-        a(496, "stone_granite", (new BlockMoreGraniteVariant()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_granite"));
-        a(497, "stone_granite_smooth", (new BlockMoreGraniteSmoothVariant()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_granite_smooth"));
-        a(498, "stone_diorite", (new BlockMoreDioriteVariant()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_diorite"));
-        a(499, "stone_diorite_smooth", (new BlockMoreDioriteSmoothVariant()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_diorite_smooth"));
-        
-        a(500, "random_ore", (new BlockRandomOre()).c(3.0F).b(5.0F).a(SoundEffectType.d).c("random_ore"));
-        
-        a(501, "ameliorator", (new BlockAmeliorator()).c(25.0F).a(0.5F).b(1000.0F).c("ameliorator"));
-        
-        a(502, "yellite_ladder", (new BlockLadder()).c(0.4F).a(SoundEffectType.j).c("yellite_ladder"));
-        a(503, "onyx_ladder", (new BlockLadder()).c(0.4F).a(SoundEffectType.j).c("onyx_ladder"));
-        a(504, "frazion_ladder", (new BlockLadder()).c(0.4F).a(SoundEffectType.j).c("frazion_ladder"));
-        
-        a(505, "bauxite_chest", (new BlockBauxiteChest()).c(2.5F).a(SoundEffectType.a).c("bauxite_chest"));
-        a(506, "frazion_chest", (new BlockFrazionChest()).c(2.5F).a(SoundEffectType.a).c("frazion_chest"));
-        
-        a(507, "renforced_sand", (new BlockFallingTypeExplosion(Material.SAND, ExplosionBlockType.RENFORCED_SAND)).c(1.0F).b(10.0F).a(SoundEffectType.h).c("renforced_sand"));
-        
-        a(512, "wither_block", (new BlockWitherBlock()).c(10.0F).b(2000.0F).a(SoundEffectType.d).c("wither_block"));
-        
-        a(513, "compact_cobblestone_x1", (new BlockTypeExplosion(Material.STONE, ExplosionBlockType.COMPACT_COBBLESTONE_X1)).c(2.0F).b(12.0F).a(SoundEffectType.d).c("compact_cobblestone_x1").a(CreativeModeTab.b));
-        a(514, "compact_cobblestone_x2", (new BlockTypeExplosion(Material.STONE, ExplosionBlockType.COMPACT_COBBLESTONE_X2)).c(2.3F).b(16.0F).a(SoundEffectType.d).c("compact_cobblestone_x2").a(CreativeModeTab.b));
-        a(515, "compact_cobblestone_x3", (new BlockTypeExplosion(Material.STONE, ExplosionBlockType.COMPACT_COBBLESTONE_X3)).c(2.6F).b(20.0F).a(SoundEffectType.d).c("compact_cobblestone_x3").a(CreativeModeTab.b));
-        a(516, "compact_cobblestone_x4", (new BlockTypeExplosion(Material.STONE, ExplosionBlockType.COMPACT_COBBLESTONE_X4)).c(3.0F).b(24.0F).a(SoundEffectType.d).c("compact_cobblestone_x4").a(CreativeModeTab.b));
-        a(517, "compact_cobblestone_x5", (new BlockTypeExplosion(Material.STONE, ExplosionBlockType.COMPACT_COBBLESTONE_X5)).c(3.4F).b(35.0F).a(SoundEffectType.d).c("compact_cobblestone_x5").a(CreativeModeTab.b));
-        a(518, "reverse_fall_block", (new BlockReverseFall()).c(0.25F).b(10.0F).a(SoundEffectType.l).c("reverse_fall_block").a(CreativeModeTab.b));
-        
-        a(519, "stone_blackstone", (new BlockDarkAndesite()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_blackstone"));
-        a(520, "stone_blackstone_smooth", (new BlockSmoothDarkAndesite()).c(1.5F).b(10.0F).a(SoundEffectType.d).c("stone_blackstone_smooth"));
-        
-        a(521, "block_placer_chest", (new BlockBlockPlacer("block_placer_chest")).j().b(6000000.0F).a(SoundEffectType.d).c("block_placer_chest"));
-        a(522, "block_placer_trapchest", (new BlockBlockPlacer("block_placer_trapchest")).j().b(6000000.0F).a(SoundEffectType.d).c("block_placer_trapchest"));
-        
-        a(523, "trophy_forge", (new BlockTrophyForge()).c(25.0F).b(1000.0F).a(SoundEffectType.d).c("trophy_forge"));
 
+        BlockManager.registerBlocks();
         
         Block.REGISTRY.a();
         Iterator iterator = Block.REGISTRY.iterator();
@@ -1120,5 +1004,9 @@ public class Block {
         NONE, XZ, XYZ;
 
         private EnumRandomOffset() {}
+    }
+
+    public Material getMaterial() {
+        return material;
     }
 }

@@ -100,19 +100,19 @@ public abstract class InventoryView {
     	/**
          * The progress of the flame in a furnace inventory.
          */
-        BURN_TIME2(0, InventoryType.ameliorator),
+        BURN_TIME2(0, InventoryType.AMELIORATOR),
         /**
          * How many total ticks the current fuel should last.
          */
-        TICKS_FOR_CURRENT_FUEL2(1, InventoryType.ameliorator),
+        TICKS_FOR_CURRENT_FUEL2(1, InventoryType.AMELIORATOR),
         /**
          * The progress of the right-pointing arrow in a furnace inventory.
          */
-        COOK_TIME2(2, InventoryType.ameliorator),
+        COOK_TIME2(2, InventoryType.AMELIORATOR),
         /**
          * How many total ticks the current smelting should last.
          */
-        TICKS_FOR_CURRENT_SMELTING2(3, InventoryType.ameliorator),
+        TICKS_FOR_CURRENT_SMELTING2(3, InventoryType.AMELIORATOR),
         
         
         

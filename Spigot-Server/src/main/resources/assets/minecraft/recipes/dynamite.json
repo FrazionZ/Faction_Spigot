@@ -10,14 +10,14 @@
       "item": "minecraft:tnt"
     },
     "Y": {
-      "item": "minecraft:nether_string"
+      "item": "frazionz:nether_string"
     },
      "X":{
-      "item" : "minecraft:loot_powder"
+      "item" : "frazionz:loot_powder"
     }
   },
   "result": {
-    "item": "minecraft:dynamite",
+    "item": "frazionz:dynamite",
     "count": 4
   }
 }

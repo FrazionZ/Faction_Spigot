@@ -1,23 +1,23 @@
-package net.minecraft.server;
+package net.minecraft.server.frazionz.blocks;
 
-import com.google.common.base.Predicate;
-import java.util.Iterator;
-import javax.annotation.Nullable;
+import net.minecraft.server.*;
 
 public class BlockBlockPlacer extends BlockFacingHorizontal {
-	
+
 	private static String blockName;
 
-    protected BlockBlockPlacer(String name) {
+    public BlockBlockPlacer(String name) {
         super(Material.STONE, MaterialMapColor.F);
         this.blockName = name;
         this.w(this.blockStateList.getBlockData().set(BlockBlockPlacer.FACING, EnumDirection.NORTH));
     }
-    
-    
+
+    public static String getBlockName() {
+        return blockName;
+    }
 
     public boolean canPlace(World world, BlockPosition blockposition) {
-        return world.getType(blockposition).getBlock().material.isReplaceable() && world.getType(blockposition.down()).q();
+        return world.getType(blockposition).getBlock().getMaterial().isReplaceable() && world.getType(blockposition.down()).q();
     }
 
     public IBlockData a(IBlockData iblockdata, EnumBlockRotation enumblockrotation) {

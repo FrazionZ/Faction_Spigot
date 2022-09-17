@@ -10,10 +10,10 @@
       "item": "minecraft:stick"
     },
     "X": {
-      "item": "minecraft:yellite"
+      "item": "frazionz:yellite"
     }
   },
   "result": {
-    "item": "minecraft:yellite_pickaxe"
+    "item": "frazionz:yellite_pickaxe"
   }
 }

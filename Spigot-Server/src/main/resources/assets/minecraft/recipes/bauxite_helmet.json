@@ -6,10 +6,10 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:bauxite"
+      "item": "frazionz:bauxite"
     }
   },
   "result": {
-    "item": "minecraft:bauxite_helmet"
+    "item": "frazionz:bauxite_helmet"
   }
 }

@@ -1,16 +1,19 @@
-package net.minecraft.server;
+package net.minecraft.server.frazionz.items;
 
 import java.util.List;
 
 import com.google.common.collect.Multimap;
+import net.minecraft.server.CreativeModeTab;
+import net.minecraft.server.EffectItem;
+import net.minecraft.server.ItemSword;
 
 public class ItemWeaponEffects extends ItemSword
 {
 	private final float a;
-	  private final Item.EnumToolMaterial b;
+	  private final EnumToolMaterial b;
 	private List<EffectItem> effectList;
 	  
-	  public ItemWeaponEffects(Item.EnumToolMaterial paramEnumToolMaterial, List<EffectItem> effectList)
+	  public ItemWeaponEffects(EnumToolMaterial paramEnumToolMaterial, List<EffectItem> effectList)
 	  {
 		  super(paramEnumToolMaterial);
 		  this.b = paramEnumToolMaterial;

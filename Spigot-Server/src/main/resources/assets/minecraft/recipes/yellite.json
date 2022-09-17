@@ -5,11 +5,11 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:yellite_block"
+      "item": "frazionz:yellite_block"
     }
   },
   "result": {
-    "item": "minecraft:yellite",
+    "item": "frazionz:yellite",
     "count": 9
   }
 }

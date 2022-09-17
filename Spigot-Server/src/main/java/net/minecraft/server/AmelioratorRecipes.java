@@ -16,7 +16,7 @@ public class AmelioratorRecipes
 
     private static Item frazion = Items.FRAZION;
     
-    private static Item farm_nugget = Items.farm_nugget;
+    private static Item farm_nugget = Items.FARM_NUGGET;
     
     static
     {
@@ -25,50 +25,50 @@ public class AmelioratorRecipes
         addRecipes(frazion, frazion, frazion, frazion, null, frazion, frazion, frazion, Items.ONYX_LEGGINGS, new ItemStack(Items.FRAZION_LEGGINGS));
         addRecipes(null, null, frazion, frazion, null, frazion, frazion, null, Items.ONYX_BOOTS, new ItemStack(Items.FRAZION_BOOTS));
         
-        addRecipes(frazion, frazion, frazion, null, null, null, frazion, frazion, Items.FRAZION_HELMET, new ItemStack(Items.frazion_helmet_70));
-        addRecipes(frazion, frazion, frazion, frazion, frazion, frazion, frazion, frazion, Items.FRAZION_CHESTPLATE, new ItemStack(Items.frazion_chestplate_70));
-        addRecipes(frazion, frazion, frazion, frazion, null, frazion, frazion, frazion, Items.FRAZION_LEGGINGS, new ItemStack(Items.frazion_leggings_70));
-        addRecipes(null, null, frazion, frazion, null, frazion, frazion, null, Items.FRAZION_BOOTS, new ItemStack(Items.frazion_boots_70));
+        addRecipes(frazion, frazion, frazion, null, null, null, frazion, frazion, Items.FRAZION_HELMET, new ItemStack(Items.FRAZION_HELMET_70));
+        addRecipes(frazion, frazion, frazion, frazion, frazion, frazion, frazion, frazion, Items.FRAZION_CHESTPLATE, new ItemStack(Items.FRAZION_CHESTPLATE_70));
+        addRecipes(frazion, frazion, frazion, frazion, null, frazion, frazion, frazion, Items.FRAZION_LEGGINGS, new ItemStack(Items.FRAZION_LEGGINGS_70));
+        addRecipes(null, null, frazion, frazion, null, frazion, frazion, null, Items.FRAZION_BOOTS, new ItemStack(Items.FRAZION_BOOTS_70));
         
-        addRecipes(frazion, frazion, frazion, null, null, null, frazion, frazion, Items.frazion_helmet_70, new ItemStack(Items.frazion_helmet_100));
-        addRecipes(frazion, frazion, frazion, frazion, frazion, frazion, frazion, frazion, Items.frazion_chestplate_70, new ItemStack(Items.frazion_chestplate_100));
-        addRecipes(frazion, frazion, frazion, frazion, null, frazion, frazion, frazion, Items.frazion_leggings_70, new ItemStack(Items.frazion_leggings_100));
-        addRecipes(null, null, frazion, frazion, null, frazion, frazion, null, Items.frazion_boots_70, new ItemStack(Items.frazion_boots_100));
+        addRecipes(frazion, frazion, frazion, null, null, null, frazion, frazion, Items.FRAZION_HELMET_70, new ItemStack(Items.FRAZION_HELMET_100));
+        addRecipes(frazion, frazion, frazion, frazion, frazion, frazion, frazion, frazion, Items.FRAZION_CHESTPLATE_70, new ItemStack(Items.FRAZION_CHESTPLATE_100));
+        addRecipes(frazion, frazion, frazion, frazion, null, frazion, frazion, frazion, Items.FRAZION_LEGGINGS_70, new ItemStack(Items.FRAZION_LEGGINGS_100));
+        addRecipes(null, null, frazion, frazion, null, frazion, frazion, null, Items.FRAZION_BOOTS_70, new ItemStack(Items.FRAZION_BOOTS_100));
         
-        addRecipes(null, null, frazion, null, Items.onyx_stick, null, frazion, null, Items.ONYX_SWORD, new ItemStack(Items.FRAZION_SWORD));
+        addRecipes(null, null, frazion, null, Items.ONYX_STICK, null, frazion, null, Items.ONYX_SWORD, new ItemStack(Items.FRAZION_SWORD));
         
-        addRecipes(frazion, null, Items.renforced_string, Items.renforced_string, Items.renforced_string, null, frazion, frazion, Items.BOW, new ItemStack(Items.ULTRA_BOW));
+        addRecipes(frazion, null, Items.RENFORCED_STRING, Items.RENFORCED_STRING, Items.RENFORCED_STRING, null, frazion, frazion, Items.BOW, new ItemStack(Items.ULTRA_BOW));
         
-        addRecipes(frazion, null, frazion, frazion, frazion, Items.onyx_stick, frazion, frazion, Items.onyx_stick, new ItemStack(Items.FRAZION_HAMMER));
+        addRecipes(frazion, null, frazion, frazion, frazion, Items.ONYX_STICK, frazion, frazion, Items.ONYX_STICK, new ItemStack(Items.FRAZION_HAMMER));
         
-        addRecipes(frazion, frazion, null, null, Items.onyx_stick, null, null, frazion, Items.onyx_stick, new ItemStack(Items.FRAZION_PICKAXE));
+        addRecipes(frazion, frazion, null, null, Items.ONYX_STICK, null, null, frazion, Items.ONYX_STICK, new ItemStack(Items.FRAZION_PICKAXE));
         
-        addRecipes(null, null, null, null, Items.onyx_stick, frazion, frazion, frazion, Items.onyx_stick, new ItemStack(Items.FRAZION_AXE));
+        addRecipes(null, null, null, null, Items.ONYX_STICK, frazion, frazion, frazion, Items.ONYX_STICK, new ItemStack(Items.FRAZION_AXE));
         
-        addRecipes(frazion, null, null, null, Items.onyx_stick, null, null, null, Items.onyx_stick, new ItemStack(Items.FRAZION_SHOVEL));
+        addRecipes(frazion, null, null, null, Items.ONYX_STICK, null, null, null, Items.ONYX_STICK, new ItemStack(Items.FRAZION_SHOVEL));
         
-        addRecipes(frazion, null, null, null, Items.onyx_stick, null, null, frazion, Items.onyx_stick, new ItemStack(Items.FRAZION_HOE));
+        addRecipes(frazion, null, null, null, Items.ONYX_STICK, null, null, frazion, Items.ONYX_STICK, new ItemStack(Items.FRAZION_HOE));
         
-        addRecipes(null, frazion, null, null, null, Items.onyx_stick, null, null, frazion, new ItemStack(Items.frazion_dagger));
+        addRecipes(null, frazion, null, null, null, Items.ONYX_STICK, null, null, frazion, new ItemStack(Items.FRAZION_DAGGER));
         
-        addAmelioratorRecipes(new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.FRAZION_PICKAXE), new ItemStack(Items.spawner_pickaxe));
+        addAmelioratorRecipes(new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.FRAZION_PICKAXE), new ItemStack(Items.SPAWNER_PICKAXE));
         
         addAmelioratorRecipes(new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.YELLITE_BLOCK), new ItemStack(Blocks.HOPPER), new ItemStack(Blocks.Z_HOPPER));
         
-        addAmelioratorRecipes(new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.z_tnt));
+        addAmelioratorRecipes(new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Blocks.TNT), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.Z_TNT));
         
         
-        addRecipes(farm_nugget,	farm_nugget, farm_nugget, null, null, null, farm_nugget, farm_nugget, Items.ONYX_HELMET, new ItemStack(Items.travelers_helmet));
-        addRecipes(farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, Items.ONYX_CHESTPLATE, new ItemStack(Items.travelers_chestplate));
-        addRecipes(farm_nugget, farm_nugget, farm_nugget, farm_nugget, null, farm_nugget, farm_nugget, farm_nugget, Items.ONYX_LEGGINGS, new ItemStack(Items.travelers_leggings));
-        addRecipes(null, null, farm_nugget, farm_nugget, null, farm_nugget, farm_nugget, null, Items.ONYX_BOOTS, new ItemStack(Items.travelers_boots));
+        addRecipes(farm_nugget,	farm_nugget, farm_nugget, null, null, null, farm_nugget, farm_nugget, Items.ONYX_HELMET, new ItemStack(Items.TRAVELERS_HELMET));
+        addRecipes(farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, farm_nugget, Items.ONYX_CHESTPLATE, new ItemStack(Items.TRAVELERS_CHESTPLATE));
+        addRecipes(farm_nugget, farm_nugget, farm_nugget, farm_nugget, null, farm_nugget, farm_nugget, farm_nugget, Items.ONYX_LEGGINGS, new ItemStack(Items.TRAVELERS_LEGGINGS));
+        addRecipes(null, null, farm_nugget, farm_nugget, null, farm_nugget, farm_nugget, null, Items.ONYX_BOOTS, new ItemStack(Items.TRAVELERS_BOOTS));
         
-        addAmelioratorRecipes(new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.FRAZION_SWORD), new ItemStack(Items.farm_sword));
+        addAmelioratorRecipes(new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.COSMIC_POWDER), new ItemStack(Blocks.EMERALD_BLOCK), new ItemStack(Items.FRAZION_SWORD), new ItemStack(Items.FARM_SWORD));
        
-        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, Items.FRAZION_STICK, null, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.frazion_dagger, new ItemStack(Items.legendary_dagger));
-        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, Items.FRAZION_STICK, null, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_SWORD, new ItemStack(Items.legendary_sword));
-        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, Items.FRAZION_STICK, null, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_AXE, new ItemStack(Items.legendary_axe));
-        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, null, Items.FRAZION_STICK, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_STICK, new ItemStack(Items.legendary_scythe));
+        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, Items.FRAZION_STICK, null, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_DAGGER, new ItemStack(Items.LEGENDARY_DAGGER));
+        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, Items.FRAZION_STICK, null, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_SWORD, new ItemStack(Items.LEGENDARY_SWORD));
+        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, Items.FRAZION_STICK, null, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_AXE, new ItemStack(Items.LEGENDARY_AXE));
+        addRecipes(Items.COSMIC_INGOT, Items.COSMIC_INGOT, null, null, Items.FRAZION_STICK, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.COSMIC_INGOT, Items.FRAZION_STICK, new ItemStack(Items.LEGENDARY_SCYTHE));
         
         addRecipes(Items.FRAZION_SHOVEL, Items.FRAZION_PICKAXE, null, null, Items.FRAZION_STICK, null, null, Items.FRAZION_AXE, Items.FRAZION_STICK, new ItemStack(Items.FRAZION_MULTITOOL));      
         addAmelioratorRecipes(new ItemStack(Items.FRAZION_POWDER), new ItemStack(Items.FRAZION), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Items.FRAZION), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Items.FRAZION), new ItemStack(Items.FRAZION_POWDER), new ItemStack(Items.FRAZION), new ItemStack(Blocks.ONYX_CHEST), new ItemStack(Blocks.FRAZION_CHEST));

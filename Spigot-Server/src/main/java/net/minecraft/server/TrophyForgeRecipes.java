@@ -12,8 +12,8 @@ public class TrophyForgeRecipes
     
     static
     {
-    	addRecipes(Items.farm_nugget, Items.BONE, Items.farm_nugget, Items.BONE, Items.KEY_FARM, Items.BONE, Items.farm_nugget, Items.BONE, Items.farm_nugget, new ItemStack(Items.TROPHY_SKELETON));
-    	addRecipes(Items.farm_nugget, Items.cZ, Items.farm_nugget, Items.cZ, Items.KEY_FARM, Items.cZ, Items.farm_nugget, Items.cZ, Items.farm_nugget, new ItemStack(Items.TROPHY_SHULKER));
+    	addRecipes(Items.FARM_NUGGET, Items.BONE, Items.FARM_NUGGET, Items.BONE, Items.FARM_KEY, Items.BONE, Items.FARM_NUGGET, Items.BONE, Items.FARM_NUGGET, new ItemStack(Items.TROPHY_SKELETON));
+    	addRecipes(Items.FARM_NUGGET, Items.cZ, Items.FARM_NUGGET, Items.cZ, Items.FARM_KEY, Items.cZ, Items.FARM_NUGGET, Items.cZ, Items.FARM_NUGGET, new ItemStack(Items.TROPHY_SHULKER));
     }
 
     /**

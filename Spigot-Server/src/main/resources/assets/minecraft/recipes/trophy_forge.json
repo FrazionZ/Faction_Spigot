@@ -7,16 +7,16 @@
   ],
   "key": {
     "O": {
-      "item": "minecraft:onyx_block"
+      "item": "frazionz:onyx_block"
     },
     "X": {
-      "item": "minecraft:compact_cobblestone_x3"
+      "item": "frazionz:compact_cobblestone_x3"
     },
      "F":{
-      "item": "minecraft:frazion_powder"
+      "item": "frazionz:frazion_powder"
     }
   },
   "result": {
-    "item": "minecraft:trophy_forge"
+    "item": "frazionz:trophy_forge"
   }
 }

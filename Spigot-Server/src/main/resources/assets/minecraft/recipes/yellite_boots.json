@@ -6,10 +6,10 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:yellite"
+      "item": "frazionz:yellite"
     }
   },
   "result": {
-    "item": "minecraft:yellite_boots"
+    "item": "frazionz:yellite_boots"
   }
 }

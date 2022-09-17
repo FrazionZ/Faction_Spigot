@@ -1,4 +1,6 @@
-package net.minecraft.server;
+package net.minecraft.server.frazionz.items;
+
+import net.minecraft.server.*;
 
 public class ItemBanana extends ItemFood {
 

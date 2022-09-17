@@ -508,10 +508,6 @@ public class PlayerInteractManager {
                     if (itileinventory instanceof TileEntityHdvChest && block instanceof BlockHdvChest) {
                         itileinventory = ((BlockHdvChest) block).getInventory(world, blockposition);
                     }
-                    
-                    if (itileinventory instanceof TileEntitySpawnerInventory && block instanceof BlockSpawnerInventory) {
-                        itileinventory = ((BlockSpawnerInventory) block).getInventory(world, blockposition);
-                    }
 
                     if (itileinventory != null) {
                         entityhuman.openContainer(itileinventory);

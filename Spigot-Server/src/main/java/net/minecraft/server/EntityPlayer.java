@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.items.ItemWeaponEffects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
@@ -424,9 +425,9 @@ if (this.ticksLived % 5 == 0) {
             	boolean frazion70 = player.isWearingFullArmor(ItemArmor.EnumArmorMaterial.FRAZION_70);
             	boolean frazion100 = player.isWearingFullArmor(ItemArmor.EnumArmorMaterial.FRAZION_100);
             	boolean travelers = player.isWearingFullArmor(ItemArmor.EnumArmorMaterial.TRAVELERS);
-            	boolean legendaryScythe = player.hasItemInMainHand(Items.legendary_scythe);
-            	boolean legendarySword = player.hasItemInMainHand(Items.legendary_sword);
-            	boolean legendaryDagger = player.hasItemInMainHand(Items.legendary_dagger);
+            	boolean legendaryScythe = player.hasItemInMainHand(Items.LEGENDARY_SCYTHE);
+            	boolean legendarySword = player.hasItemInMainHand(Items.LEGENDARY_SWORD);
+            	boolean legendaryDagger = player.hasItemInMainHand(Items.LEGENDARY_DAGGER);
             	
             	if(!this.setArmorEffect && (frazion70 || frazion100 || travelers)) {
             		this.applyArmorEffect();

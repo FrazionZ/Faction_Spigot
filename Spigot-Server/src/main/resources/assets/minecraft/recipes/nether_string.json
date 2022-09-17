@@ -10,13 +10,13 @@
       "item": "minecraft:blaze_rod"
     },
     "X": {
-      "item": "minecraft:bauxite"
+      "item": "frazionz:bauxite"
     },
      "I":{
       "item" : "minecraft:string"
     }
   },
   "result": {
-    "item": "minecraft:nether_string"
+    "item": "frazionz:nether_string"
   }
 }

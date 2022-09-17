@@ -10,11 +10,11 @@
       "item": "minecraft:obsidian"
     },
     "Z": {
-      "item": "minecraft:yellite"
+      "item": "frazionz:yellite"
     }
   },
   "result": {
-    "item": "minecraft:obsidian_yellite",
+    "item": "frazionz:obsidian_yellite",
     "count": 4
   }
 }

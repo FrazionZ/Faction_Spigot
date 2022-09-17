@@ -7,10 +7,10 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:onyx_stick"
+      "item": "frazionz:onyx_stick"
     }
   },
   "result": {
-    "item": "minecraft:onyx_ladder"
+    "item": "frazionz:onyx_ladder"
   }
 }

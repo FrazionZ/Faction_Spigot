@@ -10,10 +10,10 @@
       "item": "minecraft:stick"
     },
     "X": {
-      "item": "minecraft:onyx"
+      "item": "frazionz:onyx"
     }
   },
   "result": {
-    "item": "minecraft:onyx_sword"
+    "item": "frazionz:onyx_sword"
   }
 }

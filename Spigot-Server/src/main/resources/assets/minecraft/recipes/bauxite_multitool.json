@@ -7,19 +7,19 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:bauxite_pickaxe"
+      "item": "frazionz:bauxite_pickaxe"
     },
     "X": {
       "item": "minecraft:stick"
     },
     "I":{
-      "item": "minecraft:bauxite_shovel"
+      "item": "frazionz:bauxite_shovel"
     },
     "i":{
-      "item": "minecraft:bauxite_axe"
+      "item": "frazionz:bauxite_axe"
     }
   },
   "result": {
-    "item": "minecraft:bauxite_multitool"
+    "item": "frazionz:bauxite_multitool"
   }
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class WorldGenNetherTrees extends WorldGenTreeAbstract {
 
-    private static final IBlockData a = Blocks.crimson_log.fromLegacyData(1);
+    private static final IBlockData a = Blocks.CRIMSON_LOG.fromLegacyData(1);
     private static final IBlockData b = Blocks.dg.getBlockData();
     private final int c;
     private final boolean d;

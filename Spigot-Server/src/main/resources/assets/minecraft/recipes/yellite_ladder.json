@@ -7,10 +7,10 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:yellite_stick"
+      "item": "frazionz:yellite_stick"
     }
   },
   "result": {
-    "item": "minecraft:yellite_ladder"
+    "item": "frazionz:yellite_ladder"
   }
 }

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -491,56 +492,60 @@ public class CraftInventory implements Inventory {
         }
         else if (inventory instanceof TileEntityDirtChest)
         {
-            return InventoryType.dirt_chest;
+            return InventoryType.DIRT_CHEST;
          }
         else if (inventory instanceof TileEntityYelliteChest
         		) {
-             return InventoryType.yellite_chest;
+             return InventoryType.YELLITE_CHEST;
          }
         else if (inventory instanceof TileEntityBauxiteChest
         		) {
-             return InventoryType.bauxite_chest;
+             return InventoryType.BAUXITE_CHEST;
          }
         else if (inventory instanceof TileEntityFrazionChest
         		) {
-             return InventoryType.frazion_chest;
+             return InventoryType.FRAZION_CHEST;
          }
         else if (inventory instanceof TileEntityYelliteFurnace)
         {
-             return InventoryType.yellite_furnace;
+             return InventoryType.YELLITE_FURNACE;
          }
         
         else if (inventory instanceof TileEntityBauxiteFurnace)
         {
-             return InventoryType.bauxite_furnace;
+             return InventoryType.BAUXITE_FURNACE;
          }
         
         else if (inventory instanceof TileEntityOnyxFurnace)
         {
-             return InventoryType.onyx_furnace;
+             return InventoryType.ONYX_FURNACE;
          }
         
         else if (inventory instanceof TileEntityFrazionFurnace)
         {
-             return InventoryType.frazion_furnace;
+             return InventoryType.FRAZION_FURNACE;
          }
         
         else if (inventory instanceof TileEntityOnyxChest)
         {
-             return InventoryType.onyx_chest;
+             return InventoryType.ONYX_CHEST;
          }
         else if (inventory instanceof TileEntityHdvChest)
         {
-             return InventoryType.hdv_chest;
+             return InventoryType.HDV_CHEST;
          }
         else if (inventory instanceof TileEntityAmeliorator)
         {
-             return InventoryType.ameliorator;
+             return InventoryType.AMELIORATOR;
          }
         else if (inventory instanceof TileEntityTrophyForge)
         {
              return InventoryType.TROPHY_FORGE;
          }
+        else if (inventory instanceof TileEntityItemCrusher)
+        {
+            return InventoryType.ITEM_CRUSHER;
+        }
         else
         {
             return InventoryType.CHEST;

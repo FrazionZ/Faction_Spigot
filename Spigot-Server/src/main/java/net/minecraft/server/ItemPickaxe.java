@@ -11,7 +11,7 @@ public class ItemPickaxe extends ItemTool {
     		Blocks.FRAZION_CHEST,
     		Blocks.BAUXITE_CHEST,
     		Blocks.ONYX_CHEST,
-    		Blocks.dirt_chest,
+    		Blocks.DIRT_CHEST,
     		Blocks.YELLITE_BLOCK,
     		Blocks.YELLITE_ORE,
     		Blocks.BAUXITE_BLOCK,
@@ -51,13 +51,13 @@ public class ItemPickaxe extends ItemTool {
     		Blocks.STONE_BUTTON,
     		Blocks.OBSIDIAN,
     		Blocks.STONE_PRESSURE_PLATE,
-    		Blocks.sandstone2,
-    		Blocks.stone_andesite,
-    		Blocks.stone_andesite_smooth,
-    		Blocks.stone_diorite,
-    		Blocks.stone_diorite_smooth,
-    		Blocks.stone_granite,
-    		Blocks.stone_granite_smooth,
+    		Blocks.SANDSTONE2,
+    		Blocks.STONE_ANDESITE,
+    		Blocks.STONE_ANDESITE_SMOOTH,
+    		Blocks.STONE_DIORITE,
+    		Blocks.STONE_DIORITE_SMOOTH,
+    		Blocks.STONE_GRANITE,
+    		Blocks.STONE_GRANITE_SMOOTH,
     		Blocks.BAUXITE_LADDER,
     		Blocks.YELLITE_LADDER,
     		Blocks.ONYX_LADDER,
@@ -76,7 +76,7 @@ public class ItemPickaxe extends ItemTool {
     private static final Set<Block> HARVEST_LEVEL_7 = Sets.newHashSet(Blocks.OBSIDIAN_FRAZION);
     
     
-    protected ItemPickaxe(Item.EnumToolMaterial item_enumtoolmaterial) {
+    public ItemPickaxe(Item.EnumToolMaterial item_enumtoolmaterial) {
         super(1.25F, item_enumtoolmaterial, ItemPickaxe.e);
     }
 

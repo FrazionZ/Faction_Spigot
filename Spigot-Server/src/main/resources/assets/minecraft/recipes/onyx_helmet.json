@@ -6,10 +6,10 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:onyx"
+      "item": "frazionz:onyx"
     }
   },
   "result": {
-    "item": "minecraft:onyx_helmet"
+    "item": "frazionz:onyx_helmet"
   }
 }

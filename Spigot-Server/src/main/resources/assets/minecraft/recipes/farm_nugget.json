@@ -7,10 +7,10 @@
     ],
       "key": {
        "X": {
-        "item" : "minecraft:farm_powder"
+        "item" : "frazionz:farm_powder"
         } 
     },
     "result": {
-      "item": "minecraft:farm_nugget"
+      "item": "frazionz:farm_nugget"
     }
 }

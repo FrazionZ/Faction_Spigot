@@ -2,6 +2,7 @@ package org.bukkit.craftbukkit.entity;
 
 import java.util.Set;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -62,7 +63,6 @@ import net.minecraft.server.TileEntityFurnace;
 import net.minecraft.server.TileEntityHdvChest;
 import net.minecraft.server.TileEntityHopper;
 import net.minecraft.server.TileEntityShulkerBox;
-import net.minecraft.server.TileEntitySpawnerInventory;
 import net.minecraft.server.TileEntityTrophyForge;
 
 public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
@@ -232,18 +232,11 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
                     openCustomInventory(inventory, player, "minecraft:dispenser");
                 }
                 break;
-            case hdv_chest:
+            case HDV_CHEST:
                 if (iinventory instanceof TileEntityHdvChest) {
                     getHandle().openContainer((TileEntityHdvChest) iinventory);
                 } else {
                     openCustomInventory(inventory, player, "minecraft:hdv_chest");
-                }
-                break;
-            case spawner_inventory:
-                if (iinventory instanceof TileEntitySpawnerInventory) {
-                    getHandle().openContainer((TileEntitySpawnerInventory) iinventory);
-                } else {
-                    openCustomInventory(inventory, player, "minecraft:spawner_inventory");
                 }
                 break;
             case DROPPER:
@@ -270,19 +263,11 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
                     openCustomInventory(inventory, player, "minecraft:brewing_stand");
                 }
                 break;
-            case ameliorator:
+            case AMELIORATOR:
                 if (iinventory instanceof TileEntityAmeliorator) {
                     getHandle().openContainer((TileEntityAmeliorator) iinventory);
                 } else {
-                    openCustomInventory(inventory, player, "minecraft:ameliorator");
-                }
-                break;
-                
-            case TROPHY_FORGE:
-                if (iinventory instanceof TileEntityTrophyForge) {
-                    getHandle().openContainer((TileEntityTrophyForge) iinventory);
-                } else {
-                    openCustomInventory(inventory, player, "minecraft:trophy_forge");
+                    openCustomInventory(inventory, player, "frazionz:ameliorator");
                 }
                 break;
                 
@@ -317,6 +302,21 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
                     getHandle().openContainer((TileEntityShulkerBox) iinventory);
                 } else {
                     openCustomInventory(inventory, player, "minecraft:shulker_box");
+                }
+                break;
+            case TROPHY_FORGE:
+                if (iinventory instanceof TileEntityTrophyForge) {
+                    getHandle().openContainer((TileEntityTrophyForge) iinventory);
+                } else {
+                    openCustomInventory(inventory, player, "frazionz:trophy_forge");
+                }
+                break;
+
+            case ITEM_CRUSHER:
+                if (iinventory instanceof TileEntityItemCrusher) {
+                    getHandle().openContainer((TileEntityItemCrusher) iinventory);
+                } else {
+                    openCustomInventory(inventory, player, "frazionz:item_crusher");
                 }
                 break;
             case CREATIVE:

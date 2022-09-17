@@ -7,10 +7,10 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:onyx"
+      "item": "frazionz:onyx"
     }
   },
   "result": {
-    "item": "minecraft:onyx_leggings"
+    "item": "frazionz:onyx_leggings"
   }
 }

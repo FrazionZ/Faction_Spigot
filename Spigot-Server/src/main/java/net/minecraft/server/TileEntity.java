@@ -2,6 +2,8 @@ package net.minecraft.server;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityGrimoirePedestal;
+import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.inventory.InventoryHolder; // CraftBukkit
@@ -262,7 +264,6 @@ public abstract class TileEntity {
         a("frazion_chest", TileEntityFrazionChest.class);
         a("onyx_chest", TileEntityOnyxChest.class);
         a("hdv_chest", TileEntityHdvChest.class);
-        a("spawner_inventory", TileEntitySpawnerInventory.class);
         
         a("yellite_furnace", TileEntityYelliteFurnace.class);
         a("bauxite_furnace", TileEntityBauxiteFurnace.class);
@@ -271,6 +272,9 @@ public abstract class TileEntity {
         
         a("ameliorator", TileEntityAmeliorator.class);
         a("trophy_forge", TileEntityTrophyForge.class);
+        a("grimoire_pedestal", TileEntityGrimoirePedestal.class);
+        a("item_crusher", TileEntityItemCrusher.class);
+
     }
 
     // CraftBukkit start - add method

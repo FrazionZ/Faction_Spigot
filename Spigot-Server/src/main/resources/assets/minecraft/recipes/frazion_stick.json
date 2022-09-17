@@ -5,13 +5,13 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:frazion_powder"
+      "item": "frazionz:frazion_powder"
     },
     "S": {
-      "item": "minecraft:onyx_stick"
+      "item": "frazionz:onyx_stick"
     }
   },
   "result": {
-    "item": "minecraft:frazion_stick"
+    "item": "frazionz:frazion_stick"
   }
 }

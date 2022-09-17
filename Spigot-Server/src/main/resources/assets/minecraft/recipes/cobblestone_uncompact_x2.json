@@ -5,11 +5,11 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:compact_cobblestone_x3"
+      "item": "frazionz:compact_cobblestone_x3"
     }
   },
   "result": {
-    "item": "minecraft:compact_cobblestone_x2",
+    "item": "frazionz:compact_cobblestone_x2",
     "count": 9
   }
 }

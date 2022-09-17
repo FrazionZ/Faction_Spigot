@@ -354,19 +354,19 @@ public class BiomeDecorator {
 
         	if(worldgenerator == this.zGen) {
             	float i1 = randomFloat.nextFloat();
-            	if(i1 < 0.033333F) {
+            	if(i1 < 0.10F) {
                     worldgenerator.generate(world, random, blockposition);
             	}
         	}
         	else if(worldgenerator == this.onyxGen) {
             	float i1 = randomFloat.nextFloat();
-            	if(i1 < 0.155555F) {
+            	if(i1 < 0.30F) {
                     worldgenerator.generate(world, random, blockposition);
             	}
         	}
         	else if(worldgenerator == this.bauxiteGen) {
             	float i1 = randomFloat.nextFloat();
-            	if(i1 < 0.40F) {
+            	if(i1 < 0.45F) {
                     worldgenerator.generate(world, random, blockposition);
             	}
         	}

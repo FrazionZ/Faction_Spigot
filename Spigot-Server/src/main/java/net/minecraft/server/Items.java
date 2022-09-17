@@ -267,19 +267,6 @@ public class Items {
     
     public static final ItemUltraBow ULTRA_BOW;
     
-    public static final Item TROPHY_BAT;
-    public static final Item TROPHY_BLAZE;
-    public static final Item TROPHY_CREEPER;
-    public static final Item TROPHY_ENDERMAN;
-    public static final Item TROPHY_GHAST;
-    public static final Item TROPHY_GUARDIAN;
-    public static final Item TROPHY_VILLAGER;
-    public static final Item TROPHY_SHULKER;
-    public static final Item TROPHY_SPIDER;
-    public static final Item TROPHY_SKELETON;
-    public static final Item TROPHY_SLIME;
-    public static final Item TROPHY_SQUID;
-    
     public static final Item FRAZION_HAMMER;
     
     public static final Item YELLITE_MULTITOOL;
@@ -287,99 +274,118 @@ public class Items {
     public static final Item ONYX_MULTITOOL;
     public static final Item FRAZION_MULTITOOL;
     
-    public static final Item RECORD_FZ1;
-    public static final Item RECORD_FZ2;
-    public static final Item RECORD_FZ3;
-    public static final Item RECORD_FZ4;
-    public static final Item RECORD_FZ5;
-    public static final Item RECORD_FZ6;
-    public static final Item RECORD_FZ7;
-    public static final Item RECORD_FZ8;
-    public static final Item RECORD_FZ9;
-    public static final Item RECORD_FZ10;
+    public static final Item RECORD_FZ_1;
+    public static final Item RECORD_FZ_2;
+    public static final Item RECORD_FZ_3;
+    public static final Item RECORD_FZ_4;
+    public static final Item RECORD_FZ_5;
+    public static final Item RECORD_FZ_6;
+    public static final Item RECORD_FZ_7;
+    public static final Item RECORD_FZ_8;
+    public static final Item RECORD_FZ_9;
+    public static final Item RECORD_FZ_10;
     
-    public static final Item KEY_FARM;
-    public static final Item KEY_VOTE;
-    public static final Item KEY_COMMON;
-    public static final Item KEY_RARE;
-    public static final Item KEY_LEGENDARY;
+    public static final Item FARM_KEY;
+    public static final Item VOTE_KEY;
+    public static final Item COMMON_KEY;
+    public static final Item RARE_KEY;
+    public static final Item LEGENDARY_KEY;
     
-    public static final Item strawberry;
-    public static final Item banana;
-    public static final Item pizza;
-    public static final Item donuts;
+    public static final Item STRAWBERRY;
+    public static final Item BANANA;
+    public static final Item PIZZA;
+    public static final Item DONUTS;
     
-    public static final Item yellite_apple;
-    public static final Item bauxite_apple;
-    public static final Item onyx_apple;
-    public static final Item frazion_apple;
+    public static final Item YELLITE_APPLE;
+    public static final Item BAUXITE_APPLE;
+    public static final Item ONYX_APPLE;
+    public static final Item FRAZION_APPLE;
 
-    public static final Item nether_string;
-    public static final Item renforced_string;
+    public static final Item NETHER_STRING;
+    public static final Item RENFORCED_STRING;
     
-    public static final Item RUNE;
-    public static final Item rune_wither;
-    public static final Item rune_poison;
-    public static final Item rune_slowness;
-    public static final Item rune_weakness;
-    public static final Item rune_mining_fatigue;
-    public static final Item rune_blindness;
+    public static final Item BIG_XP;
     
-    public static final Item big_xp;
-    
-    public static final Item loot_powder;
-    public static final Item farm_powder;
-    public static final Item farm_nugget;
+    public static final Item LOOT_POWDER;
+    public static final Item FARM_POWDER;
+    public static final Item FARM_NUGGET;
     
     
-    public static final Item yellite_stick;
-    public static final Item bauxite_stick;
-    public static final Item onyx_stick;
+    public static final Item YELLITE_STICK;
+    public static final Item BAUXITE_STICK;
+    public static final Item ONYX_STICK;
     public static final Item FRAZION_STICK;
     
-    public static final ItemArmor frazion_helmet_70;
-    public static final ItemArmor frazion_chestplate_70;
-    public static final ItemArmor frazion_leggings_70;
-    public static final ItemArmor frazion_boots_70;
+    public static final ItemArmor FRAZION_HELMET_70;
+    public static final ItemArmor FRAZION_CHESTPLATE_70;
+    public static final ItemArmor FRAZION_LEGGINGS_70;
+    public static final ItemArmor FRAZION_BOOTS_70;
     
-    public static final ItemArmor frazion_helmet_100;
-    public static final ItemArmor frazion_chestplate_100;
-    public static final ItemArmor frazion_leggings_100;
-    public static final ItemArmor frazion_boots_100;
+    public static final ItemArmor FRAZION_HELMET_100;
+    public static final ItemArmor FRAZION_CHESTPLATE_100;
+    public static final ItemArmor FRAZION_LEGGINGS_100;
+    public static final ItemArmor FRAZION_BOOTS_100;
     
-    public static final ItemArmor travelers_helmet;
-    public static final ItemArmor travelers_chestplate;
-    public static final ItemArmor travelers_leggings;
-    public static final ItemArmor travelers_boots;
+    public static final ItemArmor TRAVELERS_HELMET;
+    public static final ItemArmor TRAVELERS_CHESTPLATE;
+    public static final ItemArmor TRAVELERS_LEGGINGS;
+    public static final ItemArmor TRAVELERS_BOOTS;
     
-    public static final Item legendary_axe;
-    public static final Item legendary_sword;
-    public static final Item legendary_dagger;
+    public static final Item LEGENDARY_AXE;
+    public static final Item LEGENDARY_SWORD;
+    public static final Item LEGENDARY_DAGGER;
     
-    public static final Item legendary_scythe;
+    public static final Item LEGENDARY_SCYTHE;
     
-    public static final Item spawner_pickaxe;
+    public static final Item SPAWNER_PICKAXE;
     
-    public static final Item dynamite;
-    public static final Item dynamite_arrow;
+    public static final Item DYNAMITE;
+    public static final Item DYNAMITE_ARROW;
     
-    public static final Item frazion_dagger;
+    public static final Item FRAZION_DAGGER;
     
-    public static final Item farm_sword;
+    public static final Item FARM_SWORD;
     
-    public static final Item billet;
+    public static final Item BILLET;
     
-    public static final Item obsidian_tower;
+    public static final Item OBSIDIAN_TOWER;
     
-    public static final Item booster_xp;
-    public static final Item booster_aptitude;
-    public static final Item booster_repair;
+    public static final Item BOOSTER_XP;
+    public static final Item BOOSTER_APTITUDE;
+    public static final Item BOOSTER_REPAIR;
     
-    public static final Item withered_bone;
-    public static final Item withered_bone_meal;
+    public static final Item WITHERED_BONE;
+    public static final Item WITHERED_BONE_MEAL;
     
     public static final Item BOTTLEXP;
     public static final Item FACTION_TOKEN;
+
+    public static final Item RUNE_ANTI_MALUS;
+    public static final Item RUNE_BONUS;
+    public static final Item RUNE_CHANCE;
+    public static final Item RUNE_DAMAGE;
+    public static final Item RUNE_HEALTH;
+    public static final Item RUNE_MINING;
+    public static final Item RUNE_REGENERATION;
+    public static final Item RUNE_RESISTANCE;
+    public static final Item RUNE_SPEED;
+
+    public static final Item TROPHY_BAT;
+    public static final Item TROPHY_BLAZE;
+    public static final Item TROPHY_CREEPER;
+    public static final Item TROPHY_ENDERMAN;
+    public static final Item TRPOHY_GHAST;
+    public static final Item TROPHY_GUARDIAN;
+    public static final Item TROPHY_VILLAGER;
+    public static final Item TROPHY_SHULKER;
+    public static final Item TROPHY_SPIDER;
+    public static final Item TROPHY_SKELETON;
+    public static final Item TROPHY_SLIME;
+    public static final Item TRPOHY_SQUID;
+    public static final Item TROPHY_PIG;
+    public static final Item TROPHY_SHEEP;
+    public static final Item TROPHY_SILVERFISH;
+    public static final Item TROPHY_IRON_GOLEM;
     
     
     private static Item get(String s) {
@@ -606,170 +612,171 @@ public class Items {
             cZ = get("shulker_shell");
             da = get("iron_nugget");
             db = get("knowledge_book");
-            
-            YELLITE = get("yellite");
-            BAUXITE = get("bauxite");
-            ONYX = get("onyx");
-            FRAZION_POWDER = get("frazion_powder");
-            FRAZION = get("frazion");
-            
-            COSMIC_POWDER = get("cosmic_powder");
-            COSMIC_NUGGET = get("cosmic_nugget");
-            COSMIC_INGOT = get("cosmic_ingot");
-            
-            
-            YELLITE_HELMET = (ItemArmor) get("yellite_helmet");
-            YELLITE_CHESTPLATE = (ItemArmor) get("yellite_chestplate");
-            YELLITE_LEGGINGS = (ItemArmor) get("yellite_leggings");
-            YELLITE_BOOTS = (ItemArmor) get("yellite_boots");
-            YELLITE_SWORD = get("yellite_sword");
-            YELLITE_SHOVEL = get("yellite_shovel");
-            YELLITE_PICKAXE = get("yellite_pickaxe");
-            YELLITE_AXE = get("yellite_axe");
-            YELLITE_HOE = get("yellite_hoe");
-            
-            BAUXITE_HELMET = (ItemArmor) get("bauxite_helmet");
-            BAUXITE_CHESTPLATE = (ItemArmor) get("bauxite_chestplate");
-            BAUXITE_LEGGINGS = (ItemArmor) get("bauxite_leggings");
-            BAUXITE_BOOTS = (ItemArmor) get("bauxite_boots");
-            BAUXITE_SWORD = get("bauxite_sword");
-            BAUXITE_SHOVEL = get("bauxite_shovel");
-            BAUXITE_PICKAXE = get("bauxite_pickaxe");
-            BAUXITE_AXE = get("bauxite_axe");
-            BAUXITE_HOE = get("bauxite_hoe");
-            
-            ONYX_HELMET = (ItemArmor) get("onyx_helmet");
-            ONYX_CHESTPLATE = (ItemArmor) get("onyx_chestplate");
-            ONYX_LEGGINGS = (ItemArmor) get("onyx_leggings");
-            ONYX_BOOTS = (ItemArmor) get("onyx_boots");
-            ONYX_SWORD = get("onyx_sword");
-            ONYX_SHOVEL = get("onyx_shovel");
-            ONYX_PICKAXE = get("onyx_pickaxe");
-            ONYX_AXE = get("onyx_axe");
-            ONYX_HOE = get("onyx_hoe");
-            
-            FRAZION_HELMET = (ItemArmor) get("frazion_helmet");
-            FRAZION_CHESTPLATE = (ItemArmor) get("frazion_chestplate");
-            FRAZION_LEGGINGS = (ItemArmor) get("frazion_leggings");
-            FRAZION_BOOTS = (ItemArmor) get("frazion_boots");
-            FRAZION_SWORD = get("frazion_sword");
-            FRAZION_SHOVEL = get("frazion_shovel");
-            FRAZION_PICKAXE = get("frazion_pickaxe");
-            FRAZION_AXE = get("frazion_axe");
-            FRAZION_HOE = get("frazion_hoe");
-            FRAZION_HAMMER = get("frazion_hammer");
-            
-            ULTRA_BOW = (ItemUltraBow) get("ultra_bow");
-            
-            TROPHY_BAT = get("trophy_bat");
-            TROPHY_BLAZE = get("trophy_blaze");
-            TROPHY_CREEPER = get("trophy_creeper");
-            TROPHY_ENDERMAN = get("trophy_enderman");
-            TROPHY_GHAST = get("trophy_ghast");
-            TROPHY_GUARDIAN = get("trophy_guardian");
-            TROPHY_VILLAGER = get("trophy_villager");
-            TROPHY_SHULKER = get("trophy_shulker");
-            TROPHY_SPIDER = get("trophy_spider");
-            TROPHY_SKELETON = get("trophy_skeleton");
-            TROPHY_SLIME = get("trophy_slime");
-            TROPHY_SQUID = get("trophy_squid");
-            
-            YELLITE_MULTITOOL = get("yellite_multitool");
-            BAUXITE_MULTITOOL = get("bauxite_multitool");
-            ONYX_MULTITOOL = get("onyx_multitool");
-            FRAZION_MULTITOOL = get("frazion_multitool");
-            
-            RECORD_FZ1 = get("record_fz1");
-            RECORD_FZ2 = get("record_fz2");
-            RECORD_FZ3 = get("record_fz3");
-            RECORD_FZ4 = get("record_fz4");
-            RECORD_FZ5 = get("record_fz5");
-            RECORD_FZ6 = get("record_fz6");
-            RECORD_FZ7 = get("record_fz7");
-            RECORD_FZ8 = get("record_fz8");
-            RECORD_FZ9 = get("record_fz9");
-            RECORD_FZ10 = get("record_fz10");
-            
-            KEY_FARM = get("key_farm");
-            KEY_VOTE = get("key_vote");
-            KEY_COMMON = get("key_common");
-            KEY_RARE = get("key_rare");
-            KEY_LEGENDARY = get("key_legendary");
-            
-            strawberry = get("strawberry");
-            banana = get("banana");
-            pizza = get("pizza");
-            donuts = get("donuts");
-            
-            yellite_apple = get("yellite_apple");
-            bauxite_apple = get("bauxite_apple");
-            onyx_apple = get("onyx_apple");
-            frazion_apple = get("frazion_apple");
-            
-            nether_string = get("nether_string");
-            renforced_string = get("renforced_string");
-            
-            RUNE = get("rune");
-            rune_wither = get("rune_wither");
-            rune_poison = get("rune_poison");
-            rune_slowness = get("rune_slowness");
-            rune_weakness = get("rune_weakness");
-            rune_mining_fatigue = get("rune_mining_fatigue");
-            rune_blindness = get("rune_blindness");
-            big_xp = get("big_xp");
-            
-            loot_powder = get("loot_powder");
-            farm_powder = get("farm_powder");
-            farm_nugget = get("farm_nugget");
-            
-            yellite_stick = get("yellite_stick");
-            bauxite_stick = get("bauxite_stick");
-            onyx_stick = get("onyx_stick");
-            FRAZION_STICK = get("frazion_stick");
-            
-            frazion_helmet_70 = (ItemArmor)get("frazion_helmet_70");
-            frazion_chestplate_70 = (ItemArmor)get("frazion_chestplate_70");
-            frazion_leggings_70 = (ItemArmor)get("frazion_leggings_70");
-            frazion_boots_70 = (ItemArmor)get("frazion_boots_70");
-            
-            frazion_helmet_100 = (ItemArmor)get("frazion_helmet_100");
-            frazion_chestplate_100 = (ItemArmor)get("frazion_chestplate_100");
-            frazion_leggings_100 = (ItemArmor)get("frazion_leggings_100");
-            frazion_boots_100 = (ItemArmor)get("frazion_boots_100");
-            
-            travelers_helmet = (ItemArmor)get("travelers_helmet");
-            travelers_chestplate = (ItemArmor)get("travelers_chestplate");
-            travelers_leggings = (ItemArmor)get("travelers_leggings");
-            travelers_boots = (ItemArmor)get("travelers_boots");
-            
-            legendary_axe = get("legendary_axe");
-            legendary_sword = get("legendary_sword");
-            legendary_dagger = get("legendary_dagger");
-            
-            legendary_scythe = get("legendary_scythe");
-            
-            spawner_pickaxe = get("spawner_pickaxe");
-            
-            dynamite = get("dynamite");
-            dynamite_arrow = get("dynamite_arrow");
-            
-            frazion_dagger = get("frazion_dagger");
-            
-            billet = get("billet");
-            
-            farm_sword = get("farm_sword");
-            
-            obsidian_tower = get("obsidian_tower");
-            
-            booster_xp = get("booster_xp");
-            booster_aptitude = get("booster_aptitude");
-            booster_repair = get("booster_repair");
-            
-            withered_bone = get("withered_bone");
-            withered_bone_meal = get("withered_bone_meal");
-            
-            BOTTLEXP = get("bottlexp");
-            FACTION_TOKEN = get("faction_token");
+
+            YELLITE = get("frazionz:yellite");
+            YELLITE_HELMET = (ItemArmor)get("frazionz:yellite_helmet");
+            YELLITE_CHESTPLATE = (ItemArmor)get("frazionz:yellite_chestplate");
+            YELLITE_LEGGINGS = (ItemArmor)get("frazionz:yellite_leggings");
+            YELLITE_BOOTS = (ItemArmor)get("frazionz:yellite_boots");
+            YELLITE_SWORD = get("frazionz:yellite_sword");
+            YELLITE_SHOVEL = get("frazionz:yellite_shovel");
+            YELLITE_PICKAXE = get("frazionz:yellite_pickaxe");
+            YELLITE_AXE = get("frazionz:yellite_axe");
+            YELLITE_HOE = get("frazionz:yellite_hoe");
+            YELLITE_MULTITOOL = get("frazionz:yellite_multitool");
+            YELLITE_APPLE = get("frazionz:yellite_apple");
+            YELLITE_STICK = get("frazionz:yellite_stick");
+
+            BAUXITE = get("frazionz:bauxite");
+            BAUXITE_HELMET = (ItemArmor)get("frazionz:bauxite_helmet");
+            BAUXITE_CHESTPLATE = (ItemArmor)get("frazionz:bauxite_chestplate");
+            BAUXITE_LEGGINGS = (ItemArmor)get("frazionz:bauxite_leggings");
+            BAUXITE_BOOTS = (ItemArmor)get("frazionz:bauxite_boots");
+            BAUXITE_SWORD = get("frazionz:bauxite_sword");
+            BAUXITE_SHOVEL = get("frazionz:bauxite_shovel");
+            BAUXITE_PICKAXE = get("frazionz:bauxite_pickaxe");
+            BAUXITE_AXE = get("frazionz:bauxite_axe");
+            BAUXITE_HOE = get("frazionz:bauxite_hoe");
+            BAUXITE_MULTITOOL = get("frazionz:bauxite_multitool");
+            BAUXITE_APPLE = get("frazionz:bauxite_apple");
+            BAUXITE_STICK = get("frazionz:bauxite_stick");
+
+            ONYX = get("frazionz:onyx");
+            ONYX_HELMET = (ItemArmor)get("frazionz:onyx_helmet");
+            ONYX_CHESTPLATE = (ItemArmor)get("frazionz:onyx_chestplate");
+            ONYX_LEGGINGS = (ItemArmor)get("frazionz:onyx_leggings");
+            ONYX_BOOTS = (ItemArmor)get("frazionz:onyx_boots");
+            ONYX_SWORD = get("frazionz:onyx_sword");
+            ONYX_SHOVEL = get("frazionz:onyx_shovel");
+            ONYX_PICKAXE = get("frazionz:onyx_pickaxe");
+            ONYX_AXE = get("frazionz:onyx_axe");
+            ONYX_HOE = get("frazionz:onyx_hoe");
+            ONYX_MULTITOOL = get("frazionz:onyx_multitool");
+            ONYX_APPLE = get("frazionz:onyx_apple");
+            ONYX_STICK = get("frazionz:onyx_stick");
+
+            FRAZION = get("frazionz:frazion");
+            FRAZION_POWDER = get("frazionz:frazion_powder");
+            FRAZION_HELMET = (ItemArmor)get("frazionz:frazion_helmet");
+            FRAZION_CHESTPLATE = (ItemArmor)get("frazionz:frazion_chestplate");
+            FRAZION_LEGGINGS = (ItemArmor)get("frazionz:frazion_leggings");
+            FRAZION_BOOTS = (ItemArmor)get("frazionz:frazion_boots");
+            FRAZION_SWORD = get("frazionz:frazion_sword");
+            FRAZION_SHOVEL = get("frazionz:frazion_shovel");
+            FRAZION_PICKAXE = get("frazionz:frazion_pickaxe");
+            FRAZION_AXE = get("frazionz:frazion_axe");
+            FRAZION_HOE = get("frazionz:frazion_hoe");
+            FRAZION_MULTITOOL = get("frazionz:frazion_multitool");
+            FRAZION_HAMMER = get("frazionz:frazion_hammer");
+            FRAZION_APPLE = get("frazionz:frazion_apple");
+            FRAZION_STICK = get("frazionz:frazion_stick");
+
+            FRAZION_HELMET_70 = (ItemArmor)get("frazionz:frazion_helmet_70");
+            FRAZION_CHESTPLATE_70 = (ItemArmor)get("frazionz:frazion_chestplate_70");
+            FRAZION_LEGGINGS_70 = (ItemArmor)get("frazionz:frazion_leggings_70");
+            FRAZION_BOOTS_70 = (ItemArmor)get("frazionz:frazion_boots_70");
+
+            FRAZION_HELMET_100 = (ItemArmor)get("frazionz:frazion_helmet_100");
+            FRAZION_CHESTPLATE_100 = (ItemArmor)get("frazionz:frazion_chestplate_100");
+            FRAZION_LEGGINGS_100 = (ItemArmor)get("frazionz:frazion_leggings_100");
+            FRAZION_BOOTS_100 = (ItemArmor)get("frazionz:frazion_boots_100");
+
+            COSMIC_POWDER = get("frazionz:cosmic_powder");
+            COSMIC_NUGGET = get("frazionz:cosmic_nugget");
+            COSMIC_INGOT = get("frazionz:cosmic_ingot");
+            LEGENDARY_AXE = get("frazionz:legendary_axe");
+            LEGENDARY_SWORD = get("frazionz:legendary_sword");
+            LEGENDARY_DAGGER = get("frazionz:legendary_dagger");
+            LEGENDARY_SCYTHE = get("frazionz:legendary_scythe");
+
+            ULTRA_BOW = (ItemUltraBow)get("frazionz:ultra_bow");
+
+            TROPHY_BAT = get("frazionz:trophy_bat");
+            TROPHY_BLAZE = get("frazionz:trophy_blaze");
+            TROPHY_CREEPER = get("frazionz:trophy_creeper");
+            TROPHY_ENDERMAN = get("frazionz:trophy_enderman");
+            TRPOHY_GHAST = get("frazionz:trophy_ghast");
+            TROPHY_GUARDIAN = get("frazionz:trophy_guardian");
+            TROPHY_VILLAGER = get("frazionz:trophy_villager");
+            TROPHY_SHULKER = get("frazionz:trophy_shulker");
+            TROPHY_SPIDER = get("frazionz:trophy_spider");
+            TROPHY_SKELETON = get("frazionz:trophy_skeleton");
+            TROPHY_SLIME = get("frazionz:trophy_slime");
+            TRPOHY_SQUID = get("frazionz:trophy_squid");
+            TROPHY_PIG = get("frazionz:trophy_pig");
+            TROPHY_SHEEP = get("frazionz:trophy_sheep");
+            TROPHY_SILVERFISH = get("frazionz:trophy_silverfish");
+            TROPHY_IRON_GOLEM = get("frazionz:trophy_iron_golem");
+
+            RECORD_FZ_1 = get("frazionz:fz_record_1");
+            RECORD_FZ_2 = get("frazionz:fz_record_2");
+            RECORD_FZ_3 = get("frazionz:fz_record_3");
+            RECORD_FZ_4 = get("frazionz:fz_record_4");
+            RECORD_FZ_5 = get("frazionz:fz_record_5");
+            RECORD_FZ_6 = get("frazionz:fz_record_6");
+            RECORD_FZ_7 = get("frazionz:fz_record_7");
+            RECORD_FZ_8 = get("frazionz:fz_record_8");
+            RECORD_FZ_9 = get("frazionz:fz_record_9");
+            RECORD_FZ_10 = get("frazionz:fz_record_10");
+
+            FARM_KEY = get("frazionz:key_farm");
+            VOTE_KEY = get("frazionz:key_vote");
+            COMMON_KEY = get("frazionz:key_common");
+            RARE_KEY = get("frazionz:key_rare");
+            LEGENDARY_KEY = get("frazionz:key_legendary");
+
+            STRAWBERRY = get("frazionz:strawberry");
+            BANANA = get("frazionz:banana");
+            PIZZA = get("frazionz:pizza");
+            DONUTS = get("frazionz:donuts");
+
+            NETHER_STRING = get("frazionz:nether_string");
+            RENFORCED_STRING = get("frazionz:renforced_string");
+
+            RUNE_ANTI_MALUS = get("frazionz:rune_anti_malus");
+            RUNE_BONUS = get("frazionz:rune_bonus");
+            RUNE_CHANCE = get("frazionz:rune_chance");
+            RUNE_DAMAGE = get("frazionz:rune_damage");
+            RUNE_HEALTH = get("frazionz:rune_health");
+            RUNE_MINING = get("frazionz:rune_mining");
+            RUNE_REGENERATION = get("frazionz:rune_regeneration");
+            RUNE_RESISTANCE = get("frazionz:rune_resistance");
+            RUNE_SPEED = get("frazionz:rune_speed");
+
+            BIG_XP = get("frazionz:big_xp");
+
+            LOOT_POWDER = get("frazionz:loot_powder");
+            FARM_POWDER = get("frazionz:farm_powder");
+            FARM_NUGGET = get("frazionz:farm_nugget");
+
+            TRAVELERS_HELMET = (ItemArmor)get("frazionz:travelers_helmet");
+            TRAVELERS_CHESTPLATE = (ItemArmor)get("frazionz:travelers_chestplate");
+            TRAVELERS_LEGGINGS = (ItemArmor)get("frazionz:travelers_leggings");
+            TRAVELERS_BOOTS = (ItemArmor)get("frazionz:travelers_boots");
+
+            DYNAMITE = get("frazionz:dynamite");
+
+            DYNAMITE_ARROW = get("frazionz:dynamite_arrow");
+
+            SPAWNER_PICKAXE = get("frazionz:spawner_pickaxe");
+
+            FRAZION_DAGGER = get("frazionz:frazion_dagger");
+
+            BILLET = get("frazionz:billet");
+
+            FARM_SWORD = get("frazionz:farm_sword");
+
+            OBSIDIAN_TOWER = get("frazionz:obsidian_tower");
+
+            BOOSTER_XP = get("frazionz:booster_xp");
+            BOOSTER_APTITUDE = get("frazionz:booster_aptitude");
+            BOOSTER_REPAIR = get("frazionz:booster_repair");
+
+            WITHERED_BONE = get("frazionz:withered_bone");
+            WITHERED_BONE_MEAL = get("frazionz:withered_bone_meal");
+
+            BOTTLEXP = get("frazionz:bottle_xp");
+            FACTION_TOKEN = get("frazionz:faction_token");
         }
     }
 }

@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:bauxite"
+      "item": "frazionz:bauxite"
     },
     "X": {
-      "item": "minecraft:bauxite_block"
+      "item": "frazionz:bauxite_block"
     },
     "I":{
       "item" : "minecraft:golden_apple",
@@ -18,7 +18,7 @@
     }
   },
   "result": {
-    "item": "minecraft:bauxite_apple",
+    "item": "frazionz:bauxite_apple",
     "data": 0
   }
 }

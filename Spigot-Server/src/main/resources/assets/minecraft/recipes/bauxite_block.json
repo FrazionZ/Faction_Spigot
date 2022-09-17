@@ -7,10 +7,10 @@
     ],
     "key": {
        "X": {
-        "item" : "minecraft:bauxite"
+        "item" : "frazionz:bauxite"
         } 
     },
     "result": {
-      "item": "minecraft:bauxite_block"
+      "item": "frazionz:bauxite_block"
     }
 }

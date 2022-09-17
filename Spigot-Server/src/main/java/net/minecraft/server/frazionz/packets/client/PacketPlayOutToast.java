@@ -3,8 +3,6 @@ package net.minecraft.server.frazionz.packets.client;
 import java.io.IOException;
 import java.util.Locale;
 
-import com.sun.istack.internal.NotNull;
-
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketDataSerializer;
@@ -19,7 +17,7 @@ public class PacketPlayOutToast implements Packet<PacketListenerPlayOut> {
 
     public PacketPlayOutToast() {}
 
-    public PacketPlayOutToast(@NotNull PacketPlayOutToast.EnumToastAction typeToast, @NotNull PacketPlayOutToast.EnumToastIcon icon, @NotNull IChatBaseComponent title, @NotNull IChatBaseComponent subtitle) {
+    public PacketPlayOutToast(PacketPlayOutToast.EnumToastAction typeToast, PacketPlayOutToast.EnumToastIcon icon, IChatBaseComponent title, IChatBaseComponent subtitle) {
         this.typeToast = typeToast;
         this.icon = icon;
         this.title = title;

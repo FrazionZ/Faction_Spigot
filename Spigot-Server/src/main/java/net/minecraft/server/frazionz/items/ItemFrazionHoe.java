@@ -26,8 +26,6 @@ import net.minecraft.server.Material;
 import net.minecraft.server.SoundCategory;
 import net.minecraft.server.SoundEffects;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockDirt.EnumDirtVariant;
-import net.minecraft.server.Item.EnumToolMaterial;
 
 public class ItemFrazionHoe extends ItemTool {
 
@@ -35,7 +33,7 @@ public class ItemFrazionHoe extends ItemTool {
 
     private static final Set<Block> e = Sets.newHashSet(new Block[] { 
     		Blocks.HAY_BLOCK,
-    		Blocks.nether_wart_block2,
+    		Blocks.NETHER_WART_BLOCK2,
     		Blocks.SPONGE,
     		Blocks.dg
     		

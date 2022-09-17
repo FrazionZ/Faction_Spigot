@@ -61,16 +61,6 @@ public class BlockOnyxChest extends BlockTileEntity implements FzExplosionBlockT
     public boolean c(IBlockData iblockdata) {
         return false;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public EnumRenderType a(IBlockData state)
     {

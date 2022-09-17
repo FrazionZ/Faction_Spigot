@@ -2,46 +2,13 @@ package org.bukkit.craftbukkit.inventory;
 
 import java.util.Map;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityGrimoirePedestal;
+import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 import org.bukkit.configuration.serialization.DelegateDeserialization;
-import org.bukkit.craftbukkit.block.CraftAmeliorator;
-import org.bukkit.craftbukkit.block.CraftBanner;
-import org.bukkit.craftbukkit.block.CraftBauxiteChest;
-import org.bukkit.craftbukkit.block.CraftBauxiteFurnace;
-import org.bukkit.craftbukkit.block.CraftBeacon;
-import org.bukkit.craftbukkit.block.CraftBlockEntityState;
-import org.bukkit.craftbukkit.block.CraftBrewingStand;
-import org.bukkit.craftbukkit.block.CraftChest;
-import org.bukkit.craftbukkit.block.CraftCommandBlock;
-import org.bukkit.craftbukkit.block.CraftComparator;
-import org.bukkit.craftbukkit.block.CraftCreatureSpawner;
-import org.bukkit.craftbukkit.block.CraftDaylightDetector;
-import org.bukkit.craftbukkit.block.CraftDirtChest;
-import org.bukkit.craftbukkit.block.CraftDispenser;
-import org.bukkit.craftbukkit.block.CraftDropper;
-import org.bukkit.craftbukkit.block.CraftEnchantingTable;
-import org.bukkit.craftbukkit.block.CraftEndGateway;
-import org.bukkit.craftbukkit.block.CraftEnderChest;
-import org.bukkit.craftbukkit.block.CraftFlowerPot;
-import org.bukkit.craftbukkit.block.CraftFrazionChest;
-import org.bukkit.craftbukkit.block.CraftFrazionFurnace;
-import org.bukkit.craftbukkit.block.CraftFurnace;
-import org.bukkit.craftbukkit.block.CraftHdvChest;
-import org.bukkit.craftbukkit.block.CraftHopper;
-import org.bukkit.craftbukkit.block.CraftJukebox;
-import org.bukkit.craftbukkit.block.CraftNoteBlock;
-import org.bukkit.craftbukkit.block.CraftOnyxChest;
-import org.bukkit.craftbukkit.block.CraftOnyxFurnace;
-import org.bukkit.craftbukkit.block.CraftShulkerBox;
-import org.bukkit.craftbukkit.block.CraftSign;
-import org.bukkit.craftbukkit.block.CraftSkull;
-import org.bukkit.craftbukkit.block.CraftStructureBlock;
-import org.bukkit.craftbukkit.block.CraftTrophyForge;
-import org.bukkit.craftbukkit.block.CraftYelliteChest;
-import org.bukkit.craftbukkit.block.CraftYelliteFurnace;
-import org.bukkit.craftbukkit.block.CraftZHopper;
+import org.bukkit.craftbukkit.block.*;
 import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.inventory.meta.BlockStateMeta;
 
@@ -509,7 +476,22 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
                 te = new TileEntityComparator();
             }
             return new CraftComparator(material, (TileEntityComparator) te);
-        case PISTON_BASE:
+
+        case GRIMOIRE_DEPESTAL:
+            if (te == null) {
+                te = new TileEntityGrimoirePedestal();
+            }
+            return new CraftGrimoirePedestal(material, (TileEntityGrimoirePedestal) te);
+
+        case ITEM_CRUSHER:
+            if (te == null)
+            {
+                te = new TileEntityItemCrusher();
+            }
+            return new CraftItemCrusher(material, (TileEntityItemCrusher) te);
+
+
+            case PISTON_BASE:
         default:
             throw new IllegalStateException("Missing blockState for " + material);
         }
@@ -614,34 +596,52 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
             break;
         case DIRT_CHEST:
             valid = blockState instanceof CraftDirtChest;
+            break;
+
         case ONYX_CHEST:
             valid = blockState instanceof CraftOnyxChest;
+            break;
+
         case YELLITE_CHEST:
             valid = blockState instanceof CraftYelliteChest;
+            break;
+
         case HDV_CHEST:
             valid = blockState instanceof CraftHdvChest;
+            break;
+
         case LIT_YELLITE_FURNACE:
         case YELLITE_FURNACE:
             valid = blockState instanceof CraftYelliteFurnace;
+            break;
            
         case LIT_BAUXITE_FURNACE:
         case BAUXITE_FURNACE:
             valid = blockState instanceof CraftBauxiteFurnace;
-            
+            break;
+
         case LIT_ONYX_FURNACE:
         case ONYX_FURNACE:
             valid = blockState instanceof CraftOnyxFurnace;
+            break;
             
         case LIT_FRAZION_FURNACE:
         case FRAZION_FURNACE:
             valid = blockState instanceof CraftFrazionFurnace;
+            break;
             
         case AMELIORATOR:
             valid = blockState instanceof CraftAmeliorator;
+            break;
             
         case TROPHY_FORGE:
             valid = blockState instanceof CraftTrophyForge;
-            
+            break;
+
+        case GRIMOIRE_DEPESTAL:
+            valid = blockState instanceof CraftGrimoirePedestal;
+            break;
+
         default:
             valid = false;
             break;

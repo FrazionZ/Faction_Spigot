@@ -316,7 +316,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
         return (i & 8) != 0;
     }
     
-    public static enum EnumTrophyForgeHalf implements INamable 
+    public enum EnumTrophyForgeHalf implements INamable
     {
         UPPER,
         LOWER;

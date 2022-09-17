@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:frazion_stick"
+      "item": "frazionz:frazion_stick"
     },
     "P": {
-      "item": "minecraft:frazion_powder"
+      "item": "frazionz:frazion_powder"
     }
   },
   "result": {
-    "item": "minecraft:frazion_ladder",
+    "item": "frazionz:frazion_ladder",
     "count": 24
   }
 }

@@ -7,13 +7,13 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:nether_string"
+      "item": "frazionz:nether_string"
     },
      "I":{
-      "item" : "minecraft:onyx_block"
+      "item" : "frazionz:onyx_block"
     }
   },
   "result": {
-    "item": "minecraft:renforced_string"
+    "item": "frazionz:renforced_string"
   }
 }

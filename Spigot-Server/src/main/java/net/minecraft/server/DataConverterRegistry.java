@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
+
 public class DataConverterRegistry {
   private static void a(DataConverterManager paramDataConverterManager) {
     paramDataConverterManager.a((DataConverterType)DataConverterTypes.ENTITY, (IDataConverter)new DataConverterEquipment());
@@ -137,6 +139,7 @@ public class DataConverterRegistry {
     TileEntityShulkerBox.a(dataConverterManager);
     TileEntityAmeliorator.a(dataConverterManager);
     TileEntityTrophyForge.a(dataConverterManager);
+    TileEntityItemCrusher.a(dataConverterManager);
     
     EntityIllager.a(dataConverterManager);
     EntityHerobrine1.a(dataConverterManager);

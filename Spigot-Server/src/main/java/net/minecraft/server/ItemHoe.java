@@ -11,7 +11,7 @@ public class ItemHoe extends ItemTool {
 
     private static final Set<Block> e = Sets.newHashSet(new Block[] { 
     		Blocks.HAY_BLOCK,
-    		Blocks.nether_wart_block2,
+    		Blocks.NETHER_WART_BLOCK2,
     		Blocks.SPONGE,
     		Blocks.dg
     		

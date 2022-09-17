@@ -1,12 +1,13 @@
 package net.minecraft.server;
 
+import net.minecraft.server.frazionz.tileentity.impl.TileMachine;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.craftbukkit.inventory.CraftInventoryTrophyForge;
 import org.bukkit.craftbukkit.inventory.CraftInventoryView;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent.MachineAction;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent.MachineType;
 
-public class ContainerTrophyForge extends Container
+public class ContainerTrophyForge extends Container implements TileMachine
 {
 	
 	private final IInventory tileTrophyForge;
@@ -92,12 +93,7 @@ public class ContainerTrophyForge extends Container
         this.totalForgeTime = this.tileTrophyForge.getProperty(1);
         this.isForging = this.tileTrophyForge.getProperty(2);
     }
-	
-	public void updateProgressBar(int id, int data)
-    {
-        this.tileTrophyForge.setProperty(id, data);
-    }
-	
+
     public boolean canUse(EntityHuman entityhuman)
     {
         return this.tileTrophyForge.a(entityhuman);
@@ -164,14 +160,15 @@ public class ContainerTrophyForge extends Container
 
         return itemstack;
     }
-    
-    public void startAction(EntityPlayer player) {
+
+    @Override
+    public void startMachine(EntityHuman player) {
     	if(canForge()) {
     		if(CraftEventFactory.callMachineCraftEvent(player, getRecipeResult(), this.getBukkitView(), MachineType.TROPHY_FORGE, MachineAction.START_CRAFTING).isCancelled())
     			return;
-    		((TileEntityTrophyForge)this.tileTrophyForge).setForger(player);
+    		((TileEntityTrophyForge)this.tileTrophyForge).setActionner(player);
     		this.tileTrophyForge.setProperty(2, 1);
-    	} 
+    	}
     }
     
     public boolean canForge()
@@ -196,5 +193,4 @@ public class ContainerTrophyForge extends Container
     public boolean isForging() {
     	return this.isForging == 1;
     }
-
 }

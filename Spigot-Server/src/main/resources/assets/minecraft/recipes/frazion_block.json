@@ -7,10 +7,10 @@
     ],
       "key": {
        "X": {
-        "item" : "minecraft:frazion"
+        "item" : "frazionz:frazion"
         } 
     },
     "result": {
-      "item": "minecraft:frazion_block"
+      "item": "frazionz:frazion_block"
     }
 }

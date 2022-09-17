@@ -7,17 +7,17 @@
   ],
   "key": {
     "#": {
-        "item": "minecraft:compact_cobblestone_x2"
+        "item": "frazionz:compact_cobblestone_x2"
     },
     "Z": {
-      "item": "minecraft:withered_bone"
+      "item": "frazionz:withered_bone"
     },
     "X": {
       "item": "minecraft:obsidian"
     }
   },
   "result": {
-    "item": "minecraft:wither_block",
+    "item": "frazionz:wither_block",
     "count": 8
   }
 }

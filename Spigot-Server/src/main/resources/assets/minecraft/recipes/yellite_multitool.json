@@ -7,19 +7,19 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:yellite_pickaxe"
+      "item": "frazionz:yellite_pickaxe"
     },
     "X": {
       "item": "minecraft:stick"
     },
      "I":{
-      "item": "minecraft:yellite_shovel"
+      "item": "frazionz:yellite_shovel"
     },
     "i":{
-      "item": "minecraft:yellite_axe"
+      "item": "frazionz:yellite_axe"
     }
   },
   "result": {
-    "item": "minecraft:yellite_multitool"
+    "item": "frazionz:yellite_multitool"
   }
 }

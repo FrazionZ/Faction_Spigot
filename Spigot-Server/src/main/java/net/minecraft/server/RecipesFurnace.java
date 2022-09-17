@@ -95,9 +95,9 @@ public class RecipesFurnace {
         this.a(new ItemStack(Blocks.STAINED_HARDENED_CLAY, 1, EnumColor.RED.getColorIndex()), new ItemStack(Blocks.dP), 0.1F);
         this.a(new ItemStack(Blocks.STAINED_HARDENED_CLAY, 1, EnumColor.BLACK.getColorIndex()), new ItemStack(Blocks.dQ), 0.1F);
         
-        this.a(Items.BONE, new ItemStack(Items.loot_powder), 0.1F);
-        this.a(Items.ROTTEN_FLESH, new ItemStack(Items.loot_powder), 0.1F);
-        this.a(Items.SPIDER_EYE, new ItemStack(Items.loot_powder), 0.1F);
+        this.a(Items.BONE, new ItemStack(Items.LOOT_POWDER), 0.1F);
+        this.a(Items.ROTTEN_FLESH, new ItemStack(Items.LOOT_POWDER), 0.1F);
+        this.a(Items.SPIDER_EYE, new ItemStack(Items.LOOT_POWDER), 0.1F);
     }
 
     // CraftBukkit start - add method

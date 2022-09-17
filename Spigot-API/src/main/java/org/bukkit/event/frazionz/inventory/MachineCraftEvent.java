@@ -50,6 +50,7 @@ public class MachineCraftEvent extends CancellableEvent {
     	
     	AMELIORATOR,
     	TROPHY_FORGE,
+		ITEM_CRUSHER,
     	;
     	
     }

@@ -908,7 +908,7 @@ public final class Bukkit {
     }
     
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -922,7 +922,7 @@ public final class Bukkit {
         return server.createHdvInventory(owner, type);
     }
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -936,7 +936,7 @@ public final class Bukkit {
         return server.createHdvInventory(owner, type, title);
     }
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -950,7 +950,7 @@ public final class Bukkit {
         return server.createHdvInventory(owner, size);
     }
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -968,7 +968,7 @@ public final class Bukkit {
         return server.createSpawnerInventory(owner, type);
     }
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -982,7 +982,7 @@ public final class Bukkit {
         return server.createSpawnerInventory(owner, type, title);
     }
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -996,7 +996,7 @@ public final class Bukkit {
         return server.createSpawnerInventory(owner, size);
     }
     /**
-     * Creates an empty inventory of type {@link InventoryType#hdv_chest} with the
+     * Creates an empty inventory of type {@link InventoryType#HDV_CHEST} with the
      * specified size and title.
      *
      * @param owner the holder of the inventory, or null to indicate no holder

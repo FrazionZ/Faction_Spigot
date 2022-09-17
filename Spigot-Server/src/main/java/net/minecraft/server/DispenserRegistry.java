@@ -54,7 +54,7 @@ public class DispenserRegistry {
                 return entityspectralarrow;
             }
         });
-        BlockDispenser.REGISTRY.a(Items.dynamite_arrow, new DispenseBehaviorProjectile() {
+        BlockDispenser.REGISTRY.a(Items.DYNAMITE_ARROW, new DispenseBehaviorProjectile() {
             protected IProjectile a(World world, IPosition iposition, ItemStack itemstack) {
                 EntityDynamiteArrow entityspectralarrow = new EntityDynamiteArrow(world, iposition.getX(), iposition.getY(), iposition.getZ());
 
@@ -86,7 +86,7 @@ public class DispenserRegistry {
             }
         });
         
-        BlockDispenser.REGISTRY.a(Items.big_xp, new DispenseBehaviorProjectile() {
+        BlockDispenser.REGISTRY.a(Items.BIG_XP, new DispenseBehaviorProjectile() {
             protected IProjectile a(World world, IPosition iposition, ItemStack itemstack) {
                 return new EntityBigXp(world, iposition.getX(), iposition.getY(), iposition.getZ());
             }
@@ -562,7 +562,7 @@ public class DispenserRegistry {
                 return itemstack;
             }
         });
-        BlockDispenser.REGISTRY.a(Item.getItemOf(Blocks.z_tnt), new DispenseBehaviorItem() {
+        BlockDispenser.REGISTRY.a(Item.getItemOf(Blocks.Z_TNT), new DispenseBehaviorItem() {
             protected ItemStack b(ISourceBlock isourceblock, ItemStack itemstack) {
                 World world = isourceblock.getWorld();
                 BlockPosition blockposition = isourceblock.getBlockPosition().shift((EnumDirection) isourceblock.e().get(BlockDispenser.FACING));

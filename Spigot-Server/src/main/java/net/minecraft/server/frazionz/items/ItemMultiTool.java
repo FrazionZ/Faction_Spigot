@@ -22,8 +22,6 @@ import net.minecraft.server.Material;
 import net.minecraft.server.SoundCategory;
 import net.minecraft.server.SoundEffects;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockDirt.EnumDirtVariant;
-import net.minecraft.server.Item.EnumToolMaterial;
 
 public class ItemMultiTool extends ItemTool {
 
@@ -39,12 +37,12 @@ public class ItemMultiTool extends ItemTool {
     		Blocks.LADDER,
     		Blocks.WOODEN_BUTTON,
     		Blocks.WOODEN_PRESSURE_PLATE,
-    		Blocks.crimson_log,
+    		Blocks.CRIMSON_LOG,
     		Blocks.YELLITE_CHEST,
     		Blocks.FRAZION_CHEST,
     		Blocks.BAUXITE_CHEST,
     		Blocks.ONYX_CHEST,
-    		Blocks.dirt_chest,
+    		Blocks.DIRT_CHEST,
     		Blocks.YELLITE_BLOCK,
     		Blocks.YELLITE_ORE,
     		Blocks.BAUXITE_BLOCK,
@@ -84,13 +82,13 @@ public class ItemMultiTool extends ItemTool {
     		Blocks.STONE_BUTTON,
     		Blocks.OBSIDIAN,
     		Blocks.STONE_PRESSURE_PLATE,
-    		Blocks.sandstone2,
-    		Blocks.stone_andesite,
-    		Blocks.stone_andesite_smooth,
-    		Blocks.stone_diorite,
-    		Blocks.stone_diorite_smooth,
-    		Blocks.stone_granite,
-    		Blocks.stone_granite_smooth,
+    		Blocks.SANDSTONE2,
+    		Blocks.STONE_ANDESITE,
+    		Blocks.STONE_ANDESITE_SMOOTH,
+    		Blocks.STONE_DIORITE,
+    		Blocks.STONE_DIORITE_SMOOTH,
+    		Blocks.STONE_GRANITE,
+    		Blocks.STONE_GRANITE_SMOOTH,
     		Blocks.BAUXITE_LADDER,
     		Blocks.YELLITE_LADDER,
     		Blocks.ONYX_LADDER,
@@ -109,7 +107,7 @@ public class ItemMultiTool extends ItemTool {
     		Blocks.GRASS_PATH,
     		Blocks.dS,
     		Blocks.HAY_BLOCK,
-    		Blocks.nether_wart_block2,
+    		Blocks.NETHER_WART_BLOCK2,
     		Blocks.SPONGE,
     		Blocks.AMELIORATOR,
     		Blocks.WOODEN_SLAB,

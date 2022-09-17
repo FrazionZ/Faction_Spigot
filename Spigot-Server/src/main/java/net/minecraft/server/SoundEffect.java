@@ -561,6 +561,17 @@ public class SoundEffect {
         a("ui.toast.challenge_complete");
         a("weather.rain");
         a("weather.rain.above");
+
+        a("record.fz1");
+        a("record.fz2");
+        a("record.fz3");
+        a("record.fz4");
+        a("record.fz5");
+        a("record.fz6");
+        a("record.fz7");
+        a("record.fz8");
+        a("record.fz9");
+        a("record.fz10");
     }
 
     private static void a(String s) {

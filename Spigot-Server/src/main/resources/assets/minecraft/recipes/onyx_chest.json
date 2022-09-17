@@ -7,16 +7,16 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:onyx"
+      "item": "frazionz:onyx"
     },
     "X": {
-      "item": "minecraft:onyx_block"
+      "item": "frazionz:onyx_block"
     },
     "I":{
       "item" : "minecraft:chest"
     }
   },
   "result": {
-    "item": "minecraft:onyx_chest"
+    "item": "frazionz:onyx_chest"
   }
 }

@@ -136,30 +136,30 @@ public class CraftContainer extends Container {
                 return "minecraft:anvil";
             case HOPPER:
                 return "minecraft:hopper";
-            case z_hopper:
+            case Z_HOPPER:
                 return "minecraft:z_hopper";
             case DROPPER:
                 return "minecraft:dropper";
             case SHULKER_BOX:
                 return "minecraft:shulker_box";
-            case yellite_furnace:
+            case YELLITE_FURNACE:
                 return "minecraft:yellite_furnace";
                 
-            case bauxite_furnace:
+            case BAUXITE_FURNACE:
                 return "minecraft:bauxite_furnace";
                 
-            case onyx_furnace:
+            case ONYX_FURNACE:
                 return "minecraft:onyx_furnace";
                 
-            case frazion_furnace:
+            case FRAZION_FURNACE:
                 return "minecraft:frazion_furnace";
                 
-            case hdv_chest:
+            case HDV_CHEST:
                 return "minecraft:hdv_chest";
             case spawner_inventory:
                 return "minecraft:spawner_inventory";
                 
-            case ameliorator:
+            case AMELIORATOR:
                 return "minecraft:ameliorator";
               
             case TROPHY_FORGE:
@@ -179,22 +179,22 @@ public class CraftContainer extends Container {
             case CHEST:
                 delegate = new ContainerChest(bottom, top, entityhuman);
                 break;
-            case dirt_chest:
+            case DIRT_CHEST:
                 delegate = new ContainerDirtChest(bottom, top, entityhuman);
                 break;
-            case yellite_chest:
+            case YELLITE_CHEST:
                 delegate = new ContainerYelliteChest(bottom, top, entityhuman);
                 break;
-            case bauxite_chest:
+            case BAUXITE_CHEST:
                 delegate = new ContainerBauxiteChest(bottom, top, entityhuman);
                 break;
-            case frazion_chest:
+            case FRAZION_CHEST:
                 delegate = new ContainerFrazionChest(bottom, top, entityhuman);
                 break;
-            case onyx_chest:
+            case ONYX_CHEST:
                 delegate = new ContainerOnyxChest(bottom, top, entityhuman);
                 break;
-            case hdv_chest:
+            case HDV_CHEST:
                 delegate = new ContainerHdvChest(bottom, top, entityhuman);
             case spawner_inventory:
                 delegate = new ContainerSpawnerInventory(bottom, top, entityhuman);
@@ -203,23 +203,23 @@ public class CraftContainer extends Container {
             case DROPPER:
                 delegate = new ContainerDispenser(bottom, top);
                 break;
-            case yellite_furnace:
+            case YELLITE_FURNACE:
                 delegate = new ContainerYelliteFurnace(bottom, top);
                 break;
                 
-            case bauxite_furnace:
+            case BAUXITE_FURNACE:
                 delegate = new ContainerBauxiteFurnace(bottom, top);
                 break;
                 
-            case onyx_furnace:
+            case ONYX_FURNACE:
                 delegate = new ContainerOnyxFurnace(bottom, top);
                 break;
                 
-            case frazion_furnace:
+            case FRAZION_FURNACE:
                 delegate = new ContainerFrazionFurnace(bottom, top);
                 break;
                 
-            case ameliorator:
+            case AMELIORATOR:
                 delegate = new ContainerAmeliorator(bottom, top);
                 break;
                 
@@ -248,7 +248,7 @@ public class CraftContainer extends Container {
             case SHULKER_BOX:
                 delegate = new ContainerShulkerBox(bottom, top, entityhuman);
                 break;
-            case z_hopper:
+            case Z_HOPPER:
                 delegate = new ContainerZHopper(bottom, top, entityhuman);
         }
 

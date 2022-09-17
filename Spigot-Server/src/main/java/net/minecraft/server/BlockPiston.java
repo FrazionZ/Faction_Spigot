@@ -7,9 +7,6 @@ import javax.annotation.Nullable;
 
 // CraftBukkit start
 import java.util.AbstractList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.ListIterator;
 
 import com.google.common.collect.ImmutableList;
 import org.bukkit.craftbukkit.block.CraftBlock;

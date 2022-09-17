@@ -1,7 +1,5 @@
 package net.minecraft.server;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.IOException;
 import java.util.UUID;
 
@@ -11,7 +9,7 @@ public class PacketPlayOutUpdateSkin implements Packet<PacketListenerPlayOut> {
 
     public PacketPlayOutUpdateSkin() {}
 
-    public PacketPlayOutUpdateSkin(@NotNull UUID uuid) {
+    public PacketPlayOutUpdateSkin(UUID uuid) {
          this.uuid = uuid;
     }
 

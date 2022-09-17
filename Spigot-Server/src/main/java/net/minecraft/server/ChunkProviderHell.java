@@ -39,8 +39,8 @@ public class ChunkProviderHell implements ChunkGenerator
     private final WorldGenHellLava F;
     private final WorldGenMushrooms G;
     private final WorldGenMushrooms H;
-    private final WorldGenMushrooms crimson_roots = new WorldGenMushrooms(Blocks.crimson_roots);
-    private final WorldGenMushrooms crimson_fungi = new WorldGenMushrooms(Blocks.crimson_fungi);
+    private final WorldGenMushrooms crimson_roots = new WorldGenMushrooms(Blocks.CRIMSON_ROOTS);
+    private final WorldGenMushrooms crimson_fungi = new WorldGenMushrooms(Blocks.CRIMSON_FUNGI);
     private final WorldGenNether I;
     private final WorldGenBase J;
     private final WorldGenNetherTrees treesGen = new WorldGenNetherTrees(false);

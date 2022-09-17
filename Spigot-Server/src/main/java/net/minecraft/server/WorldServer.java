@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityGrimoirePedestal;
+import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.WeatherType;
@@ -138,57 +140,11 @@ public class WorldServer extends World implements IAsyncTaskHandler {
             if (!(result instanceof TileEntityChest)) {
                 result = fixTileEntity(pos, type, result);
             }
-        } else if (type == Blocks.FURNACE) {
+        }
+        else if (type == Blocks.FURNACE) {
             if (!(result instanceof TileEntityFurnace)) {
                 result = fixTileEntity(pos, type, result);
             }
-        }
-        else if (type == Blocks.YELLITE_FURNACE)
-        {
-        	if (!(result instanceof TileEntityYelliteFurnace))
-        	{
-            	result = fixTileEntity(pos, type, result);
-        	}
-        }
-        
-        else if (type == Blocks.BAUXITE_FURNACE)
-        {
-        	if (!(result instanceof TileEntityBauxiteFurnace))
-        	{
-            	result = fixTileEntity(pos, type, result);
-        	}
-        }
-        
-        else if (type == Blocks.ONYX_FURNACE)
-        {
-        	if (!(result instanceof TileEntityOnyxFurnace))
-        	{
-            	result = fixTileEntity(pos, type, result);
-        	}
-        }
-        
-        else if (type == Blocks.FRAZION_FURNACE)
-        {
-        	if (!(result instanceof TileEntityFrazionFurnace))
-        	{
-            	result = fixTileEntity(pos, type, result);
-        	}
-        }
-        
-        else if (type == Blocks.AMELIORATOR)
-        {
-        	if (!(result instanceof TileEntityAmeliorator))
-        	{
-            	result = fixTileEntity(pos, type, result);
-        	}
-        }
-        
-        else if (type == Blocks.TROPHY_FORGE)
-        {
-        	if (!(result instanceof TileEntityTrophyForge))
-        	{
-            	result = fixTileEntity(pos, type, result);
-        	}
         }
         
         else if (type == Blocks.DROPPER) {
@@ -232,11 +188,7 @@ public class WorldServer extends World implements IAsyncTaskHandler {
                 result = fixTileEntity(pos, type, result);
             }
         }
-        else if (type == Blocks.Z_HOPPER) {
-            if (!(result instanceof TileEntityZHopper)) {
-                result = fixTileEntity(pos, type, result);
-            }
-        } else if (type == Blocks.ENCHANTING_TABLE) {
+        else if (type == Blocks.ENCHANTING_TABLE) {
             if (!(result instanceof TileEntityEnchantTable)) {
                 result = fixTileEntity(pos, type, result);
             }
@@ -285,7 +237,8 @@ public class WorldServer extends World implements IAsyncTaskHandler {
                 result = fixTileEntity(pos, type, result);
             }
         }
-        else if (type == Blocks.dirt_chest) { // Spigot
+
+        else if (type == Blocks.DIRT_CHEST) { // Spigot
             if (!(result instanceof TileEntityDirtChest)) {
                 result = fixTileEntity(pos, type, result);
             }
@@ -296,27 +249,97 @@ public class WorldServer extends World implements IAsyncTaskHandler {
                 result = fixTileEntity(pos, type, result);
             }
         }
-        
+
         else if (type == Blocks.BAUXITE_CHEST) { // Spigot
             if (!(result instanceof TileEntityBauxiteChest)) {
                 result = fixTileEntity(pos, type, result);
             }
         }
-        
+
         else if (type == Blocks.FRAZION_CHEST) { // Spigot
             if (!(result instanceof TileEntityFrazionChest)) {
                 result = fixTileEntity(pos, type, result);
             }
         }
-        
+
         else if (type == Blocks.ONYX_CHEST) { // Spigot
             if (!(result instanceof TileEntityOnyxChest)) {
                 result = fixTileEntity(pos, type, result);
             }
         }
-        
-        else if (type == Blocks.hdv_chest) { // Spigot
+
+        else if (type == Blocks.HDV_CHEST) { // Spigot
             if (!(result instanceof TileEntityHdvChest)) {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.Z_HOPPER) {
+            if (!(result instanceof TileEntityZHopper)) {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.YELLITE_FURNACE)
+        {
+            if (!(result instanceof TileEntityYelliteFurnace))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.BAUXITE_FURNACE)
+        {
+            if (!(result instanceof TileEntityBauxiteFurnace))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.ONYX_FURNACE)
+        {
+            if (!(result instanceof TileEntityOnyxFurnace))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.FRAZION_FURNACE)
+        {
+            if (!(result instanceof TileEntityFrazionFurnace))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.AMELIORATOR)
+        {
+            if (!(result instanceof TileEntityAmeliorator))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.TROPHY_FORGE)
+        {
+            if (!(result instanceof TileEntityTrophyForge))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.ITEM_CRUSHER)
+        {
+            if (!(result instanceof TileEntityItemCrusher))
+            {
+                result = fixTileEntity(pos, type, result);
+            }
+        }
+
+        else if (type == Blocks.GRIMOIRE_PEDESTAL)
+        {
+            if (!(result instanceof TileEntityGrimoirePedestal))
+            {
                 result = fixTileEntity(pos, type, result);
             }
         }

@@ -553,6 +553,17 @@ public class SoundEffects {
     public static final SoundEffect jB;
     public static final SoundEffect jC;
 
+    public static final SoundEffect FZ_RECORD_1;
+    public static final SoundEffect FZ_RECORD_2;
+    public static final SoundEffect FZ_RECORD_3;
+    public static final SoundEffect FZ_RECORD_4;
+    public static final SoundEffect FZ_RECORD_5;
+    public static final SoundEffect FZ_RECORD_6;
+    public static final SoundEffect FZ_RECORD_7;
+    public static final SoundEffect FZ_RECORD_8;
+    public static final SoundEffect FZ_RECORD_9;
+    public static final SoundEffect FZ_RECORD_10;
+
     private static SoundEffect a(String s) {
         SoundEffect soundeffect = (SoundEffect) SoundEffect.a.get(new MinecraftKey(s));
 
@@ -1117,6 +1128,17 @@ public class SoundEffects {
             jA = a("entity.zombie_villager.death");
             jB = a("entity.zombie_villager.hurt");
             jC = a("entity.zombie_villager.step");
+
+            FZ_RECORD_1 = a("record.fz1");
+            FZ_RECORD_2 = a("record.fz2");
+            FZ_RECORD_3 = a("record.fz3");
+            FZ_RECORD_4 = a("record.fz4");
+            FZ_RECORD_5 = a("record.fz5");
+            FZ_RECORD_6 = a("record.fz6");
+            FZ_RECORD_7 = a("record.fz7");
+            FZ_RECORD_8 = a("record.fz8");
+            FZ_RECORD_9 = a("record.fz9");
+            FZ_RECORD_10 = a("record.fz10");
         }
     }
 }

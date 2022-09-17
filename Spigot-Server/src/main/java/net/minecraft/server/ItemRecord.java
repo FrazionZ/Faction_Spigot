@@ -9,7 +9,7 @@ public class ItemRecord extends Item {
     private final SoundEffect b;
     private final String c;
 
-    protected ItemRecord(String s, SoundEffect soundeffect) {
+    public ItemRecord(String s, SoundEffect soundeffect) {
         this.c = "item.record." + s + ".desc";
         this.b = soundeffect;
         this.maxStackSize = 1;

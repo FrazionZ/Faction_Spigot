@@ -10,11 +10,11 @@
       "item": "minecraft:obsidian"
     },
     "Z": {
-      "item": "minecraft:onyx"
+      "item": "frazionz:onyx"
     }
   },
   "result": {
-    "item": "minecraft:obsidian_onyx",
+    "item": "frazionz:obsidian_onyx",
     "count": 4
   }
 }

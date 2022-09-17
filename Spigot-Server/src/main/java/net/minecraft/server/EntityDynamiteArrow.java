@@ -24,7 +24,7 @@ public class EntityDynamiteArrow extends EntityArrow {
     }
 
     protected ItemStack j() {
-        return new ItemStack(Items.dynamite_arrow);
+        return new ItemStack(Items.DYNAMITE_ARROW);
     }
 
     public static void c(DataConverterManager dataconvertermanager) {

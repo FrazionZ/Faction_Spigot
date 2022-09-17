@@ -7,10 +7,10 @@
     ],
       "key": {
        "Z": {
-        "item" : "minecraft:compact_cobblestone_x1"
+        "item" : "frazionz:compact_cobblestone_x1"
         } 
     },
     "result": {
-      "item": "minecraft:compact_cobblestone_x2"
+      "item": "frazionz:compact_cobblestone_x2"
     }
 }

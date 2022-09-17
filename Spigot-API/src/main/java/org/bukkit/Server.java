@@ -739,7 +739,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createInventory(InventoryHolder owner, int size, String title) throws IllegalArgumentException;
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -749,7 +749,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createHdvInventory(InventoryHolder owner, InventoryType type);
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -759,7 +759,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createHdvInventory(InventoryHolder owner, InventoryType type, String title);
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -769,7 +769,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createHdvInventory(InventoryHolder owner, int size) throws IllegalArgumentException;
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -782,7 +782,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createSpawnerInventory(InventoryHolder owner, InventoryType type);
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -792,7 +792,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createSpawnerInventory(InventoryHolder owner, InventoryType type, String title);
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder
@@ -802,7 +802,7 @@ public interface Server extends PluginMessageRecipient {
     Inventory createSpawnerInventory(InventoryHolder owner, int size) throws IllegalArgumentException;
     /**
      * Creates an empty inventory of the specified type. If the type is {@link
-     * InventoryType#hdv_chest}, the new inventory has a size of 27; otherwise the
+     * InventoryType#HDV_CHEST}, the new inventory has a size of 27; otherwise the
      * new inventory has the normal size for its type.
      *
      * @param owner the holder of the inventory, or null to indicate no holder

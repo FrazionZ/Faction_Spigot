@@ -272,8 +272,8 @@ public class Blocks {
     public static final Block dS;
     public static final Block STRUCTURE_BLOCK;
     
-    public static final BlockDirtChest dirt_chest;
-    public static final BlockHdvChest hdv_chest;
+    public static final BlockDirtChest DIRT_CHEST;
+    public static final BlockHdvChest HDV_CHEST;
     
     public static final Block YELLITE_ORE;
     public static final Block YELLITE_BLOCK;
@@ -309,24 +309,24 @@ public class Blocks {
 
     public static final BlockZHopper Z_HOPPER;
     
-    public static final Block cristal_bleu;
-    public static final Block cristal_rouge;
-    public static final Block cristal_vert;
-    public static final Block cristal_jaune;
-    public static final Block cristal_violet;
+    public static final Block CRYSTAL_BLEU;
+    public static final Block CRYSTAL_ROUGE;
+    public static final Block CRYSTAL_VERT;
+    public static final Block CRYSTAL_JAUNE;
+    public static final Block CRYSTAL_VIOLET;
     
-    public static final Block crimson_log;
-    public static final BlockCrimsonRoots crimson_roots;
-    public static final BlockCrimsonFungi crimson_fungi;
+    public static final Block CRIMSON_LOG;
+    public static final BlockCrimsonRoots CRIMSON_ROOTS;
+    public static final BlockCrimsonFungi CRIMSON_FUNGI;
     
-    public static final Block nether_wart_block2;
-    public static final Block sandstone2;
-    public static final Block stone_andesite;
-    public static final Block stone_andesite_smooth;
-    public static final Block stone_granite;
-    public static final Block stone_granite_smooth;
-    public static final Block stone_diorite;
-    public static final Block stone_diorite_smooth;
+    public static final Block NETHER_WART_BLOCK2;
+    public static final Block SANDSTONE2;
+    public static final Block STONE_ANDESITE;
+    public static final Block STONE_ANDESITE_SMOOTH;
+    public static final Block STONE_GRANITE;
+    public static final Block STONE_GRANITE_SMOOTH;
+    public static final Block STONE_DIORITE;
+    public static final Block STONE_DIORITE_SMOOTH;
     
     public static final Block RANDOM_ORE;
     
@@ -334,11 +334,11 @@ public class Blocks {
     
     public static final Block RENFORCED_SAND;
     
-    public static final Block z_tnt;
+    public static final Block Z_TNT;
     
     public static final Block WITHER_BLOCK;
-    public static final Block compact_cobblestone_x1;
-    public static final Block compact_cobblestone_x2;
+    public static final Block COMPACT_COBBLESTONE_X1;
+    public static final Block COMPACT_COBBLESTONE_X2;
     public static final Block COMPACT_COBBLESTONE_X3;
     public static final Block COMPACT_COBBLESTONE_X4;
     public static final Block COMPACT_COBBLESTONE_X5;
@@ -349,8 +349,10 @@ public class Blocks {
     
     public static final Block BLOCK_PLACER_CHEST;
     public static final Block BLOCK_PLACER_TRAPCHEST;
-    
+
     public static final Block TROPHY_FORGE;
+    public static final Block GRIMOIRE_PEDESTAL;
+    public static final Block ITEM_CRUSHER;
     
     @Nullable
     private static Block get(String s) {
@@ -622,86 +624,90 @@ public class Blocks {
             dR = get("concrete");
             dS = get("concrete_powder");
             STRUCTURE_BLOCK = get("structure_block");
-            
-            dirt_chest = (BlockDirtChest) get("dirt_chest");            
-            YELLITE_CHEST = (BlockYelliteChest) get("yellite_chest");
-            BAUXITE_CHEST = (BlockBauxiteChest) get("bauxite_chest");
-            ONYX_CHEST = (BlockOnyxChest) get("onyx_chest");
-            FRAZION_CHEST = (BlockFrazionChest) get("frazion_chest");
-            hdv_chest = (BlockHdvChest) get("hdv_chest");
-            
-            YELLITE_ORE = get("yellite_ore");
-            YELLITE_BLOCK = get("yellite_block");
-            BAUXITE_ORE = get("bauxite_ore");
-            BAUXITE_BLOCK = get("bauxite_block");
-            ONYX_ORE = get("onyx_ore");
-            ONYX_BLOCK = get("onyx_block");
-            FRAZION_ORE = get("frazion_ore");
-            FRAZION_BLOCK = get("frazion_block");
-            
-            Z_HOPPER = (BlockZHopper) get("z_hopper");
-            
-            cristal_bleu = get("cristal_bleu");
-            cristal_rouge = get("cristal_rouge");
-            cristal_vert = get("cristal_vert");
-            cristal_jaune = get("cristal_jaune");
-            cristal_violet = get("cristal_violet");
-            
-            YELLITE_FURNACE = get("yellite_furnace");
-            LIT_YELLITE_FURNACE = get("lit_yellite_furnace");
-            BAUXITE_FURNACE = get("bauxite_furnace");
-            LIT_BAUXITE_FURNACE = get("lit_bauxite_furnace");
-            ONYX_FURNACE = get("onyx_furnace");
-            LIT_ONYX_FURNACE = get("lit_onyx_furnace");
-            FRAZION_FURNACE = get("frazion_furnace");
-            LIT_FRAZION_FURNACE = get("lit_frazion_furnace");
-            
-            BAUXITE_LADDER = get("bauxite_ladder");
-            YELLITE_LADDER = get("yellite_ladder");
-            ONYX_LADDER = get("onyx_ladder");
-            FRAZION_LADDER = get("frazion_ladder");
-            
-            crimson_log = get("crimson_log");
-            crimson_roots = (BlockCrimsonRoots) get("crimson_roots");
-            crimson_fungi = (BlockCrimsonFungi) get("crimson_fungi");
-            
-            nether_wart_block2 = get("nether_wart_block2");
-            sandstone2 = get("sandstone2");
-            stone_andesite = get("stone_andesite");
-            stone_andesite_smooth = get("stone_andesite_smooth");
-            stone_granite = get("stone_granite");
-            stone_granite_smooth = get("stone_granite_smooth");
-            stone_diorite = get("stone_diorite");
-            stone_diorite_smooth = get("stone_diorite_smooth");
-            RANDOM_ORE = get("random_ore");
-            
-            AMELIORATOR = get("ameliorator");
-            
-            OBSIDIAN_YELLITE = get("obsidian_yellite");
-            OBSIDIAN_BAUXITE = get("obsidian_bauxite");
-            OBSIDIAN_ONYX = get("obsidian_onyx");
-            OBSIDIAN_FRAZION = get("obsidian_frazion");
-            
-            RENFORCED_SAND = get("renforced_sand");
-            
-            z_tnt = get("z_tnt");
-            
-            WITHER_BLOCK = get("wither_block");
-            
-            compact_cobblestone_x1 = get("compact_cobblestone_x1");
-            compact_cobblestone_x2 = get("compact_cobblestone_x2");
-            COMPACT_COBBLESTONE_X3 = get("compact_cobblestone_x3");
-            COMPACT_COBBLESTONE_X4 = get("compact_cobblestone_x4");
-            COMPACT_COBBLESTONE_X5 = get("compact_cobblestone_x5");
-            REVERSE_FALL_BLOCK = get("reverse_fall_block");
-            
-            STONE_BLACKSTONE = get("stone_blackstone");
-            STONE_BLACKSTONE_SMOOTH = get("stone_blackstone_smooth");
-            
-            BLOCK_PLACER_CHEST = get("block_placer_chest");
-            BLOCK_PLACER_TRAPCHEST = get("block_placer_trapchest");
-            
-            TROPHY_FORGE = get("trophy_forge");
+
+            DIRT_CHEST = (BlockDirtChest)get("frazionz:dirt_chest");
+
+            YELLITE_ORE = get("frazionz:yellite_ore");
+            YELLITE_BLOCK = get("frazionz:yellite_block");
+            YELLITE_LADDER = get("frazionz:yellite_ladder");
+            YELLITE_CHEST = (BlockYelliteChest)get("frazionz:yellite_chest");
+
+            BAUXITE_ORE = get("frazionz:bauxite_ore");
+            BAUXITE_BLOCK = get("frazionz:bauxite_block");
+            BAUXITE_LADDER = get("frazionz:bauxite_ladder");
+            BAUXITE_CHEST = (BlockBauxiteChest)get("frazionz:bauxite_chest");
+
+            ONYX_ORE = get("frazionz:onyx_ore");
+            ONYX_BLOCK = get("frazionz:onyx_block");
+            ONYX_LADDER = get("frazionz:onyx_ladder");
+            ONYX_CHEST = (BlockOnyxChest)get("frazionz:onyx_chest");
+
+            FRAZION_ORE = get("frazionz:frazion_ore");
+            FRAZION_BLOCK = get("frazionz:frazion_block");
+            FRAZION_LADDER = get("frazionz:frazion_ladder");
+            FRAZION_CHEST = (BlockFrazionChest)get("frazionz:frazion_chest");
+
+            Z_HOPPER = (BlockZHopper)get("frazionz:z_hopper");
+            HDV_CHEST = (BlockHdvChest)get("frazionz:hdv_chest");
+            CRYSTAL_ROUGE = get("frazionz:cristal_rouge");
+            CRYSTAL_JAUNE = get("frazionz:cristal_jaune");
+            CRYSTAL_VIOLET = get("frazionz:cristal_violet");
+            CRYSTAL_VERT = get("frazionz:cristal_vert");
+            CRYSTAL_BLEU = get("frazionz:cristal_bleu");
+            OBSIDIAN_YELLITE = get("frazionz:obsidian_yellite");
+            OBSIDIAN_BAUXITE = get("frazionz:obsidian_bauxite");
+            OBSIDIAN_ONYX = get("frazionz:obsidian_onyx");
+            OBSIDIAN_FRAZION = get("frazionz:obsidian_frazion");
+            Z_TNT = get("frazionz:z_tnt");
+
+            YELLITE_FURNACE = get("frazionz:yellite_furnace");
+            LIT_YELLITE_FURNACE = get("frazionz:lit_yellite_furnace");
+
+            BAUXITE_FURNACE = get("frazionz:bauxite_furnace");
+            LIT_BAUXITE_FURNACE = get("frazionz:lit_bauxite_furnace");
+
+            ONYX_FURNACE = get("frazionz:onyx_furnace");
+            LIT_ONYX_FURNACE = get("frazionz:lit_onyx_furnace");
+
+            FRAZION_FURNACE = get("frazionz:frazion_furnace");
+            LIT_FRAZION_FURNACE = get("frazionz:lit_frazion_furnace");
+
+            CRIMSON_LOG = get("frazionz:crimson_log");
+            CRIMSON_ROOTS = (BlockCrimsonRoots)get("frazionz:crimson_roots");
+            CRIMSON_FUNGI = (BlockCrimsonFungi)get("frazionz:crimson_fungi");
+
+            NETHER_WART_BLOCK2 = get("frazionz:nether_wart_block2");
+            SANDSTONE2 = get("frazionz:sandstone2");
+            STONE_ANDESITE = get("frazionz:stone_andesite");
+            STONE_ANDESITE_SMOOTH = get("frazionz:stone_andesite_smooth");
+            STONE_GRANITE = get("frazionz:stone_granite");
+            STONE_GRANITE_SMOOTH = get("frazionz:stone_granite_smooth");
+            STONE_DIORITE = get("frazionz:stone_diorite");
+            STONE_DIORITE_SMOOTH = get("frazionz:stone_diorite_smooth");
+
+            RANDOM_ORE = get("frazionz:random_ore");
+
+            AMELIORATOR = get("frazionz:ameliorator");
+
+            RENFORCED_SAND = get("frazionz:renforced_sand");
+
+            WITHER_BLOCK = get("frazionz:wither_block");
+
+            COMPACT_COBBLESTONE_X1 = get("frazionz:compact_cobblestone_x1");
+            COMPACT_COBBLESTONE_X2 = get("frazionz:compact_cobblestone_x2");
+            COMPACT_COBBLESTONE_X3 = get("frazionz:compact_cobblestone_x3");
+            COMPACT_COBBLESTONE_X4 = get("frazionz:compact_cobblestone_x4");
+            COMPACT_COBBLESTONE_X5 = get("frazionz:compact_cobblestone_x5");
+
+            REVERSE_FALL_BLOCK = get("frazionz:reverse_fall_block");
+
+            STONE_BLACKSTONE = get("frazionz:stone_blackstone");
+            STONE_BLACKSTONE_SMOOTH = get("frazionz:stone_blackstone_smooth");
+            BLOCK_PLACER_CHEST = get("frazionz:block_placer_chest");
+            BLOCK_PLACER_TRAPCHEST = get("frazionz:block_placer_trapchest");
+            TROPHY_FORGE = get("frazionz:trophy_forge");
+            GRIMOIRE_PEDESTAL = get("frazionz:grimoire_pedestal");
+            ITEM_CRUSHER = get("frazionz:item_crusher");
             
             Blocks.dU.clear();
         }

@@ -8,7 +8,7 @@ public class BlockRotatable extends Block {
         super(material, material.r());
     }
 
-    protected BlockRotatable(Material material, MaterialMapColor materialmapcolor) {
+    public BlockRotatable(Material material, MaterialMapColor materialmapcolor) {
         super(material, materialmapcolor);
     }
 

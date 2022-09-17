@@ -7,19 +7,19 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:onyx_pickaxe"
+      "item": "frazionz:onyx_pickaxe"
     },
     "X": {
       "item": "minecraft:stick"
     },
     "I":{
-      "item": "minecraft:onyx_shovel"
+      "item": "frazionz:onyx_shovel"
     },
     "i":{
-      "item": "minecraft:onyx_axe"
+      "item": "frazionz:onyx_axe"
     }
   },
   "result": {
-    "item": "minecraft:onyx_multitool"
+    "item": "frazionz:onyx_multitool"
   }
 }
