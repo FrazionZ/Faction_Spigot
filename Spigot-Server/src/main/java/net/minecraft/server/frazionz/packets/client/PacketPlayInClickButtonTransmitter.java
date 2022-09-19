@@ -1,10 +1,7 @@
-package net.minecraft.server.frazionz.packets.server;
+package net.minecraft.server.frazionz.packets.client;
 
 import java.io.IOException;
 import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.frazionz.FzServerSwitchEvent;
 
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketDataSerializer;

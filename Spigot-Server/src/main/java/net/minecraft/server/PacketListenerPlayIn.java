@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
+
 public interface PacketListenerPlayIn extends PacketListener {
 
     void a(PacketPlayInArmAnimation packetplayinarmanimation);
@@ -62,7 +64,9 @@ public interface PacketListenerPlayIn extends PacketListener {
 
     void a(PacketPlayInAdvancements packetplayinadvancements);
     
-    void processStartTrophyForge(PacketPlayInTrophyForge packetIn);
+    void processStartTrophyForge(PacketPlayInStartMachine packetIn);
 
     void processStartUpdateSkin(PacketPlayInUpdateSkin packetIn);
+
+    void processClientAskOpenGui(PacketPlayInGuiOpener packetIn);
 }

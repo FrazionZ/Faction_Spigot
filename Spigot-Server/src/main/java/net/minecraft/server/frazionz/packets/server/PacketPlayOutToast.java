@@ -1,4 +1,4 @@
-package net.minecraft.server.frazionz.packets.client;
+package net.minecraft.server.frazionz.packets.server;
 
 import java.io.IOException;
 import java.util.Locale;

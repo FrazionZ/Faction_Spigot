@@ -10,9 +10,12 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
+import fz.frazionz.event.packets.ClientAskOpenGuiEvent;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
@@ -2607,7 +2610,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
     }
 	
 	@Override
-    public void processStartTrophyForge(PacketPlayInTrophyForge packet)
+    public void processStartTrophyForge(PacketPlayInStartMachine packet)
     {
         PlayerConnectionUtils.ensureMainThread(packet, this, this.player.x());
         if (this.player.isFrozen()) return; // CraftBukkit
@@ -2628,5 +2631,11 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
     public void processStartUpdateSkin(PacketPlayInUpdateSkin packet)
     {
 
+    }
+
+    @Override
+    public void processClientAskOpenGui(PacketPlayInGuiOpener packetIn) {
+        Event event = new ClientAskOpenGuiEvent(this.server.getPlayer(this.player), packetIn.getGui());
+        Bukkit.getServer().getPluginManager().callEvent(event);
     }
 }

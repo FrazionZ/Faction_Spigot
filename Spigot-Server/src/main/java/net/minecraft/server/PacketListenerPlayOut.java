@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutSkillUpdater;
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutToast;
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutUpdateData;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutSkillUpdater;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutToast;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutUpdateData;
 
 public interface PacketListenerPlayOut extends PacketListener {
 

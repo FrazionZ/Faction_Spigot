@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class PacketPlayInTrophyForge implements Packet<PacketListenerPlayIn> {
+public class PacketPlayInStartMachine implements Packet<PacketListenerPlayIn> {
 
     private int windowId;
 
-    public PacketPlayInTrophyForge() {}
+    public PacketPlayInStartMachine() {}
 
     public void a(PacketListenerPlayIn packetlistenerplayin) {
         packetlistenerplayin.processStartTrophyForge(this);

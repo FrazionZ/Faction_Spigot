@@ -4,9 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutToast;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutToast;
 
-import java.util.Locale;
 import java.util.UUID;
 
 public class FrazionZUtils {

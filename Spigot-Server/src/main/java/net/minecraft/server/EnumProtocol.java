@@ -11,21 +11,22 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
 
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutGuiOpener;
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutSkillUpdater;
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutToast;
-import net.minecraft.server.frazionz.packets.client.PacketPlayOutUpdateData;
-import net.minecraft.server.frazionz.packets.server.PacketPlayInSkillClaimButton;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutSkillUpdater;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutToast;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutUpdateData;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInSkillClaimButton;
 
 public enum EnumProtocol {
 
-    HANDSHAKING(-1) 
-    {;
+    HANDSHAKING(-1)
+    {
         {
             this.a(EnumProtocolDirection.SERVERBOUND, PacketHandshakingInSetProtocol.class);
         }
-    }, PLAY(0) 
-    {;
+    },
+	PLAY(0)
+    {
     	{
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutSpawnEntity.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutSpawnEntityExperienceOrb.class);
@@ -140,27 +141,29 @@ public enum EnumProtocol {
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInSpectate.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInUseItem.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInBlockPlace.class);
-	        
+
 	        // FrazionZ Packet //
-	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInTrophyForge.class);
+	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInStartMachine.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInServerSwitcher.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInShopTrade.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInSkillClaimButton.class);
-	        
-	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutGuiOpener.class);
+	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInGuiOpener.class);
+
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutUpdateData.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutToast.class);
 			this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutUpdateSkin.class);
 			this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutSkillUpdater.class);
     	}
-    }, STATUS(1) {;
+    },
+	STATUS(1) {
     	{
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketStatusInStart.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketStatusOutServerInfo.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketStatusInPing.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketStatusOutPong.class);
     	}
-    }, LOGIN(2) {;
+    },
+	LOGIN(2) {
     	{
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketLoginOutDisconnect.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketLoginOutEncryptionBegin.class);
