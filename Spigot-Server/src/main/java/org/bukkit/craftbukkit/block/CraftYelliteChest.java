@@ -5,12 +5,9 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.inventory.CraftInventory;
-import org.bukkit.craftbukkit.inventory.CraftInventoryDoubleChest;
 import org.bukkit.inventory.Inventory;
 
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.TileEntityChest;
-import net.minecraft.server.TileEntityYelliteChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityYelliteChest;
 
 public class CraftYelliteChest extends CraftLootable<TileEntityYelliteChest> implements Chest {
 

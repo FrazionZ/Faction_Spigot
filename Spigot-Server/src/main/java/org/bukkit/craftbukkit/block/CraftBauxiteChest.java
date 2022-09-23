@@ -7,7 +7,7 @@ import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.inventory.CraftInventory;
 import org.bukkit.inventory.Inventory;
 
-import net.minecraft.server.TileEntityBauxiteChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityBauxiteChest;
 
 public class CraftBauxiteChest extends CraftLootable<TileEntityBauxiteChest> implements Chest {
 

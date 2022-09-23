@@ -11,7 +11,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 import fz.frazionz.event.packets.ClientAskOpenGuiEvent;
+import net.minecraft.server.frazionz.inventory.tileentity.ContainerTrophyForge;
 import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInShopTrade;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +30,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
+import org.bukkit.event.frazionz.ClientShopTradeEvent;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryAction;
@@ -2635,7 +2638,13 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
 
     @Override
     public void processClientAskOpenGui(PacketPlayInGuiOpener packetIn) {
-        Event event = new ClientAskOpenGuiEvent(this.server.getPlayer(this.player), packetIn.getGui());
+        Event event = new ClientAskOpenGuiEvent(this.server.getPlayer(this.player), packetIn.getGui(), packetIn.getInfo());
+        Bukkit.getServer().getPluginManager().callEvent(event);
+    }
+
+    @Override
+    public void processClientShopTrade(PacketPlayInShopTrade packet) {
+        Event event = new ClientShopTradeEvent(this.server.getPlayer(this.player), packet.getGui(), packet.getId(), packet.getAmount(), packet.getTradeType());
         Bukkit.getServer().getPluginManager().callEvent(event);
     }
 }

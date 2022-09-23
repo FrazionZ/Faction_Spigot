@@ -29,7 +29,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityZHopper;
+import net.minecraft.server.frazionz.tileentity.TileEntityZHopper;
 import net.minecraft.server.World;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 

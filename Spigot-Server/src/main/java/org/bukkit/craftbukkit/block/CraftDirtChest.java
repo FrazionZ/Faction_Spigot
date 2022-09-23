@@ -7,7 +7,7 @@ import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.inventory.CraftInventory;
 import org.bukkit.inventory.Inventory;
 
-import net.minecraft.server.TileEntityDirtChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityDirtChest;
 
 public class CraftDirtChest extends CraftLootable<TileEntityDirtChest> implements Chest {
 

@@ -14,8 +14,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.server.frazionz.tileentity.TileEntityGrimoirePedestal;
-import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
+import net.minecraft.server.frazionz.tileentity.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.WeatherType;

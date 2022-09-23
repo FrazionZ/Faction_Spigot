@@ -26,7 +26,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Material;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityAmeliorator;
+import net.minecraft.server.frazionz.tileentity.TileEntityAmeliorator;
 import net.minecraft.server.World;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
@@ -139,25 +139,6 @@ public class BlockAmeliorator extends BlockTileEntity implements FzExplosionBloc
 	        {
 	        	InventoryUtils.dropInventory(worldIn, pos, (TileEntityAmeliorator)tileentity);
 	        }
-        }
-    }
-    
-    
-    public static void setState(boolean active, World worldIn, BlockPosition pos)
-    {
-    	IBlockData iblockstate = worldIn.getType(pos);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
-        keepInventory = true;
-        
-        worldIn.setTypeAndData(pos, Blocks.AMELIORATOR.getBlockData(), 3);
-        worldIn.setTypeAndData(pos, Blocks.AMELIORATOR.getBlockData(), 3);
-
-        keepInventory = false;
-
-        if (tileentity != null)
-        {
-            tileentity.A();
-            worldIn.setTileEntity(pos, tileentity);
         }
     }
 

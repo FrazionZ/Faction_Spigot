@@ -31,7 +31,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Material;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityTrophyForge;
+import net.minecraft.server.frazionz.tileentity.TileEntityTrophyForge;
 import net.minecraft.server.World;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 

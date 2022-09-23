@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.minecraft.server.MaterialMapColor;
+import org.bukkit.metadata.map.MapPalette;
 import org.junit.Assert;
 import org.junit.Test;
 

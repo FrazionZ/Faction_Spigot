@@ -6,7 +6,7 @@ import org.bukkit.block.TrophyForge;
 import org.bukkit.craftbukkit.inventory.CraftInventoryTrophyForge;
 import org.bukkit.inventory.TrophyForgeInventory;
 
-import net.minecraft.server.TileEntityTrophyForge;
+import net.minecraft.server.frazionz.tileentity.TileEntityTrophyForge;
 
 public class CraftTrophyForge extends CraftContainer<TileEntityTrophyForge> implements TrophyForge {
 

@@ -6,7 +6,7 @@ import org.bukkit.block.Furnace;
 import org.bukkit.craftbukkit.inventory.CraftInventoryYelliteFurnace;
 import org.bukkit.inventory.FurnaceInventory;
 
-import net.minecraft.server.TileEntityYelliteFurnace;
+import net.minecraft.server.frazionz.tileentity.TileEntityYelliteFurnace;
 
 public class CraftYelliteFurnace extends CraftContainer<TileEntityYelliteFurnace> implements Furnace {
 

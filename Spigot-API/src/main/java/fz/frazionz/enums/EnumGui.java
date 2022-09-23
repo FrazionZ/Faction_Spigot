@@ -12,6 +12,7 @@ public enum EnumGui {
     SHOP_ITEM("FZ|Shop_Item"),
     SKILL_MENU("FZ|Skill_Menu"),
     SERVER_SWITCHER("FZ|Server_Switcher"),
+    CUSTOM_GUI("FZ|Custom_Gui"),
     NULL("FZ|Null"),
     ;
 

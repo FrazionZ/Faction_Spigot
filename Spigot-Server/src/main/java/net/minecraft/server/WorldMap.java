@@ -14,6 +14,7 @@ import java.util.UUID;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.map.CraftMapView;
+import org.bukkit.metadata.map.MapCursor;
 // CraftBukkit end
 
 public class WorldMap extends PersistentBase {
@@ -334,7 +335,7 @@ public class WorldMap extends PersistentBase {
 
             java.util.Collection<MapIcon> icons = new java.util.ArrayList<MapIcon>();
 
-            for ( org.bukkit.map.MapCursor cursor : render.cursors) {
+            for ( MapCursor cursor : render.cursors) {
 
                 if (cursor.isVisible()) {
                     icons.add(new MapIcon(MapIcon.Type.a(cursor.getRawType()), cursor.getX(), cursor.getY(), cursor.getDirection()));

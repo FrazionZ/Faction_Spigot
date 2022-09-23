@@ -36,10 +36,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityDirtChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityDirtChest;
 import net.minecraft.server.World;
-import net.minecraft.server.EnumDirection.EnumAxis;
-import net.minecraft.server.EnumDirection.EnumDirectionLimit;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
 public class BlockDirtChest extends BlockTileEntity implements FzExplosionBlockType {

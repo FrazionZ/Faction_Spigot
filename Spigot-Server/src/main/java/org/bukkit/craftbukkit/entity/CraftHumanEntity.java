@@ -53,17 +53,17 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.PacketPlayInCloseWindow;
 import net.minecraft.server.PacketPlayOutOpenWindow;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityAmeliorator;
+import net.minecraft.server.frazionz.tileentity.TileEntityAmeliorator;
 import net.minecraft.server.TileEntityBeacon;
 import net.minecraft.server.TileEntityBrewingStand;
 import net.minecraft.server.TileEntityDispenser;
 import net.minecraft.server.TileEntityDropper;
 import net.minecraft.server.TileEntityEnchantTable;
 import net.minecraft.server.TileEntityFurnace;
-import net.minecraft.server.TileEntityHdvChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityHdvChest;
 import net.minecraft.server.TileEntityHopper;
 import net.minecraft.server.TileEntityShulkerBox;
-import net.minecraft.server.TileEntityTrophyForge;
+import net.minecraft.server.frazionz.tileentity.TileEntityTrophyForge;
 
 public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
     private CraftInventoryPlayer inventory;

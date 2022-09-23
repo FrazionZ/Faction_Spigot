@@ -53,29 +53,31 @@ public class DataInspectorBlockEntity implements DataInspector {
     static {
         Map map = DataInspectorBlockEntity.b;
 
-        map.put("minecraft:yellite_furnace", "yellite_furnace");
-        map.put("minecraft:lit_yellite_furnace", "yellite_furnace");
+        map.put("frazionz:yellite_furnace", "yellite_furnace");
+        map.put("frazionz:lit_yellite_furnace", "yellite_furnace");
         
-        map.put("minecraft:bauxite_furnace", "bauxite_furnace");
-        map.put("minecraft:lit_bauxite_furnace", "bauxite_furnace");
+        map.put("frazionz:bauxite_furnace", "bauxite_furnace");
+        map.put("frazionz:lit_bauxite_furnace", "bauxite_furnace");
         
-        map.put("minecraft:onyx_furnace", "onyx_furnace");
-        map.put("minecraft:lit_onyx_furnace", "onyx_furnace");
+        map.put("frazionz:onyx_furnace", "onyx_furnace");
+        map.put("frazionz:lit_onyx_furnace", "onyx_furnace");
         
-        map.put("minecraft:frazion_furnace", "frazion_furnace");
-        map.put("minecraft:lit_frazion_furnace", "frazion_furnace");
+        map.put("frazionz:frazion_furnace", "frazion_furnace");
+        map.put("frazionz:lit_frazion_furnace", "frazion_furnace");
+
+        map.put("frazionz:z_hopper", "z_hopper");
+        map.put("frazionz:ameliorator", "ameliorator");
+        map.put("frazionz:item_crusher", "item_crusher");
         
-        map.put("minecraft:ameliorator", "ameliorator");
+        map.put("frazionz:trophy_forge", "trophy_forge");
         
-        map.put("minecraft:trophy_forge", "trophy_forge");
-        
-        map.put("minecraft:dirt_chest", "dirt_chest");
-        map.put("minecraft:yellite_chest", "yellite_chest");
-        map.put("minecraft:bauxite_chest", "bauxite_chest");
-        map.put("minecraft:frazion_chest", "frazion_chest");
-        map.put("minecraft:onyx_chest", "onyx_chest");
-        map.put("minecraft:hdv_chest", "hdv_chest");
-        map.put("minecraft:spawner_inventory", "spawner_inventory");
+        map.put("frazionz:dirt_chest", "dirt_chest");
+        map.put("frazionz:yellite_chest", "yellite_chest");
+        map.put("frazionz:bauxite_chest", "bauxite_chest");
+        map.put("frazionz:frazion_chest", "frazion_chest");
+        map.put("frazionz:onyx_chest", "onyx_chest");
+        map.put("frazionz:hdv_chest", "hdv_chest");
+
         map.put("minecraft:furnace", "Furnace");
         map.put("minecraft:lit_furnace", "Furnace");
         map.put("minecraft:chest", "Chest");
@@ -94,7 +96,6 @@ public class DataInspectorBlockEntity implements DataInspector {
         map.put("minecraft:skull", "Skull");
         map.put("minecraft:daylight_detector", "DLDetector");
         map.put("minecraft:hopper", "Hopper");
-        map.put("minecraft:z_hopper", "z_hopper");
         map.put("minecraft:banner", "Banner");
         map.put("minecraft:flower_pot", "FlowerPot");
         map.put("minecraft:repeating_command_block", "CommandBlock");
@@ -112,26 +113,27 @@ public class DataInspectorBlockEntity implements DataInspector {
         map.put("minecraft:end_gateway", "EndGateway");
         map.put("minecraft:shield", "Shield");
         map = DataInspectorBlockEntity.c;
-        map.put("minecraft:yellite_furnace", "minecraft:yellite_furnace");
-        map.put("minecraft:lit_yellite_furnace", "minecraft:yellite_furnace");
+        map.put("frazionz:yellite_furnace", "frazionz:yellite_furnace");
+        map.put("frazionz:lit_yellite_furnace", "frazionz:yellite_furnace");
         
-        map.put("minecraft:bauxite_furnace", "minecraft:bauxite_furnace");
-        map.put("minecraft:lit_bauxite_furnace", "minecraft:bauxite_furnace");
+        map.put("frazionz:bauxite_furnace", "frazionz:bauxite_furnace");
+        map.put("frazionz:lit_bauxite_furnace", "frazionz:bauxite_furnace");
         
-        map.put("minecraft:onyx_furnace", "minecraft:onyx_furnace");
-        map.put("minecraft:lit_onyx_furnace", "minecraft:onyx_furnace");
+        map.put("frazionz:onyx_furnace", "frazionz:onyx_furnace");
+        map.put("frazionz:lit_onyx_furnace", "frazionz:onyx_furnace");
+
+        map.put("frazionz:frazion_furnace", "frazionz:frazion_furnace");
+        map.put("frazionz:lit_frazion_furnace", "frazionz:frazion_furnace");
         
-        map.put("minecraft:frazion_furnace", "minecraft:frazion_furnace");
-        map.put("minecraft:lit_frazion_furnace", "minecraft:frazion_furnace");
-        
-        map.put("minecraft:ameliorator", "minecraft:ameliorator");
-        map.put("minecraft:trophy_forge", "minecraft:trophy_forge");
+        map.put("frazionz:ameliorator", "frazionz:ameliorator");
+        map.put("frazionz:trophy_forge", "frazionz:trophy_forge");
+        map.put("frazionz:item_crusher", "frazionz:item_crusher");
+        map.put("frazionz:hdv_chest", "frazionz:hdv_chest");
+        map.put("frazionz:z_hopper", "frazionz:z_hopper");
         
         map.put("minecraft:furnace", "minecraft:furnace");
         map.put("minecraft:lit_furnace", "minecraft:furnace");
         map.put("minecraft:chest", "minecraft:chest");
-        map.put("minecraft:spawner_inventory", "minecraft:spawner_inventory");
-        map.put("minecraft:hdv_chest", "minecraft:hdv_chest");
         map.put("minecraft:trapped_chest", "minecraft:chest");
         map.put("minecraft:ender_chest", "minecraft:enderchest");
         map.put("minecraft:jukebox", "minecraft:jukebox");
@@ -147,7 +149,6 @@ public class DataInspectorBlockEntity implements DataInspector {
         map.put("minecraft:skull", "minecraft:skull");
         map.put("minecraft:daylight_detector", "minecraft:daylight_detector");
         map.put("minecraft:hopper", "minecraft:hopper");
-        map.put("minecraft:z_hopper", "minecraft:z_hopper");
         map.put("minecraft:banner", "minecraft:banner");
         map.put("minecraft:flower_pot", "minecraft:flower_pot");
         map.put("minecraft:repeating_command_block", "minecraft:command_block");

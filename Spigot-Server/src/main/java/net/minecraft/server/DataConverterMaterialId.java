@@ -339,153 +339,153 @@ public class DataConverterMaterialId implements IDataConverter {
         DataConverterMaterialId.a[2266] = "minecraft:record_11";
         DataConverterMaterialId.a[2267] = "minecraft:record_wait";
         
-        DataConverterMaterialId.a[462] = "minecraft:z_hopper";
-        DataConverterMaterialId.a[463] = "minecraft:dirt_chest";
-        DataConverterMaterialId.a[464] = "minecraft:yellite_chest";
-        DataConverterMaterialId.a[465] = "minecraft:onyx_chest";
-        DataConverterMaterialId.a[466] = "minecraft:hdv_chest";
+        DataConverterMaterialId.a[462] = "frazionz:z_hopper";
+        DataConverterMaterialId.a[463] = "frazionz:dirt_chest";
+        DataConverterMaterialId.a[464] = "frazionz:yellite_chest";
+        DataConverterMaterialId.a[465] = "frazionz:onyx_chest";
+        DataConverterMaterialId.a[466] = "frazionz:hdv_chest";
         
-        DataConverterMaterialId.a[480] = "minecraft:yellite_furnace";
-        DataConverterMaterialId.a[481] = "minecraft:lit_yellite_furnace";
-        DataConverterMaterialId.a[482] = "minecraft:bauxite_furnace";
-        DataConverterMaterialId.a[483] = "minecraft:lit_bauxite_furnace";
-        DataConverterMaterialId.a[484] = "minecraft:onyx_furnace";
-        DataConverterMaterialId.a[485] = "minecraft:lit_onyx_furnace";
-        DataConverterMaterialId.a[486] = "minecraft:frazion_furnace";
-        DataConverterMaterialId.a[487] = "minecraft:lit_frazion_furnace";
-        DataConverterMaterialId.a[488] = "minecraft:bauxite_ladder";
+        DataConverterMaterialId.a[480] = "frazionz:yellite_furnace";
+        DataConverterMaterialId.a[481] = "frazionz:lit_yellite_furnace";
+        DataConverterMaterialId.a[482] = "frazionz:bauxite_furnace";
+        DataConverterMaterialId.a[483] = "frazionz:lit_bauxite_furnace";
+        DataConverterMaterialId.a[484] = "frazionz:onyx_furnace";
+        DataConverterMaterialId.a[485] = "frazionz:lit_onyx_furnace";
+        DataConverterMaterialId.a[486] = "frazionz:frazion_furnace";
+        DataConverterMaterialId.a[487] = "frazionz:lit_frazion_furnace";
+        DataConverterMaterialId.a[488] = "frazionz:bauxite_ladder";
         
-        DataConverterMaterialId.a[489] = "minecraft:crimson_log";
-        DataConverterMaterialId.a[490] = "minecraft:crimson_roots";
-        DataConverterMaterialId.a[491] = "minecraft:crimson_fungi";
+        DataConverterMaterialId.a[489] = "frazionz:crimson_log";
+        DataConverterMaterialId.a[490] = "frazionz:crimson_roots";
+        DataConverterMaterialId.a[491] = "frazionz:crimson_fungi";
         
-        DataConverterMaterialId.a[492] = "minecraft:nether_wart_block2";
-        DataConverterMaterialId.a[493] = "minecraft:sandstone2";
-        DataConverterMaterialId.a[494] = "minecraft:stone_andesite";
-        DataConverterMaterialId.a[495] = "minecraft:stone_andesite_smooth";
-        DataConverterMaterialId.a[496] = "minecraft:stone_granite";
-        DataConverterMaterialId.a[497] = "minecraft:stone_granite_smooth";
-        DataConverterMaterialId.a[498] = "minecraft:stone_diorite";
-        DataConverterMaterialId.a[499] = "minecraft:stone_diorite_smooth";
-        DataConverterMaterialId.a[500] = "minecraft:random_ore";
-        DataConverterMaterialId.a[501] = "minecraft:ameliorator";
-        DataConverterMaterialId.a[502] = "minecraft:yellite_ladder";
-        DataConverterMaterialId.a[503] = "minecraft:onyx_ladder";
-        DataConverterMaterialId.a[504] = "minecraft:frazion_ladder";
+        DataConverterMaterialId.a[492] = "frazionz:nether_wart_block2";
+        DataConverterMaterialId.a[493] = "frazionz:sandstone2";
+        DataConverterMaterialId.a[494] = "frazionz:stone_andesite";
+        DataConverterMaterialId.a[495] = "frazionz:stone_andesite_smooth";
+        DataConverterMaterialId.a[496] = "frazionz:stone_granite";
+        DataConverterMaterialId.a[497] = "frazionz:stone_granite_smooth";
+        DataConverterMaterialId.a[498] = "frazionz:stone_diorite";
+        DataConverterMaterialId.a[499] = "frazionz:stone_diorite_smooth";
+        DataConverterMaterialId.a[500] = "frazionz:random_ore";
+        DataConverterMaterialId.a[501] = "frazionz:ameliorator";
+        DataConverterMaterialId.a[502] = "frazionz:yellite_ladder";
+        DataConverterMaterialId.a[503] = "frazionz:onyx_ladder";
+        DataConverterMaterialId.a[504] = "frazionz:frazion_ladder";
         
-        DataConverterMaterialId.a[505] = "minecraft:bauxite_chest";
-        DataConverterMaterialId.a[506] = "minecraft:frazion_chest";
-        DataConverterMaterialId.a[507] = "minecraft:renforced_sand";
+        DataConverterMaterialId.a[505] = "frazionz:bauxite_chest";
+        DataConverterMaterialId.a[506] = "frazionz:frazion_chest";
+        DataConverterMaterialId.a[507] = "frazionz:renforced_sand";
         
-        DataConverterMaterialId.a[512] = "minecraft:wither_block";
+        DataConverterMaterialId.a[512] = "frazionz:wither_block";
         
-        DataConverterMaterialId.a[513] = "minecraft:compact_cobblestone_x1";
-        DataConverterMaterialId.a[514] = "minecraft:compact_cobblestone_x2";
-        DataConverterMaterialId.a[515] = "minecraft:compact_cobblestone_x3";
-        DataConverterMaterialId.a[516] = "minecraft:compact_cobblestone_x4";
-        DataConverterMaterialId.a[517] = "minecraft:compact_cobblestone_x5";
+        DataConverterMaterialId.a[513] = "frazionz:compact_cobblestone_x1";
+        DataConverterMaterialId.a[514] = "frazionz:compact_cobblestone_x2";
+        DataConverterMaterialId.a[515] = "frazionz:compact_cobblestone_x3";
+        DataConverterMaterialId.a[516] = "frazionz:compact_cobblestone_x4";
+        DataConverterMaterialId.a[517] = "frazionz:compact_cobblestone_x5";
         
-        DataConverterMaterialId.a[518] = "minecraft:reverse_fall_block";
+        DataConverterMaterialId.a[518] = "frazionz:reverse_fall_block";
         
-        DataConverterMaterialId.a[519] = "minecraft:stone_blackstone";
-        DataConverterMaterialId.a[520] = "minecraft:stone_blackstone_smooth";
+        DataConverterMaterialId.a[519] = "frazionz:stone_blackstone";
+        DataConverterMaterialId.a[520] = "frazionz:stone_blackstone_smooth";
         
-        DataConverterMaterialId.a[521] = "minecraft:block_placer_chest";
-        DataConverterMaterialId.a[522] = "minecraft:block_placer_trapchest";
+        DataConverterMaterialId.a[521] = "frazionz:block_placer_chest";
+        DataConverterMaterialId.a[522] = "frazionz:block_placer_trapchest";
         
-        DataConverterMaterialId.a[523] = "minecraft:trophy_forge";
+        DataConverterMaterialId.a[523] = "frazionz:trophy_forge";
         
-        DataConverterMaterialId.a[1000] = "minecraft:yellite";
-        DataConverterMaterialId.a[1001] = "minecraft:bauxite";
-        DataConverterMaterialId.a[1002] = "minecraft:onyx";
-        DataConverterMaterialId.a[1003] = "minecraft:frazion_powder";
-        DataConverterMaterialId.a[1004] = "minecraft:frazion";
+        DataConverterMaterialId.a[1000] = "frazionz:yellite";
+        DataConverterMaterialId.a[1001] = "frazionz:bauxite";
+        DataConverterMaterialId.a[1002] = "frazionz:onyx";
+        DataConverterMaterialId.a[1003] = "frazionz:frazion_powder";
+        DataConverterMaterialId.a[1004] = "frazionz:frazion";
         
-        DataConverterMaterialId.a[1005] = "minecraft:cosmic_powder";
-        DataConverterMaterialId.a[1006] = "minecraft:cosmic_nugget";
-        DataConverterMaterialId.a[1007] = "minecraft:cosmic_ingot";
+        DataConverterMaterialId.a[1005] = "frazionz:cosmic_powder";
+        DataConverterMaterialId.a[1006] = "frazionz:cosmic_nugget";
+        DataConverterMaterialId.a[1007] = "frazionz:cosmic_ingot";
         
-        DataConverterMaterialId.a[1008] = "minecraft:yellite_helmet";
-        DataConverterMaterialId.a[1009] = "minecraft:yellite_chestplate";
-        DataConverterMaterialId.a[1010] = "minecraft:yellite_leggings";
-        DataConverterMaterialId.a[1011] = "minecraft:yellite_boots";
-        DataConverterMaterialId.a[1012] = "minecraft:yellite_sword";
-        DataConverterMaterialId.a[1013] = "minecraft:yellite_shovel";
-        DataConverterMaterialId.a[1014] = "minecraft:yellite_pickaxe";
-        DataConverterMaterialId.a[1015] = "minecraft:yellite_axe";
-        DataConverterMaterialId.a[1016] = "minecraft:yellite_hoe";
+        DataConverterMaterialId.a[1008] = "frazionz:yellite_helmet";
+        DataConverterMaterialId.a[1009] = "frazionz:yellite_chestplate";
+        DataConverterMaterialId.a[1010] = "frazionz:yellite_leggings";
+        DataConverterMaterialId.a[1011] = "frazionz:yellite_boots";
+        DataConverterMaterialId.a[1012] = "frazionz:yellite_sword";
+        DataConverterMaterialId.a[1013] = "frazionz:yellite_shovel";
+        DataConverterMaterialId.a[1014] = "frazionz:yellite_pickaxe";
+        DataConverterMaterialId.a[1015] = "frazionz:yellite_axe";
+        DataConverterMaterialId.a[1016] = "frazionz:yellite_hoe";
         
-        DataConverterMaterialId.a[1017] = "minecraft:bauxite_helmet";
-        DataConverterMaterialId.a[1018] = "minecraft:bauxite_chestplate";
-        DataConverterMaterialId.a[1019] = "minecraft:bauxite_leggings";
-        DataConverterMaterialId.a[1020] = "minecraft:bauxite_boots";
-        DataConverterMaterialId.a[1021] = "minecraft:bauxite_sword";
-        DataConverterMaterialId.a[1022] = "minecraft:bauxite_shovel";
-        DataConverterMaterialId.a[1023] = "minecraft:bauxite_pickaxe";
-        DataConverterMaterialId.a[1024] = "minecraft:bauxite_axe";
-        DataConverterMaterialId.a[1025] = "minecraft:bauxite_hoe";
+        DataConverterMaterialId.a[1017] = "frazionz:bauxite_helmet";
+        DataConverterMaterialId.a[1018] = "frazionz:bauxite_chestplate";
+        DataConverterMaterialId.a[1019] = "frazionz:bauxite_leggings";
+        DataConverterMaterialId.a[1020] = "frazionz:bauxite_boots";
+        DataConverterMaterialId.a[1021] = "frazionz:bauxite_sword";
+        DataConverterMaterialId.a[1022] = "frazionz:bauxite_shovel";
+        DataConverterMaterialId.a[1023] = "frazionz:bauxite_pickaxe";
+        DataConverterMaterialId.a[1024] = "frazionz:bauxite_axe";
+        DataConverterMaterialId.a[1025] = "frazionz:bauxite_hoe";
       
-        DataConverterMaterialId.a[1026] = "minecraft:onyx_helmet";
-        DataConverterMaterialId.a[1027] = "minecraft:onyx_chestplate";
-        DataConverterMaterialId.a[1028] = "minecraft:onyx_leggings";
-        DataConverterMaterialId.a[1029] = "minecraft:onyx_boots";
-        DataConverterMaterialId.a[1030] = "minecraft:onyx_sword";
-        DataConverterMaterialId.a[1031] = "minecraft:onyx_shovel";
-        DataConverterMaterialId.a[1032] = "minecraft:onyx_pickaxe";
-        DataConverterMaterialId.a[1033] = "minecraft:onyx_axe";
-        DataConverterMaterialId.a[1034] = "minecraft:onyx_hoe";
+        DataConverterMaterialId.a[1026] = "frazionz:onyx_helmet";
+        DataConverterMaterialId.a[1027] = "frazionz:onyx_chestplate";
+        DataConverterMaterialId.a[1028] = "frazionz:onyx_leggings";
+        DataConverterMaterialId.a[1029] = "frazionz:onyx_boots";
+        DataConverterMaterialId.a[1030] = "frazionz:onyx_sword";
+        DataConverterMaterialId.a[1031] = "frazionz:onyx_shovel";
+        DataConverterMaterialId.a[1032] = "frazionz:onyx_pickaxe";
+        DataConverterMaterialId.a[1033] = "frazionz:onyx_axe";
+        DataConverterMaterialId.a[1034] = "frazionz:onyx_hoe";
         
-        DataConverterMaterialId.a[1035] = "minecraft:frazion_helmet";
-        DataConverterMaterialId.a[1036] = "minecraft:frazion_chestplate";
-        DataConverterMaterialId.a[1037] = "minecraft:frazion_leggings";
-        DataConverterMaterialId.a[1038] = "minecraft:frazion_boots";
-        DataConverterMaterialId.a[1039] = "minecraft:frazion_sword";
-        DataConverterMaterialId.a[1040] = "minecraft:frazion_shovel";
-        DataConverterMaterialId.a[1041] = "minecraft:frazion_pickaxe";
-        DataConverterMaterialId.a[1042] = "minecraft:frazion_axe";
-        DataConverterMaterialId.a[1043] = "minecraft:frazion_hoe";
-        DataConverterMaterialId.a[1060] = "minecraft:frazion_hammer";
+        DataConverterMaterialId.a[1035] = "frazionz:frazion_helmet";
+        DataConverterMaterialId.a[1036] = "frazionz:frazion_chestplate";
+        DataConverterMaterialId.a[1037] = "frazionz:frazion_leggings";
+        DataConverterMaterialId.a[1038] = "frazionz:frazion_boots";
+        DataConverterMaterialId.a[1039] = "frazionz:frazion_sword";
+        DataConverterMaterialId.a[1040] = "frazionz:frazion_shovel";
+        DataConverterMaterialId.a[1041] = "frazionz:frazion_pickaxe";
+        DataConverterMaterialId.a[1042] = "frazionz:frazion_axe";
+        DataConverterMaterialId.a[1043] = "frazionz:frazion_hoe";
+        DataConverterMaterialId.a[1060] = "frazionz:frazion_hammer";
         
-        DataConverterMaterialId.a[1044] = "minecraft:ultra_bow";
+        DataConverterMaterialId.a[1044] = "frazionz:ultra_bow";
         
-        DataConverterMaterialId.a[1045] = "minecraft:trophy_bat";
-        DataConverterMaterialId.a[1046] = "minecraft:trophy_blaze";
-        DataConverterMaterialId.a[1047] = "minecraft:trophy_creeper";
-        DataConverterMaterialId.a[1048] = "minecraft:trophy_enderman";
-        DataConverterMaterialId.a[1049] = "minecraft:trophy_ghast";
-        DataConverterMaterialId.a[1050] = "minecraft:trophy_guardian";
-        DataConverterMaterialId.a[1051] = "minecraft:trophy_villager";
-        DataConverterMaterialId.a[1052] = "minecraft:trophy_shulker";
-        DataConverterMaterialId.a[1053] = "minecraft:trophy_spider";
-        DataConverterMaterialId.a[1054] = "minecraft:trophy_skeleton";
-        DataConverterMaterialId.a[1055] = "minecraft:trophy_slime";
-        DataConverterMaterialId.a[1056] = "minecraft:trophy_squid";
+        DataConverterMaterialId.a[1045] = "frazionz:trophy_bat";
+        DataConverterMaterialId.a[1046] = "frazionz:trophy_blaze";
+        DataConverterMaterialId.a[1047] = "frazionz:trophy_creeper";
+        DataConverterMaterialId.a[1048] = "frazionz:trophy_enderman";
+        DataConverterMaterialId.a[1049] = "frazionz:trophy_ghast";
+        DataConverterMaterialId.a[1050] = "frazionz:trophy_guardian";
+        DataConverterMaterialId.a[1051] = "frazionz:trophy_villager";
+        DataConverterMaterialId.a[1052] = "frazionz:trophy_shulker";
+        DataConverterMaterialId.a[1053] = "frazionz:trophy_spider";
+        DataConverterMaterialId.a[1054] = "frazionz:trophy_skeleton";
+        DataConverterMaterialId.a[1055] = "frazionz:trophy_slime";
+        DataConverterMaterialId.a[1056] = "frazionz:trophy_squid";
         
         
-        DataConverterMaterialId.a[1095] = "minecraft:big_xp";
+        DataConverterMaterialId.a[1095] = "frazionz:big_xp";
         
-        DataConverterMaterialId.a[1103] = "minecraft:frazion_helmet_70";
-        DataConverterMaterialId.a[1104] = "minecraft:frazion_chestplate_70";
-        DataConverterMaterialId.a[1105] = "minecraft:frazion_leggings_70";
-        DataConverterMaterialId.a[1106] = "minecraft:frazion_boots_70";
+        DataConverterMaterialId.a[1103] = "frazionz:frazion_helmet_70";
+        DataConverterMaterialId.a[1104] = "frazionz:frazion_chestplate_70";
+        DataConverterMaterialId.a[1105] = "frazionz:frazion_leggings_70";
+        DataConverterMaterialId.a[1106] = "frazionz:frazion_boots_70";
+
+        DataConverterMaterialId.a[1107] = "frazionz:frazion_helmet_100";
+        DataConverterMaterialId.a[1108] = "frazionz:frazion_chestplate_100";
+        DataConverterMaterialId.a[1109] = "frazionz:frazion_leggings_100";
+        DataConverterMaterialId.a[1110] = "frazionz:frazion_boots_100";
         
-        DataConverterMaterialId.a[1107] = "minecraft:frazion_helmet_100";
-        DataConverterMaterialId.a[1108] = "minecraft:frazion_chestplate_100";
-        DataConverterMaterialId.a[1109] = "minecraft:frazion_leggings_100";
-        DataConverterMaterialId.a[1110] = "minecraft:frazion_boots_100";
+        DataConverterMaterialId.a[1111] = "frazionz:travelers_helmet";
+        DataConverterMaterialId.a[1112] = "frazionz:travelers_chestplate";
+        DataConverterMaterialId.a[1113] = "frazionz:travelers_leggings";
+        DataConverterMaterialId.a[1114] = "frazionz:travelers_boots";
         
-        DataConverterMaterialId.a[1111] = "minecraft:travelers_helmet";
-        DataConverterMaterialId.a[1112] = "minecraft:travelers_chestplate";
-        DataConverterMaterialId.a[1113] = "minecraft:travelers_leggings";
-        DataConverterMaterialId.a[1114] = "minecraft:travelers_boots";
+        DataConverterMaterialId.a[1115] = "frazionz:legendary_axe";
+        DataConverterMaterialId.a[1116] = "frazionz:legendary_sword";
+        DataConverterMaterialId.a[1117] = "frazionz:frazion_dagger";
+        DataConverterMaterialId.a[1125] = "frazionz:legendary_scythe";
         
-        DataConverterMaterialId.a[1115] = "minecraft:legendary_axe";
-        DataConverterMaterialId.a[1116] = "minecraft:legendary_sword";
-        DataConverterMaterialId.a[1117] = "minecraft:frazion_dagger";
-        DataConverterMaterialId.a[1125] = "minecraft:legendary_scythe";
-        
-        DataConverterMaterialId.a[1200] = "minecraft:dynamite";
-        DataConverterMaterialId.a[1201] = "minecraft:dynamite_arrow";
+        DataConverterMaterialId.a[1200] = "frazionz:dynamite";
+        DataConverterMaterialId.a[1201] = "frazionz:dynamite_arrow";
         
         
     }

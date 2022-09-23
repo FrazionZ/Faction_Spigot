@@ -35,10 +35,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityOnyxChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityOnyxChest;
 import net.minecraft.server.World;
-import net.minecraft.server.EnumDirection.EnumAxis;
-import net.minecraft.server.EnumDirection.EnumDirectionLimit;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
 public class BlockOnyxChest extends BlockTileEntity implements FzExplosionBlockType {

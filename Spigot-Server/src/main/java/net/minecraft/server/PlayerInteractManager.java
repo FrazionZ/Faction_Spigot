@@ -2,6 +2,8 @@ package net.minecraft.server;
 
 // CraftBukkit start
 import java.util.ArrayList;
+
+import net.minecraft.server.frazionz.tileentity.*;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.Event;

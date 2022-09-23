@@ -1,6 +1,7 @@
 package net.minecraft.server;
 
 // CraftBukkit start
+import net.minecraft.server.frazionz.tileentity.TileEntityYelliteFurnace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.FurnaceExtractEvent;
 // CraftBukkit end

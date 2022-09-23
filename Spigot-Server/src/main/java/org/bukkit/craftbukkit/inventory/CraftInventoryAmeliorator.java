@@ -5,7 +5,6 @@ import org.bukkit.inventory.AmelioratorInventory;
 import org.bukkit.inventory.ItemStack;
 
 import net.minecraft.server.IInventory;
-import net.minecraft.server.TileEntityAmeliorator;
 
 public class CraftInventoryAmeliorator extends CraftInventory implements AmelioratorInventory {
     public CraftInventoryAmeliorator(IInventory tileAmeliorator) {

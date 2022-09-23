@@ -47,19 +47,20 @@ public class DataConverterTileEntity implements IDataConverter {
         DataConverterTileEntity.a.put("Skull", "minecraft:skull");
         DataConverterTileEntity.a.put("Structure", "minecraft:structure_block");
         DataConverterTileEntity.a.put("Trap", "minecraft:dispenser");
-        DataConverterTileEntity.a.put("dirt_chest", "minecraft:dirt_chest");
-        DataConverterTileEntity.a.put("yellite_chest", "minecraft:yellite_chest");
-        DataConverterTileEntity.a.put("bauxite_chest", "minecraft:bauxite_chest");
-        DataConverterTileEntity.a.put("frazion_chest", "minecraft:frazion_chest");
-        DataConverterTileEntity.a.put("onyx_chest", "minecraft:onyx_chest");
-        DataConverterTileEntity.a.put("hdv_chest", "minecraft:hdv_chest");
-        DataConverterTileEntity.a.put("spawner_inventory", "minecraft:spawner_inventory");
-        DataConverterTileEntity.a.put("z_hopper", "minecraft:z_hopper");
-        DataConverterTileEntity.a.put("yellite_furnace", "minecraft:yellite_furnace");
-        DataConverterTileEntity.a.put("bauxite_furnace", "minecraft:bauxite_furnace");
-        DataConverterTileEntity.a.put("onyx_furnace", "minecraft:onyx_furnace");
-        DataConverterTileEntity.a.put("frazion_furnace", "minecraft:frazion_furnace");
-        DataConverterTileEntity.a.put("ameliorator", "minecraft:ameliorator");
-        DataConverterTileEntity.a.put("trophy_forge", "minecraft:trophy_forge");
+        DataConverterTileEntity.a.put("dirt_chest", "frazionz:dirt_chest");
+        DataConverterTileEntity.a.put("yellite_chest", "frazionz:yellite_chest");
+        DataConverterTileEntity.a.put("bauxite_chest", "frazionz:bauxite_chest");
+        DataConverterTileEntity.a.put("frazion_chest", "frazionz:frazion_chest");
+        DataConverterTileEntity.a.put("onyx_chest", "frazionz:onyx_chest");
+        DataConverterTileEntity.a.put("hdv_chest", "frazionz:hdv_chest");
+        DataConverterTileEntity.a.put("spawner_inventory", "frazionz:spawner_inventory");
+        DataConverterTileEntity.a.put("z_hopper", "frazionz:z_hopper");
+        DataConverterTileEntity.a.put("yellite_furnace", "frazionz:yellite_furnace");
+        DataConverterTileEntity.a.put("bauxite_furnace", "frazionz:bauxite_furnace");
+        DataConverterTileEntity.a.put("onyx_furnace", "frazionz:onyx_furnace");
+        DataConverterTileEntity.a.put("frazion_furnace", "frazionz:frazion_furnace");
+        DataConverterTileEntity.a.put("ameliorator", "frazionz:ameliorator");
+        DataConverterTileEntity.a.put("trophy_forge", "frazionz:trophy_forge");
+        DataConverterTileEntity.a.put("item_crusher", "frazionz:item_crusher");
     }
 }

@@ -2,11 +2,11 @@ package org.bukkit.craftbukkit.map;
 
 import java.awt.Image;
 import java.util.Arrays;
-import org.bukkit.map.MapCanvas;
-import org.bukkit.map.MapCursorCollection;
-import org.bukkit.map.MapFont;
-import org.bukkit.map.MapFont.CharacterSprite;
-import org.bukkit.map.MapPalette;
+import org.bukkit.metadata.map.MapCanvas;
+import org.bukkit.metadata.map.MapCursorCollection;
+import org.bukkit.metadata.map.MapFont;
+import org.bukkit.metadata.map.MapFont.CharacterSprite;
+import org.bukkit.metadata.map.MapPalette;
 
 public class CraftMapCanvas implements MapCanvas {
 

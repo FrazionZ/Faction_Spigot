@@ -1,6 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInShopTrade;
 
 public interface PacketListenerPlayIn extends PacketListener {
 
@@ -69,4 +70,6 @@ public interface PacketListenerPlayIn extends PacketListener {
     void processStartUpdateSkin(PacketPlayInUpdateSkin packetIn);
 
     void processClientAskOpenGui(PacketPlayInGuiOpener packetIn);
+
+    void processClientShopTrade(PacketPlayInShopTrade packet);
 }

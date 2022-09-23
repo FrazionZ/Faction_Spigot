@@ -22,7 +22,7 @@ import org.bukkit.advancement.AdvancementProgress;
 import org.bukkit.command.CommandSender;
 import org.bukkit.conversations.Conversable;
 import org.bukkit.event.player.PlayerResourcePackStatusEvent;
-import org.bukkit.map.MapView;
+import org.bukkit.metadata.map.MapView;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.messaging.PluginMessageRecipient;
 import org.bukkit.scoreboard.Scoreboard;

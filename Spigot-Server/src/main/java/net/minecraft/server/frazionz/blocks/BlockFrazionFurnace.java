@@ -26,7 +26,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Material;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityFrazionFurnace;
+import net.minecraft.server.frazionz.tileentity.TileEntityFrazionFurnace;
 import net.minecraft.server.World;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 

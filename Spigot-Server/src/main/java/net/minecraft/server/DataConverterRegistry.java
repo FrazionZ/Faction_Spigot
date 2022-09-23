@@ -1,6 +1,8 @@
 package net.minecraft.server;
 
+import net.minecraft.server.frazionz.tileentity.TileEntityAmeliorator;
 import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
+import net.minecraft.server.frazionz.tileentity.TileEntityTrophyForge;
 
 public class DataConverterRegistry {
   private static void a(DataConverterManager paramDataConverterManager) {

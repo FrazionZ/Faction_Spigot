@@ -26,9 +26,8 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Material;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityOnyxFurnace;
+import net.minecraft.server.frazionz.tileentity.TileEntityOnyxFurnace;
 import net.minecraft.server.World;
-import net.minecraft.server.EnumDirection.EnumAxis;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
 public class BlockOnyxFurnace extends BlockTileEntity implements FzExplosionBlockType {

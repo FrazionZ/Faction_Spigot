@@ -1,7 +1,7 @@
 package org.bukkit.event.server;
 
 import org.bukkit.event.HandlerList;
-import org.bukkit.map.MapView;
+import org.bukkit.metadata.map.MapView;
 
 /**
  * Called when a map is initialized.

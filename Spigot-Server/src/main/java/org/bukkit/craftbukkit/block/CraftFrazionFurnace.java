@@ -6,7 +6,7 @@ import org.bukkit.block.Furnace;
 import org.bukkit.craftbukkit.inventory.CraftInventoryFrazionFurnace;
 import org.bukkit.inventory.FurnaceInventory;
 
-import net.minecraft.server.TileEntityFrazionFurnace;
+import net.minecraft.server.frazionz.tileentity.TileEntityFrazionFurnace;
 
 public class CraftFrazionFurnace extends CraftContainer<TileEntityFrazionFurnace> implements Furnace {
 

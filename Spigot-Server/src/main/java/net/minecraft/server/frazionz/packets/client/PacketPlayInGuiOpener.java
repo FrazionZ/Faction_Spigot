@@ -10,19 +10,25 @@ import net.minecraft.server.PacketListenerPlayIn;
 public class PacketPlayInGuiOpener implements Packet<PacketListenerPlayIn> {
 
     private EnumGui gui;
+    private int info;
 
     public PacketPlayInGuiOpener() {}
 
     public PacketPlayInGuiOpener(EnumGui gui) {
         this.gui = gui;
+        this.info = 0;
+    }
+    public PacketPlayInGuiOpener(EnumGui gui, int info) {
+        this.gui = gui;
+        this.info = info;
     }
 
     public void a(PacketDataSerializer buf) throws IOException {
         this.gui = (EnumGui) buf.a(EnumGui.class);
+        this.info = buf.readInt();
     }
 
     public void b(PacketDataSerializer buf) throws IOException {
-        buf.a(this.gui);
     }
 
     public void a(PacketListenerPlayIn packetlistenerplayin) {
@@ -31,5 +37,9 @@ public class PacketPlayInGuiOpener implements Packet<PacketListenerPlayIn> {
 
     public EnumGui getGui() {
         return gui;
+    }
+
+    public int getInfo() {
+        return info;
     }
 }

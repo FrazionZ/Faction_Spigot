@@ -12,14 +12,20 @@ public class ClientAskOpenGuiEvent extends PlayerEvent {
 
     private static final HandlerList handlers = new HandlerList();
     private EnumGui gui;
+    private int info;
 
-    public ClientAskOpenGuiEvent(Player player, EnumGui gui) {
+    public ClientAskOpenGuiEvent(Player player, EnumGui gui, int info) {
         super(player);
         this.gui = gui;
+        this.info = info;
     }
 
     public EnumGui getGui() {
         return gui;
+    }
+
+    public int getInfo() {
+        return info;
     }
 
     public HandlerList getHandlers() {

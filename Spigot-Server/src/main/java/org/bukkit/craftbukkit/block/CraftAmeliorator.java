@@ -6,7 +6,7 @@ import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.inventory.CraftInventoryAmeliorator;
 import org.bukkit.inventory.AmelioratorInventory;
 
-import net.minecraft.server.TileEntityAmeliorator;
+import net.minecraft.server.frazionz.tileentity.TileEntityAmeliorator;
 
 public class CraftAmeliorator extends CraftContainer<TileEntityAmeliorator> implements Ameliorator {
 

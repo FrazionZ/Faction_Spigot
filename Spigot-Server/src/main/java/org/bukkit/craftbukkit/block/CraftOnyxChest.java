@@ -7,7 +7,7 @@ import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.inventory.CraftInventory;
 import org.bukkit.inventory.Inventory;
 
-import net.minecraft.server.TileEntityOnyxChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityOnyxChest;
 
 public class CraftOnyxChest extends CraftLootable<TileEntityOnyxChest> implements Chest {
 

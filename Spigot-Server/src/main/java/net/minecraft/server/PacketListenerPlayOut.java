@@ -1,5 +1,6 @@
 package net.minecraft.server;
 
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutGuiOpener;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutSkillUpdater;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutToast;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutUpdateData;
@@ -167,4 +168,6 @@ public interface PacketListenerPlayOut extends PacketListener {
     void a(PacketPlayOutUpdateData packetIn);
 
 	void a(PacketPlayOutSkillUpdater packetPlayOutSkillUpdater);
+
+    void processServerAskOpenGui(PacketPlayOutGuiOpener packet);
 }

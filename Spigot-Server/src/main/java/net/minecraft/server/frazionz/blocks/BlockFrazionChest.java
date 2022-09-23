@@ -35,7 +35,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityFrazionChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityFrazionChest;
 import net.minecraft.server.World;
 import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 

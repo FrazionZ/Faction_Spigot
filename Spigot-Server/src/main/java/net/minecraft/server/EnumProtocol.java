@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.packets.client.PacketPlayInShopTrade;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutGuiOpener;
 import org.apache.logging.log4j.LogManager;
 
 import com.google.common.collect.BiMap;
@@ -15,7 +17,6 @@ import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutSkillUpdater;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutToast;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutUpdateData;
-import net.minecraft.server.frazionz.packets.client.PacketPlayInSkillClaimButton;
 
 public enum EnumProtocol {
 
@@ -146,9 +147,9 @@ public enum EnumProtocol {
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInStartMachine.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInServerSwitcher.class);
 	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInShopTrade.class);
-	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInSkillClaimButton.class);
-	        this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInGuiOpener.class);
+			this.a(EnumProtocolDirection.SERVERBOUND, PacketPlayInGuiOpener.class);
 
+			this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutGuiOpener.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutUpdateData.class);
 	        this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutToast.class);
 			this.a(EnumProtocolDirection.CLIENTBOUND, PacketPlayOutUpdateSkin.class);

@@ -34,10 +34,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityHdvChest;
+import net.minecraft.server.frazionz.tileentity.TileEntityHdvChest;
 import net.minecraft.server.World;
-import net.minecraft.server.EnumDirection.EnumAxis;
-import net.minecraft.server.EnumDirection.EnumDirectionLimit;
 
 public class BlockHdvChest extends BlockTileEntity {
 

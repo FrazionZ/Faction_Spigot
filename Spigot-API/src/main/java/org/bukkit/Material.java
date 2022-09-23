@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.apache.commons.lang.Validate;
-import org.bukkit.map.MapView;
+import org.bukkit.metadata.map.MapView;
 import org.bukkit.material.Banner;
 import org.bukkit.material.BauxiteChest;
 import org.bukkit.material.BauxiteFurnace;

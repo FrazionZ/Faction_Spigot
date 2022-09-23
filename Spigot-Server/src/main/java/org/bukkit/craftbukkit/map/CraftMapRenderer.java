@@ -6,10 +6,10 @@ import net.minecraft.server.MapIcon;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.map.MapCanvas;
-import org.bukkit.map.MapCursorCollection;
-import org.bukkit.map.MapRenderer;
-import org.bukkit.map.MapView;
+import org.bukkit.metadata.map.MapCanvas;
+import org.bukkit.metadata.map.MapCursorCollection;
+import org.bukkit.metadata.map.MapRenderer;
+import org.bukkit.metadata.map.MapView;
 
 public class CraftMapRenderer extends MapRenderer {
 
