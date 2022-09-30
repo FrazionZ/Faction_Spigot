@@ -7,17 +7,20 @@ public class CustomGui {
 
     private String title;
     private String infos;
+    private CustomGuiType type;
     private List<CustomObject> objects = new ArrayList<>();
     private List<CustomButton> buttons = new ArrayList<>();
 
-    public CustomGui(String title, String infos) {
+    public CustomGui(String title, String infos, CustomGuiType type) {
         this.title = title;
         this.infos = infos;
+        this.type = type;
     }
 
-    public CustomGui(String title, String infos, List<CustomObject> objects, List<CustomButton> buttons) {
+    public CustomGui(String title, String infos, CustomGuiType type, List<CustomObject> objects, List<CustomButton> buttons) {
         this.title = title;
         this.infos = infos;
+        this.type = type;
         this.objects = objects;
         this.buttons = buttons;
     }
@@ -58,6 +61,14 @@ public class CustomGui {
         return buttons;
     }
 
+    public CustomGuiType getType() {
+        return type;
+    }
+
+    public void setType(CustomGuiType type) {
+        this.type = type;
+    }
+
     public void setButtons(List<CustomButton> buttons) {
         this.buttons = buttons;
     }
@@ -66,6 +77,7 @@ public class CustomGui {
         String json = "{";
         json += "\"title\":\"" + title + "\",";
         json += "\"infos\":\"" + infos + "\",";
+        json += "\"type\":\"" + type.name() + "\",";
         json += "\"objects\":[";
         for (int i = 0; i < objects.size(); i++) {
             json += objects.get(i).toJson();

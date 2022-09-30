@@ -1,5 +1,7 @@
 package fz.frazionz.gui.custom;
 
+import fz.frazionz.gui.custom.actions.CustomButtonAction;
+
 import java.util.List;
 
 public class CustomButton {
@@ -8,13 +10,15 @@ public class CustomButton {
     private int color;
     private int width;
     private int height;
+    private CustomButtonAction action;
 
 
-    public CustomButton(String name, int color, int width, int height) {
+    public CustomButton(String name, int color, int width, int height, CustomButtonAction action) {
         this.name = name;
         this.color = color;
         this.width = width;
         this.height = height;
+        this.action = action;
     }
 
     public String getName() {
@@ -49,7 +53,19 @@ public class CustomButton {
         this.height = height;
     }
 
+    public CustomButtonAction getAction() {
+        return action;
+    }
+
+    public void setAction(CustomButtonAction action) {
+        this.action = action;
+    }
+
     public String toJson() {
-        return "{\"name\": \"" + name + "\", \"color\": " + color + ", \"width\": " + width + ", \"height\": " + height + "}";
+        return "{\"name\": \"" + name + "\", \"color\": " +
+                color + ", \"width\": " +
+                width + ", \"height\": " +
+                height + ", \"action\": " +
+                action.toJson() + "}";
     }
 }
