@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import fz.frazionz.event.packets.ClientAskOpenGuiEvent;
 import net.minecraft.server.frazionz.inventory.tileentity.ContainerTrophyForge;
 import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInHelper;
 import net.minecraft.server.frazionz.packets.client.PacketPlayInShopTrade;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -2604,6 +2605,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
                 }
             }
         }
+
+        PacketPlayInHelper.handlePacketPlayInCustomPayload(this.server.getPlayer(this.player), packetplayincustompayload, s);
 
     }
 
