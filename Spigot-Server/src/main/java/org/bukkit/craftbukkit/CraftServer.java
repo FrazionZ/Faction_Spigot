@@ -546,6 +546,11 @@ public final class CraftServer implements Server {
         return this.getConfigBoolean("white-list", false);
     }
 
+
+    public boolean isDemandFZCode() {
+        return this.configuration.getBoolean("settings.fz-demand-code");
+    }
+
     // NOTE: Temporary calls through to server.properies until its replaced
     private String getConfigString(String variable, String defaultValue) {
         return this.console.getPropertyManager().getString(variable, defaultValue);

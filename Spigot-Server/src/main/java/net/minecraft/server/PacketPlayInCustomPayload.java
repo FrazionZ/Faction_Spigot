@@ -41,4 +41,12 @@ public class PacketPlayInCustomPayload implements Packet<PacketListenerPlayIn> {
     public PacketDataSerializer b() {
         return this.b;
     }
+
+    @Override
+    public String toString() {
+        return "PacketPlayInCustomPayload{" +
+                "a='" + a + '\'' +
+                ", b=" + b +
+                '}';
+    }
 }

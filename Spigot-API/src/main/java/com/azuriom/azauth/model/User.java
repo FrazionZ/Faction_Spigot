@@ -14,6 +14,8 @@ public class User {
     private final int id;
     private final String email;
     private final boolean emailVerified;
+
+    private final boolean pcodeState;
     private final double money;
     private final Role role;
     private final boolean banned;
@@ -33,7 +35,7 @@ public class User {
      * @param banned        is the player banned
      * @param createdAt     the player registration date
      */
-    public User(int id, String username, UUID uuid, String accessToken, String email, boolean emailVerified, double money, Role role, boolean banned, Instant createdAt) {
+    public User(int id, String username, UUID uuid, String accessToken, String email, boolean emailVerified, boolean pcodeState, double money, Role role, boolean banned, Instant createdAt) {
         this.id = id;
         this.username = Objects.requireNonNull(username, "username");
         this.uuid = Objects.requireNonNull(uuid, "uuid");
@@ -42,6 +44,7 @@ public class User {
         this.email = Objects.requireNonNull(email, "email");
         this.role = Objects.requireNonNull(role, "role");
         this.emailVerified = emailVerified;
+        this.pcodeState = pcodeState;
         this.money = money;
         this.banned = banned;
         this.createdAt = Objects.requireNonNull(createdAt, "createdAt");
@@ -135,6 +138,10 @@ public class User {
      */
     public Instant getCreatedAt() {
         return this.createdAt;
+    }
+
+    public boolean isPcodeState() {
+        return pcodeState;
     }
 
     @Override

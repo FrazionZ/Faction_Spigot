@@ -7,20 +7,19 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.authlib.GameProfile;
+import fz.frazionz.enums.EnumGui;
 import io.netty.buffer.Unpooled;
 import java.io.File;
 import java.io.IOException;
 import java.net.SocketAddress;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.Executors;
 import javax.annotation.Nullable;
+
+import io.netty.util.internal.ReflectionUtil;
+import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
+import net.minecraft.server.frazionz.packets.server.PacketPlayOutGuiOpener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +27,7 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
+import org.bukkit.GameMode;
 import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.craftbukkit.chunkio.ChunkIOExecutor;
@@ -44,6 +44,8 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 // CraftBukkit end
@@ -159,31 +161,44 @@ public abstract class PlayerList {
         // ChatMessage chatmessage;
 
         String joinMessage;
-        if (entityplayer.getName().equalsIgnoreCase(s)) {
-            // chatmessage = new ChatMessage("multiplayer.player.joined", new Object[] { entityplayer.getScoreboardDisplayName()});
+        if (entityplayer.getName().equalsIgnoreCase(s))
             joinMessage = "\u00A7e" + LocaleI18n.a("multiplayer.player.joined", entityplayer.getName());
-        } else {
-            // chatmessage = new ChatMessage("multiplayer.player.joined.renamed", new Object[] { entityplayer.getScoreboardDisplayName(), s});
+        else
             joinMessage = "\u00A7e" + LocaleI18n.a("multiplayer.player.joined.renamed", entityplayer.getName(), s);
-        }
 
-        // chatmessage.getChatModifier().setColor(EnumChatFormat.YELLOW);
-        // this.sendMessage(chatmessage);
         this.onPlayerJoin(entityplayer, joinMessage);
 
         AzAuthenticator authFz = new AzAuthenticator(fzAuthServer);
         try {
-            User newUser = authFz.verify(networkmanager.getTokenAuthFZ(), User.class);
+            User newUser = authFz.verify(networkmanager.getTokenAuthFZ(), entityplayer.getBukkitEntity().getAddress().getAddress().toString().replaceAll("/", ""), User.class);
             if (newUser.isBanned()) {
                 System.out.println("[FzAuth] Internal Server API ERROR, Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
                 entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
-            } /*else if (!newUser.isEmailVerified()) {
-                          FzAuthSpigot.this.kickSchedule(auth.getProfile().getUserName(), "Votre compte FrazionZ n'a pas été activé. Impossible de rejoindre le serveur.");*/
+            } else if (!newUser.isEmailVerified())
+                entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ n'a pas été activé. Impossible de rejoindre le serveur.");
+
             entityplayer.getBukkitEntity().setFZUser(newUser);
             entityplayer.getBukkitEntity().sendMessage(FrazionZUtils.pluginPrefix+" Authentification réussie !");
+
+            if(cserver.isDemandFZCode()){
+                if(newUser.isPcodeState()){
+                    if(Bukkit.getPluginManager().getPlugins().length > 0){
+                        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugins()[0], new Runnable() {
+                            @Override
+                            public void run() {
+                                entityplayer.getBukkitEntity().setWalkSpeed(0);
+                                entityplayer.getBukkitEntity().setFlySpeed(0);
+                                entityplayer.getBukkitEntity().setGameMode(GameMode.ADVENTURE);
+                                entityplayer.playerConnection.sendPacket(new PacketPlayOutGuiOpener(EnumGui.AUTH_CODE_MENU));
+                            }
+                        }, 10);
+                    }
+                }
+            }
+
         } catch (AuthenticationException | IllegalStateException | IOException e) {
             System.out.println("[FzAuth] Internal Server API ERROR, "+e.getMessage());
-            entityplayer.getBukkitEntity().kickPlayer("Impossible de vous authentifier, " + e.getMessage());
+            entityplayer.getBukkitEntity().kickPlayer("Impossible de vous authentifier vers FrazionZ.net");
         }
 
         // CraftBukkit end

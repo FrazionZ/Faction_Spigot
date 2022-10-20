@@ -2232,6 +2232,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
         ItemStack itemstack;
         ItemStack itemstack1;
 
+        if(PacketPlayInHelper.handlePacketPlayInCustomPayload(this.server.getPlayer(this.player), packetplayincustompayload, s)) return;
+
         if ("MC|BEdit".equals(s)) {
             // CraftBukkit start
             if (this.lastBookTick + 20 > MinecraftServer.currentTick) {
@@ -2606,7 +2608,6 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
             }
         }
 
-        PacketPlayInHelper.handlePacketPlayInCustomPayload(this.server.getPlayer(this.player), packetplayincustompayload, s);
 
     }
 

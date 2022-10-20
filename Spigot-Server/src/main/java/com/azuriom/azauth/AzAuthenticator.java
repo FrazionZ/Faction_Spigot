@@ -106,8 +106,17 @@ public class AzAuthenticator {
      * @throws IOException             if an IO exception occurs
      */
     @Blocking
-    public @NotNull User verify(@NotNull String accessToken) throws AuthenticationException, IOException {
-        return this.verify(accessToken, User.class);
+    public @NotNull User verify(@NotNull String accessToken, @NotNull String ipAddress) throws AuthenticationException, IOException {
+        return this.verify(accessToken, ipAddress, User.class);
+    }
+
+    @Blocking
+    public <T> @NotNull T persocode(@NotNull String accessToken, String pcode, @NotNull Class<T> responseType)
+            throws AuthenticationException, IOException {
+        JsonObject body = new JsonObject();
+        body.addProperty("access_token", accessToken);
+        body.addProperty("pcode", pcode);
+        return this.post("persocode", body, responseType);
     }
 
     /**
@@ -121,11 +130,11 @@ public class AzAuthenticator {
      * @throws IOException             if an IO exception occurs
      */
     @Blocking
-    public <T> @NotNull T verify(@NotNull String accessToken, @NotNull Class<T> responseType)
+    public <T> @NotNull T verify(@NotNull String accessToken, String ipAddress, @NotNull Class<T> responseType)
             throws AuthenticationException, IOException {
         JsonObject body = new JsonObject();
         body.addProperty("access_token", accessToken);
-
+        body.addProperty("ipAddress", ipAddress);
         return this.post("verify", body, responseType);
     }
 
@@ -165,6 +174,7 @@ public class AzAuthenticator {
         if (connection.getResponseCode() == 422) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()))) {
                 AuthResponse status = GSON.fromJson(reader, AuthResponse.class);
+
                 throw new AuthenticationException(status.getMessage());
             }
         }
@@ -180,7 +190,6 @@ public class AzAuthenticator {
             result.append(line);
         }
 
-
         try {
             T response = GSON.fromJson(new JSONObject(result.toString()).getJSONObject("data").toString(), responseType);
             if (response == null) {
@@ -189,7 +198,8 @@ public class AzAuthenticator {
 
             return response;
         } catch (JSONException e) {
-            throw new IllegalStateException("Internal Server Error");
+            System.out.println(result.toString());
+            throw new IllegalStateException("Internal Server Error "+result.toString());
         }
 
 
