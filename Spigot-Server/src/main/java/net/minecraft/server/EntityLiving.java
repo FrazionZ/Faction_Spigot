@@ -1416,7 +1416,12 @@ public abstract class EntityLiving extends Entity {
     { // void -> boolean, add final
         if (!this.isInvulnerable(damagesource)) {
             final boolean human = this instanceof EntityHuman;
-            
+
+            Entity sourceDamager = damagesource.getEntity();
+            if(!human && sourceDamager instanceof EntityHuman && ((EntityPlayer)sourceDamager).getItemInMainHand().getItem().equals(Items.FARM_SWORD) ) {
+                f = 25f;
+            }
+
         	if(!damagesource.ignoresArmor() && this.isBlockingSword() && f > 0.0F)
         	{
         		f = (1.0F + f) * 0.5F; 
