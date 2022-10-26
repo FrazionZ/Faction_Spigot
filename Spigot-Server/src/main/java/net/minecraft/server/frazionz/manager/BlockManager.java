@@ -93,6 +93,8 @@ public class BlockManager {
         registerBlock(523, "trophy_forge", (new BlockTrophyForge()).c(25.0F).b(1000.0F).a(SoundEffectType.d).c("trophy_forge"));
         registerBlock(524, "grimoire_pedestal", (new BlockGrimoirePedestal()).c(25.0F).b(1000.0F).a(SoundEffectType.d).c("grimoire_pedestal"));
         registerBlock(525, "item_crusher", (new BlockItemCrusher()).c(25.0F).b(1000.0F).a(SoundEffectType.d).c("item_crusher"));
+
+        registerBlock(530, "strawberries", (new BlockStrawberries()).c("strawberries"));
     }
 
     private static void registerBlock(int id, MinecraftKey textualID, Block block_)

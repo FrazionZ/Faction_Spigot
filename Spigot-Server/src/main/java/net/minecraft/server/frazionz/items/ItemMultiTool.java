@@ -256,7 +256,7 @@ public class ItemMultiTool extends ItemTool {
     {
     	
     	if(this.d.d() >= 7) {
-        	if(state.getBlock() == Blocks.CARROTS || state.getBlock() == Blocks.POTATOES || state.getBlock() == Blocks.WHEAT || state.getBlock() == Blocks.NETHER_WART || state.getBlock() == Blocks.BEETROOT) 
+        	if(state.getBlock() == Blocks.CARROTS || state.getBlock() == Blocks.STRAWBERRIES || state.getBlock() == Blocks.POTATOES || state.getBlock() == Blocks.WHEAT || state.getBlock() == Blocks.NETHER_WART || state.getBlock() == Blocks.BEETROOT)
         	{
         		
             	if (e instanceof EntityHuman && !w.isClientSide)
@@ -304,6 +304,14 @@ public class ItemMultiTool extends ItemTool {
                     	
                     	return true;
                     }
+
+					else if(state.getBlock() == Blocks.STRAWBERRIES && p.inventory.h(new ItemStack(Items.STRAWBERRY)))
+					{
+						w.setTypeUpdate(pos, Blocks.STRAWBERRIES.getBlockData());
+						removeItems(p, new ItemStack(Items.STRAWBERRY), 1);
+
+						return true;
+					}
                     
                     else {
                     	return super.a(breaker, w, state, pos, e);

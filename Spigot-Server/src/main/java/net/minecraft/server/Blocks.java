@@ -353,6 +353,8 @@ public class Blocks {
     public static final Block TROPHY_FORGE;
     public static final Block GRIMOIRE_PEDESTAL;
     public static final Block ITEM_CRUSHER;
+
+    public static final Block STRAWBERRIES;
     
     @Nullable
     private static Block get(String s) {
@@ -708,6 +710,8 @@ public class Blocks {
             TROPHY_FORGE = get("frazionz:trophy_forge");
             GRIMOIRE_PEDESTAL = get("frazionz:grimoire_pedestal");
             ITEM_CRUSHER = get("frazionz:item_crusher");
+
+            STRAWBERRIES = get("frazionz:strawberries");
             
             Blocks.dU.clear();
         }

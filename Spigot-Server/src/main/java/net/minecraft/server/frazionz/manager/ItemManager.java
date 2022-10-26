@@ -96,7 +96,7 @@ public class ItemManager {
         registerItem(1068, "key_rare", (new Item()).c("key_rare").b(CreativeModeTab.l));
         registerItem(1069, "key_legendary", (new Item()).c("key_legendary").b(CreativeModeTab.l));
 
-        registerItem(1078, "strawberry", (new ItemFood(2, 1.0F, false)).h().c("strawberry"));
+        registerItem(1078, "strawberry", (new ItemSeedFood(2, 1.0F, Blocks.STRAWBERRIES, Blocks.FARMLAND)).c("strawberry"));
         registerItem(1079, "banana", (new ItemBanana(4, 2.5F, true)).h().c("banana"));
         registerItem(1080, "pizza", (new ItemPizza(10, 2.5F, true)).h().c("pizza"));
         registerItem(1081, "donuts", (new ItemDonuts(4, 2.0F, false)).h().c("donuts"));

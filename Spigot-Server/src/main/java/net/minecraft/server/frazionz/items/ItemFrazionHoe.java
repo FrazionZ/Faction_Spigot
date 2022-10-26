@@ -99,7 +99,7 @@ public class ItemFrazionHoe extends ItemTool {
     public boolean a(ItemStack breaker, World w, IBlockData state, BlockPosition pos, EntityLiving e)
     {
     	
-    	if(state.getBlock() == Blocks.CARROTS || state.getBlock() == Blocks.POTATOES || state.getBlock() == Blocks.WHEAT || state.getBlock() == Blocks.NETHER_WART || state.getBlock() == Blocks.BEETROOT) 
+    	if(state.getBlock() == Blocks.CARROTS || state.getBlock() == Blocks.STRAWBERRIES || state.getBlock() == Blocks.POTATOES || state.getBlock() == Blocks.WHEAT || state.getBlock() == Blocks.NETHER_WART || state.getBlock() == Blocks.BEETROOT)
     	{
     		
         	if (e instanceof EntityHuman && !w.isClientSide)
@@ -151,6 +151,15 @@ public class ItemFrazionHoe extends ItemTool {
                 	removeItems(p, new ItemStack(Items.BEETROOT_SEEDS), 1);
                 	
                 	return true;
+                }
+
+                else if(state.getBlock() == Blocks.STRAWBERRIES && p.inventory.h(new ItemStack(Items.STRAWBERRY)))
+                {
+                    w.setTypeUpdate(pos, Blocks.STRAWBERRIES.getBlockData());
+                    breaker.damage(1, e);
+                    removeItems(p, new ItemStack(Items.STRAWBERRY), 1);
+
+                    return true;
                 }
                 
                 else {

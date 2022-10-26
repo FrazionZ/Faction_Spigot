@@ -810,6 +810,8 @@ public enum Material {
     RUNE_REGENERATION(1306),
     RUNE_RESISTANCE(1307),
     RUNE_SPEED(1308),
+
+    STRAWBERRIES(530, Crops.class),
     
     ;
 
@@ -1400,6 +1402,7 @@ public enum Material {
             case FRAZION_LADDER:
             case CRIMSON_ROOTS:
             case CRIMSON_FUNGI:
+            case STRAWBERRIES:
                 return true;
             default:
                 return false;
