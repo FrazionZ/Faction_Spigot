@@ -216,6 +216,7 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
             case FRAZION_FURNACE:
             case AMELIORATOR:
             case TROPHY_FORGE:
+            case ITEM_CRUSHER:
                 return true;
         }
         return false;

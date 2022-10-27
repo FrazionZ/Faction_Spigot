@@ -5,7 +5,6 @@ import java.util.Random;
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
 import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockDoor;
 import net.minecraft.server.BlockFacingHorizontal;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BlockStateDirection;
@@ -39,14 +38,13 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
 {
 	public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
 	public static final AxisAlignedBB FULL_BLOCK = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
-    public static final BlockStateEnum<BlockTrophyForge.EnumTrophyForgeHalf> HALF = BlockStateEnum.of("half", BlockTrophyForge.EnumTrophyForgeHalf.class);
-    
-    private static boolean keepInventory;
+    public static final BlockStateEnum<BlockTrophyForge.EnumTrophyForgeHalf> PARTS = BlockStateEnum.of("half", BlockTrophyForge.EnumTrophyForgeHalf.class);
+
     
     public BlockTrophyForge()
     {
         super(Material.ORE);
-        this.w(this.blockStateList.getBlockData().set(BlockTrophyForge.FACING, EnumDirection.NORTH).set(BlockTrophyForge.HALF, BlockTrophyForge.EnumTrophyForgeHalf.LOWER));
+        this.w(this.blockStateList.getBlockData().set(BlockTrophyForge.FACING, EnumDirection.NORTH).set(BlockTrophyForge.PARTS, BlockTrophyForge.EnumTrophyForgeHalf.BASE));
         this.a(CreativeModeTab.c);
     }
     
@@ -55,10 +53,10 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
      */
     public void onPlace(World world, BlockPosition blockposition, IBlockData iblockdata)
     {
-        this.e(world, blockposition, iblockdata);
+        this.setDefaultFacing(world, blockposition, iblockdata);
     }
     
-    private void e(World world, BlockPosition blockposition, IBlockData iblockdata)
+    private void setDefaultFacing(World world, BlockPosition blockposition, IBlockData iblockdata)
     {
         if (!world.isClientSide)
         {
@@ -66,7 +64,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
             IBlockData iblockdata2 = world.getType(blockposition.south());
             IBlockData iblockdata3 = world.getType(blockposition.west());
             IBlockData iblockdata4 = world.getType(blockposition.east());
-            EnumDirection enumdirection = (EnumDirection) iblockdata.get(BlockTrophyForge.FACING);
+            EnumDirection enumdirection = iblockdata.get(BlockTrophyForge.FACING);
 
             if (enumdirection == EnumDirection.NORTH && iblockdata1.b() && !iblockdata2.b())
             {
@@ -85,7 +83,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
                 enumdirection = EnumDirection.WEST;
             }
 
-            world.setTypeAndData(blockposition, iblockdata.set(BlockTrophyForge.FACING, enumdirection), 2);
+            world.setTypeAndData(blockposition, iblockdata.set(FACING, enumdirection), 2);
         }
     }
     
@@ -101,7 +99,9 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
     
 	public TileEntity a(World worldIn, int meta)
 	{
-		return new TileEntityTrophyForge();
+        if(meta != 0)
+		    return new TileEntityTrophyForge();
+        return null;
 	}
 	
     public boolean b(IBlockData iblockdata) 
@@ -140,11 +140,11 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
         	BlockPosition pos = blockposition.down();
             TileEntity tileentity = null;
 
-            if(iblockdata.get(HALF) == BlockTrophyForge.EnumTrophyForgeHalf.UPPER && world.getType(pos).getBlock() == this)
+            if(iblockdata.get(PARTS) == EnumTrophyForgeHalf.OTHER && world.getType(pos).getBlock() == this)
             {
             	tileentity = world.getTileEntity(pos);
             }
-            else if(iblockdata.get(HALF) == BlockTrophyForge.EnumTrophyForgeHalf.LOWER && world.getType(blockposition).getBlock() == this) 
+            else if(iblockdata.get(PARTS) == EnumTrophyForgeHalf.BASE && world.getType(blockposition).getBlock() == this)
             {
             	tileentity = world.getTileEntity(blockposition);
             }
@@ -160,14 +160,11 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
     
     public void remove(World world, BlockPosition blockposition, IBlockData iblockdata) 
     {
-        if (!keepInventory)
-        {
-            TileEntity tileentity = world.getTileEntity(blockposition);
+        TileEntity tileentity = world.getTileEntity(blockposition);
 
-            if (tileentity instanceof TileEntityTrophyForge) 
-            {
-                InventoryUtils.dropInventory(world, blockposition, (TileEntityTrophyForge) tileentity);
-            }
+        if (tileentity instanceof TileEntityTrophyForge)
+        {
+            InventoryUtils.dropInventory(world, blockposition, (TileEntityTrophyForge) tileentity);
         }
 
         super.remove(world, blockposition, iblockdata);
@@ -178,7 +175,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
         BlockPosition blockposition1 = blockposition.down();
         BlockPosition blockposition2 = blockposition.up();
 
-        if (iblockdata.get(BlockTrophyForge.HALF) == BlockTrophyForge.EnumTrophyForgeHalf.UPPER && world.getType(blockposition1).getBlock() == this)
+        if (iblockdata.get(PARTS) == EnumTrophyForgeHalf.OTHER && world.getType(blockposition1).getBlock() == this)
         {
             if (entityhuman.abilities.canInstantlyBuild)
             {
@@ -186,30 +183,13 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
             }
             world.setAir(blockposition1);
         }
-        else if (iblockdata.get(BlockTrophyForge.HALF) == BlockTrophyForge.EnumTrophyForgeHalf.LOWER && world.getType(blockposition2).getBlock() == this) 
+        else if (iblockdata.get(PARTS) == EnumTrophyForgeHalf.BASE && world.getType(blockposition2).getBlock() == this)
         {
             if (entityhuman.abilities.canInstantlyBuild) 
             {
                 world.setAir(blockposition);
             }
             world.setAir(blockposition2);
-        }
-    }
-    
-    public static void setState(boolean flag, World world, BlockPosition blockposition)
-    {
-        IBlockData iblockdata = world.getType(blockposition);
-        TileEntity tileentity = world.getTileEntity(blockposition);
-        keepInventory = true;
-        
-        world.setTypeAndData(blockposition, Blocks.TROPHY_FORGE.getBlockData().set(FACING, iblockdata.get(FACING)).set(HALF, iblockdata.get(HALF)), 3);
-
-        keepInventory = false;
-        
-        if (tileentity != null) 
-        {
-            tileentity.A();
-            world.setTileEntity(blockposition, tileentity);
         }
     }
     
@@ -222,23 +202,6 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
     	return this.getBlockData().set(FACING, entityliving.getDirection().opposite());
     }
     
-    public IBlockData updateState(IBlockData iblockdata, IBlockAccess iblockaccess, BlockPosition blockposition)
-    {
-        if (iblockdata.get(BlockDoor.HALF) == BlockDoor.EnumDoorHalf.LOWER) {
-        	IBlockData iblockdata1 = iblockaccess.getType(blockposition.up());
-        }
-        else
-        {
-        	IBlockData iblockdata1 = iblockaccess.getType(blockposition.down());
-            if (iblockdata1.getBlock() == this)
-            {
-                iblockdata = iblockdata.set(BlockDoor.FACING, iblockdata1.get(BlockDoor.FACING));
-            }
-        }
-
-        return iblockdata;
-    }
-    
     @Override
     public void postPlace(World world, BlockPosition blockposition, IBlockData iblockdata, EntityLiving entityliving, ItemStack itemstack) {
         this.placeTrophyForge(world, blockposition, entityliving.getDirection().opposite());
@@ -247,16 +210,19 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
     /**
      * Convert the given metadata into a BlockState for this Block
      */
-    public IBlockData fromLegacyData(int i)
+    public IBlockData fromLegacyData(int meta)
     {
-        EnumDirection enumfacing = EnumDirection.fromType1(i);
+        if(meta == 0)
+            return this.getBlockData();
+
+        EnumDirection enumfacing = EnumDirection.fromType1(meta-1);
 
         if (enumfacing.k() == EnumDirection.EnumAxis.Y)
         {
         	enumfacing = EnumDirection.NORTH;
         }
-        
-        return (i & 8) > 0 ? (this.getBlockData().set(FACING, enumfacing).set(HALF, BlockTrophyForge.EnumTrophyForgeHalf.UPPER)) : (this.getBlockData().set(FACING, enumfacing).set(HALF, BlockTrophyForge.EnumTrophyForgeHalf.LOWER));
+
+        return this.getBlockData().set(FACING, enumfacing);
     }
     
     /**
@@ -264,18 +230,9 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
      */
     public int toLegacyData(IBlockData iblockdata)
     {
-        int i = 0;
-
-        if (iblockdata.get(BlockTrophyForge.HALF) == BlockTrophyForge.EnumTrophyForgeHalf.UPPER)
-        {
-            i = i | 8;
-        }
-        else
-        {
-            i = i | ((EnumDirection) iblockdata.get(BlockTrophyForge.FACING)).e().get2DRotationValue();
-        }
-
-        return i;
+        if (iblockdata.get(BlockTrophyForge.PARTS) == EnumTrophyForgeHalf.BASE)
+            return iblockdata.get(FACING).a()+1;
+        return 0;
     }
     
     /**
@@ -284,7 +241,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
      */
     public IBlockData a(IBlockData iblockdata, EnumBlockRotation enumblockrotation) 
     {
-        return iblockdata.get(BlockTrophyForge.HALF) != BlockTrophyForge.EnumTrophyForgeHalf.LOWER ? iblockdata : iblockdata.set(BlockTrophyForge.FACING, enumblockrotation.a((EnumDirection) iblockdata.get(BlockTrophyForge.FACING)));
+        return iblockdata.set(FACING, enumblockrotation.a(iblockdata.get(FACING)));
     }
     
     /**
@@ -293,33 +250,28 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
      */
     public IBlockData a(IBlockData iblockdata, EnumBlockMirror enumblockmirror) 
     {
-        return iblockdata.a(enumblockmirror.a((EnumDirection) iblockdata.get(BlockTrophyForge.FACING)));
+        return iblockdata.a(enumblockmirror.a(iblockdata.get(FACING)));
     }
 
     protected BlockStateList getStateList() 
     {
-        return new BlockStateList(this, new IBlockState[] {BlockTrophyForge.HALF, BlockTrophyForge.FACING});
+        return new BlockStateList(this, PARTS, FACING);
     }
     
     private void placeTrophyForge(World world, BlockPosition blockposition, EnumDirection enumdirection) 
     {
         BlockPosition blockposition3 = blockposition.up();
-        IBlockData iblockdata = this.getBlockData().set(BlockTrophyForge.FACING, enumdirection);
-        world.setTypeAndData(blockposition, iblockdata.set(BlockTrophyForge.HALF, BlockTrophyForge.EnumTrophyForgeHalf.LOWER), 2);
-        world.setTypeAndData(blockposition3, iblockdata.set(BlockTrophyForge.HALF, BlockTrophyForge.EnumTrophyForgeHalf.UPPER), 2);
+        IBlockData iblockdata = this.getBlockData().set(FACING, enumdirection);
+        world.setTypeAndData(blockposition, iblockdata.set(PARTS, EnumTrophyForgeHalf.BASE), 2);
+        world.setTypeAndData(blockposition3, iblockdata.set(PARTS, EnumTrophyForgeHalf.OTHER), 2);
         world.applyPhysics(blockposition, this, false);
         world.applyPhysics(blockposition3, this, false);
     }
     
-    protected static boolean isTop(int i)
-    {
-        return (i & 8) != 0;
-    }
-    
     public enum EnumTrophyForgeHalf implements INamable
     {
-        UPPER,
-        LOWER;
+        OTHER,
+        BASE;
 
         public String toString() 
         {
@@ -328,7 +280,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
 
         public String getName() 
         {
-            return this == BlockTrophyForge.EnumTrophyForgeHalf.UPPER ? "upper" : "lower";
+            return this == BlockTrophyForge.EnumTrophyForgeHalf.OTHER ? "upper" : "lower";
         }
     }
 

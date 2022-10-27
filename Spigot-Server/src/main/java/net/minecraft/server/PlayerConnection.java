@@ -11,10 +11,10 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 import fz.frazionz.event.packets.ClientAskOpenGuiEvent;
-import net.minecraft.server.frazionz.inventory.tileentity.ContainerTrophyForge;
 import net.minecraft.server.frazionz.packets.client.PacketPlayInGuiOpener;
 import net.minecraft.server.frazionz.packets.client.PacketPlayInHelper;
 import net.minecraft.server.frazionz.packets.client.PacketPlayInShopTrade;
+import net.minecraft.server.frazionz.tileentity.impl.TileMachine;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -2617,18 +2617,17 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
     }
 	
 	@Override
-    public void processStartTrophyForge(PacketPlayInStartMachine packet)
+    public void processStartMachine(PacketPlayInStartMachine packet)
     {
         PlayerConnectionUtils.ensureMainThread(packet, this, this.player.x());
         if (this.player.isFrozen()) return; // CraftBukkit
         this.player.resetIdleTimer();
-        
-        
+
         if(this.player.activeContainer.windowId == packet.getWindowId() && this.player.activeContainer.c(this.player) && !this.player.isSpectator()) 
-        {	
-        	ContainerTrophyForge forgeContainer = (ContainerTrophyForge) this.player.activeContainer;
-        	if(forgeContainer.canForge()) {
-    	        this.player.activeContainer.startAction(this.player);
+        {
+            TileMachine forgeContainer = (TileMachine) this.player.activeContainer;
+        	if(forgeContainer.canStart()) {
+                forgeContainer.startMachine(this.player);
     	        this.player.activeContainer.b();
         	}
         }

@@ -162,8 +162,9 @@ public class ContainerItemCrusher extends Container implements TileMachine {
         return itemstack;
     }
 
+    @Override
     public void startMachine(EntityHuman player) {
-        if(canCrush()) {
+        if(canStart()) {
             if(CraftEventFactory.callMachineCraftEvent(player, this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
                 return;
             if(CraftEventFactory.callMachineCraftEvent(player, this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
@@ -175,7 +176,7 @@ public class ContainerItemCrusher extends Container implements TileMachine {
         }
     }
 
-    public boolean isForging() {
+    public boolean isRunning() {
         return this.isCrushing == 1;
     }
 
@@ -187,7 +188,7 @@ public class ContainerItemCrusher extends Container implements TileMachine {
         return ItemCrusherRecipes.getResult(this.slots.get(id).getItem());
     }
 
-    public boolean canCrush() {
+    public boolean canStart() {
         boolean canCrush = false;
         for(int id : SLOT_CRAFT)
             canCrush = canCrush || this.getRecipeResult(id) != null;

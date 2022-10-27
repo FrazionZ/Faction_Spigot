@@ -9,7 +9,7 @@ public class PacketPlayInStartMachine implements Packet<PacketListenerPlayIn> {
     public PacketPlayInStartMachine() {}
 
     public void a(PacketListenerPlayIn packetlistenerplayin) {
-        packetlistenerplayin.processStartTrophyForge(this);
+        packetlistenerplayin.processStartMachine(this);
     }
 
     public void a(PacketDataSerializer packetdataserializer) throws IOException {

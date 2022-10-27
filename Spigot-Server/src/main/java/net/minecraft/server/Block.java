@@ -7,6 +7,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.items.ItemFrazionHoe;
 import net.minecraft.server.frazionz.manager.BlockManager;
 import com.google.common.collect.Sets;
 import com.google.common.collect.UnmodifiableIterator;
@@ -476,7 +477,8 @@ public class Block {
         else
         {
             int i = EnchantmentManager.getEnchantmentLevel(Enchantments.LOOT_BONUS_BLOCKS, itemstack);
-
+            if(itemstack.getItem() instanceof ItemFrazionHoe)
+                i++;
             this.b(world, blockposition, iblockdata, i);
         }
 

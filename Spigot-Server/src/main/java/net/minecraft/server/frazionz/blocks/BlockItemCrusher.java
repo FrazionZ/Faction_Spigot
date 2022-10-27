@@ -9,36 +9,13 @@ public class BlockItemCrusher extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     public static final AxisAlignedBB FULL_BLOCK = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
-    public static final BlockStateEnum<BlockItemCrusher.EnumItemCrusherPart> PARTS = BlockStateEnum.of("parts", BlockItemCrusher.EnumItemCrusherPart.class);
+    public static final BlockStateEnum<EnumItemCrusherPart> PARTS = BlockStateEnum.of("parts", EnumItemCrusherPart.class);
 
     public BlockItemCrusher()
     {
         super(Material.ORE);
-        this.w(this.blockStateList.getBlockData().set(FACING, EnumDirection.NORTH).set(PARTS, BlockItemCrusher.EnumItemCrusherPart.BASE));
+        this.w(this.blockStateList.getBlockData().set(FACING, EnumDirection.NORTH).set(PARTS, EnumItemCrusherPart.BASE));
         this.a(CreativeModeTab.c);
-    }
-
-    /**
-     * Used to determine ambient occlusion and culling when rebuilding chunks for render
-     */
-    public boolean c(IBlockData state)
-    {
-        return false;
-    }
-
-    public boolean b(IBlockData state)
-    {
-        return false;
-    }
-
-    public EnumRenderType a(IBlockData state)
-    {
-        return EnumRenderType.ENTITYBLOCK_ANIMATED;
-    }
-
-    public AxisAlignedBB b(IBlockData state, IBlockAccess source, BlockPosition pos)
-    {
-        return FULL_BLOCK;
     }
 
     /**
@@ -57,7 +34,7 @@ public class BlockItemCrusher extends BlockTileEntity {
             IBlockData IBlockData1 = worldIn.getType(pos.south());
             IBlockData IBlockData2 = worldIn.getType(pos.west());
             IBlockData IBlockData3 = worldIn.getType(pos.east());
-            EnumDirection EnumDirection = (EnumDirection)state.get(FACING);
+            EnumDirection EnumDirection = state.get(FACING);
 
             if (EnumDirection == EnumDirection.NORTH && IBlockData.b() && !IBlockData1.b())
             {
@@ -80,11 +57,38 @@ public class BlockItemCrusher extends BlockTileEntity {
         }
     }
 
+    public AxisAlignedBB b(IBlockData iblockdata, IBlockAccess iblockaccess, BlockPosition blockposition) {
+        return FULL_BLOCK;
+    }
+
+    /**
+     * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     */
+    public boolean c(IBlockData iblockdata)
+    {
+        return false;
+    }
+
     public TileEntity a(World worldIn, int meta)
     {
         if(meta != 0)
             return new TileEntityItemCrusher();
         return null;
+    }
+
+    public boolean b(IBlockData iblockdata)
+    {
+        return false;
+    }
+
+    public EnumRenderType a(IBlockState state)
+    {
+        return EnumRenderType.MODEL;
+    }
+
+    public EnumPistonReaction h(IBlockData iblockdata)
+    {
+        return EnumPistonReaction.IGNORE;
     }
 
     public Item getDropType(IBlockData state, Random rand, int fortune)
@@ -173,6 +177,7 @@ public class BlockItemCrusher extends BlockTileEntity {
     /**
      * Called by ItemBlocks after a block is set in the world, to allow post-place logic
      */
+    @Override
     public void postPlace(World worldIn, BlockPosition pos, IBlockData state, EntityLiving placer, ItemStack stack)
     {
         this.placeItemCrusher(worldIn, pos, placer.getDirection().opposite());
@@ -202,7 +207,7 @@ public class BlockItemCrusher extends BlockTileEntity {
     public int toLegacyData(IBlockData state)
     {
         if (state.get(PARTS) == EnumItemCrusherPart.BASE)
-            return ((EnumDirection)state.get(FACING)).a()+1;
+            return (state.get(FACING)).a()+1;
         return 0;
     }
 
@@ -212,7 +217,7 @@ public class BlockItemCrusher extends BlockTileEntity {
      */
     public IBlockData a(IBlockData state, EnumBlockRotation rot)
     {
-        return state.set(FACING, rot.a((EnumDirection)state.get(FACING)));
+        return state.set(FACING, rot.a(state.get(FACING)));
     }
 
     /**
@@ -221,12 +226,12 @@ public class BlockItemCrusher extends BlockTileEntity {
      */
     public IBlockData a(IBlockData state, EnumBlockMirror mirrorIn)
     {
-        return state.a(mirrorIn.a((EnumDirection)state.get(FACING)));
+        return state.a(mirrorIn.a(state.get(FACING)));
     }
 
     protected BlockStateList getStateList()
     {
-        return new BlockStateList(this, new IBlockState[] {PARTS, FACING});
+        return new BlockStateList(this, PARTS, FACING);
     }
 
     private void placeItemCrusher(World worldIn, BlockPosition pos, EnumDirection facing)

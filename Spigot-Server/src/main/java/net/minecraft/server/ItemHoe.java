@@ -9,13 +9,14 @@ public class ItemHoe extends ItemTool {
 
     protected Item.EnumToolMaterial a;
 
-    private static final Set<Block> e = Sets.newHashSet(new Block[] { 
-    		Blocks.HAY_BLOCK,
-    		Blocks.NETHER_WART_BLOCK2,
-    		Blocks.SPONGE,
-    		Blocks.dg
-    		
-    });
+    private static final Set<Block> e = Sets.newHashSet(
+            Blocks.HAY_BLOCK,
+            Blocks.NETHER_WART_BLOCK2,
+            Blocks.dg,
+            Blocks.SPONGE,
+            Blocks.MELON_BLOCK,
+            Blocks.PUMPKIN
+    );
     
     public ItemHoe(Item.EnumToolMaterial item_enumtoolmaterial) {
     	

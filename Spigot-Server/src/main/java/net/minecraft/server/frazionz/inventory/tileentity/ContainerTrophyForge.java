@@ -166,7 +166,7 @@ public class ContainerTrophyForge extends Container implements TileMachine
 
     @Override
     public void startMachine(EntityHuman player) {
-    	if(canForge()) {
+    	if(canStart()) {
     		if(CraftEventFactory.callMachineCraftEvent(player, getRecipeResult(), this.getBukkitView(), MachineType.TROPHY_FORGE, MachineAction.START_CRAFTING).isCancelled())
     			return;
     		((TileEntityTrophyForge)this.tileTrophyForge).setActionner(player);
@@ -174,7 +174,7 @@ public class ContainerTrophyForge extends Container implements TileMachine
     	}
     }
     
-    public boolean canForge()
+    public boolean canStart()
     {
         return getRecipeResult() != null;
     }
@@ -192,8 +192,8 @@ public class ContainerTrophyForge extends Container implements TileMachine
         		this.slots.get(8).getItem(),
         	});
     }
-    
-    public boolean isForging() {
+
+    public boolean isRunning() {
     	return this.isForging == 1;
     }
 }

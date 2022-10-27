@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.blocks.BlockTrophyForge;
 import net.minecraft.server.frazionz.tileentity.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -321,7 +322,7 @@ public class WorldServer extends World implements IAsyncTaskHandler {
 
         else if (type == Blocks.TROPHY_FORGE)
         {
-            if (!(result instanceof TileEntityTrophyForge))
+            if (!(result instanceof TileEntityTrophyForge) && type.toLegacyData(this.getType(pos)) != 0)
             {
                 result = fixTileEntity(pos, type, result);
             }
@@ -329,7 +330,7 @@ public class WorldServer extends World implements IAsyncTaskHandler {
 
         else if (type == Blocks.ITEM_CRUSHER)
         {
-            if (!(result instanceof TileEntityItemCrusher))
+            if (!(result instanceof TileEntityItemCrusher) && type.toLegacyData(this.getType(pos)) != 0)
             {
                 result = fixTileEntity(pos, type, result);
             }

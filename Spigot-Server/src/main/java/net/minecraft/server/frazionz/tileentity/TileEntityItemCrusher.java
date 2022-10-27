@@ -7,6 +7,7 @@ import net.minecraft.server.frazionz.tileentity.impl.TickCounter;
 import org.bukkit.craftbukkit.entity.CraftHumanEntity;
 import org.bukkit.entity.HumanEntity;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class TileEntityItemCrusher extends TileEntityContainer implements ITickable, TickCounter, IWorldInventory
@@ -23,7 +24,7 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
     private int tickCount = 0;
     private boolean isAnimationEnd = true;
 
-    public List<HumanEntity> transaction = new java.util.ArrayList<HumanEntity>();
+    public List<HumanEntity> transaction = new java.util.ArrayList<>();
     private EntityHuman actionner;
 
     public TileEntityItemCrusher()
@@ -52,20 +53,27 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
 
     @Override
     public int getSize() {
-        return 0;
+        return itemstacks.size();
     }
 
     public boolean x_()
     {
-        for (ItemStack itemstack : this.itemstacks)
-        {
-            if (!itemstack.isEmpty())
-            {
-                return false;
-            }
-        }
+        Iterator iterator = this.itemstacks.iterator();
 
-        return true;
+        ItemStack itemstack;
+
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                return true;
+            }
+
+            itemstack = (ItemStack) iterator.next();
+        }
+        while (itemstack.isEmpty());
+
+        return false;
     }
 
     /**
@@ -245,7 +253,7 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
     }
 
     public String getContainerName() {
-        return "minecraft:item_crusher";
+        return "frazionz:item_crusher";
     }
 
     public Container createContainer(PlayerInventory playerInventory, EntityHuman playerIn)

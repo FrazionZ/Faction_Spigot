@@ -652,7 +652,4 @@ public abstract class Container {
             entityplayer.playerConnection.sendPacket(new PacketPlayOutSetSlot(this.windowId, 0, itemstack));
         }
     }
-    
-    public void startAction(EntityPlayer player) {
-    }
 }

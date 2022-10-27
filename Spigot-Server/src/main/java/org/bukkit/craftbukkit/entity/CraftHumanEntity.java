@@ -306,7 +306,7 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
                 break;
             case TROPHY_FORGE:
                 if (iinventory instanceof TileEntityTrophyForge) {
-                    getHandle().openContainer((TileEntityTrophyForge) iinventory);
+                    getHandle().openContainer(iinventory);
                 } else {
                     openCustomInventory(inventory, player, "frazionz:trophy_forge");
                 }
@@ -314,7 +314,7 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
 
             case ITEM_CRUSHER:
                 if (iinventory instanceof TileEntityItemCrusher) {
-                    getHandle().openContainer((TileEntityItemCrusher) iinventory);
+                    getHandle().openContainer(iinventory);
                 } else {
                     openCustomInventory(inventory, player, "frazionz:item_crusher");
                 }

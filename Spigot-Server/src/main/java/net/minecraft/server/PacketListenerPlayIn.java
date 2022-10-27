@@ -65,7 +65,7 @@ public interface PacketListenerPlayIn extends PacketListener {
 
     void a(PacketPlayInAdvancements packetplayinadvancements);
     
-    void processStartTrophyForge(PacketPlayInStartMachine packetIn);
+    void processStartMachine(PacketPlayInStartMachine packetIn);
 
     void processStartUpdateSkin(PacketPlayInUpdateSkin packetIn);
 

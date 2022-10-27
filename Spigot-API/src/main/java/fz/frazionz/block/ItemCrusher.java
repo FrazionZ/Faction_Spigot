@@ -1,4 +1,14 @@
 package fz.frazionz.block;
 
-public interface ItemCrusher {
+import fz.frazionz.inventory.ItemCrusherInventory;
+import org.bukkit.block.Container;
+
+public interface ItemCrusher extends Container {
+
+    @Override
+    public ItemCrusherInventory getInventory();
+
+    @Override
+    public ItemCrusherInventory getSnapshotInventory();
+
 }
