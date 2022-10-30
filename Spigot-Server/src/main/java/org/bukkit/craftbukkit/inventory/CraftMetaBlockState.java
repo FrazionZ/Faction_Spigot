@@ -376,11 +376,6 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
                 te = new TileEntityHopper();
             }
             return new CraftHopper(material, (TileEntityHopper) te);
-        case Z_HOPPER:
-            if (te == null) {
-                te = new TileEntityZHopper();
-            }
-            return new CraftZHopper(material, (TileEntityZHopper) te);
         case MOB_SPAWNER:
             if (te == null) {
                 te = new TileEntityMobSpawner();
@@ -477,6 +472,12 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
                 te = new TileEntityComparator();
             }
             return new CraftComparator(material, (TileEntityComparator) te);
+
+        case Z_HOPPER:
+            if (te == null) {
+                te = new TileEntityZHopper();
+            }
+            return new CraftZHopper(material, (TileEntityZHopper) te);
 
         case GRIMOIRE_DEPESTAL:
             if (te == null) {

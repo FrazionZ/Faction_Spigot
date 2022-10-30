@@ -3,14 +3,13 @@ package net.minecraft.server.frazionz.tileentity;
 import net.minecraft.server.*;
 import net.minecraft.server.frazionz.inventory.tileentity.ContainerItemCrusher;
 import net.minecraft.server.frazionz.recipes.ItemCrusherRecipes;
-import net.minecraft.server.frazionz.tileentity.impl.TickCounter;
 import org.bukkit.craftbukkit.entity.CraftHumanEntity;
 import org.bukkit.entity.HumanEntity;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class TileEntityItemCrusher extends TileEntityContainer implements ITickable, TickCounter, IWorldInventory
+public class TileEntityItemCrusher extends TileEntityContainer implements ITickable, IWorldInventory
 {
     private static final int[] SLOT_CRAFT = new int[] {0, 1, 2};
     private static final int[] SLOT_INVENTORY = new int[] {3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
@@ -21,11 +20,8 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
     private int totalCrushingTime;
     private int isCrushing = 0;
 
-    private int tickCount = 0;
-    private boolean isAnimationEnd = true;
-
     public List<HumanEntity> transaction = new java.util.ArrayList<>();
-    private EntityHuman actionner;
+    private EntityHuman worker;
 
     public TileEntityItemCrusher()
     {
@@ -191,12 +187,6 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
     }
 
     public void e() {
-        if(this.isAnimationEnd && tickCount != 0) {
-            tickCount = 0;
-        }
-        if(this.isCrushing() || !this.isAnimationEnd) {
-            tickCount++;
-        }
         if (!this.world.isClientSide)
         {
             if(this.isCrushing() && !this.canCrush()) {
@@ -310,7 +300,6 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
                 this.isCrushing = type;
                 return true;
             case 2:
-                this.isAnimationEnd = type == 1;
                 return true;
             default:
                 return super.c(id, type);
@@ -324,23 +313,6 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
 
     public boolean isCrushing() {
         return this.isCrushing == 1;
-    }
-
-    @Override
-    public int getTickCount() {
-        return tickCount;
-    }
-
-    public boolean isAnimationEnd() {
-        return isAnimationEnd;
-    }
-
-    public boolean hasAvailableSlot() {
-        for(int id : SLOT_INVENTORY) {
-            if(this.itemstacks.get(id).isEmpty())
-                return true;
-        }
-        return false;
     }
 
     public void addItemToInventory(ItemStack item) {
@@ -402,11 +374,11 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
         return SLOT_INVENTORY;
     }
 
-    public void setActionner(EntityHuman forger) {
-        this.actionner = forger;
+    public void setWorker(EntityHuman forger) {
+        this.worker = forger;
     }
 
-    public EntityHuman getActionner() {
-        return actionner;
+    public EntityHuman getWorker() {
+        return worker;
     }
 }

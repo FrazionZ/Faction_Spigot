@@ -6,24 +6,26 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.UUID;
+
 public class MachineCraftEvent extends CancellableEvent {
     
-	private Player player;
+	private UUID playerUUID;
 	private InventoryView view;
 	private ItemStack itemToCraft;
 	private MachineType type;
 	private MachineAction action;
 	
-    public MachineCraftEvent(Player player, ItemStack itemToCraft, InventoryView view, MachineType type, MachineAction action) {
-    	this.player = player;
+    public MachineCraftEvent(UUID playerUUID, ItemStack itemToCraft, InventoryView view, MachineType type, MachineAction action) {
+    	this.playerUUID = playerUUID;
     	this.view = view;
     	this.itemToCraft = itemToCraft;
     	this.type = type;
     	this.action = action;
     }
     
-    public Player getPlayer() {
-		return player;
+    public UUID getPlayerUUID() {
+		return playerUUID;
 	}
     
     public ItemStack getItemToCraft() {

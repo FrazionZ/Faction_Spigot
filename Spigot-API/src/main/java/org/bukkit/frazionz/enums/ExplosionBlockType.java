@@ -41,5 +41,7 @@ public enum ExplosionBlockType {
 	OBSIDIAN_BAUXITE,
 	OBSIDIAN_OYNYX,
 	OBSIDIAN_FRAZION,
+
+	ITEM_CRUSHER,
 	
 }

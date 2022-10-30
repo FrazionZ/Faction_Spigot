@@ -1,11 +1,14 @@
 package net.minecraft.server.frazionz.blocks;
 
 import net.minecraft.server.*;
+import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 import net.minecraft.server.frazionz.tileentity.TileEntityItemCrusher;
+import org.bukkit.event.frazionz.FzBlockExplodeEvent;
+import org.bukkit.frazionz.enums.ExplosionBlockType;
 
 import java.util.Random;
 
-public class BlockItemCrusher extends BlockTileEntity {
+public class BlockItemCrusher extends BlockTileEntity implements FzExplosionBlockType  {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     public static final AxisAlignedBB FULL_BLOCK = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
@@ -81,7 +84,7 @@ public class BlockItemCrusher extends BlockTileEntity {
         return false;
     }
 
-    public EnumRenderType a(IBlockState state)
+    public EnumRenderType a(IBlockData state)
     {
         return EnumRenderType.MODEL;
     }
@@ -242,6 +245,21 @@ public class BlockItemCrusher extends BlockTileEntity {
         worldIn.setTypeAndData(blockpos2, IBlockData.set(PARTS, EnumItemCrusherPart.OTHER), 2);
         worldIn.applyPhysics(pos, this, false);
         worldIn.applyPhysics(blockpos2, this, false);
+    }
+
+    @Override
+    public ExplosionBlockType getExplosionBlockType() {
+        return ExplosionBlockType.ITEM_CRUSHER;
+    }
+
+    @Override
+    public float getExplosionChance(FzBlockExplodeEvent.ExplosiveType explosiveType) {
+        return 0.0f;
+    }
+
+    @Override
+    public float getExplosionChanceBonusForLevel(int level) {
+        return 0.0f;
     }
 
     public enum EnumItemCrusherPart implements INamable

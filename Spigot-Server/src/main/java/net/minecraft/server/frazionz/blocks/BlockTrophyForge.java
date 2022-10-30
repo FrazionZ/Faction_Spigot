@@ -23,7 +23,6 @@ import net.minecraft.server.EnumPistonReaction;
 import net.minecraft.server.EnumRenderType;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.IBlockState;
 import net.minecraft.server.INamable;
 import net.minecraft.server.InventoryUtils;
 import net.minecraft.server.Item;
@@ -38,7 +37,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
 {
 	public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
 	public static final AxisAlignedBB FULL_BLOCK = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
-    public static final BlockStateEnum<BlockTrophyForge.EnumTrophyForgeHalf> PARTS = BlockStateEnum.of("half", BlockTrophyForge.EnumTrophyForgeHalf.class);
+    public static final BlockStateEnum<EnumTrophyForgeHalf> PARTS = BlockStateEnum.<EnumTrophyForgeHalf>of("parts", EnumTrophyForgeHalf.class);
 
     
     public BlockTrophyForge()
@@ -46,6 +45,31 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
         super(Material.ORE);
         this.w(this.blockStateList.getBlockData().set(BlockTrophyForge.FACING, EnumDirection.NORTH).set(BlockTrophyForge.PARTS, BlockTrophyForge.EnumTrophyForgeHalf.BASE));
         this.a(CreativeModeTab.c);
+    }
+
+    public AxisAlignedBB b(IBlockData iblockdata, IBlockAccess iblockaccess, BlockPosition blockposition) {
+
+        return FULL_BLOCK;
+    }
+
+    public boolean c(IBlockData iblockdata)
+    {
+        return false;
+    }
+
+    public boolean b(IBlockData iblockdata)
+    {
+        return false;
+    }
+
+    public EnumRenderType a(IBlockData state)
+    {
+        return EnumRenderType.ENTITYBLOCK_ANIMATED;
+    }
+
+    public EnumPistonReaction h(IBlockData iblockdata)
+    {
+        return EnumPistonReaction.IGNORE;
     }
     
     /**
@@ -86,47 +110,22 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
             world.setTypeAndData(blockposition, iblockdata.set(FACING, enumdirection), 2);
         }
     }
-    
-    public AxisAlignedBB b(IBlockData iblockdata, IBlockAccess iblockaccess, BlockPosition blockposition) {
 
-        return FULL_BLOCK;
-    }
-    
-    public boolean c(IBlockData iblockdata)
+    public TileEntity a(World worldIn, int meta)
     {
-        return false;
-    }
-    
-	public TileEntity a(World worldIn, int meta)
-	{
         if(meta != 0)
-		    return new TileEntityTrophyForge();
+            return new TileEntityTrophyForge();
         return null;
-	}
-	
-    public boolean b(IBlockData iblockdata) 
-    {
-        return false;
     }
-	
-	public EnumRenderType a(IBlockState state)
-    {
-        return EnumRenderType.MODEL;
-    }
-	
-    public EnumPistonReaction h(IBlockData iblockdata) 
-    {
-        return EnumPistonReaction.IGNORE;
-    }
-	
+
     public Item getDropType(IBlockData state, Random rand, int fortune)
     {
         return Item.getItemOf(Blocks.TROPHY_FORGE);
     }
-    
+
     public boolean canPlace(World world, BlockPosition blockposition)
     {
-        return blockposition.getY() >= 255 ? false : super.canPlace(world, blockposition) && super.canPlace(world, blockposition.up());
+        return blockposition.getY() < 255 && super.canPlace(world, blockposition) && super.canPlace(world, blockposition.up());
     }
     
     public boolean interact(World world, BlockPosition blockposition, IBlockData iblockdata, EntityHuman entityhuman, EnumHand enumhand, EnumDirection enumdirection, float f, float f1, float f2)
@@ -203,7 +202,8 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
     }
     
     @Override
-    public void postPlace(World world, BlockPosition blockposition, IBlockData iblockdata, EntityLiving entityliving, ItemStack itemstack) {
+    public void postPlace(World world, BlockPosition blockposition, IBlockData iblockdata, EntityLiving entityliving, ItemStack itemstack)
+    {
         this.placeTrophyForge(world, blockposition, entityliving.getDirection().opposite());
     }
     
@@ -231,7 +231,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
     public int toLegacyData(IBlockData iblockdata)
     {
         if (iblockdata.get(BlockTrophyForge.PARTS) == EnumTrophyForgeHalf.BASE)
-            return iblockdata.get(FACING).a()+1;
+            return iblockdata.get(FACING).a() + 1;
         return 0;
     }
     
@@ -258,20 +258,20 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
         return new BlockStateList(this, PARTS, FACING);
     }
     
-    private void placeTrophyForge(World world, BlockPosition blockposition, EnumDirection enumdirection) 
+    private void placeTrophyForge(World world, BlockPosition pos, EnumDirection enumdirection)
     {
-        BlockPosition blockposition3 = blockposition.up();
+        BlockPosition posUp = pos.up();
         IBlockData iblockdata = this.getBlockData().set(FACING, enumdirection);
-        world.setTypeAndData(blockposition, iblockdata.set(PARTS, EnumTrophyForgeHalf.BASE), 2);
-        world.setTypeAndData(blockposition3, iblockdata.set(PARTS, EnumTrophyForgeHalf.OTHER), 2);
-        world.applyPhysics(blockposition, this, false);
-        world.applyPhysics(blockposition3, this, false);
+        world.setTypeAndData(pos, iblockdata.set(PARTS, EnumTrophyForgeHalf.BASE), 2);
+        world.setTypeAndData(posUp, iblockdata.set(PARTS, EnumTrophyForgeHalf.OTHER), 2);
+        world.applyPhysics(pos, this, false);
+        world.applyPhysics(posUp, this, false);
     }
     
     public enum EnumTrophyForgeHalf implements INamable
     {
-        OTHER,
-        BASE;
+        BASE,
+        OTHER;
 
         public String toString() 
         {
@@ -280,7 +280,7 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
 
         public String getName() 
         {
-            return this == BlockTrophyForge.EnumTrophyForgeHalf.OTHER ? "upper" : "lower";
+            return this == OTHER ? "base" : "top";
         }
     }
 

@@ -137,33 +137,33 @@ public class CraftContainer extends Container {
             case HOPPER:
                 return "minecraft:hopper";
             case Z_HOPPER:
-                return "minecraft:z_hopper";
+                return "frazionz:z_hopper";
             case DROPPER:
                 return "minecraft:dropper";
             case SHULKER_BOX:
                 return "minecraft:shulker_box";
             case YELLITE_FURNACE:
-                return "minecraft:yellite_furnace";
+                return "frazionz:yellite_furnace";
                 
             case BAUXITE_FURNACE:
-                return "minecraft:bauxite_furnace";
+                return "frazionz:bauxite_furnace";
                 
             case ONYX_FURNACE:
-                return "minecraft:onyx_furnace";
+                return "frazionz:onyx_furnace";
                 
             case FRAZION_FURNACE:
-                return "minecraft:frazion_furnace";
+                return "frazionz:frazion_furnace";
                 
             case HDV_CHEST:
-                return "minecraft:hdv_chest";
+                return "frazionz:hdv_chest";
             case spawner_inventory:
-                return "minecraft:spawner_inventory";
+                return "frazionz:spawner_inventory";
                 
             case AMELIORATOR:
-                return "minecraft:ameliorator";
+                return "frazionz:ameliorator";
               
             case TROPHY_FORGE:
-                return "minecraft:trophy_forge";
+                return "frazionz:trophy_forge";
                 
             default:
                 return "minecraft:hdv_chest";

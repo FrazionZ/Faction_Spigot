@@ -16,7 +16,6 @@ public class ContainerTrophyForge extends Container implements TileMachine
 	private final IInventory tileTrophyForge;
     private int forgeTime;
     private int totalForgeTime;
-    private int SlotLimit = 1;
 	private int isForging;
     
     
@@ -78,17 +77,17 @@ public class ContainerTrophyForge extends Container implements TileMachine
 
             if (this.forgeTime != this.tileTrophyForge.getProperty(0))
             {
-                icontainerlistener.setContainerData(this, 0, this.tileTrophyForge.getProperty(2));
+                icontainerlistener.setContainerData(this, 0, this.tileTrophyForge.getProperty(0));
             }
 
             if (this.totalForgeTime != this.tileTrophyForge.getProperty(1))
             {
-                icontainerlistener.setContainerData(this, 1, this.tileTrophyForge.getProperty(0));
+                icontainerlistener.setContainerData(this, 1, this.tileTrophyForge.getProperty(1));
             }
 
             if (this.isForging != this.tileTrophyForge.getProperty(2))
             {
-                icontainerlistener.setContainerData(this, 2, this.tileTrophyForge.getProperty(1));
+                icontainerlistener.setContainerData(this, 2, this.tileTrophyForge.getProperty(2));
             }
         }
 
@@ -167,9 +166,9 @@ public class ContainerTrophyForge extends Container implements TileMachine
     @Override
     public void startMachine(EntityHuman player) {
     	if(canStart()) {
-    		if(CraftEventFactory.callMachineCraftEvent(player, getRecipeResult(), this.getBukkitView(), MachineType.TROPHY_FORGE, MachineAction.START_CRAFTING).isCancelled())
+    		if(CraftEventFactory.callMachineCraftEvent(player.getWorld(), player.getUniqueID(), getRecipeResult(), this.getBukkitView(), MachineType.TROPHY_FORGE, MachineAction.START_CRAFTING).isCancelled())
     			return;
-    		((TileEntityTrophyForge)this.tileTrophyForge).setActionner(player);
+    		((TileEntityTrophyForge)this.tileTrophyForge).setWorker(player);
     		this.tileTrophyForge.setProperty(2, 1);
     	}
     }
@@ -195,5 +194,9 @@ public class ContainerTrophyForge extends Container implements TileMachine
 
     public boolean isRunning() {
     	return this.isForging == 1;
+    }
+
+    public IInventory getTileEntity() {
+        return tileTrophyForge;
     }
 }

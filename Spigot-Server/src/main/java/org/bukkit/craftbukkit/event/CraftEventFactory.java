@@ -1,10 +1,7 @@
 package org.bukkit.craftbukkit.event;
 
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.Nullable;
 
@@ -1196,10 +1193,9 @@ public class CraftEventFactory {
         return !event.isCancelled();
     }
     
-    public static MachineCraftEvent callMachineCraftEvent(EntityHuman human, ItemStack itemToCraft, InventoryView view, MachineType type, MachineAction action) {
-    	Player player = ((EntityPlayer) human).getBukkitEntity();
-    	MachineCraftEvent event = new MachineCraftEvent(player, CraftItemStack.asCraftMirror(itemToCraft), view, type, action);
-    	human.world.getServer().getPluginManager().callEvent(event);
+    public static MachineCraftEvent callMachineCraftEvent(World world, UUID playerUUID, ItemStack itemToCraft, InventoryView view, MachineType type, MachineAction action) {
+        MachineCraftEvent event = new MachineCraftEvent(playerUUID, CraftItemStack.asCraftMirror(itemToCraft), view, type, action);
+        world.getServer().getPluginManager().callEvent(event);
         return event;
     }
     

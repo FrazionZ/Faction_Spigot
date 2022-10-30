@@ -15,7 +15,6 @@ public class ContainerItemCrusher extends Container implements TileMachine {
     private final IInventory tileEntity;
     private int crushingTime;
     private int totalCrushingTime;
-    private int SlotLimit = 1;
     private int isCrushing;
 
     private CraftInventoryView bukkitEntity = null;
@@ -165,15 +164,26 @@ public class ContainerItemCrusher extends Container implements TileMachine {
     @Override
     public void startMachine(EntityHuman player) {
         if(canStart()) {
-            if(CraftEventFactory.callMachineCraftEvent(player, this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
+            if(CraftEventFactory.callMachineCraftEvent(player.getWorld(), player.getUniqueID(), this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
                 return;
-            if(CraftEventFactory.callMachineCraftEvent(player, this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
+            if(CraftEventFactory.callMachineCraftEvent(player.getWorld(), player.getUniqueID(), this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
                 return;
-            if(CraftEventFactory.callMachineCraftEvent(player, this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
+            if(CraftEventFactory.callMachineCraftEvent(player.getWorld(), player.getUniqueID(), this.slots.get(0).getItem(), this.getBukkitView(), MachineCraftEvent.MachineType.ITEM_CRUSHER, MachineCraftEvent.MachineAction.START_CRAFTING).isCancelled())
                 return;
-            ((TileEntityItemCrusher)this.tileEntity).setActionner(player);
+            ((TileEntityItemCrusher)this.tileEntity).setWorker(player);
             this.tileEntity.setProperty(2, 1);
         }
+    }
+
+    public boolean canStart() {
+        boolean canCrush = false;
+        for(int id : SLOT_CRAFT)
+            canCrush = canCrush || this.getRecipeResult(id) != null;
+        return canCrush;
+    }
+
+    public ItemStack[] getRecipeResult(int id) {
+        return ItemCrusherRecipes.getResult(this.slots.get(id).getItem());
     }
 
     public boolean isRunning() {
@@ -182,17 +192,6 @@ public class ContainerItemCrusher extends Container implements TileMachine {
 
     public IInventory getTileEntity() {
         return tileEntity;
-    }
-
-    public ItemStack[] getRecipeResult(int id) {
-        return ItemCrusherRecipes.getResult(this.slots.get(id).getItem());
-    }
-
-    public boolean canStart() {
-        boolean canCrush = false;
-        for(int id : SLOT_CRAFT)
-            canCrush = canCrush || this.getRecipeResult(id) != null;
-        return canCrush;
     }
 
 }
