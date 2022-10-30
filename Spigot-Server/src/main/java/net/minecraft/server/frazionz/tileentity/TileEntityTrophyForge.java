@@ -50,7 +50,6 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
     // CraftBukkit end
 
     private UUID worker;
-    private World world;
 
     public TileEntityTrophyForge() {}
 
@@ -318,7 +317,6 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
 
     public void setWorker(EntityHuman worker) {
         this.worker = worker.getUniqueID();
-        this.world = worker.world;
     }
 
     public UUID getWorker() {
