@@ -32,7 +32,7 @@ import org.apache.logging.log4j.Logger;
 
 public class ItemCrusherRecipes {
 
-    private final static Map<ItemStack, CrushResult> RECIPES = Maps.<ItemStack, CrushResult>newHashMap();
+    private final static Map<ItemStack, CrushResult> RECIPES = Maps.newHashMap();
     private final static Logger LOGGER = LogManager.getLogger();
 
     static
@@ -194,7 +194,7 @@ public class ItemCrusherRecipes {
             List<CrushItem> items = new ArrayList<>();
             for(int i = 0; i < json.size(); i++) {
                 CrushItem item = new CrushItem(json.get(i).getAsJsonObject());
-                if(item.isValid())
+                if(item.isValid() && item.randomChance())
                     items.add(item);
             }
             this.stacks = new CrushItem[items.size()];
@@ -216,11 +216,19 @@ public class ItemCrusherRecipes {
         private int max;
         private Item item;
         private short itemDamage = 0;
+        private float chance = 1.0f;
 
         CrushItem(int min, int max, Item item) {
             this.min = min;
             this.max = max;
             this.item = item;
+        }
+
+        CrushItem(int min, int max, Item item, float chance) {
+            this.min = min;
+            this.max = max;
+            this.item = item;
+            this.chance = chance;
         }
 
         CrushItem(JsonObject json) {
@@ -239,6 +247,14 @@ public class ItemCrusherRecipes {
                 max = tmpMin;
             }
 
+            if(json.has("chance")) {
+                this.chance = JsonUtils.getFloat(json, "chance");
+                if(this.chance > 1.0f)
+                    this.chance = 1.0f;
+                if(this.chance < 0.0f)
+                    this.chance = 0.0f;
+            }
+
             if(json.has("meta"))
                 itemDamage = json.get("meta").getAsShort();
         }
@@ -255,6 +271,9 @@ public class ItemCrusherRecipes {
             return item != null;
         }
 
+        boolean randomChance() {
+            return new Random().nextFloat() <= chance;
+        }
     }
 
 }

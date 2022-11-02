@@ -317,6 +317,8 @@ public class ItemManager {
         registerItem(1306, "rune_regeneration", (new Item()).c("rune_regeneration").b(CreativeModeTab.l));
         registerItem(1307, "rune_resistance", (new Item()).c("rune_resistance").b(CreativeModeTab.l));
         registerItem(1308, "rune_speed", (new Item()).c("rune_speed").b(CreativeModeTab.l));
+
+        registerItem(1320, "iron_tooth", (new Item()).c("iron_tooth").b(CreativeModeTab.l));
     }
 
 

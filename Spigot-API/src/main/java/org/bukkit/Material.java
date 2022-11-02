@@ -812,6 +812,8 @@ public enum Material {
     RUNE_SPEED(1308),
 
     STRAWBERRIES(530, Crops.class),
+
+    IRON_TOOTH(1320),
     
     ;
 

@@ -386,6 +386,7 @@ public class Items {
     public static final Item TROPHY_SHEEP;
     public static final Item TROPHY_SILVERFISH;
     public static final Item TROPHY_IRON_GOLEM;
+    public static final Item IRON_TOOTH;
     
     
     private static Item get(String s) {
@@ -777,6 +778,7 @@ public class Items {
 
             BOTTLEXP = get("frazionz:bottle_xp");
             FACTION_TOKEN = get("frazionz:faction_token");
+            IRON_TOOTH = get("frazionz:iron_tooth");
         }
     }
 }
