@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.players.stats.EnumStats;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Location;
@@ -877,8 +878,6 @@ public abstract class EntityLiving extends Entity {
 
                     // CraftBukkit start
                     // TROPHY_UPDATE
-                    //float resistanceAmount = (float)this.getAttributeInstance(GenericAttributes.RESISTANCE).getValue();
-                    //f *= (2 - resistanceAmount);
                     
                     if (!this.damageEntity0(damagesource, f - this.lastDamage))
                     {
@@ -892,8 +891,6 @@ public abstract class EntityLiving extends Entity {
                 {
                     // CraftBukkit start
                     // TROPHY_UPDATE
-                    //float resistanceAmount = (float)this.getAttributeInstance(GenericAttributes.RESISTANCE).getValue();
-                    //f *= (2 - resistanceAmount);
                     if (!this.damageEntity0(damagesource, f)) 
                     {
                         return false;
@@ -1479,6 +1476,18 @@ public abstract class EntityLiving extends Entity {
             };
             float magicModifier = magic.apply((double) f).floatValue();
             f += magicModifier;
+
+            if(this instanceof EntityHuman) {
+                EntityHuman hooman = (EntityHuman) this;
+                Function<Double, Double> resistanceStat = new Function<Double,Double>() {
+                    @Override
+                    public Double apply(Double f) {
+                        return f / (hooman.getStats().getStat(EnumStats.RESISTANCE)/100f);
+                    }
+                };
+                f = resistanceStat.apply((double) f).floatValue();
+            }
+
 
             Function<Double, Double> absorption = new Function<Double, Double>() {
                 @Override

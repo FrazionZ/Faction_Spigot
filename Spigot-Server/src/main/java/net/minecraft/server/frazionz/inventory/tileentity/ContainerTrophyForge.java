@@ -177,7 +177,7 @@ public class ContainerTrophyForge extends Container implements TileMachine
     
     public boolean canStart()
     {
-        return getRecipeResult() != null && this.slots.get(12).getItem().isEmpty();
+            return getRecipeResult() != ItemStack.a && this.slots.get(12).getItem().isEmpty();
     }
     
     public ItemStack getRecipeResult() {

@@ -98,7 +98,7 @@ public class TrophyForgeRecipes
                 return entry.getValue();
             }
         }
-        return null;
+        return ItemStack.a;
     }
     
     private static boolean areSlotItemsEqual(ItemStack[] key1, ItemStack[] key2) {

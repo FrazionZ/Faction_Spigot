@@ -7,6 +7,7 @@ import java.util.UUID;
 import net.minecraft.server.*;
 import net.minecraft.server.frazionz.inventory.tileentity.ContainerTrophyForge;
 import net.minecraft.server.frazionz.recipes.TrophyForgeRecipes;
+import org.apache.logging.log4j.LogManager;
 import org.bukkit.craftbukkit.entity.CraftHumanEntity;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.entity.HumanEntity;
@@ -203,13 +204,12 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
     }
 
     public boolean canForge() {
-        return this.getRecipeResult() != null;
+        return this.getRecipeResult() != ItemStack.a;
     }
 
     public void forgeItem()
     {
         ItemStack result = this.getRecipeResult();
-
         if(CraftEventFactory.callMachineCraftEvent(world, worker, result, null, MachineType.TROPHY_FORGE, MachineAction.CRAFT_END).isCancelled())
             return;
 
@@ -220,7 +220,6 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
         for(int i = 0; i < 12; i++) {
             this.TrophyForgeItemStacks.get(i).subtract(1);
         }
-
         this.TrophyForgeItemStacks.set(12, result.cloneItemStack());
     }
 

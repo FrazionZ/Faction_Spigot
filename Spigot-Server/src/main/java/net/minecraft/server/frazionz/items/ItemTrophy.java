@@ -6,9 +6,10 @@ import java.util.Map.Entry;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.server.*;
+import net.minecraft.server.frazionz.items.interfaces.IStatItem;
 import net.minecraft.server.frazionz.players.stats.EnumStats;
 
-public abstract class ItemTrophy extends Item {
+public abstract class ItemTrophy extends Item implements IStatItem {
 
 	public ItemTrophy() {
 		this.b(CreativeModeTab.f);
@@ -21,28 +22,28 @@ public abstract class ItemTrophy extends Item {
 
 	public void randomBaseStat(ItemStack stack) {
 		if(stack.getTag() == null) {
-			stack.load(new NBTTagCompound());
+			stack.setTag(new NBTTagCompound());
 		}
 		setBaseStatValue(stack, getRandomStatModifier());
 	}
 	public int getBaseStatValue(ItemStack stack) {
-		return getOtherStatValue(stack, getBaseStat());
+		return getStatValue(stack, getBaseStat());
 	}
 
 	public void setBaseStatValue(ItemStack stack, int statValue) {
-		setOtherStatValue(stack, getBaseStat(), statValue);
+		setStatValue(stack, getBaseStat(), statValue);
 	}
 
-	public void setOtherStatValue(ItemStack stack, EnumStats stat, int value) {
+	public void setStatValue(ItemStack stack, EnumStats stat, int value) {
 		NBTTagCompound nbt = stack.getTag();
 		if(nbt == null) {
 			nbt = new NBTTagCompound();
 		}
 		nbt.setInt(stat.name(), value);
-		stack.load(nbt);
+		stack.setTag(nbt);
 	}
 
-	public int getOtherStatValue(ItemStack stack, EnumStats stat) {
+	public int getStatValue(ItemStack stack, EnumStats stat) {
 		NBTTagCompound nbt = stack.getTag();
 		if(nbt != null) {
 			if(nbt.hasKey(stat.name())) {

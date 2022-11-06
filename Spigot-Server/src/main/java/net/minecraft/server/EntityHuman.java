@@ -8,6 +8,9 @@ import java.util.UUID;
 import javax.annotation.Nullable;
 
 // CraftBukkit start
+import net.minecraft.server.frazionz.players.stats.EnumStats;
+import net.minecraft.server.frazionz.players.stats.PlayerStats;
+import org.apache.logging.log4j.LogManager;
 import org.bukkit.craftbukkit.entity.CraftHumanEntity;
 import org.bukkit.craftbukkit.entity.CraftItem;
 import org.bukkit.entity.Player;
@@ -26,6 +29,7 @@ import com.mojang.authlib.GameProfile;
 
 public abstract class EntityHuman extends EntityLiving {
 
+    private PlayerStats stats;
     private static final DataWatcherObject<Float> a = DataWatcher.a(EntityHuman.class, DataWatcherRegistry.c);
     private static final DataWatcherObject<Integer> b = DataWatcher.a(EntityHuman.class, DataWatcherRegistry.b);
     protected static final DataWatcherObject<Byte> br = DataWatcher.a(EntityHuman.class, DataWatcherRegistry.a);
@@ -94,6 +98,7 @@ public abstract class EntityHuman extends EntityLiving {
 
         this.setPositionRotation((double) blockposition.getX() + 0.5D, (double) (blockposition.getY() + 1), (double) blockposition.getZ() + 0.5D, 0.0F, 0.0F);
         this.ba = 180.0F;
+        this.stats = new PlayerStats(this);
     }
 
     protected void initAttributes() {
@@ -196,6 +201,8 @@ public abstract class EntityHuman extends EntityLiving {
 
             this.bV = itemstack.isEmpty() ? ItemStack.a : itemstack.cloneItemStack();
         }
+
+        this.stats.update();
 
         this.bW.a();
         this.cT();
@@ -362,7 +369,7 @@ public abstract class EntityHuman extends EntityLiving {
         AttributeInstance attributeinstance = this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
 
         if (!this.world.isClientSide) {
-            attributeinstance.setValue((double) this.abilities.b());
+            attributeinstance.setValue((double) this.abilities.b() * (this.stats.getStat(EnumStats.SPEED)/100f));
         }
 
         this.aR = this.bT;
@@ -879,6 +886,10 @@ public abstract class EntityHuman extends EntityLiving {
         	
             f = this.applyArmorModifier(damagesource, f);
             f = this.applyMagicModifier(damagesource, f);
+            LogManager.getLogger().info("Damage before calculation: " + f);
+            f = applyResistanceStatsCalculations(damagesource, f);
+            LogManager.getLogger().info("Damage after calculation: " + f);
+
             float f1 = f;
 
             f = Math.max(f - this.getAbsorptionHearts(), 0.0F);
@@ -2259,5 +2270,13 @@ public abstract class EntityHuman extends EntityLiving {
             }
 
         }
+    }
+
+    public PlayerStats getStats() {
+        return stats;
+    }
+
+    public float applyResistanceStatsCalculations(DamageSource source, float damage) {
+        return damage / (this.stats.getStat(EnumStats.RESISTANCE)/100f);
     }
 }
