@@ -171,9 +171,6 @@ public abstract class EntityLiving extends Entity {
         this.getAttributeMap().b(GenericAttributes.MOVEMENT_SPEED);
         this.getAttributeMap().b(GenericAttributes.h);
         this.getAttributeMap().b(GenericAttributes.i);
-        
-        this.getAttributeMap().b(GenericAttributes.RESISTANCE);
-        this.getAttributeMap().b(GenericAttributes.LEECHING);
     }
 
     protected void a(double d0, boolean flag, IBlockData iblockdata, BlockPosition blockposition) {
@@ -880,8 +877,8 @@ public abstract class EntityLiving extends Entity {
 
                     // CraftBukkit start
                     // TROPHY_UPDATE
-                    float resistanceAmount = (float)this.getAttributeInstance(GenericAttributes.RESISTANCE).getValue();
-                    f *= (2 - resistanceAmount);
+                    //float resistanceAmount = (float)this.getAttributeInstance(GenericAttributes.RESISTANCE).getValue();
+                    //f *= (2 - resistanceAmount);
                     
                     if (!this.damageEntity0(damagesource, f - this.lastDamage))
                     {
@@ -895,8 +892,8 @@ public abstract class EntityLiving extends Entity {
                 {
                     // CraftBukkit start
                     // TROPHY_UPDATE
-                    float resistanceAmount = (float)this.getAttributeInstance(GenericAttributes.RESISTANCE).getValue();
-                    f *= (2 - resistanceAmount);
+                    //float resistanceAmount = (float)this.getAttributeInstance(GenericAttributes.RESISTANCE).getValue();
+                    //f *= (2 - resistanceAmount);
                     if (!this.damageEntity0(damagesource, f)) 
                     {
                         return false;

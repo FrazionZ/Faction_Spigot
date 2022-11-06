@@ -1,22 +1,37 @@
 package net.minecraft.server.frazionz.recipes;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.*;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import com.google.common.collect.Maps;
+import com.google.gson.*;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
+import net.minecraft.server.frazionz.resources.JsonUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TrophyForgeRecipes
 {
-    private final static Map<ItemStack[], ItemStack> recipes = Maps.<ItemStack[], ItemStack>newHashMap();
+    private final static Map<ItemStack[], ItemStack> recipes = Maps.newHashMap();
+    private final static Logger LOGGER = LogManager.getLogger();
     
     static
     {
-    	addRecipes(Items.FARM_NUGGET, Items.BONE, Items.FARM_NUGGET, Items.BONE, Items.FARM_KEY, Items.BONE, Items.FARM_NUGGET, Items.BONE, Items.FARM_NUGGET, new ItemStack(Items.TROPHY_SKELETON));
-    	addRecipes(Items.FARM_NUGGET, Items.cZ, Items.FARM_NUGGET, Items.cZ, Items.FARM_KEY, Items.cZ, Items.FARM_NUGGET, Items.cZ, Items.FARM_NUGGET, new ItemStack(Items.TROPHY_SHULKER));
+        parseJsonRecipes();
     }
 
     /**
@@ -110,5 +125,162 @@ public class TrophyForgeRecipes
      
         return true;
      
+    }
+
+    private static boolean parseJsonRecipes() {
+        FileSystem filesystem = null;
+        Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
+        boolean flag;
+
+        try {
+            URL url = ItemCrusherRecipes.class.getResource("/assets/.mcassetsroot");
+
+            if (url != null) {
+                URI uri = url.toURI();
+                Path path;
+
+                if ("file".equals(uri.getScheme())) {
+                    path = Paths.get(ItemCrusherRecipes.class.getResource("/assets/frazionz/custom_recipes/trophy_forge").toURI());
+                } else {
+                    if (!"jar".equals(uri.getScheme())) {
+                        LOGGER.error("Unsupported scheme " + uri + " trying to list all recipes");
+                        return false;
+                    }
+
+                    filesystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
+                    path = filesystem.getPath("/assets/frazionz/custom_recipes/trophy_forge");
+                }
+
+                Iterator<Path> iterator = Files.walk(path).iterator();
+
+                while (iterator.hasNext()) {
+                    Path path1 = iterator.next();
+
+                    if ("json".equals(FilenameUtils.getExtension(path1.toString()))) {
+                        Path path2 = path.relativize(path1);
+                        String s = FilenameUtils.removeExtension(path2.toString()).replaceAll("\\\\", "/");
+                        BufferedReader bufferedreader = null;
+
+                        try {
+                            try {
+                                bufferedreader = Files.newBufferedReader(path1);
+                                parseRecipeJson(JsonUtils.fromJson(gson, bufferedreader, JsonObject.class));
+                            } catch (JsonParseException jsonparseexception) {
+                                LOGGER.error("Parsing error loading recipe " + s, (Throwable) jsonparseexception);
+                                return false;
+                            } catch (IOException ioexception) {
+                                LOGGER.error("Couldn't read recipe " + s + " from " + path1, (Throwable) ioexception);
+                                return false;
+                            }
+                        } finally {
+                            IOUtils.closeQuietly((Reader) bufferedreader);
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            LOGGER.error("Couldn't find .mcassetsroot");
+            flag = false;
+        } catch (IOException | URISyntaxException urisyntaxexception) {
+            LOGGER.error("Couldn't get a list of all recipe files", (Throwable) urisyntaxexception);
+            return false;
+        } finally {
+            IOUtils.closeQuietly(filesystem);
+        }
+
+        return flag;
+    }
+
+    private static void parseRecipeJson(JsonObject json) {
+        if(!json.has("pattern") && !json.has("key") && !json.has("result"))
+            return;
+
+        Map<Character, ItemStack> ingredientMap = new HashMap<>();
+        ingredientMap.put(' ', ItemStack.a);
+        ItemStack[] ingredients = new ItemStack[9];
+
+        // Keys
+        JsonObject keys = json.getAsJsonObject("key");
+
+        for(Map.Entry<String, JsonElement> entry : keys.entrySet()) {
+            if(entry.getKey().length() != 1)
+                continue;
+
+            if(!entry.getValue().isJsonObject())
+                continue;
+
+            JsonObject ingredient = entry.getValue().getAsJsonObject();
+            if(!ingredient.has("item")) {
+                LOGGER.error("Missing item, expected to find a string");
+                return;
+            }
+
+            Item item = Item.b(ingredient.get("item").getAsString());
+            if(item == null) {
+                LOGGER.warn("Item: " + ingredient.get("item").getAsString() + " doesn't exist.");
+                return;
+            }
+            ItemStack stack = new ItemStack(item, 1);
+
+            if(ingredient.has("data"))
+                stack.setData(ingredient.get("data").getAsInt());
+
+            if(ingredientMap.containsKey(entry.getKey().charAt(0))) {
+                LOGGER.error("Duplicate key '" + entry.getKey() + "' in recipe");
+                return;
+            }
+            ingredientMap.put(entry.getKey().toCharArray()[0], stack);
+        }
+
+        // Pattern
+        JsonArray pattern = json.getAsJsonArray("pattern");
+        if(pattern.size() != 3)
+            return;
+        for(int i = 0; i < pattern.size(); i++) {
+            String s = pattern.get(i).getAsString();
+            if (s.length() != 3) {
+                LOGGER.error("Invalid pattern: malformed pattern '" + s + "', expected size of 3");
+                return;
+            }
+            for(int j = 0; j < 3; j++) {
+                char c = s.charAt(j);
+                if(!keys.has(String.valueOf(c))) {
+                    LOGGER.error("Invalid pattern: unknown key '" + c + "'");
+                    return;
+                }
+
+                ingredients[i * 3 + j] = ingredientMap.get(c);
+            }
+        }
+
+        if(!json.has("result")) {
+            LOGGER.error("Missing result, expected to find a string");
+            return;
+        }
+
+        // Result
+        JsonObject result = json.getAsJsonObject("result");
+        if(!result.has("item")) {
+            LOGGER.error("Missing item, expected to find a string");
+            return;
+        }
+        Item resultItem = Item.b(result.get("item").getAsString());
+        if(resultItem == null) {
+            LOGGER.warn("Item: " + result.get("item").getAsString() + " doesn't exist.");
+            return;
+        }
+        ItemStack resultStack = new ItemStack(resultItem, 1);
+        if(result.has("data"))
+            resultStack.setData(result.get("data").getAsInt());
+
+        // Add recipe
+        addTrophyForgeRecipes(ingredients[0], ingredients[1], ingredients[2], ingredients[3], ingredients[4], ingredients[5], ingredients[6], ingredients[7], ingredients[8], resultStack);
+    }
+
+    public Map<ItemStack[], ItemStack> getRecipes()
+    {
+        return recipes;
     }
 }

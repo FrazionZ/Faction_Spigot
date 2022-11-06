@@ -16,10 +16,15 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import javax.annotation.Nullable;
+
+import net.minecraft.server.frazionz.helpers.MinecraftAssets;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
@@ -49,12 +54,12 @@ public class CraftingManager {
             a("shulkerboxcoloring", new RecipeShulkerBox.Dye());
             return b();
         } catch (Throwable throwable) {
+            throwable.printStackTrace();
             return false;
         }
     }
 
     private static boolean b() {
-        FileSystem filesystem = null;
         Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 
         try {
@@ -65,64 +70,74 @@ public class CraftingManager {
 
                 if (url == null) {
                     CraftingManager.b.error("Couldn\'t find .mcassetsroot");
-                    flag = false;
-                    return flag;
+                    return false;
                 }
 
                 URI uri = url.toURI();
-                java.nio.file.Path java_nio_file_path;
+                Path path;
 
-                File keys = new File(Paths.get(CraftingManager.class.getResource("/assets").toURI()).toUri());
-                for(File f : keys.listFiles()) {
-                    if (f.isDirectory()) {
+                for(String mcKey : MinecraftAssets.assetsFolder) {
+                    FileSystem filesystem = null;
 
-                        if ("file".equals(uri.getScheme())) {
-                            java_nio_file_path = Paths.get(CraftingManager.class.getResource("/assets/" + f.getName() + "/recipes").toURI());
-                        } else {
-                            if (!"jar".equals(uri.getScheme())) {
-                                CraftingManager.b.error("Unsupported scheme " + uri + " trying to list all recipes");
-                                boolean flag1 = false;
-
-                                return flag1;
-                            }
-
-                            filesystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
-                            java_nio_file_path = filesystem.getPath("/assets/" + f.getName() + "/recipes", new String[0]);
+                    if ("file".equals(uri.getScheme()))
+                    {
+                        path = Paths.get(CraftingManager.class.getResource("/assets/" + mcKey + "/recipes").toURI());
+                    }
+                    else
+                    {
+                        if (!"jar".equals(uri.getScheme()))
+                        {
+                            CraftingManager.b.error("Unsupported scheme " + uri + " trying to list all recipes");
+                            return false;
                         }
 
-                        Iterator iterator = Files.walk(java_nio_file_path, new FileVisitOption[0]).iterator();
+                        filesystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
+                        path = filesystem.getPath("/assets/" + mcKey + "/recipes", new String[0]);
+                    }
 
-                        while (iterator.hasNext()) {
-                            java.nio.file.Path java_nio_file_path1 = (java.nio.file.Path) iterator.next();
+                    Iterator<Path> iterator = Files.walk(path, new FileVisitOption[0]).iterator();
 
-                            if ("json".equals(FilenameUtils.getExtension(java_nio_file_path1.toString()))) {
-                                java.nio.file.Path java_nio_file_path2 = java_nio_file_path.relativize(java_nio_file_path1);
-                                String s = FilenameUtils.removeExtension(java_nio_file_path2.toString()).replaceAll("\\\\", "/");
-                                MinecraftKey minecraftkey = new MinecraftKey(s);
-                                BufferedReader bufferedreader = null;
+                    while (iterator.hasNext())
+                    {
+                        java.nio.file.Path java_nio_file_path1 = (java.nio.file.Path) iterator.next();
 
-                                try {
-                                    boolean flag2;
+                        if ("json".equals(FilenameUtils.getExtension(java_nio_file_path1.toString())))
+                        {
+                            java.nio.file.Path java_nio_file_path2 = path.relativize(java_nio_file_path1);
+                            String s = FilenameUtils.removeExtension(java_nio_file_path2.toString()).replaceAll("\\\\", "/");
+                            MinecraftKey minecraftkey = new MinecraftKey(s);
+                            BufferedReader bufferedreader = null;
 
-                                    try {
-                                        bufferedreader = Files.newBufferedReader(java_nio_file_path1);
-                                        a(s, a((JsonObject) ChatDeserializer.a(gson, (Reader) bufferedreader, JsonObject.class)));
-                                    } catch (JsonParseException jsonparseexception) {
-                                        CraftingManager.b.error("Parsing error loading recipe " + minecraftkey, jsonparseexception);
-                                        flag2 = false;
-                                        return flag2;
-                                    } catch (IOException ioexception) {
-                                        CraftingManager.b.error("Couldn\'t read recipe " + minecraftkey + " from " + java_nio_file_path1, ioexception);
-                                        flag2 = false;
-                                        return flag2;
-                                    }
-                                } finally {
-                                    IOUtils.closeQuietly(bufferedreader);
+                            try
+                            {
+                                boolean flag2;
+
+                                try
+                                {
+                                    bufferedreader = Files.newBufferedReader(java_nio_file_path1);
+                                    a(s, a((JsonObject) ChatDeserializer.a(gson, (Reader) bufferedreader, JsonObject.class)));
+                                }
+                                catch (JsonParseException jsonparseexception)
+                                {
+                                    CraftingManager.b.error("Parsing error loading recipe " + minecraftkey, jsonparseexception);
+                                    flag2 = false;
+                                    return flag2;
+                                }
+                                catch (IOException ioexception)
+                                {
+                                    CraftingManager.b.error("Couldn\'t read recipe " + minecraftkey + " from " + java_nio_file_path1, ioexception);
+                                    flag2 = false;
+                                    return flag2;
                                 }
                             }
+                            finally
+                            {
+                                IOUtils.closeQuietly(bufferedreader);
+                            }
                         }
-
                     }
+                    IOUtils.closeQuietly(filesystem);
+
                 }
             } catch (IOException | URISyntaxException urisyntaxexception) {
                 CraftingManager.b.error("Couldn\'t get a list of all recipe files", urisyntaxexception);
@@ -130,7 +145,7 @@ public class CraftingManager {
                 return flag;
             }
         } finally {
-            IOUtils.closeQuietly(filesystem);
+            //IOUtils.closeQuietly(filesystem);
         }
 
         return true;

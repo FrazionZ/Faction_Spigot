@@ -233,6 +233,8 @@ public class TileEntityItemCrusher extends TileEntityContainer implements ITicka
             if(result != null) {
                 this.itemstacks.get(id).subtract(1);
                 for(ItemStack stack : result) {
+                    if(stack == null)
+                        continue;
                     addItemToInventory(stack);
                     if(!stack.isEmpty()) {
                         Block.a(world, getFrontPosition(), stack);

@@ -39,25 +39,27 @@ public class ContainerTrophyForge extends Container implements TileMachine
         this.tileTrophyForge = tileTrophyForge;
         for(int i = 0; i < 3; ++i) {
         	for(int j = 0; j < 3; ++j) {
-        		this.addSlotToContainer(new Slot(tileTrophyForge, j + i * 3, 14 + i*22, 29 + j*22));
+        		this.addSlotToContainer(new Slot(tileTrophyForge, j + i * 3, 53 + i*22, 29 + j*22));
         	}
         }
         
         for(int i = 0; i < 3; i++) {
-        	this.addSlotToContainer(new Slot(tileTrophyForge, 9 + i, 108, 29 + i*22));
+        	this.addSlotToContainer(new Slot(tileTrophyForge, 9 + i, 144, 24 + i*22));
         }
+
+        this.addSlotToContainer(new Slot(tileTrophyForge, 12, 194, 37));
         
         for (int i = 0; i < 3; ++i)
         {
             for (int j = 0; j < 9; ++j)
             {
-                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 14 + j * 18, 123 + i * 18));
+                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 44 + j * 18, 118 + i * 18));
             }
         }
 
         for (int k = 0; k < 9; ++k)
         {
-            this.addSlotToContainer(new Slot(playerInventory, k, 14 + k * 18, 181));
+            this.addSlotToContainer(new Slot(playerInventory, k, 14 + k * 18, 176));
         }
     }
 	
@@ -111,9 +113,9 @@ public class ContainerTrophyForge extends Container implements TileMachine
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.cloneItemStack();
             
-            if (index >= 0 && index < 12)
+            if (index >= 0 && index < 13)
             {
-                if (!this.a(itemstack1, 12, 48, false))
+                if (!this.a(itemstack1, 13, 49, false))
                 {
                     return ItemStack.a;
                 }
@@ -123,22 +125,22 @@ public class ContainerTrophyForge extends Container implements TileMachine
                 {
                         return ItemStack.a;
                 }
-            else if (index >= 12 && index < 39)
+            else if (index >= 13 && index < 40)
                 {
-                    if (!this.a(itemstack1, 39, 48, false))
+                    if (!this.a(itemstack1, 40, 49, false))
                     {
                         return ItemStack.a;
                     }
                 }
-            else if (index >= 39 && index < 48)
+            else if (index >= 40 && index < 49)
             {
-                 if (!this.a(itemstack1, 12, 39, false))
+                 if (!this.a(itemstack1, 13, 40, false))
                  {
                         return ItemStack.a;
                  }
             }
             
-            else if (!this.a(itemstack1, 12, 48, false))
+            else if (!this.a(itemstack1, 13, 49, false))
             {
                 return ItemStack.a;
             }
@@ -175,7 +177,7 @@ public class ContainerTrophyForge extends Container implements TileMachine
     
     public boolean canStart()
     {
-        return getRecipeResult() != null;
+        return getRecipeResult() != null && this.slots.get(12).getItem().isEmpty();
     }
     
     public ItemStack getRecipeResult() {

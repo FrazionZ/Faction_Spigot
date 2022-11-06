@@ -101,7 +101,7 @@ public enum InventoryType {
      */
     SHULKER_BOX(27, "Shulker Box"),
     
-    TROPHY_FORGE(12,"Trophy Forge"),
+    TROPHY_FORGE(13,"Trophy Forge"),
 
     ITEM_CRUSHER(13,"Item Crusher"),
     ;

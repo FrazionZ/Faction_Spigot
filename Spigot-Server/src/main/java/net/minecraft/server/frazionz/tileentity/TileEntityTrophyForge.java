@@ -18,9 +18,9 @@ import net.minecraft.server.frazionz.items.ItemTrophy;
 public class TileEntityTrophyForge extends TileEntityContainer implements ITickable, IWorldInventory
 {
 	
-	private static final int[] SLOT_CRAFT = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+	private static final int[] SLOT_CRAFT = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
     
-    private NonNullList<ItemStack> TrophyForgeItemStacks = NonNullList.<ItemStack>a(12, ItemStack.a);
+    private NonNullList<ItemStack> TrophyForgeItemStacks = NonNullList.a(13, ItemStack.a);
     
     private int forgeTime;
     private int totalForgeTime;
@@ -215,18 +215,13 @@ public class TileEntityTrophyForge extends TileEntityContainer implements ITicka
 
         if(result.getItem() instanceof ItemTrophy) {
             ItemTrophy item = (ItemTrophy) result.getItem();
-
-            result.setTag(new NBTTagCompound());
-            AttributeModifier attribute = item.getRandomAttributeModifier();
-            result.a(item.getMonsterAttributes().getName(), attribute, EnumItemSlot.TROPHY_1);
-            result.a(item.getMonsterAttributes().getName(), attribute, EnumItemSlot.TROPHY_2);
-            result.a(item.getMonsterAttributes().getName(), attribute, EnumItemSlot.TROPHY_3);
+            item.randomBaseStat(result);
         }
         for(int i = 0; i < 12; i++) {
             this.TrophyForgeItemStacks.get(i).subtract(1);
         }
 
-        this.TrophyForgeItemStacks.set(4, result.cloneItemStack());
+        this.TrophyForgeItemStacks.set(12, result.cloneItemStack());
     }
 
     public String getContainerName()

@@ -24,9 +24,6 @@ public class GenericAttributes {
     public static final IAttribute j = (new AttributeRanged((IAttribute) null, "generic.luck", 0.0D, -1024.0D, 1024.0D)).a(true);
     // Spigot end
 
-    public static final IAttribute RESISTANCE = (new AttributeRanged((IAttribute) null, "generic.resistance", 1.0D, -8.0D, 8.0D)).a(true);
-    public static final IAttribute LEECHING = (new AttributeRanged((IAttribute) null, "generic.leeching", 1.0D, -8.0D, 8.0D)).a(true);
-    
     public static NBTTagList a(AttributeMapBase attributemapbase) {
         NBTTagList nbttaglist = new NBTTagList();
         Iterator iterator = attributemapbase.a().iterator();
