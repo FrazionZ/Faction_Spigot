@@ -1,17 +1,17 @@
 {
-	"item": "frazionz:yellite_chestplate",
+	"item": "frazionz:yellite_leggings",
 	"results": [
 		{
-			"item": "frazionz:rune_health",
+			"item": "frazionz:rune_regeneration",
 			"min": 1,
 			"max": 5,
-			"chance": 0.25
+			"chance": 0.215
 		},
 		{
 			"item": "frazionz:rune_resistance",
 			"min": 1,
 			"max": 2,
-			"chance": 0.20
+			"chance": 0.175
 		}
 	]
 }

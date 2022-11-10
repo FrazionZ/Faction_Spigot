@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import net.minecraft.server.frazionz.players.stats.EnumStats;
+
 public class FoodMetaData {
 
     public int foodLevel = 20;
@@ -63,7 +65,8 @@ public class FoodMetaData {
         if (flag && this.foodLevel >= 18 && entityhuman.dj()) {
             ++this.foodTickTimer;
             if (this.foodTickTimer >= 80) {
-                entityhuman.heal(1.0F, org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason.SATIATED); // CraftBukkit - added RegainReason
+                float f = 1.0F + entityhuman.getStats().getStat(EnumStats.REGENERATION)/100f;
+                entityhuman.heal(f, org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason.SATIATED); // CraftBukkit - added RegainReason
                 this.a(entityhuman.world.spigotConfig.regenExhaustion); // Spigot - Change to use configurable value
                 this.foodTickTimer = 0;
             }

@@ -588,7 +588,7 @@ public abstract class EntityHuman extends EntityLiving {
     }
 
     public float b(IBlockData iblockdata) {
-        float f = this.inventory.a(iblockdata);
+        float f = this.inventory.a(iblockdata) * (this.stats.getStat(EnumStats.MINING_SPEED)/100f);
 
         if (f > 1.0F) {
             int i = EnchantmentManager.getDigSpeedEnchantmentLevel(this);
@@ -981,7 +981,8 @@ public abstract class EntityHuman extends EntityLiving {
         {
             if (!entity.t(this)) 
             {
-                float f = (float) this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).getValue();
+                float f = (float) this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).getValue()
+                        * (this.stats.getStat(EnumStats.DAMAGE)/100f);
                 int i = 0;
                 float f1 = 0.0F;
 
@@ -2278,5 +2279,12 @@ public abstract class EntityHuman extends EntityLiving {
 
     public float applyResistanceStatsCalculations(DamageSource source, float damage) {
         return damage / (this.stats.getStat(EnumStats.RESISTANCE)/100f);
+    }
+
+    public float getMaxHealth() {
+        float f = 0.0f;
+        if(this.stats != null)
+            f = (this.stats.getStat(EnumStats.HEALTH)/10f);
+        return (float)this.getAttributeInstance(GenericAttributes.maxHealth).getValue() + f;
     }
 }

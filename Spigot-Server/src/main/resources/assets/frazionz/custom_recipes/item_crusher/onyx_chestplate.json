@@ -1,17 +1,17 @@
 {
-	"item": "frazionz:yellite_chestplate",
+	"item": "frazionz:onyx_chestplate",
 	"results": [
 		{
 			"item": "frazionz:rune_health",
 			"min": 1,
-			"max": 5,
-			"chance": 0.25
+			"max": 3,
+			"chance": 0.4
 		},
 		{
 			"item": "frazionz:rune_resistance",
 			"min": 1,
-			"max": 2,
-			"chance": 0.20
+			"max": 3,
+			"chance": 0.32
 		}
 	]
 }

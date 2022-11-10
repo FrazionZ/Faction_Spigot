@@ -1576,7 +1576,7 @@ public abstract class EntityLiving extends Entity {
         return (EntityLiving) (this.combatTracker.c() != null ? this.combatTracker.c() : (this.killer != null ? this.killer : (this.lastDamager != null ? this.lastDamager : null)));
     }
 
-    public final float getMaxHealth() {
+    public float getMaxHealth() {
         return (float) this.getAttributeInstance(GenericAttributes.maxHealth).getValue();
     }
 

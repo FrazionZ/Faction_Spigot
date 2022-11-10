@@ -1,0 +1,23 @@
+{
+	"item": "frazionz:onyx_sword",
+	"results": [
+		{
+			"item": "frazionz:rune_damage",
+			"min": 1,
+			"max": 2,
+			"chance": 0.185
+		},
+		{
+			"item": "frazionz:rune_resistance",
+			"min": 2,
+			"max": 3,
+			"chance": 0.185
+		},
+		{
+			"item": "frazionz:rune_speed",
+			"min": 2,
+			"max": 3,
+			"chance": 0.185
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"item": "frazionz:bauxite_hoe",
+	"results": [
+		{
+			"item": "frazionz:rune_mining",
+			"min": 1,
+			"max": 2,
+			"chance": 0.12
+		}
+	]
+}

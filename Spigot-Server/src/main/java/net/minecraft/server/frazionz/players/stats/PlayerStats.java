@@ -1,9 +1,12 @@
 package net.minecraft.server.frazionz.players.stats;
 
+import fz.frazionz.event.PlayerStatsUpdateEvent;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.frazionz.items.interfaces.IStatItem;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerDropItemEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +25,13 @@ public class PlayerStats {
     }
 
     public void update() {
+
+        PlayerStatsUpdateEvent event = new PlayerStatsUpdateEvent((Player) player.getBukkitEntity());
+        this.player.world.getServer().getPluginManager().callEvent(event);
+
+        if(event.isCancelled())
+            return;
+
         for(EnumStats stat : EnumStats.values()) {
             stats.get(stat).setValue(stat.getBaseValue());
         }
@@ -33,6 +43,15 @@ public class PlayerStats {
         }
         updateStats(player.getItemInMainHand());
         updateStats(player.getItemInOffHand());
+
+        for(SimpleStat stat : stats.values()) {
+            if(stat.getValue() < stat.getStat().getMinValue()) {
+                stat.setValue(stat.getStat().getMinValue());
+            }
+            else if(stat.getValue() > stat.getStat().getMaxValue()) {
+                stat.setValue(stat.getStat().getMaxValue());
+            }
+        }
     }
 
     private void updateStats(ItemStack stack) {
