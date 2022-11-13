@@ -329,27 +329,6 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 			player.addEffect(new MobEffect(effect.getEffect(), effect.getDuration(), effect.getLevel()));
 		}
     }
-    
-    private void applyArmorEffect() {
-    	EntityPlayer player = (EntityPlayer) this;
-		ItemArmor.EnumArmorMaterial armorMat = ((ItemArmor) player.getEquipment(EnumItemSlot.HEAD).getItem()).d();
-		if(armorMat.hasEffect()) {
-    		for(EffectItem effect : armorMat.getEffectList()) {
-    			player.addEffect(new MobEffect(effect.getEffect(), effect.getDuration(), effect.getLevel()));
-    		}
-		}
-    }
-    
-    private void applyArmorAntiEffect() {
-    	EntityPlayer player = (EntityPlayer) this;
-		ItemArmor.EnumArmorMaterial armorMat = ((ItemArmor) player.getEquipment(EnumItemSlot.HEAD).getItem()).d();
-		if(armorMat.hasAntiEffect()) {
-    		for(MobEffectList effect : armorMat.getAntiEffect()) {
-    			player.removeEffect(effect);
-    		}
-		}
-    }
-    
 
     public void playerTick() {
         try {
@@ -418,64 +397,6 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
             if (this.ticksLived % 20 == 0) {
                 CriterionTriggers.o.a(this);
             }
-            
-if (this.ticksLived % 5 == 0) {
-            	
-            	EntityHuman player = (EntityHuman) this;
-            	boolean frazion70 = player.isWearingFullArmorSet(ItemArmor.EnumArmorMaterial.FRAZION_70);
-            	boolean frazion100 = player.isWearingFullArmorSet(ItemArmor.EnumArmorMaterial.FRAZION_100);
-            	boolean travelers = player.isWearingFullArmorSet(ItemArmor.EnumArmorMaterial.TRAVELERS);
-            	boolean legendaryScythe = player.hasItemInMainHand(Items.LEGENDARY_SCYTHE);
-            	boolean legendarySword = player.hasItemInMainHand(Items.LEGENDARY_SWORD);
-            	boolean legendaryDagger = player.hasItemInMainHand(Items.LEGENDARY_DAGGER);
-            	
-            	if(!this.setArmorEffect && (frazion70 || frazion100 || travelers)) {
-            		this.applyArmorEffect();
-            		this.setArmorEffect = true;
-            	}
-            	else if(this.setArmorEffect && !travelers && !frazion70 && !frazion100){
-            		ArrayList<MobEffect> listOfValues = new ArrayList<MobEffect>(player.getEffects());
-            		Iterator<MobEffect> potionEffect = listOfValues.iterator();
-	            	while(potionEffect.hasNext()) {
-	            		MobEffect potion = potionEffect.next();
-	                	if(potion.getDuration() >= 100000 && potion.getMobEffect() != MobEffects.NIGHT_VISION) {
-	                		player.removeEffect(potion.getMobEffect());
-	                	}
-	            	}
-	            	if(legendaryDagger || legendaryScythe || legendarySword) {
-	            		this.applyWeaponEffect();
-	            	}
-	            	this.setArmorEffect = false;
-            	}
-            	else if((frazion70 || frazion100 || travelers)) {
-            		this.applyArmorAntiEffect();
-            	}
-            	
-            	if(!this.setWeaponEffect && (legendaryDagger || legendaryScythe || legendarySword)) {
-            		this.applyWeaponEffect();
-            		this.setWeaponEffect = true;
-            	}
-            	else if(this.setWeaponEffect && !legendaryScythe && !legendaryDagger && !legendarySword) {
-            		ArrayList<MobEffect> listOfValues = new ArrayList<MobEffect>(player.getEffects());
-            		Iterator<MobEffect> potionEffect = listOfValues.iterator();
-	            	while(potionEffect.hasNext()) {
-	            		MobEffect potion = potionEffect.next();
-	                	if(potion.getDuration() >= 100000 && potion.getMobEffect() != MobEffects.NIGHT_VISION) {
-	                		player.removeEffect(potion.getMobEffect());
-	                	}
-	            	}
-	            	if(frazion70 || frazion100 || travelers){
-	            		this.applyArmorEffect();
-	            	}
-	            	this.setWeaponEffect = false;
-	            	if(this.effectItem != player.getItemInMainHand().getItem() && (legendaryDagger || legendaryScythe || legendarySword)) {
-	            		this.applyWeaponEffect();
-	            		this.setWeaponEffect = true;
-	            	}
-            	}
-                
-            }
-            
 
             // CraftBukkit start - initialize oldLevel and fire PlayerLevelChangeEvent
             if (this.oldLevel == -1) {
