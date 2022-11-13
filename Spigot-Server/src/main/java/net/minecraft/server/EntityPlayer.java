@@ -422,9 +422,9 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 if (this.ticksLived % 5 == 0) {
             	
             	EntityHuman player = (EntityHuman) this;
-            	boolean frazion70 = player.isWearingFullArmor(ItemArmor.EnumArmorMaterial.FRAZION_70);
-            	boolean frazion100 = player.isWearingFullArmor(ItemArmor.EnumArmorMaterial.FRAZION_100);
-            	boolean travelers = player.isWearingFullArmor(ItemArmor.EnumArmorMaterial.TRAVELERS);
+            	boolean frazion70 = player.isWearingFullArmorSet(ItemArmor.EnumArmorMaterial.FRAZION_70);
+            	boolean frazion100 = player.isWearingFullArmorSet(ItemArmor.EnumArmorMaterial.FRAZION_100);
+            	boolean travelers = player.isWearingFullArmorSet(ItemArmor.EnumArmorMaterial.TRAVELERS);
             	boolean legendaryScythe = player.hasItemInMainHand(Items.LEGENDARY_SCYTHE);
             	boolean legendarySword = player.hasItemInMainHand(Items.LEGENDARY_SWORD);
             	boolean legendaryDagger = player.hasItemInMainHand(Items.LEGENDARY_DAGGER);

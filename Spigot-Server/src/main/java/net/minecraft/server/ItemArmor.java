@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 // CraftBukkit start
+import net.minecraft.server.frazionz.players.stats.EnumStats;
+import net.minecraft.server.frazionz.players.stats.modifier.StatCapModifier;
+import net.minecraft.server.frazionz.players.stats.modifier.StatModifier;
 import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.event.block.BlockDispenseEvent;
 // CraftBukkit end
@@ -190,7 +190,7 @@ public class ItemArmor extends Item {
         return multimap;
     }
 
-    public static enum EnumArmorMaterial {
+    public enum EnumArmorMaterial {
     	
         LEATHER("leather", 3, new int[]{1, 1, 1, 1}, 15, SoundEffects.t, 0.0F),
         CHAIN("chainmail", 7, new int[]{2, 2, 2, 2}, 12, SoundEffects.n, 0.0F),
@@ -201,104 +201,89 @@ public class ItemArmor extends Item {
         BAUXITE("bauxite", 30, new int[]{5, 6, 6, 5}, 12, SoundEffects.o, /*0.80F*/0.0f),
         ONYX("onyx", 35, new int[]{6, 7, 7, 6}, 12, SoundEffects.o, /*1.0F*/0.0f),
         FRAZION("frazion", 45, new int[]{7, 8, 8, 7}, 12, SoundEffects.o, /*1.2F*/0.0f),
-        FRAZION_70("frazion_70", 65, new int[]{7, 8, 8, 7}, 12, SoundEffects.o, /*1.5F*/0.3125f,
-        		Arrays.asList(new EffectItem(MobEffects.FASTER_MOVEMENT, 200000, 0),
-        				new EffectItem(MobEffects.FIRE_RESISTANCE, 200000, 0)),
-        		Arrays.asList(MobEffects.POISON)
-        		),
-        FRAZION_100("frazion_100", 80, new int[]{7, 8, 8, 7}, 12, SoundEffects.o, /*1.8F*/0.625f,
-        		Arrays.asList(
-        				new EffectItem(MobEffects.FASTER_MOVEMENT, 200000, 0),
-        				new EffectItem(MobEffects.RESISTANCE, 200000, 0),
-        				new EffectItem(MobEffects.FIRE_RESISTANCE, 200000, 0),
-        				new EffectItem(MobEffects.INCREASE_DAMAGE, 200000, 0)),
-        		Arrays.asList(
-        				MobEffects.POISON,
-        				MobEffects.SLOWER_MOVEMENT,
-        				MobEffects.BLINDNESS)
-        		),    
-        TRAVELERS("travelers", 18, new int[]{4, 5, 4, 3}, 12, SoundEffects.t, 0.0F, 
-        		Arrays.asList(
-        				new EffectItem(MobEffects.FASTER_MOVEMENT, 200000, 2),
-        				new EffectItem(MobEffects.FIRE_RESISTANCE, 200000, 0),
-        				new EffectItem(MobEffects.FASTER_DIG, 200000, 0),
-        				new EffectItem(MobEffects.NO_FALL, 200000, 0),
-        				new EffectItem(MobEffects.SATURATION, 200000, 0))
-        		),
+        FRAZION_70("frazion_70", 65, new int[]{7, 8, 8, 7}, 12, SoundEffects.o, 0.3125f,
+                new HashMap<EnumStats, Integer>() {{
+                    put(EnumStats.SPEED, 8);
+                    put(EnumStats.RESISTANCE, 3);
+                    put(EnumStats.DAMAGE, 1);
+                }}),
+        FRAZION_100("frazion_100", 80, new int[]{7, 8, 8, 7}, 12, SoundEffects.o, 0.625f,
+                new HashMap<EnumStats, Integer>() {{
+                    put(EnumStats.SPEED, 15);
+                    put(EnumStats.DAMAGE, 5);
+                    put(EnumStats.RESISTANCE, 5);
+                    put(EnumStats.HEALTH, 10);
+                }}),
+        TRAVELERS("travelers", 18, new int[]{4, 5, 4, 3}, 12, SoundEffects.o, 0.0f,
+                new HashMap<EnumStats, Integer>() {{
+                    put(EnumStats.SPEED, 60);
+                    put(EnumStats.MINING_SPEED, 50);
+                }},
+                new ArrayList<StatModifier>() {{
+                    add(new StatCapModifier(StatCapModifier.StatCapType.MAX, EnumStats.SPEED, 160));
+                }}
+        ),
         ;
     	
 
-        private final String f;
-        private final int g;
-        private final int[] h;
-        private final int i;
-        private final SoundEffect j;
-        private final float k;
-        private List<EffectItem> effectList = new ArrayList<EffectItem>();
-        private List<MobEffectList> antiEffect = new ArrayList<MobEffectList>();
+        private final String name;
+        private final int maxDamageFactor;
+        private final int[] damageReductionAmountArray;
+        private final int enchantability;
+        private final SoundEffect soundEvent;
+        private final float toughness;
+        private final HashMap<EnumStats, Integer> stats;
+        private final List<StatModifier> modifiers;
 
-        private EnumArmorMaterial(String s, int i, int[] aint, int j, SoundEffect soundeffect, float f) {
-            this.f = s;
-            this.g = i;
-            this.h = aint;
-            this.i = j;
-            this.j = soundeffect;
-            this.k = f;
-        }
-        
-        private EnumArmorMaterial(String s, int i, int[] aint, int j, SoundEffect soundeffect, float f, List<EffectItem> effectList) {
-            this.f = s;
-            this.g = i;
-            this.h = aint;
-            this.i = j;
-            this.j = soundeffect;
-            this.k = f;
-            this.effectList = effectList;
-        }
-        
-        private EnumArmorMaterial(String s, int i, int[] aint, int j, SoundEffect soundeffect, float f, List<EffectItem> effectList, List<MobEffectList> antiEffect) {
-            this.f = s;
-            this.g = i;
-            this.h = aint;
-            this.i = j;
-            this.j = soundeffect;
-            this.k = f;
-            this.effectList = effectList;
-            this.antiEffect = antiEffect;
-        }
-        
-        public boolean hasEffect()
-        {
-        	return !this.effectList.isEmpty();
-        }
-        
-        public boolean hasAntiEffect()
-        {
-        	return !this.antiEffect.isEmpty();
-        }
-        
-        public List<MobEffectList> getAntiEffect() {
-			return antiEffect;
-		}
-        
-        public List<EffectItem> getEffectList() {
-			return effectList;
-		}
 
+        private EnumArmorMaterial(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountArrayIn, int enchantabilityIn, SoundEffect soundEventIn, float toughnessIn)
+        {
+            this.name = nameIn;
+            this.maxDamageFactor = maxDamageFactorIn;
+            this.damageReductionAmountArray = damageReductionAmountArrayIn;
+            this.enchantability = enchantabilityIn;
+            this.soundEvent = soundEventIn;
+            this.toughness = toughnessIn;
+            this.stats = new HashMap<EnumStats, Integer>();
+            this.modifiers = new ArrayList<StatModifier>();
+        }
+        private EnumArmorMaterial(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountArrayIn, int enchantabilityIn, SoundEffect soundEventIn, float toughnessIn, HashMap<EnumStats, Integer> stats)
+        {
+            this.name = nameIn;
+            this.maxDamageFactor = maxDamageFactorIn;
+            this.damageReductionAmountArray = damageReductionAmountArrayIn;
+            this.enchantability = enchantabilityIn;
+            this.soundEvent = soundEventIn;
+            this.toughness = toughnessIn;
+            this.stats = stats;
+            this.modifiers = new ArrayList<StatModifier>();
+        }
+
+        private EnumArmorMaterial(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountArrayIn, int enchantabilityIn, SoundEffect soundEventIn, float toughnessIn, HashMap<EnumStats, Integer> stats, List<StatModifier> modifiers)
+        {
+            this.name = nameIn;
+            this.maxDamageFactor = maxDamageFactorIn;
+            this.damageReductionAmountArray = damageReductionAmountArrayIn;
+            this.enchantability = enchantabilityIn;
+            this.soundEvent = soundEventIn;
+            this.toughness = toughnessIn;
+            this.stats = stats;
+            this.modifiers = modifiers;
+        }
         public int a(EnumItemSlot enumitemslot) {
-            return ItemArmor.n[enumitemslot.b()] * this.g;
+            return ItemArmor.n[enumitemslot.b()] * this.maxDamageFactor;
         }
 
         public int b(EnumItemSlot enumitemslot) {
-            return this.h[enumitemslot.b()];
+            return this.damageReductionAmountArray[enumitemslot.b()];
         }
 
         public int a() {
-            return this.i;
+            return this.enchantability;
         }
 
         public SoundEffect b() {
-            return this.j;
+            return this.soundEvent;
         }
 
         public Item c() {
@@ -306,7 +291,15 @@ public class ItemArmor extends Item {
         }
 
         public float e() {
-            return this.k;
+            return this.toughness;
+        }
+
+        public HashMap<EnumStats, Integer> getStats() {
+            return this.stats;
+        }
+
+        public List<StatModifier> getModifiers() {
+            return this.modifiers;
         }
     }
 }

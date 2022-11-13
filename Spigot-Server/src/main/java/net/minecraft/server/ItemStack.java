@@ -8,6 +8,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.players.stats.StatHelper;
 import org.bukkit.Location;
 import org.bukkit.TreeType;
 import org.bukkit.block.BlockState;
@@ -867,5 +868,10 @@ public final class ItemStack {
 
     public void subtract(int i) {
         this.add(-i);
+    }
+
+    public boolean isStatItem()
+    {
+        return StatHelper.hasStats(this);
     }
 }

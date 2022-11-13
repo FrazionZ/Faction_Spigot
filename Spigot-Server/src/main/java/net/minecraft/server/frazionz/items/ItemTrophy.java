@@ -8,6 +8,7 @@ import com.google.common.collect.Multimap;
 import net.minecraft.server.*;
 import net.minecraft.server.frazionz.items.interfaces.IStatItem;
 import net.minecraft.server.frazionz.players.stats.EnumStats;
+import net.minecraft.server.frazionz.players.stats.StatHelper;
 
 public abstract class ItemTrophy extends Item implements IStatItem {
 
@@ -21,9 +22,6 @@ public abstract class ItemTrophy extends Item implements IStatItem {
 	public abstract EnumStats getBaseStat();
 
 	public void randomBaseStat(ItemStack stack) {
-		if(stack.getTag() == null) {
-			stack.setTag(new NBTTagCompound());
-		}
 		setBaseStatValue(stack, getRandomStatModifier());
 	}
 	public int getBaseStatValue(ItemStack stack) {
@@ -35,22 +33,11 @@ public abstract class ItemTrophy extends Item implements IStatItem {
 	}
 
 	public void setStatValue(ItemStack stack, EnumStats stat, int value) {
-		NBTTagCompound nbt = stack.getTag();
-		if(nbt == null) {
-			nbt = new NBTTagCompound();
-		}
-		nbt.setInt(stat.name(), value);
-		stack.setTag(nbt);
+		StatHelper.applyStats(stack, stat, value);
 	}
 
 	public int getStatValue(ItemStack stack, EnumStats stat) {
-		NBTTagCompound nbt = stack.getTag();
-		if(nbt != null) {
-			if(nbt.hasKey(stat.name())) {
-				return nbt.getInt(stat.name());
-			}
-		}
-		return 0;
+		return StatHelper.getStatValue(stack, stat);
 	}
 	
 }

@@ -19,12 +19,11 @@ import org.bukkit.event.entity.EntityCombustByEntityEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerBedLeaveEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerVelocityEvent;
-import org.bukkit.util.Vector;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
+import org.bukkit.inventory.EquipmentSlot;
 // CraftBukkit end
 
 public abstract class EntityHuman extends EntityLiving {
@@ -2197,21 +2196,6 @@ public abstract class EntityHuman extends EntityLiving {
         return this.abilities.canInstantlyBuild && this.a(2, "");
     }
     
-    public boolean isWearingFullArmor(ItemArmor.EnumArmorMaterial armorMat)
-    {
-    	EntityHuman player = (EntityHuman) this;
-    	ItemStack helmet = player.getEquipment(EnumItemSlot.HEAD);
-    	ItemStack chestplate = player.getEquipment(EnumItemSlot.CHEST);
-    	ItemStack leggings = player.getEquipment(EnumItemSlot.LEGS);
-    	ItemStack boots = player.getEquipment(EnumItemSlot.FEET);
-    	
-    	if(helmet.getItem() instanceof ItemArmor && chestplate.getItem() instanceof ItemArmor && leggings.getItem() instanceof ItemArmor && boots.getItem() instanceof ItemArmor) {
-    		
-    		return ((ItemArmor)helmet.getItem()).d().equals(armorMat) && ((ItemArmor)chestplate.getItem()).d().equals(armorMat) && ((ItemArmor)leggings.getItem()).d().equals(armorMat) && ((ItemArmor)boots.getItem()).d().equals(armorMat);
-    	}
-    	return false;
-    }
-    
     public boolean hasItemInMainHand(Item legendaryScythe)
     {
     	ItemStack handItem = this.getItemInMainHand();
@@ -2286,5 +2270,33 @@ public abstract class EntityHuman extends EntityLiving {
         if(this.stats != null)
             f = (this.stats.getStat(EnumStats.HEALTH)/10f);
         return (float)this.getAttributeInstance(GenericAttributes.maxHealth).getValue() + f;
+    }
+
+    public boolean isWearingFullArmorSet(ItemArmor.EnumArmorMaterial armorMat)
+    {
+        return this.inventory.armor.stream().allMatch(stack -> stack.getItem() instanceof ItemArmor && ((ItemArmor)stack.getItem()).d() == armorMat);
+    }
+
+    public boolean isWearingFullArmorSet()
+    {
+        ItemStack helmet = this.getEquipment(EnumItemSlot.HEAD);
+        ItemStack chestplate = this.getEquipment(EnumItemSlot.CHEST);
+        ItemStack leggings = this.getEquipment(EnumItemSlot.LEGS);
+        ItemStack boots = this.getEquipment(EnumItemSlot.FEET);
+
+        if(helmet.getItem() instanceof ItemArmor && chestplate.getItem() instanceof ItemArmor
+                && leggings.getItem() instanceof ItemArmor && boots.getItem() instanceof ItemArmor) {
+            ItemArmor h = ((ItemArmor)helmet.getItem());
+            ItemArmor c = ((ItemArmor)chestplate.getItem());
+            ItemArmor l = ((ItemArmor)leggings.getItem());
+            ItemArmor b = ((ItemArmor)boots.getItem());
+            return h.d() == c.d() && h.d() == l.d() && h.d() == b.d();
+        }
+        return false;
+    }
+
+    public ItemArmor.EnumArmorMaterial getFullArmorMaterial()
+    {
+        return ((ItemArmor)this.getEquipment(EnumItemSlot.HEAD).getItem()).d();
     }
 }
