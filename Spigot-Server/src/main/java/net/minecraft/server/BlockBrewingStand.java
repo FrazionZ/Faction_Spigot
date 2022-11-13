@@ -6,9 +6,7 @@ import javax.annotation.Nullable;
 
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockBrewingStand extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockBrewingStand extends BlockTileEntity {
 
     public static final BlockStateBoolean[] HAS_BOTTLE = new BlockStateBoolean[] { BlockStateBoolean.of("has_bottle_0"), BlockStateBoolean.of("has_bottle_1"), BlockStateBoolean.of("has_bottle_2")};
     protected static final AxisAlignedBB b = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D);
@@ -129,9 +127,4 @@ public class BlockBrewingStand extends BlockTileEntity implements FzExplosionBlo
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return EnumBlockFaceShape.UNDEFINED;
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.BREWING_STAND;
-	}
 }

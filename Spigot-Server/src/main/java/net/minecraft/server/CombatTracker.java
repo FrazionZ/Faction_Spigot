@@ -25,7 +25,7 @@ public class CombatTracker {
         if (this.b.m_()) {
             Block block = this.b.world.getType(new BlockPosition(this.b.locX, this.b.getBoundingBox().b, this.b.locZ)).getBlock();
 
-            if (block == Blocks.LADDER) {
+            if (block instanceof BlockLadder) {
                 this.h = "ladder";
             } else if (block == Blocks.VINE) {
                 this.h = "vines";

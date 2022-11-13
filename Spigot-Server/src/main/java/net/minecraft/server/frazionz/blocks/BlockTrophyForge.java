@@ -31,9 +31,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.frazionz.tileentity.TileEntityTrophyForge;
 import net.minecraft.server.World;
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
-public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBlockType
+public class BlockTrophyForge extends BlockTileEntity
 {
 	public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
 	public static final AxisAlignedBB FULL_BLOCK = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
@@ -283,9 +282,4 @@ public class BlockTrophyForge extends BlockTileEntity implements FzExplosionBloc
             return this == OTHER ? "base" : "top";
         }
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.TROPHY_FORGE;
-	}
 }

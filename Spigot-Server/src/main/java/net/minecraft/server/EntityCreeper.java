@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import javax.annotation.Nullable;
 // CraftBukkit start
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
 // CraftBukkit end
@@ -208,7 +209,7 @@ public class EntityCreeper extends EntityMonster {
             this.world.getServer().getPluginManager().callEvent(event);
             if (!event.isCancelled()) {
                 this.aU = true;
-                this.world.createExplosion(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire(), flag);
+                this.world.createExplosion(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire(), flag, ExplosiveType.CREEPER);
                 this.die();
                 this.ds();
             } else {

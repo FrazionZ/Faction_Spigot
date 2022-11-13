@@ -1,12 +1,10 @@
 package net.minecraft.server;
 
-import java.util.Random;
-
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
+import java.util.Random;
 
-public class BlockEnderChest extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockEnderChest extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     protected static final AxisAlignedBB b = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
@@ -105,10 +103,5 @@ public class BlockEnderChest extends BlockTileEntity implements FzExplosionBlock
 
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return EnumBlockFaceShape.UNDEFINED;
-    }
-    
-    @Override
-    public ExplosionBlockType getExplosionBlockType() {
-    	return ExplosionBlockType.CHEST_ENDER;
     }
 }

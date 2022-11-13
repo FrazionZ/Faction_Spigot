@@ -5,9 +5,7 @@ import javax.annotation.Nullable;
 
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockChest extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockChest extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     protected static final AxisAlignedBB b = new AxisAlignedBB(0.0625D, 0.0D, 0.0D, 0.9375D, 0.875D, 0.9375D);
@@ -463,10 +461,5 @@ public class BlockChest extends BlockTileEntity implements FzExplosionBlockType 
         BASIC, TRAP;
 
         private Type() {}
-    }
-    
-    @Override
-    public ExplosionBlockType getExplosionBlockType() {
-    	return ExplosionBlockType.CHEST_WOODEN;
     }
 }

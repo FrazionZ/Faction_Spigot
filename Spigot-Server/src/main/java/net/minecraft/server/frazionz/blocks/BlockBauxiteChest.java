@@ -4,8 +4,6 @@ import java.util.Iterator;
 
 import javax.annotation.Nullable;
 
-import org.bukkit.frazionz.enums.ExplosionBlockType;
-
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockEnderChest;
@@ -37,9 +35,8 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.frazionz.tileentity.TileEntityBauxiteChest;
 import net.minecraft.server.World;
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
-public class BlockBauxiteChest extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockBauxiteChest extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     protected static final AxisAlignedBB NOT_CONNECTED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
@@ -274,10 +271,5 @@ public class BlockBauxiteChest extends BlockTileEntity implements FzExplosionBlo
 
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return EnumBlockFaceShape.UNDEFINED;
-    }
-
-    @Override
-    public ExplosionBlockType getExplosionBlockType() {
-    	return ExplosionBlockType.CHEST_BAUXITE;
     }
 }

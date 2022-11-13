@@ -28,9 +28,8 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.frazionz.tileentity.TileEntityFrazionFurnace;
 import net.minecraft.server.World;
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
-public class BlockFrazionFurnace extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockFrazionFurnace extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     private final boolean b;
@@ -182,9 +181,4 @@ public class BlockFrazionFurnace extends BlockTileEntity implements FzExplosionB
     protected BlockStateList getStateList() {
         return new BlockStateList(this, new IBlockState[] { BlockFrazionFurnace.FACING});
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.FURNACE_FRAZION;
-	}
 }

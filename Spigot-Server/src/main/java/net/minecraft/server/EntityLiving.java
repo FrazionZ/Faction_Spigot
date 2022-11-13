@@ -1293,7 +1293,7 @@ public abstract class EntityLiving extends Entity {
             IBlockData iblockdata = this.world.getType(blockposition);
             Block block = iblockdata.getBlock();
 
-            return block != Blocks.LADDER && block != Blocks.BAUXITE_LADDER && block != Blocks.VINE ? block instanceof BlockTrapdoor && this.a(blockposition, iblockdata) : true;
+            return !(block instanceof BlockLadder) && block != Blocks.VINE ? block instanceof BlockTrapdoor && this.a(blockposition, iblockdata) : true;
         }
     }
 
@@ -1301,7 +1301,7 @@ public abstract class EntityLiving extends Entity {
         if (((Boolean) iblockdata.get(BlockTrapdoor.OPEN)).booleanValue()) {
             IBlockData iblockdata1 = this.world.getType(blockposition.down());
 
-            if ((iblockdata1.getBlock() == Blocks.LADDER || iblockdata1.getBlock() == Blocks.BAUXITE_LADDER || iblockdata1.getBlock() == Blocks.YELLITE_LADDER || iblockdata1.getBlock() == Blocks.ONYX_LADDER || iblockdata1.getBlock() == Blocks.FRAZION_LADDER) && iblockdata1.get(BlockLadder.FACING) == iblockdata.get(BlockTrapdoor.FACING)) {
+            if ((iblockdata1.getBlock() instanceof BlockLadder) && iblockdata1.get(BlockLadder.FACING) == iblockdata.get(BlockTrapdoor.FACING)) {
                 return true;
             }
         }
@@ -1964,19 +1964,19 @@ public abstract class EntityLiving extends Entity {
                     if (this.motY < -0.15D && (block == Blocks.VINE || block == Blocks.LADDER)) {
                         this.motY = -0.15D;
                     }
-                    else if (this.motY < -0.15D && block == Blocks.YELLITE_LADDER)
+                    else if (this.motY < -0.20D && block == Blocks.YELLITE_LADDER)
                     {
                         this.motY = -0.20D;
                     }
-                    else if (this.motY < -0.15D && block == Blocks.BAUXITE_LADDER)
+                    else if (this.motY < -0.28D && block == Blocks.BAUXITE_LADDER)
                     {
                         this.motY = -0.28D;
                     }
-                    else if (this.motY < -0.15D && block == Blocks.ONYX_LADDER)
+                    else if (this.motY < -0.40D && block == Blocks.ONYX_LADDER)
                     {
                         this.motY = -0.40D;
                     }
-                    else if (this.motY < -0.15D && block == Blocks.FRAZION_LADDER)
+                    else if (this.motY < -0.50D && block == Blocks.FRAZION_LADDER)
                     {
                         this.motY = -0.50D;
                     }

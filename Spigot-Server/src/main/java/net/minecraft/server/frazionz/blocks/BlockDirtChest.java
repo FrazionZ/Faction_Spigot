@@ -38,9 +38,8 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.frazionz.tileentity.TileEntityDirtChest;
 import net.minecraft.server.World;
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
-public class BlockDirtChest extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockDirtChest extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     protected static final AxisAlignedBB NOT_CONNECTED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
@@ -382,10 +381,4 @@ public class BlockDirtChest extends BlockTileEntity implements FzExplosionBlockT
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return EnumBlockFaceShape.UNDEFINED;
     }
-
-
-	public org.bukkit.frazionz.enums.ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.CHEST_DIRT;
-	}
-
 }

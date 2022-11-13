@@ -4,9 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockAnvil extends BlockFalling implements FzExplosionBlockType {
+public class BlockAnvil extends BlockFalling {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     public static final BlockStateInteger DAMAGE = BlockStateInteger.of("damage", 0, 2);
@@ -136,9 +134,4 @@ public class BlockAnvil extends BlockFalling implements FzExplosionBlockType {
             return "minecraft:anvil";
         }
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.ANVIL;
-	}
 }

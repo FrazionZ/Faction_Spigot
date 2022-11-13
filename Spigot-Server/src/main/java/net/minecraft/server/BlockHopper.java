@@ -2,14 +2,12 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
 import java.util.List;
 import javax.annotation.Nullable;
 
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-public class BlockHopper extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockHopper extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockStateDirection.of("facing", new Predicate() {
         public boolean a(@Nullable EnumDirection enumdirection) {
@@ -176,9 +174,4 @@ public class BlockHopper extends BlockTileEntity implements FzExplosionBlockType
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return enumdirection == EnumDirection.UP ? EnumBlockFaceShape.BOWL : EnumBlockFaceShape.UNDEFINED;
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.HOPPER;
-	}
 }

@@ -1,5 +1,6 @@
 package org.bukkit.event.frazionz;
 
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.frazionz.enums.ExplosionBlockType;
@@ -33,16 +34,4 @@ public class FzBlockExplodeEvent extends CancellableEvent {
     public ExplosionBlockType getBlockType() {
 		return blockType;
 	}
-    
-    public enum ExplosiveType {
-    	
-    	TNT,
-    	Z_TNT,
-    	DYNAMITE,
-    	DYNAMITE_ARROW,
-    	MINECART_TNT,
-    	FIREBALL,
-    	UNKNOWN
-    	
-    }
 }

@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import fz.frazionz.block.ExplosiveType;
+
 public class EntityMinecartTNT extends EntityMinecartAbstract {
 
     private int a = -1;
@@ -88,7 +90,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
                 d1 = 5.0D;
             }
 
-            this.world.explode(this, this.locX, this.locY, this.locZ, (float) (4.0D + this.random.nextDouble() * 1.5D * d1), true);
+            this.world.createExplosion(this, this.locX, this.locY, this.locZ, (float) (4.0D + this.random.nextDouble() * 1.5D * d1), true, ExplosiveType.MINECART_TNT);
             this.die();
         }
 

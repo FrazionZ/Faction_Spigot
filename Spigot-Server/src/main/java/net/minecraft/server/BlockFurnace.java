@@ -2,11 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-import org.bukkit.frazionz.enums.ExplosionBlockType;
-
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockFurnace extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockFurnace extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockFacingHorizontal.FACING;
     private final boolean b;
@@ -157,10 +153,5 @@ public class BlockFurnace extends BlockTileEntity implements FzExplosionBlockTyp
 
     protected BlockStateList getStateList() {
         return new BlockStateList(this, new IBlockState[] { BlockFurnace.FACING});
-    }
-    
-    @Override
-    public ExplosionBlockType getExplosionBlockType() {
-    	return ExplosionBlockType.FURNACE;
     }
 }

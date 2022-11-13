@@ -1,10 +1,6 @@
 package net.minecraft.server;
 
-import org.bukkit.frazionz.enums.ExplosionBlockType;
-
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockShulkerBox extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockShulkerBox extends BlockTileEntity {
 
     public static final BlockStateEnum<EnumDirection> a = BlockStateDirection.of("facing");
     public final EnumColor color;
@@ -263,9 +259,4 @@ public class BlockShulkerBox extends BlockTileEntity implements FzExplosionBlock
 
         return tileentityshulkerbox_animationphase != TileEntityShulkerBox.AnimationPhase.CLOSED && (tileentityshulkerbox_animationphase != TileEntityShulkerBox.AnimationPhase.OPENED || enumdirection1 != enumdirection.opposite() && enumdirection1 != enumdirection) ? EnumBlockFaceShape.UNDEFINED : EnumBlockFaceShape.SOLID;
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.SHULKER;
-	}
 }

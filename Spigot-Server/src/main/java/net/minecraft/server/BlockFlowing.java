@@ -232,7 +232,7 @@ public class BlockFlowing extends BlockFluids {
     private boolean g(World world, BlockPosition blockposition, IBlockData iblockdata) {
         Block block = world.getType(blockposition).getBlock();
 
-        return !(block instanceof BlockDoor) && block != Blocks.STANDING_SIGN && block != Blocks.LADDER && block != Blocks.FRAZION_LADDER && block != Blocks.ONYX_LADDER && block != Blocks.YELLITE_LADDER && block != Blocks.BAUXITE_LADDER && block != Blocks.REEDS ? (block.material != Material.PORTAL && block.material != Material.J ? block.material.isSolid() : true) : true;
+        return !(block instanceof BlockDoor) && block != Blocks.STANDING_SIGN && block != Blocks.LADDER && !(block instanceof BlockLadder) && block != Blocks.REEDS ? (block.material != Material.PORTAL && block.material != Material.J ? block.material.isSolid() : true) : true;
     }
 
     protected int a(World world, BlockPosition blockposition, int i) {

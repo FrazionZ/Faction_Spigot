@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import fz.frazionz.block.ExplosiveType;
+
 public class EntityDynamite extends EntityProjectile {
 
     public EntityDynamite(World world) {
@@ -41,7 +43,7 @@ public class EntityDynamite extends EntityProjectile {
             this.die();
             
             float f = 2.0F;
-            this.world.explode(this, this.locX, this.locY + (double)(this.length / 16.0F), this.locZ, f, true);
+            this.world.createExplosion(this, this.locX, this.locY + (double)(this.length / 16.0F), this.locZ, f, true, ExplosiveType.DYNAMITE);
         }
 
     }

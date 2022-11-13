@@ -28,9 +28,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.frazionz.tileentity.TileEntityAmeliorator;
 import net.minecraft.server.World;
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
-public class BlockAmeliorator extends BlockTileEntity implements FzExplosionBlockType
+public class BlockAmeliorator extends BlockTileEntity
 {
 	public static final AxisAlignedBB BASE_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.1D, 0.9D);
     public static final AxisAlignedBB STICK_AABB = new AxisAlignedBB(0.4D, 0.0D, 0.4D, 0.6D, 0.5D, 0.6D);
@@ -141,9 +140,4 @@ public class BlockAmeliorator extends BlockTileEntity implements FzExplosionBloc
 	        }
         }
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.AMELIORATOR;
-	}
 }

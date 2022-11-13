@@ -8,19 +8,18 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionChance;
 import org.bukkit.Location;
 // CraftBukkit start
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.block.BlockExplodeEvent;
 // CraftBukkit end
 import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.frazionz.FzBlockExplodeEvent.ExplosiveType;
+import fz.frazionz.block.ExplosiveType;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
 public class Explosion {
 
@@ -48,7 +47,7 @@ public class Explosion {
         this.b = flag1;
     }
     
-    public void processExplosion1() {
+    public void doExplosionA() {
         // CraftBukkit start
         if (this.size < 0.1F) {
             return;
@@ -161,22 +160,18 @@ public class Explosion {
                 }
             }
         }
-
-    }
-    
-    public void doExplosion(Block block, BlockPosition blockposition) {
-        block.dropNaturally(this.world, blockposition, this.world.getType(blockposition), 1.0F / this.size, 0);
-        this.world.setTypeAndData(blockposition, Blocks.AIR.getBlockData(), 3);
-        block.wasExploded(this.world, blockposition, this);
     }
 
-    public void processExplosion2() {
+    public void doExplosionB() {
+        this.doExplosionB(ExplosiveType.TNT);
+    }
+    public void doExplosionB(ExplosiveType type) {
         this.world.a((EntityHuman) null, this.posX, this.posY, this.posZ, SoundEffects.bV, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
-        if (this.size >= 2.0F && this.b) {
+        /*if (this.size >= 2.0F && this.b) {
             //this.world.addParticle(EnumParticle.EXPLOSION_HUGE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D, new int[0]);
         } else {
             //this.world.addParticle(EnumParticle.EXPLOSION_LARGE, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D, new int[0]);
-        }
+        }*/
 
         Iterator iterator;
         BlockPosition blockposition;
@@ -230,24 +225,26 @@ public class Explosion {
 
             for (BlockPosition blockpos : this.blocks)
             {
-            	
-            	float randomize = new Random().nextFloat();
-            	
-            	IBlockData iblockdata = this.world.getType(blockpos);
+
+                float randomize = new Random().nextFloat();
+
+                IBlockData iblockdata = this.world.getType(blockpos);
                 Block block = iblockdata.getBlock();
-                
-                if(isBlockDestroyCancel(iblockdata, blockpos))
-                    continue;
-                
+
                 if (iblockdata.getMaterial() != Material.AIR && iblockdata.getBlock() != Blocks.BEDROCK)
                 {
-                	
-                    if (block.a(this))
-                    {
-                    	block.dropNaturally(this.world, blockpos, iblockdata, 1.0F / this.size, 0);
+                    if(block instanceof FzExplosionChance) {
+                        if(randomize <= ((FzExplosionChance) block).getExplosionChance(type)) {
+                            doExplosionC(block, blockpos);
+                        }
                     }
-                    this.world.setTypeAndData(blockpos, Blocks.AIR.getBlockData(), 3);
-                    block.wasExploded(this.world, blockpos, this);     
+                    else {
+                        if (block.a(this)) {
+                            block.dropNaturally(this.world, blockpos, iblockdata, 1.0F / this.size, 0);
+                        }
+                        this.world.setTypeAndData(blockpos, Blocks.AIR.getBlockData(), 3);
+                        block.wasExploded(this.world, blockpos, this);
+                    }
                 }
             }
         }
@@ -269,37 +266,14 @@ public class Explosion {
 
     }
     
-    private boolean isBlockDestroyCancel(IBlockData iblockdata, BlockPosition blockpos) {
-    	if(iblockdata.getBlock() instanceof FzExplosionBlockType) {
-    		if(getSource() instanceof EntityHuman) {
-    			FzExplosionBlockType chestType = (FzExplosionBlockType) iblockdata.getBlock();
-    			return CraftEventFactory.callChestExplodeEvent(this.world, blockpos, iblockdata, (EntityHuman) this.getSource(), this.getExplosiveType(), chestType.getExplosionBlockType()).isCancelled();
-    		}
-    	}
-    	return false;
+    public void doExplosionC(Block block, BlockPosition blockposition) {
+        block.dropNaturally(this.world, blockposition, this.world.getType(blockposition), 1.0F / this.size, 0);
+        this.world.setTypeAndData(blockposition, Blocks.AIR.getBlockData(), 3);
+        block.wasExploded(this.world, blockposition, this);
     }
 
     public Map<EntityHuman, Vec3D> b() {
         return this.k;
-    }
-    
-    public ExplosiveType getExplosiveType() {
-    	
-    	if(source instanceof EntityDynamite)
-    		return ExplosiveType.DYNAMITE;
-    	if(source instanceof EntityDynamiteArrow)
-    		return ExplosiveType.DYNAMITE_ARROW;
-    	if(source instanceof EntityTNTPrimed)
-    		return ExplosiveType.TNT;
-    	if(source instanceof EntityFireball)
-    		return ExplosiveType.FIREBALL;
-    	if(source instanceof EntityMinecartTNT)
-    		return ExplosiveType.MINECART_TNT;
-    	if(source instanceof EntityZTNTPrimed)
-    		return ExplosiveType.Z_TNT;
-    	
-    	return ExplosiveType.UNKNOWN;
-    	
     }
 
     @Nullable

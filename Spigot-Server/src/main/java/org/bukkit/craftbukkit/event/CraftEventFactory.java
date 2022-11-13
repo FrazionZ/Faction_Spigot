@@ -5,6 +5,7 @@ import java.util.*;
 
 import javax.annotation.Nullable;
 
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Server;
@@ -95,7 +96,6 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.entity.SpawnerSpawnEvent;
 import org.bukkit.event.frazionz.FzBlockExplodeEvent;
-import org.bukkit.event.frazionz.FzBlockExplodeEvent.ExplosiveType;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent.MachineAction;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent.MachineType;

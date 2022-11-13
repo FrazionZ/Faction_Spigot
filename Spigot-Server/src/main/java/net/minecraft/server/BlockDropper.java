@@ -6,8 +6,6 @@ import org.bukkit.event.inventory.InventoryMoveItemEvent;
 // CraftBukkit end
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
 public class BlockDropper extends BlockDispenser {
 
     private final IDispenseBehavior e = new DispenseBehaviorItem();
@@ -73,10 +71,5 @@ public class BlockDropper extends BlockDispenser {
                 }
             }
         }
-    }
-    
-    @Override
-    public ExplosionBlockType getExplosionBlockType() {
-    	return ExplosionBlockType.DROPPER;
     }
 }

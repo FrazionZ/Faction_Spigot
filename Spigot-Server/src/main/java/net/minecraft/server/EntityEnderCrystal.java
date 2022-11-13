@@ -4,6 +4,7 @@ import com.google.common.base.Optional;
 import javax.annotation.Nullable;
 
 // CraftBukkit start
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
 // CraftBukkit end
@@ -99,7 +100,7 @@ public class EntityEnderCrystal extends Entity {
                             this.dead = false;
                             return false;
                         }
-                        this.world.explode(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire());
+                        this.world.createExplosion(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire(), ExplosiveType.ENDER_CRYSTAL);
                         // CraftBukkit end
                     }
 

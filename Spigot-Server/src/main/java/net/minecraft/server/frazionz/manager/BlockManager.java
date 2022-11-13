@@ -73,14 +73,14 @@ public class BlockManager {
         registerBlock(505, "bauxite_chest", (new BlockBauxiteChest()).c(2.5F).b(10.0F).a(SoundEffectType.e).c("bauxite_chest"));
         registerBlock(506, "frazion_chest", (new BlockFrazionChest()).c(2.5F).b(20.0F).a(SoundEffectType.e).c("frazion_chest"));
 
-        registerBlock(507, "renforced_sand", (new BlockFallingTypeExplosion(Material.SAND, ExplosionBlockType.RENFORCED_SAND)).c(1.0F).b(10.0F).a(SoundEffectType.h).c("renforced_sand"));
+        registerBlock(507, "renforced_sand", (new BlockRenforcedSand()).c(1.0F).b(10.0F).a(SoundEffectType.h).c("renforced_sand"));
 
         registerBlock(512, "wither_block", (new BlockWitherBlock()).c(10.0F).b(2000.0F).a(SoundEffectType.d).c("wither_block"));
-        registerBlock(513, "compact_cobblestone_x1", (new Block(Material.STONE)).c(2.0F).b(12.0F).a(SoundEffectType.d).c("compact_cobblestone_x1").a(CreativeModeTab.b));
-        registerBlock(514, "compact_cobblestone_x2", (new Block(Material.STONE)).c(2.3F).b(16.0F).a(SoundEffectType.d).c("compact_cobblestone_x2").a(CreativeModeTab.b));
-        registerBlock(515, "compact_cobblestone_x3", (new Block(Material.STONE)).c(2.6F).b(20.0F).a(SoundEffectType.d).c("compact_cobblestone_x3").a(CreativeModeTab.b));
-        registerBlock(516, "compact_cobblestone_x4", (new Block(Material.STONE)).c(3.0F).b(24.0F).a(SoundEffectType.d).c("compact_cobblestone_x4").a(CreativeModeTab.b));
-        registerBlock(517, "compact_cobblestone_x5", (new Block(Material.STONE)).c(3.4F).b(35.0F).a(SoundEffectType.d).c("compact_cobblestone_x5").a(CreativeModeTab.b));
+        registerBlock(513, "compact_cobblestone_x1", (new BlockCompactCobblestone()).c(2.0F).b(12.0F).a(SoundEffectType.d).c("compact_cobblestone_x1").a(CreativeModeTab.b));
+        registerBlock(514, "compact_cobblestone_x2", (new BlockCompactCobblestone()).c(2.3F).b(16.0F).a(SoundEffectType.d).c("compact_cobblestone_x2").a(CreativeModeTab.b));
+        registerBlock(515, "compact_cobblestone_x3", (new BlockCompactCobblestone()).c(2.6F).b(20.0F).a(SoundEffectType.d).c("compact_cobblestone_x3").a(CreativeModeTab.b));
+        registerBlock(516, "compact_cobblestone_x4", (new BlockCompactCobblestone()).c(3.0F).b(24.0F).a(SoundEffectType.d).c("compact_cobblestone_x4").a(CreativeModeTab.b));
+        registerBlock(517, "compact_cobblestone_x5", (new BlockCompactCobblestone()).c(3.4F).b(35.0F).a(SoundEffectType.d).c("compact_cobblestone_x5").a(CreativeModeTab.b));
         registerBlock(518, "reverse_fall_block", (new BlockReverseFall()).c(0.25F).b(10.0F).a(SoundEffectType.l).c("reverse_fall_block").a(CreativeModeTab.b));
 
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.event.entity.ExplosionPrimeEvent; // CraftBukkit
-import org.bukkit.event.frazionz.FzBlockExplodeEvent.ExplosiveType;
 
 public class EntityLargeFireball extends EntityFireball {
 
@@ -32,7 +32,7 @@ public class EntityLargeFireball extends EntityFireball {
 
             if (!event.isCancelled()) {
                 // give 'this' instead of (Entity) null so we know what causes the damage
-                this.world.createExplosion(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire(), isIncendiary);
+                this.world.createExplosion(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire(), isIncendiary, ExplosiveType.FIREBALL);
             }
             // CraftBukkit end
             this.die();

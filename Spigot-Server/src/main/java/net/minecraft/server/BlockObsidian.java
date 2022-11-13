@@ -1,12 +1,11 @@
 package net.minecraft.server;
 
+import fz.frazionz.block.ExplosiveType;
+import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionChance;
+
 import java.util.Random;
 
-import org.bukkit.frazionz.enums.ExplosionBlockType;
-
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockObsidian extends Block implements FzExplosionBlockType {
+public class BlockObsidian extends Block implements FzExplosionChance {
 	
     public BlockObsidian() {
         super(Material.STONE);
@@ -41,20 +40,55 @@ public class BlockObsidian extends Block implements FzExplosionBlockType {
         return MaterialMapColor.F;
     }
 
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-    	if(this == Blocks.OBSIDIAN_YELLITE) {
-    		return ExplosionBlockType.OBSIDIAN;
-    	}
-    	else if(this == Blocks.OBSIDIAN_BAUXITE) {
-    		return ExplosionBlockType.OBSIDIAN;
-    	}
-    	else if(this == Blocks.OBSIDIAN_ONYX) {
-    		return ExplosionBlockType.OBSIDIAN;
-    	}
-    	else if(this == Blocks.OBSIDIAN_FRAZION) {
-    		return ExplosionBlockType.OBSIDIAN;
-    	}
-    	return ExplosionBlockType.OBSIDIAN;
-	}
+    @Override
+    public float getExplosionChance(ExplosiveType type) {
+        if(this == Blocks.OBSIDIAN) {
+            switch(type){
+                case TNT:
+                    return 0.08f;
+                case Z_TNT:
+                    return 1;
+                default:
+                    return 0;
+            }
+        }
+        if(this == Blocks.OBSIDIAN_YELLITE) {
+            switch(type){
+                case TNT:
+                    return 0.05f;
+                case Z_TNT:
+                    return 1;
+                default:
+                    return 0;
+            }
+        }
+        if(this == Blocks.OBSIDIAN_BAUXITE) {
+            switch(type){
+                case TNT:
+                    return 0.02f;
+                case Z_TNT:
+                    return 0.5f;
+                default:
+                    return 0;
+            }
+        }
+        if(this == Blocks.OBSIDIAN_ONYX) {
+            switch(type){
+                case Z_TNT:
+                    return 0.2f;
+                default:
+                    return 0;
+            }
+        }
+        if(this == Blocks.OBSIDIAN_FRAZION) {
+            switch(type){
+                case Z_TNT:
+                    return 0.05f;
+                default:
+                    return 0;
+
+            }
+        }
+        return 0;
+    }
 }

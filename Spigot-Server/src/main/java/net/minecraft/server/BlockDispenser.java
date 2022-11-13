@@ -4,9 +4,7 @@ import java.util.Random;
 
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockDispenser extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockDispenser extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockDirectional.FACING;
     public static final BlockStateBoolean TRIGGERED = BlockStateBoolean.of("triggered");
@@ -195,11 +193,6 @@ public class BlockDispenser extends BlockTileEntity implements FzExplosionBlockT
     }
 
     protected BlockStateList getStateList() {
-        return new BlockStateList(this, new IBlockState[] { BlockDispenser.FACING, BlockDispenser.TRIGGERED});
+        return new BlockStateList(this, new IBlockState[]{BlockDispenser.FACING, BlockDispenser.TRIGGERED});
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.DISPENSER;
-	}
 }

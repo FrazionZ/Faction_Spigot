@@ -75,4 +75,8 @@ public class PlayerStats {
     public void setStat(EnumStats stat, int value) {
         stats.get(stat).setValue(value);
     }
+
+    public Map<EnumStats, SimpleStat> getStatsMap() {
+        return stats;
+    }
 }

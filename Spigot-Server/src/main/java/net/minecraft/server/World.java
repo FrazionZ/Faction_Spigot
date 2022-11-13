@@ -11,12 +11,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
 // CraftBukkit start
 import com.google.common.collect.Maps;
 import java.util.Map;
+
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.Bukkit;
 import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.SpigotTimings; // Spigot
@@ -27,7 +28,6 @@ import org.bukkit.craftbukkit.util.CraftMagicNumbers;
 import org.bukkit.event.block.BlockCanBuildEvent;
 import org.bukkit.event.block.BlockPhysicsEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
-import org.bukkit.event.frazionz.FzBlockExplodeEvent.ExplosiveType;
 import org.bukkit.generator.ChunkGenerator;
 // CraftBukkit end
 
@@ -1867,15 +1867,23 @@ public abstract class World implements IBlockAccess {
         return false;
     }
 
-    public Explosion explode(@Nullable Entity entity, double d0, double d1, double d2, float f, boolean flag) {
+    public Explosion createExplosion(@Nullable Entity entity, double d0, double d1, double d2, float f, boolean flag, ExplosiveType type) {
+        return this.createExplosion(entity, d0, d1, d2, f, false, flag, type);
+    }
+
+    public Explosion createExplosion(@Nullable Entity entity, double d0, double d1, double d2, float f, boolean flag) {
         return this.createExplosion(entity, d0, d1, d2, f, false, flag);
     }
-    
+
     public Explosion createExplosion(@Nullable Entity entity, double d0, double d1, double d2, float f, boolean flag, boolean flag1) {
+        return this.createExplosion(entity, d0, d1, d2, f, flag, flag1, ExplosiveType.TNT);
+    }
+    
+    public Explosion createExplosion(@Nullable Entity entity, double d0, double d1, double d2, float f, boolean flag, boolean flag1, ExplosiveType type) {
         Explosion explosion = new Explosion(this, entity, d0, d1, d2, f, flag, flag1);
 
-        explosion.processExplosion1();
-        explosion.processExplosion2();
+        explosion.doExplosionA();
+        explosion.doExplosionB(type);
         return explosion;
     }
 

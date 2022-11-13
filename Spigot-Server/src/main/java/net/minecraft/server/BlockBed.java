@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import fz.frazionz.block.ExplosiveType;
+
 import java.util.Iterator;
 import java.util.Random;
 import javax.annotation.Nullable;
@@ -80,7 +82,7 @@ public class BlockBed extends BlockFacingHorizontal implements ITileEntity {
                     world.setAir(blockposition1);
                 }
 
-                world.createExplosion((Entity) null, (double) blockposition.getX() + 0.5D, (double) blockposition.getY() + 0.5D, (double) blockposition.getZ() + 0.5D, 5.0F, true, true);
+                world.createExplosion((Entity) null, (double) blockposition.getX() + 0.5D, (double) blockposition.getY() + 0.5D, (double) blockposition.getZ() + 0.5D, 5.0F, true, true, ExplosiveType.BED);
                 return true;
             }
         }

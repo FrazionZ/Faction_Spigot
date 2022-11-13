@@ -1,6 +1,8 @@
 package net.minecraft.server;
 
 import javax.annotation.Nullable;
+
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.event.entity.ExplosionPrimeEvent; // CraftBukkit
 
 public class EntityTNTPrimed extends Entity {
@@ -91,7 +93,7 @@ public class EntityTNTPrimed extends Entity {
         server.getPluginManager().callEvent(event);
 
         if (!event.isCancelled()) {
-            this.world.createExplosion(this, this.locX, this.locY + (double) (this.length / 16.0F), this.locZ, event.getRadius(), event.getFire(), true);
+            this.world.createExplosion(this, this.locX, this.locY + (double) (this.length / 16.0F), this.locZ, event.getRadius(), event.getFire(), true, ExplosiveType.TNT);
         }
         // CraftBukkit end
     }

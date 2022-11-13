@@ -854,7 +854,7 @@ public abstract class Entity implements ICommandListener {
                 double d23 = this.locY - d5;
 
                 d11 = this.locZ - d6;
-                if (block1 != Blocks.LADDER) {
+                if (!(block1 instanceof BlockLadder)) {
                     d23 = 0.0D;
                 }
 

@@ -31,14 +31,13 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.frazionz.tileentity.TileEntityZHopper;
 import net.minecraft.server.World;
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
 
 import java.util.List;
 import javax.annotation.Nullable;
 
 import org.bukkit.frazionz.enums.ExplosionBlockType;
 
-public class BlockZHopper extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockZHopper extends BlockTileEntity {
 
     public static final BlockStateDirection FACING = BlockStateDirection.of("facing", new Predicate() {
         public boolean a(@Nullable EnumDirection enumdirection) {
@@ -205,9 +204,4 @@ public class BlockZHopper extends BlockTileEntity implements FzExplosionBlockTyp
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return enumdirection == EnumDirection.UP ? EnumBlockFaceShape.BOWL : EnumBlockFaceShape.UNDEFINED;
     }
-
-	@Override
-	public ExplosionBlockType getExplosionBlockType() {
-		return ExplosionBlockType.Z_HOPPER;
-	}
 }

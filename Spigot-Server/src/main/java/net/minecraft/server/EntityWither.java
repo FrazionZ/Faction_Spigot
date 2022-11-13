@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 // CraftBukkit start
+import fz.frazionz.block.ExplosiveType;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
@@ -204,7 +205,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                 this.world.getServer().getPluginManager().callEvent(event);
 
                 if (!event.isCancelled()) {
-                    this.world.createExplosion(this, this.locX, this.locY + (double) this.getHeadHeight(), this.locZ, event.getRadius(), event.getFire(), this.world.getGameRules().getBoolean("mobGriefing"));
+                    this.world.createExplosion(this, this.locX, this.locY + (double) this.getHeadHeight(), this.locZ, event.getRadius(), event.getFire(), this.world.getGameRules().getBoolean("mobGriefing"), ExplosiveType.WITHER);
                 }
                 // CraftBukkit end
 

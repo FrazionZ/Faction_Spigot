@@ -1,10 +1,6 @@
 package net.minecraft.server;
 
-import org.bukkit.frazionz.enums.ExplosionBlockType;
-
-import net.minecraft.server.frazionz.blocks.interfaces.FzExplosionBlockType;
-
-public class BlockEnchantmentTable extends BlockTileEntity implements FzExplosionBlockType {
+public class BlockEnchantmentTable extends BlockTileEntity {
 
     protected static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D);
 
@@ -62,10 +58,5 @@ public class BlockEnchantmentTable extends BlockTileEntity implements FzExplosio
 
     public EnumBlockFaceShape a(IBlockAccess iblockaccess, IBlockData iblockdata, BlockPosition blockposition, EnumDirection enumdirection) {
         return enumdirection == EnumDirection.DOWN ? EnumBlockFaceShape.SOLID : EnumBlockFaceShape.UNDEFINED;
-    }
-    
-    @Override
-    public ExplosionBlockType getExplosionBlockType() {
-    	return ExplosionBlockType.ENCHANTING_TABLE;
     }
 }
