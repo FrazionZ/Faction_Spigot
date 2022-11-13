@@ -34,7 +34,7 @@ public class EntityItemFrame extends EntityHanging {
         if (this.isInvulnerable(damagesource)) {
             return false;
         } else if (!damagesource.isExplosion() && !this.getItem().isEmpty()) {
-            if (!this.world.isClientSide) {
+            if (!this.world.isClientSide && this.isAlive()) {
                 // CraftBukkit start - fire EntityDamageEvent
                 if (org.bukkit.craftbukkit.event.CraftEventFactory.handleNonLivingEntityDamageEvent(this, damagesource, f, false) || this.dead) {
                     return true;
