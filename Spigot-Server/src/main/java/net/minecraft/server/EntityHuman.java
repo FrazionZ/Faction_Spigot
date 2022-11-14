@@ -587,7 +587,7 @@ public abstract class EntityHuman extends EntityLiving {
     }
 
     public float b(IBlockData iblockdata) {
-        float f = this.inventory.a(iblockdata) * (this.stats.getStat(EnumStats.MINING_SPEED)/100f);
+        float f = this.inventory.a(iblockdata);
 
         if (f > 1.0F) {
             int i = EnchantmentManager.getDigSpeedEnchantmentLevel(this);
@@ -597,6 +597,8 @@ public abstract class EntityHuman extends EntityLiving {
                 f += (float) (i * i + 1);
             }
         }
+
+        f *= (this.stats.getStat(EnumStats.MINING_SPEED)/100f);
 
         if (this.hasEffect(MobEffects.FASTER_DIG)) {
             f *= 1.0F + (float) (this.getEffect(MobEffects.FASTER_DIG).getAmplifier() + 1) * 0.2F;
