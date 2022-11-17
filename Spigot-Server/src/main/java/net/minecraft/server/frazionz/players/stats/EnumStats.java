@@ -4,7 +4,7 @@ public enum EnumStats {
 
     HEALTH(-100, 0, 100),
     REGENERATION(-50, 0, 50),
-    SPEED(65, 100, 125),
+    SPEED(40, 100, 160),
     DAMAGE(50, 100, 125),
     RESISTANCE(50, 100, 125),
     MINING_SPEED(25, 100, 150),

@@ -368,7 +368,8 @@ public abstract class EntityHuman extends EntityLiving {
         AttributeInstance attributeinstance = this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
 
         if (!this.world.isClientSide) {
-            attributeinstance.setValue((double) this.abilities.b() * (this.stats.getStat(EnumStats.SPEED)/100f));
+            attributeinstance.setValue((double) this.abilities.b()
+                    * ( 1 + ((this.stats.getStat(EnumStats.SPEED)-100)/200f) ) );
         }
 
         this.aR = this.bT;

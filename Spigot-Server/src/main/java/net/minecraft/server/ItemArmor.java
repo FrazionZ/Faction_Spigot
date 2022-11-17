@@ -216,11 +216,11 @@ public class ItemArmor extends Item {
                 }}),
         TRAVELERS("travelers", 18, new int[]{4, 5, 4, 3}, 12, SoundEffects.o, 0.0f,
                 new HashMap<EnumStats, Integer>() {{
-                    put(EnumStats.SPEED, 60);
+                    put(EnumStats.SPEED, 100);
                     put(EnumStats.MINING_SPEED, 50);
                 }},
                 new ArrayList<StatModifier>() {{
-                    add(new StatCapModifier(StatCapModifier.StatCapType.MAX, EnumStats.SPEED, 160));
+                    add(new StatCapModifier(StatCapModifier.StatCapType.MAX, EnumStats.SPEED, 240));
                 }}
         ),
         ;
