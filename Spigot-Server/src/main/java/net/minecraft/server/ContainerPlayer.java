@@ -8,7 +8,7 @@ import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.craftbukkit.inventory.CraftInventoryCrafting;
 import org.bukkit.craftbukkit.inventory.CraftInventoryView;
 
-import net.minecraft.server.frazionz.items.ItemTrophy;
+import net.minecraft.server.frazionz.items.trophies.ItemTrophy;
 
 public class ContainerPlayer extends Container {
 

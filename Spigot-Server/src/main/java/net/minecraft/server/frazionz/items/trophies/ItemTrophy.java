@@ -1,4 +1,4 @@
-package net.minecraft.server.frazionz.items;
+package net.minecraft.server.frazionz.items.trophies;
 
 import java.util.List;
 import java.util.Map.Entry;

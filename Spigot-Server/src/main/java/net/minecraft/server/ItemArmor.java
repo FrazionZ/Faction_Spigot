@@ -4,7 +4,9 @@ import java.util.*;
 
 // CraftBukkit start
 import net.minecraft.server.frazionz.players.stats.EnumStats;
-import net.minecraft.server.frazionz.players.stats.modifier.StatCapModifier;
+import net.minecraft.server.frazionz.players.stats.modifier.StatFallDamageModifier;
+import net.minecraft.server.frazionz.players.stats.modifier.StatFireDamageModifier;
+import net.minecraft.server.frazionz.players.stats.modifier.StatValueCappingModifier;
 import net.minecraft.server.frazionz.players.stats.modifier.StatModifier;
 import org.bukkit.craftbukkit.inventory.CraftItemStack;
 import org.bukkit.event.block.BlockDispenseEvent;
@@ -220,7 +222,9 @@ public class ItemArmor extends Item {
                     put(EnumStats.MINING_SPEED, 50);
                 }},
                 new ArrayList<StatModifier>() {{
-                    add(new StatCapModifier(StatCapModifier.StatCapType.MAX, EnumStats.SPEED, 240));
+                    add(new StatValueCappingModifier(StatValueCappingModifier.StatCapType.MAX, EnumStats.SPEED, 240));
+                    add(new StatFallDamageModifier(false));
+                    add(new StatFireDamageModifier(false));
                 }}
         ),
         ;

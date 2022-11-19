@@ -2,11 +2,11 @@ package net.minecraft.server.frazionz.players.stats.modifier;
 
 import net.minecraft.server.frazionz.players.stats.EnumStats;
 
-public class StatCapModifier extends StatModifier {
+public class StatValueCappingModifier extends StatValueModifier {
 
     private StatCapType type;
 
-    public StatCapModifier(StatCapType type, EnumStats stat, int value) {
+    public StatValueCappingModifier(StatCapType type, EnumStats stat, int value) {
         super(stat, value);
         this.type = type;
     }

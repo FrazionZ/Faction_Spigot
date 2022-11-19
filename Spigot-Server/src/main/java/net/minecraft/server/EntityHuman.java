@@ -748,7 +748,7 @@ public abstract class EntityHuman extends EntityLiving {
 
     }
 
-    public boolean damageEntity(DamageSource damagesource, float f) {
+    public boolean damageEntity(DamageSource damagesource, float amount) {
         if (this.isInvulnerable(damagesource)) {
             return false;
         } else if (this.abilities.isInvulnerable && !damagesource.ignoresInvulnerability()) {
@@ -769,16 +769,23 @@ public abstract class EntityHuman extends EntityLiving {
                     }
 
                     if (this.world.getDifficulty() == EnumDifficulty.EASY) {
-                        f = Math.min(f / 2.0F + 1.0F, f);
+                        amount = Math.min(amount / 2.0F + 1.0F, amount);
                     }
 
                     if (this.world.getDifficulty() == EnumDifficulty.HARD) {
-                        f = f * 3.0F / 2.0F;
+                        amount = amount * 3.0F / 2.0F;
                     }
                 }
 
+                if(damagesource == DamageSource.DROWN && !this.getStats().hasDrowningDamage)
+                    return false;
+                if(damagesource == DamageSource.FALL && !this.getStats().hasFallDamage)
+                    return false;
+                if((damagesource == DamageSource.FIRE || damagesource == DamageSource.LAVA || damagesource == DamageSource.BURN) && !this.getStats().hasFireDamage)
+                    return false;
+
                 // CraftBukkit start - Don't filter out 0 damage
-                boolean damaged = super.damageEntity(damagesource, f);
+                boolean damaged = super.damageEntity(damagesource, amount);
                 if (damaged) {
                     this.releaseShoulderEntities();
                 }
@@ -1724,6 +1731,10 @@ public abstract class EntityHuman extends EntityLiving {
                 this.a(StatisticList.n, (int) Math.round((double) f * 100.0D));
             }
 
+            if(!this.getStats().hasFallDamage) {
+                super.e(f, 0.0f);
+                return;
+            }
             super.e(f, f1);
         }
     }

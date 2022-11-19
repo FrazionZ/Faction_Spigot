@@ -7,14 +7,13 @@ import java.util.UUID;
 import net.minecraft.server.*;
 import net.minecraft.server.frazionz.inventory.tileentity.ContainerTrophyForge;
 import net.minecraft.server.frazionz.recipes.TrophyForgeRecipes;
-import org.apache.logging.log4j.LogManager;
 import org.bukkit.craftbukkit.entity.CraftHumanEntity;
 import org.bukkit.craftbukkit.event.CraftEventFactory;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent.MachineAction;
 import org.bukkit.event.frazionz.inventory.MachineCraftEvent.MachineType;
 
-import net.minecraft.server.frazionz.items.ItemTrophy;
+import net.minecraft.server.frazionz.items.trophies.ItemTrophy;
 
 public class TileEntityTrophyForge extends TileEntityContainer implements ITickable, IWorldInventory
 {

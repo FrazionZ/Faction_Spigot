@@ -3,7 +3,7 @@ package net.minecraft.server.frazionz.players.stats;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.ItemArmor;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.frazionz.players.stats.modifier.StatCapModifier;
+import net.minecraft.server.frazionz.players.stats.modifier.StatValueCappingModifier;
 import net.minecraft.server.frazionz.players.stats.modifier.StatModifier;
 
 import java.util.HashMap;
@@ -15,6 +15,10 @@ public class PlayerStats {
     private final EntityHuman player;
     private Map<EnumStats, Integer> minCapping = new HashMap<>();
     private Map<EnumStats, Integer> maxCapping = new HashMap<>();
+    public boolean hasFallDamage = true;
+    public boolean hasFireDamage = true;
+    public boolean hasDrowningDamage = true;
+    public boolean hasExplosionDamage = true;
 
     public PlayerStats(EntityHuman player) {
         this.player = player;
@@ -87,19 +91,23 @@ public class PlayerStats {
     }
 
     private void applyModifier(StatModifier modifier) {
-        if(modifier instanceof StatCapModifier) {
-            switch(((StatCapModifier) modifier).getType()) {
+        if(modifier instanceof StatValueCappingModifier) {
+            StatValueCappingModifier capModifier = (StatValueCappingModifier) modifier;
+            switch(capModifier.getType()) {
                 case MIN:
-                    if(minCapping.containsKey(modifier.getStat()) && minCapping.get(modifier.getStat()) > modifier.getValue()) {
-                        minCapping.put(modifier.getStat(), modifier.getValue());
+                    if(minCapping.containsKey(capModifier.getStat()) && minCapping.get(capModifier.getStat()) > capModifier.getValue()) {
+                        minCapping.put(capModifier.getStat(), capModifier.getValue());
                     }
                     break;
                 case MAX:
-                    if(maxCapping.containsKey(modifier.getStat()) && maxCapping.get(modifier.getStat()) < modifier.getValue()) {
-                        maxCapping.put(modifier.getStat(), modifier.getValue());
+                    if(maxCapping.containsKey(capModifier.getStat()) && maxCapping.get(capModifier.getStat()) < capModifier.getValue()) {
+                        maxCapping.put(capModifier.getStat(), capModifier.getValue());
                     }
                     break;
             }
+        }
+        else {
+            modifier.applyModifier(this);
         }
     }
 

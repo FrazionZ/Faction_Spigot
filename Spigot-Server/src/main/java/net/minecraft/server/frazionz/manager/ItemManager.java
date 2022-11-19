@@ -3,6 +3,7 @@ package net.minecraft.server.frazionz.manager;
 import net.minecraft.server.*;
 import net.minecraft.server.frazionz.blocks.*;
 import net.minecraft.server.frazionz.items.*;
+import net.minecraft.server.frazionz.items.trophies.*;
 
 public class ItemManager {
 
@@ -295,8 +296,8 @@ public class ItemManager {
         registerItem(1251, "trophy_blaze", (new ItemSkeletonTrophy()).c("trophy_blaze"));
         registerItem(1252, "trophy_creeper", (new ItemSkeletonTrophy()).c("trophy_creeper"));
         registerItem(1253, "trophy_enderman", (new ItemSkeletonTrophy()).c("trophy_enderman"));
-        registerItem(1254, "trophy_ghast", (new ItemSkeletonTrophy()).c("trophy_ghast"));
-        registerItem(1255, "trophy_guardian", (new ItemSkeletonTrophy()).c("trophy_guardian"));
+        registerItem(1254, "trophy_ghast", (new ItemGhastTrophy()).c("trophy_ghast"));
+        registerItem(1255, "trophy_guardian", (new ItemGuardianTrophy()).c("trophy_guardian"));
         registerItem(1256, "trophy_villager", (new ItemSkeletonTrophy()).c("trophy_villager"));
         registerItem(1257, "trophy_shulker", (new ItemShulkerTrophy()).c("trophy_shulker"));
         registerItem(1258, "trophy_spider", (new ItemSkeletonTrophy()).c("trophy_spider"));
@@ -305,7 +306,7 @@ public class ItemManager {
         registerItem(1261, "trophy_squid", (new ItemSkeletonTrophy()).c("trophy_squid"));
         registerItem(1262, "trophy_pig", (new ItemSkeletonTrophy()).c("trophy_pig"));
         registerItem(1263, "trophy_sheep", (new ItemSkeletonTrophy()).c("trophy_sheep"));
-        registerItem(1264, "trophy_iron_golem", (new ItemSkeletonTrophy()).c("trophy_iron_golem"));
+        registerItem(1264, "trophy_iron_golem", (new ItemIronGolemTrophy()).c("trophy_iron_golem"));
         registerItem(1265, "trophy_silverfish", (new ItemSkeletonTrophy()).c("trophy_silverfish"));
 
         registerItem(1300, "rune_anti_malus", (new Item()).c("rune_anti_malus").b(CreativeModeTab.l));
