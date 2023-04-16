@@ -258,13 +258,17 @@ public abstract class EntityHuman extends EntityLiving {
         if (this.cP()) {
             f = 0.6F;
             f1 = 0.6F;
-        } else if (this.isSleeping()) {
+        }
+        else if (this.isSleeping()) {
             f = 0.2F;
             f1 = 0.2F;
-        } else if (this.isSneaking()) {
+        }
+        else if (this.isSneaking()) {
             f = 0.6F;
-            f1 = 1.5F;
-        } else {
+            //f1 = 1.5F;
+            f1 = 1.65F;
+        }
+        else {
             f = 0.6F;
             f1 = 1.8F;
         }
@@ -2041,12 +2045,11 @@ public abstract class EntityHuman extends EntityLiving {
         if (this.isSleeping()) {
             f = 0.2F;
         }
-        
-        if (this.isSneaking()) {
+        /*else if (this.isSneaking()) {
             f = 1.32F;
-        }
-        
-        else if (!this.isSneaking() && this.length != 1.5F)
+        }*/
+        //else if (!this.isSneaking() && this.length != 1.5F)
+        else if (!this.isSneaking() && this.length != 1.65F)
         {
             if (this.cP() || this.length == 0.6F)
             {
