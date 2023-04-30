@@ -158,7 +158,7 @@ public class AmelioratorRecipes {
             return;
         }
         ItemResult result = new ItemResult(JsonUtils.getJsonArray(json, "results"));
-        addRecipes(new ItemStack(item), result);
+        addRecipes(new ItemStack[]{ new ItemStack(item) }, result);
     }
 
     static class ItemResult {

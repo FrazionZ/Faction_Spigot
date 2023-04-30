@@ -36,6 +36,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.TravelAgent;
 import org.bukkit.craftbukkit.util.CraftChatMessage;
+import org.bukkit.craftbukkit.util.FzUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerPortalEvent;
@@ -170,15 +171,11 @@ public abstract class PlayerList {
 
         AzAuthenticator authFz = new AzAuthenticator(fzAuthServer);
         try {
-            User newUser = authFz.verify(networkmanager.getTokenAuthFZ(), entityplayer.getBukkitEntity().getAddress().getAddress().toString().replaceAll("/", ""), User.class);
+            User newUser = authFz.verify(networkmanager.getFzAuthToken(), entityplayer.getBukkitEntity().getAddress().getAddress().toString().replaceAll("/", ""), User.class);
             if (newUser.isBanned()) {
-                System.out.println("[FzAuth] Internal Server API ERROR, Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
                 entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
             } else if (!newUser.isEmailVerified())
                 entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ n'a pas été activé. Impossible de rejoindre le serveur.");
-
-            entityplayer.getBukkitEntity().setFZUser(newUser);
-            entityplayer.getBukkitEntity().sendMessage(FrazionZUtils.pluginPrefix+" Authentification réussie !");
 
             if(cserver.isDemandFZCode()){
                 if(newUser.isPcodeState()){
@@ -186,6 +183,7 @@ public abstract class PlayerList {
                         Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugins()[0], new Runnable() {
                             @Override
                             public void run() {
+                                entityplayer.getBukkitEntity().sendMessage(FrazionZUtils.pluginPrefix+" En attente du code personnel..");
                                 entityplayer.getBukkitEntity().setWalkSpeed(0);
                                 entityplayer.getBukkitEntity().setFlySpeed(0);
                                 entityplayer.getBukkitEntity().setGameMode(GameMode.ADVENTURE);
@@ -193,7 +191,11 @@ public abstract class PlayerList {
                             }
                         }, 10);
                     }
+                }else{
+                    FzUtils.authFinalize(entityplayer.getBukkitEntity(), newUser);
                 }
+            }else{
+                FzUtils.authFinalize(entityplayer.getBukkitEntity(), newUser);
             }
 
         } catch (AuthenticationException | IllegalStateException | IOException e) {

@@ -1,6 +1,9 @@
 package org.bukkit.craftbukkit.util;
 
+import com.azuriom.azauth.model.User;
 import com.google.gson.Gson;
+import net.minecraft.server.FrazionZUtils;
+import org.bukkit.entity.Player;
 
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
@@ -19,6 +22,11 @@ public class FzUtils {
         }
         System.out.println("Error get Fz UUID, generate from username");
         return UUID.nameUUIDFromBytes( ( "OfflinePlayer:" + username).getBytes( StandardCharsets.UTF_8 ) );
+    }
+
+    public static void authFinalize(Player player, User newUser){
+        player.setFZUser(newUser);
+        player.sendMessage(FrazionZUtils.pluginPrefix+" Authentification réussie !");
     }
 
     public class FzUser {

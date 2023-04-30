@@ -75,7 +75,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<?>> {
     private IChatBaseComponent n;
     private boolean o;
     private boolean p;
-    private String tokenAuthFZ;
+    private String fzAuthToken;
 
     public NetworkManager(EnumProtocolDirection enumprotocoldirection) {
         this.h = enumprotocoldirection;
@@ -336,12 +336,12 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<?>> {
         this.a(channelhandlercontext, (Packet) object);
     }
 
-    public void setTokenAuthFZ(String token) {
-        this.tokenAuthFZ = token;
+    public void setFzAuthToken(String token) {
+        this.fzAuthToken = token;
     }
 
-    public String getTokenAuthFZ() {
-        return tokenAuthFZ;
+    public String getFzAuthToken() {
+        return fzAuthToken;
     }
 
     static class QueuedPacket {

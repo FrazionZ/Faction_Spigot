@@ -181,7 +181,7 @@ public class LoginListener implements PacketLoginInListener, ITickable {
             this.g = LoginListener.EnumProtocolState.KEY;
             this.networkManager.sendPacket(new PacketLoginOutEncryptionBegin("", this.server.O().getPublic(), this.e));
         } else {
-            this.networkManager.setTokenAuthFZ(this.token);
+            this.networkManager.setFzAuthToken(this.token);
             // Spigot start
             new Thread("User Authenticator #" + LoginListener.b.incrementAndGet()) {
 

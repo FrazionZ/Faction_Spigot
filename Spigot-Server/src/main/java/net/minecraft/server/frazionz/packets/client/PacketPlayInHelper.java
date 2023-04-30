@@ -5,11 +5,14 @@ import com.azuriom.azauth.AzAuthenticator;
 import com.azuriom.azauth.model.User;
 import fz.frazionz.enums.EnumGui;
 import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.FrazionZUtils;
 import net.minecraft.server.PacketPlayInCustomPayload;
 import net.minecraft.server.SharedConstants;
 import net.minecraft.server.frazionz.packets.server.PacketPlayOutGuiOpener;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
+import org.bukkit.craftbukkit.util.FzUtils;
 import org.bukkit.entity.Player;
 
 import java.io.IOException;
@@ -24,11 +27,13 @@ public class PacketPlayInHelper {
                     String authCode = SharedConstants.a(packet.b().e(32767));
                     AzAuthenticator authFz = new AzAuthenticator(fzAuthServer);
                     try {
-                        authFz.persocode(player.getFZUser().getAccessToken(), authCode, User.class);
+                        User newUser = authFz.persocode(((EntityPlayer) ((CraftPlayer) player).getHandle()).playerConnection.networkManager.getFzAuthToken(), authCode, User.class);
                         player.setWalkSpeed(0.2f);
                         player.setFlySpeed(0.2f);
                         player.setGameMode(GameMode.SURVIVAL);
                         ((EntityPlayer) ((CraftPlayer) player).getHandle()).playerConnection.sendPacket(new PacketPlayOutGuiOpener(EnumGui.NULL));
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', FrazionZUtils.pluginPrefix+" &2Code personnel validé"));
+                        FzUtils.authFinalize(player, newUser);
                     } catch (AuthenticationException | IllegalStateException | IOException e) {
                         System.out.println("[FzAuth] Internal Server API ERROR, "+e.getMessage());
                         player.kickPlayer("Le code personnel est incorrect");
