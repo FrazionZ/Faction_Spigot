@@ -169,40 +169,6 @@ public abstract class PlayerList {
 
         this.onPlayerJoin(entityplayer, joinMessage);
 
-        AzAuthenticator authFz = new AzAuthenticator(fzAuthServer);
-        try {
-            User newUser = authFz.verify(networkmanager.getFzAuthToken(), entityplayer.getBukkitEntity().getAddress().getAddress().toString().replaceAll("/", ""), User.class);
-            if (newUser.isBanned()) {
-                entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ a été ban. Impossible de rejoindre le serveur.");
-            } else if (!newUser.isEmailVerified())
-                entityplayer.getBukkitEntity().kickPlayer("Votre compte FrazionZ n'a pas été activé. Impossible de rejoindre le serveur.");
-
-            if(cserver.isDemandFZCode()){
-                if(newUser.isPcodeState()){
-                    if(Bukkit.getPluginManager().getPlugins().length > 0){
-                        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugins()[0], new Runnable() {
-                            @Override
-                            public void run() {
-                                entityplayer.getBukkitEntity().sendMessage(FrazionZUtils.pluginPrefix+" En attente du code personnel..");
-                                entityplayer.getBukkitEntity().setWalkSpeed(0);
-                                entityplayer.getBukkitEntity().setFlySpeed(0);
-                                entityplayer.getBukkitEntity().setGameMode(GameMode.ADVENTURE);
-                                entityplayer.playerConnection.sendPacket(new PacketPlayOutGuiOpener(EnumGui.AUTH_CODE_MENU));
-                            }
-                        }, 10);
-                    }
-                }else{
-                    FzUtils.authFinalize(entityplayer.getBukkitEntity(), newUser);
-                }
-            }else{
-                FzUtils.authFinalize(entityplayer.getBukkitEntity(), newUser);
-            }
-
-        } catch (AuthenticationException | IllegalStateException | IOException e) {
-            System.out.println("[FzAuth] Internal Server API ERROR, "+e.getMessage());
-            entityplayer.getBukkitEntity().kickPlayer("Impossible de vous authentifier vers FrazionZ.net");
-        }
-
         // CraftBukkit end
         worldserver = server.getWorldServer(entityplayer.dimension);  // CraftBukkit - Update in case join event changed it
         playerconnection.a(entityplayer.locX, entityplayer.locY, entityplayer.locZ, entityplayer.yaw, entityplayer.pitch);

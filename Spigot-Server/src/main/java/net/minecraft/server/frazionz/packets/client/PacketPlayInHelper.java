@@ -22,24 +22,6 @@ public class PacketPlayInHelper {
     public static boolean handlePacketPlayInCustomPayload(Player player, PacketPlayInCustomPayload packet, String channel) {
 
         switch (channel) {
-            case "FZ|Auth_Code":
-                if (packet.b() != null && packet.b().readableBytes() >= 1) {
-                    String authCode = SharedConstants.a(packet.b().e(32767));
-                    AzAuthenticator authFz = new AzAuthenticator(fzAuthServer);
-                    try {
-                        User newUser = authFz.persocode(((EntityPlayer) ((CraftPlayer) player).getHandle()).playerConnection.networkManager.getFzAuthToken(), authCode, User.class);
-                        player.setWalkSpeed(0.2f);
-                        player.setFlySpeed(0.2f);
-                        player.setGameMode(GameMode.SURVIVAL);
-                        ((EntityPlayer) ((CraftPlayer) player).getHandle()).playerConnection.sendPacket(new PacketPlayOutGuiOpener(EnumGui.NULL));
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', FrazionZUtils.pluginPrefix+" &2Code personnel validé"));
-                        FzUtils.authFinalize(player, newUser);
-                    } catch (AuthenticationException | IllegalStateException | IOException e) {
-                        System.out.println("[FzAuth] Internal Server API ERROR, "+e.getMessage());
-                        player.kickPlayer("Le code personnel est incorrect");
-                    }
-                }
-                return true;
             default:
                 return false;
         }

@@ -75,7 +75,6 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<?>> {
     private IChatBaseComponent n;
     private boolean o;
     private boolean p;
-    private String fzAuthToken;
 
     public NetworkManager(EnumProtocolDirection enumprotocoldirection) {
         this.h = enumprotocoldirection;
@@ -334,14 +333,6 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<?>> {
 
     protected void channelRead0(ChannelHandlerContext channelhandlercontext, Packet object) throws Exception { // CraftBukkit - fix decompile error
         this.a(channelhandlercontext, (Packet) object);
-    }
-
-    public void setFzAuthToken(String token) {
-        this.fzAuthToken = token;
-    }
-
-    public String getFzAuthToken() {
-        return fzAuthToken;
     }
 
     static class QueuedPacket {

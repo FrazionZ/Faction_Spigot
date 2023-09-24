@@ -45,7 +45,6 @@ public class LoginListener implements PacketLoginInListener, ITickable {
     private SecretKey loginKey;
     private EntityPlayer l;
     public String hostname = ""; // CraftBukkit - add field
-    private String token;
 
     public LoginListener(MinecraftServer minecraftserver, NetworkManager networkmanager) {
         this.g = LoginListener.EnumProtocolState.HELLO;
@@ -176,12 +175,10 @@ public class LoginListener implements PacketLoginInListener, ITickable {
     public void a(PacketLoginInStart packetlogininstart) {
         Validate.validState(this.g == LoginListener.EnumProtocolState.HELLO, "Unexpected hello packet", new Object[0]);
         this.i = packetlogininstart.a();
-        this.token = packetlogininstart.getToken();
         if (this.server.getOnlineMode() && !this.networkManager.isLocal()) {
             this.g = LoginListener.EnumProtocolState.KEY;
             this.networkManager.sendPacket(new PacketLoginOutEncryptionBegin("", this.server.O().getPublic(), this.e));
         } else {
-            this.networkManager.setFzAuthToken(this.token);
             // Spigot start
             new Thread("User Authenticator #" + LoginListener.b.incrementAndGet()) {
 
@@ -189,7 +186,6 @@ public class LoginListener implements PacketLoginInListener, ITickable {
                 public void run() {
                     try {
                         initUUID();
-                        Bukkit.getServer().getPluginManager().callEvent(new FzLoginEvent(i, token, networkManager));
                         new LoginHandler().fireEvents();
                     } catch (Exception ex) {
                         disconnect("Failed to verify username!");
